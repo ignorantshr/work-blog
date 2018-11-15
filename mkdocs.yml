@@ -1,0 +1,10 @@
+site_name: My sink
+nav:
+    - Home: index.md
+    - About: about.md
+    - Python: 
+        - event线程: python/event线程.md
+markdown_extensions:
+    - toc:
+        baselevel: 1
+theme: readthedocs
