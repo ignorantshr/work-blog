@@ -1,10 +1,44 @@
 site_name: My sink
+site_author: shihr
 nav:
     - Home: index.md
-    - About: about.md
-    - Python: 
+    - System:
+        - 网卡不存在: system/网卡不存在.md
+        - 磁盘容量扩充: system/磁盘容量扩充.md
+        - 添加公钥: system/添加公钥.md
+        - 更新、禁用yum仓库、只下载rpm: system/更新、禁用yum仓库、只下载rpm.md
+        - 显示文件夹大小: system/显示文件夹大小.md
+        - 改变系统时区: system/改变系统时区.md
+        - 开启图形界面: system/开启图形界面.md
+        - 关闭selinux: system/关闭selinux.md
+        - 修改mariadb编码类型: system/修改mariadb编码类型.md
+        - 修改centos7语言: system/修改centos7语言.md
+        - 主机不能连接mariadb: system/主机不能连接mariadb.md
+        - wget用法: system/wget用法.md
+        - epel源: system/epel源.md
+    - Python:
+        - json格式处理: python/json格式处理.md
         - event线程: python/event线程.md
-markdown_extensions:
-    - toc:
-        baselevel: 1
+    - Other:
+        - 编译安装vdsm之后主机安装失败: other/编译安装vdsm之后主机安装失败.md
+        - 没有打印日志: other/没有打印日志.md
+        - 制作iso镜像: other/制作iso镜像.md
+        - vdsm启动失败: other/vdsm启动失败.md
+        - ssh免密登录: other/ssh免密登录.md
+    - Gluster:
+        - 结点故障: gluster/结点故障.md
+        - 清理不可用的brick: gluster/清理不可用的brick.md
+        - ovirt的gluster数据恢复bug: gluster/ovirt的gluster数据恢复bug.md
+        - gluster安装: gluster/gluster安装.md
+    - Git:
+        - windows无法使用git克隆: git/windows无法使用git克隆.md
+        - git rebase(修改历史提交): git/git rebase(修改历史提交).md
+    - Gerrit:
+        - 刷新gerrit项目列表: gerrit/刷新gerrit项目列表.md
+        - 使用Apache代理路径错误: gerrit/使用Apache代理路径错误.md
+        - Gerrit submit change after abandoning its parent: gerrit/Gerrit submit change after abandoning its parent.md
+        - Apache代理添加新用户: gerrit/Apache代理添加新用户.md
+    - C and c++:
+        - 程序运行时间: c and c++/程序运行时间.md
+        - 动态编译: c and c++/动态编译.md
 theme: readthedocs
