@@ -41,4 +41,14 @@ nav:
     - C and c++:
         - 程序运行时间: c and c++/程序运行时间.md
         - 动态编译: c and c++/动态编译.md
+    - Automake:
+        - 简介: automake/简介.md
+    - Autoconf:
+        - 简介: autoconf/简介.md
+        - 各个步骤主要生成文件: autoconf/各个步骤主要生成文件.md
+        - 宏: autoconf/宏.md
+    - Autogen:
+        - 简介: autogen/简介.md
+    - M4:
+        - 简介: m4/简介.md
 theme: readthedocs
