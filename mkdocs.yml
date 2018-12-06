@@ -3,6 +3,12 @@ site_author: shihr
 nav:
     - Home: index.md
     - Autoconf:
+        - 14.手动配置: autoconf/14.手动配置.md
+        - 4.初始化和输出文件: autoconf/4.初始化和输出文件.md
+        - 5.现有测试: autoconf/5.现有测试.md
+        - 7.测试结果: autoconf/7.测试结果.md
+        - 8.使用M4编程: autoconf/8.使用M4编程.md
+        - 9.使用M4sh编程: autoconf/9.使用M4sh编程.md
         - 各个步骤主要生成文件: autoconf/各个步骤主要生成文件.md
         - 宏: autoconf/宏.md
         - 简介: autoconf/简介.md
@@ -11,8 +17,11 @@ nav:
     - Automake:
         - 18.规则杂项: automake/18.规则杂项.md
         - 19.Include: automake/19.Include.md
+        - 23.Automake不能满足使用时: automake/23.Automake不能满足使用时.md
         - 宏: automake/宏.md
         - 简介: automake/简介.md
+    - Bash:
+        - 3.基本shell功能: bash/3.基本shell功能.md
     - C and c++:
         - 动态编译: c and c++/动态编译.md
         - 程序运行时间: c and c++/程序运行时间.md
@@ -30,12 +39,16 @@ nav:
         - 清理不可用的brick: gluster/清理不可用的brick.md
         - 结点故障: gluster/结点故障.md
     - M4:
+        - 11.文本处理的宏: m4/11.文本处理的宏.md
+        - 6.条件、循环、递归: m4/6.条件、循环、递归.md
         - 简介: m4/简介.md
     - Make:
         - 11.使用make更新归档文件: make/11.使用make更新归档文件.md
         - 15.不兼容及缺少的特性: make/15.不兼容及缺少的特性.md
+        - 16.Makefile约定: make/16.Makefile约定.md
         - 4.编写规则: make/4.编写规则.md
         - 5.编写recipes: make/5.编写recipes.md
+        - 6.变量: make/6.变量.md
         - 简介: make/简介.md
     - Other:
         - ssh免密登录: other/ssh免密登录.md
