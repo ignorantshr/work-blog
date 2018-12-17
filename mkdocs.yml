@@ -3,9 +3,11 @@ site_author: shihr
 nav:
     - Home: index.md
     - Autoconf:
+        - 11.便携式shell编程: autoconf/11.便携式shell编程.md
         - 14.手动配置: autoconf/14.手动配置.md
         - 4.初始化和输出文件: autoconf/4.初始化和输出文件.md
         - 5.现有测试: autoconf/5.现有测试.md
+        - 6.编写测试: autoconf/6.编写测试.md
         - 7.测试结果: autoconf/7.测试结果.md
         - 8.使用M4编程: autoconf/8.使用M4编程.md
         - 9.使用M4sh编程: autoconf/9.使用M4sh编程.md
@@ -15,8 +17,11 @@ nav:
     - Autogen:
         - 简介: autogen/简介.md
     - Automake:
+        - 13.清理: automake/13.清理.md
+        - 15.测试套件的支持: automake/15.测试套件的支持.md
         - 18.规则杂项: automake/18.规则杂项.md
         - 19.Include: automake/19.Include.md
+        - 20.条件语句: automake/20.条件语句.md
         - 23.Automake不能满足使用时: automake/23.Automake不能满足使用时.md
         - 宏: automake/宏.md
         - 简介: automake/简介.md
@@ -43,12 +48,14 @@ nav:
         - 6.条件、循环、递归: m4/6.条件、循环、递归.md
         - 简介: m4/简介.md
     - Make:
+        - 10.使用隐含规则: make/10.使用隐含规则.md
         - 11.使用make更新归档文件: make/11.使用make更新归档文件.md
-        - 15.不兼容及缺少的特性: make/15.不兼容及缺少的特性.md
         - 16.Makefile约定: make/16.Makefile约定.md
         - 4.编写规则: make/4.编写规则.md
         - 5.编写recipes: make/5.编写recipes.md
         - 6.变量: make/6.变量.md
+        - 7.Makefile中的条件语句: make/7.Makefile中的条件语句.md
+        - 8.转换文本函数: make/8.转换文本函数.md
         - 简介: make/简介.md
     - Other:
         - ssh免密登录: other/ssh免密登录.md
@@ -61,6 +68,8 @@ nav:
         - json格式处理: python/json格式处理.md
     - System:
         - epel源: system/epel源.md
+        - rpms产出: system/rpms产出.md
+        - rsync配置: system/rsync配置.md
         - wget用法: system/wget用法.md
         - 主机不能连接mariadb: system/主机不能连接mariadb.md
         - 修改centos7语言: system/修改centos7语言.md
@@ -73,4 +82,5 @@ nav:
         - 添加公钥: system/添加公钥.md
         - 磁盘容量扩充: system/磁盘容量扩充.md
         - 网卡不存在: system/网卡不存在.md
+        - 通过命令写文件: system/通过命令写文件.md
 theme: readthedocs
