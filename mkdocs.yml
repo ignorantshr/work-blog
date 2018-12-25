@@ -3,29 +3,34 @@ site_author: shihr
 nav:
     - Home: index.md
     - Autoconf:
+        - 10.编写Autoconf宏: autoconf/10.编写Autoconf宏.md
         - 11.便携式shell编程: autoconf/11.便携式shell编程.md
         - 14.手动配置: autoconf/14.手动配置.md
+        - 15.Site配置: autoconf/15.Site配置.md
         - 4.初始化和输出文件: autoconf/4.初始化和输出文件.md
         - 5.现有测试: autoconf/5.现有测试.md
         - 6.编写测试: autoconf/6.编写测试.md
         - 7.测试结果: autoconf/7.测试结果.md
         - 8.使用M4编程: autoconf/8.使用M4编程.md
         - 9.使用M4sh编程: autoconf/9.使用M4sh编程.md
-        - 宏: autoconf/宏.md
         - 简介: autoconf/简介.md
     - Autogen:
         - 简介: autogen/简介.md
     - Automake:
+        - 10.其它GNU工具: automake/10.其它GNU工具.md
         - 12.安装: automake/12.安装.md
         - 13.清理: automake/13.清理.md
+        - 14.发布: automake/14.发布.md
         - 15.测试套件的支持: automake/15.测试套件的支持.md
         - 18.规则杂项: automake/18.规则杂项.md
         - 19.Include: automake/19.Include.md
         - 20.条件语句: automake/20.条件语句.md
         - 23.Automake不能满足使用时: automake/23.Automake不能满足使用时.md
+        - 5.创建Makefile.in: automake/5.创建Makefile.in.md
+        - 6.扫描configure.ac，使用aclocal: automake/6.扫描configure.ac，使用aclocal.md
+        - 7.文件夹: automake/7.文件夹.md
         - 8.构建程序和库: automake/8.构建程序和库.md
         - 9.其它派生对象: automake/9.其它派生对象.md
-        - 宏: automake/宏.md
         - 简介: automake/简介.md
     - Bash:
         - 3.基本shell功能: bash/3.基本shell功能.md
