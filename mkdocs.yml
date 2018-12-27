@@ -34,6 +34,7 @@ nav:
         - 简介: automake/简介.md
     - Bash:
         - 3.基本shell功能: bash/3.基本shell功能.md
+        - 4.shell内置命令: bash/4.shell内置命令.md
     - C and c++:
         - 动态编译: c and c++/动态编译.md
         - 程序运行时间: c and c++/程序运行时间.md
