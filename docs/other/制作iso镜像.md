@@ -28,7 +28,7 @@ mkisofs -o xxx.iso -J -R -V bb diretory
 
 #####2.	直接下载安装包
 
-参见[只下载rpm包](../system/更新、禁用yum仓库、只下载rpm.md#只下载不安装rpm)
+参见[只下载rpm包](../command/更新、禁用yum仓库、只下载rpm.md#只下载不安装rpm)
 
 #####3.	将打包好的rpm包拷贝到Packages目录中，如果该rpm包是修改后的则删除原有的rpm包，如果是新建的则不需要
 ```shell  

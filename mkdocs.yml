@@ -2,20 +2,73 @@ site_name: Sink
 site_author: shihr
 nav:
     - Home: index.md
-    - Autoconf:
-        - 10.编写Autoconf宏: autoconf/10.编写Autoconf宏.md
-        - 11.便携式shell编程: autoconf/11.便携式shell编程.md
-        - 14.手动配置: autoconf/14.手动配置.md
-        - 15.Site配置: autoconf/15.Site配置.md
-        - 4.初始化和输出文件: autoconf/4.初始化和输出文件.md
-        - 5.现有测试: autoconf/5.现有测试.md
-        - 6.编写测试: autoconf/6.编写测试.md
-        - 7.测试结果: autoconf/7.测试结果.md
-        - 8.使用M4编程: autoconf/8.使用M4编程.md
-        - 9.使用M4sh编程: autoconf/9.使用M4sh编程.md
-        - 简介: autoconf/简介.md
-    - Autogen:
-        - 简介: autogen/简介.md
+    - System:
+        - epel源: system/epel源.md
+        - rpms产出: system/rpms产出.md
+        - rsync配置: system/rsync配置.md
+        - 主机不能连接mariadb: system/主机不能连接mariadb.md
+        - 修改centos7语言: system/修改centos7语言.md
+        - 修改mariadb编码类型: system/修改mariadb编码类型.md
+        - 关闭selinux: system/关闭selinux.md
+        - 开启图形界面: system/开启图形界面.md
+        - 改变系统时区: system/改变系统时区.md
+        - 磁盘容量扩充: system/磁盘容量扩充.md
+        - 网卡不存在: system/网卡不存在.md
+        - 通过shell命令写文件: system/通过shell命令写文件.md
+    - Spice:
+        - 简介: spice/简介.md
+    - Python:
+        - event线程: python/event线程.md
+        - json格式处理: python/json格式处理.md
+    - Other:
+        - h5ai美化目录: other/h5ai美化目录.md
+        - vdsm启动失败: other/vdsm启动失败.md
+        - 制作iso镜像: other/制作iso镜像.md
+        - 没有打印日志: other/没有打印日志.md
+        - 编译安装vdsm之后主机安装失败: other/编译安装vdsm之后主机安装失败.md
+    - Make:
+        - 10.使用隐含规则: make/10.使用隐含规则.md
+        - 11.使用make更新归档文件: make/11.使用make更新归档文件.md
+        - 16.Makefile约定: make/16.Makefile约定.md
+        - 4.编写规则: make/4.编写规则.md
+        - 5.编写recipes: make/5.编写recipes.md
+        - 6.变量: make/6.变量.md
+        - 7.Makefile中的条件语句: make/7.Makefile中的条件语句.md
+        - 8.转换文本函数: make/8.转换文本函数.md
+        - 简介: make/简介.md
+    - M4:
+        - 11.文本处理的宏: m4/11.文本处理的宏.md
+        - 6.条件、循环、递归: m4/6.条件、循环、递归.md
+        - 简介: m4/简介.md
+    - Java:
+        - 作用范围级别: java/作用范围级别.md
+    - Gluster:
+        - gluster安装: gluster/gluster安装.md
+        - ovirt的gluster数据恢复bug: gluster/ovirt的gluster数据恢复bug.md
+        - 清理不可用的brick: gluster/清理不可用的brick.md
+        - 结点故障: gluster/结点故障.md
+    - Git:
+        - git rebase(修改历史提交): git/git rebase(修改历史提交).md
+        - windows无法使用git克隆: git/windows无法使用git克隆.md
+    - Gerrit:
+        - Apache代理添加新用户: gerrit/Apache代理添加新用户.md
+        - Gerrit submit change after abandoning its parent: gerrit/Gerrit submit change after abandoning its parent.md
+        - 使用Apache代理路径错误: gerrit/使用Apache代理路径错误.md
+        - 刷新gerrit项目列表: gerrit/刷新gerrit项目列表.md
+    - Command:
+        - linux挂载windows共享文件夹: command/linux挂载windows共享文件夹.md
+        - ssh免密登录: command/ssh免密登录.md
+        - tar命令打包去掉路径前缀: command/tar命令打包去掉路径前缀.md
+        - wget用法: command/wget用法.md
+        - 显示文件夹大小: command/显示文件夹大小.md
+        - 更新、禁用yum仓库、只下载rpm: command/更新、禁用yum仓库、只下载rpm.md
+        - 添加公钥: command/添加公钥.md
+    - C and c++:
+        - 动态编译: c and c++/动态编译.md
+        - 程序运行时间: c and c++/程序运行时间.md
+    - Bash:
+        - 3.基本shell功能: bash/3.基本shell功能.md
+        - 4.shell内置命令: bash/4.shell内置命令.md
     - Automake:
         - 10.其它GNU工具: automake/10.其它GNU工具.md
         - 12.安装: automake/12.安装.md
@@ -32,65 +85,18 @@ nav:
         - 8.构建程序和库: automake/8.构建程序和库.md
         - 9.其它派生对象: automake/9.其它派生对象.md
         - 简介: automake/简介.md
-    - Bash:
-        - 3.基本shell功能: bash/3.基本shell功能.md
-        - 4.shell内置命令: bash/4.shell内置命令.md
-    - C and c++:
-        - 动态编译: c and c++/动态编译.md
-        - 程序运行时间: c and c++/程序运行时间.md
-    - Gerrit:
-        - Apache代理添加新用户: gerrit/Apache代理添加新用户.md
-        - Gerrit submit change after abandoning its parent: gerrit/Gerrit submit change after abandoning its parent.md
-        - 使用Apache代理路径错误: gerrit/使用Apache代理路径错误.md
-        - 刷新gerrit项目列表: gerrit/刷新gerrit项目列表.md
-    - Git:
-        - git rebase(修改历史提交): git/git rebase(修改历史提交).md
-        - windows无法使用git克隆: git/windows无法使用git克隆.md
-    - Gluster:
-        - gluster安装: gluster/gluster安装.md
-        - ovirt的gluster数据恢复bug: gluster/ovirt的gluster数据恢复bug.md
-        - 清理不可用的brick: gluster/清理不可用的brick.md
-        - 结点故障: gluster/结点故障.md
-    - M4:
-        - 11.文本处理的宏: m4/11.文本处理的宏.md
-        - 6.条件、循环、递归: m4/6.条件、循环、递归.md
-        - 简介: m4/简介.md
-    - Make:
-        - 10.使用隐含规则: make/10.使用隐含规则.md
-        - 11.使用make更新归档文件: make/11.使用make更新归档文件.md
-        - 16.Makefile约定: make/16.Makefile约定.md
-        - 4.编写规则: make/4.编写规则.md
-        - 5.编写recipes: make/5.编写recipes.md
-        - 6.变量: make/6.变量.md
-        - 7.Makefile中的条件语句: make/7.Makefile中的条件语句.md
-        - 8.转换文本函数: make/8.转换文本函数.md
-        - 简介: make/简介.md
-    - Other:
-        - h5ai美化目录: other/h5ai美化目录.md
-        - ssh免密登录: other/ssh免密登录.md
-        - vdsm启动失败: other/vdsm启动失败.md
-        - 制作iso镜像: other/制作iso镜像.md
-        - 没有打印日志: other/没有打印日志.md
-        - 编译安装vdsm之后主机安装失败: other/编译安装vdsm之后主机安装失败.md
-    - Python:
-        - event线程: python/event线程.md
-        - json格式处理: python/json格式处理.md
-    - System:
-        - epel源: system/epel源.md
-        - linux挂载windows共享文件夹: system/linux挂载windows共享文件夹.md
-        - rpms产出: system/rpms产出.md
-        - rsync配置: system/rsync配置.md
-        - wget用法: system/wget用法.md
-        - 主机不能连接mariadb: system/主机不能连接mariadb.md
-        - 修改centos7语言: system/修改centos7语言.md
-        - 修改mariadb编码类型: system/修改mariadb编码类型.md
-        - 关闭selinux: system/关闭selinux.md
-        - 开启图形界面: system/开启图形界面.md
-        - 改变系统时区: system/改变系统时区.md
-        - 显示文件夹大小: system/显示文件夹大小.md
-        - 更新、禁用yum仓库、只下载rpm: system/更新、禁用yum仓库、只下载rpm.md
-        - 添加公钥: system/添加公钥.md
-        - 磁盘容量扩充: system/磁盘容量扩充.md
-        - 网卡不存在: system/网卡不存在.md
-        - 通过shell命令写文件: system/通过shell命令写文件.md
+    - Autogen:
+        - 简介: autogen/简介.md
+    - Autoconf:
+        - 10.编写Autoconf宏: autoconf/10.编写Autoconf宏.md
+        - 11.便携式shell编程: autoconf/11.便携式shell编程.md
+        - 14.手动配置: autoconf/14.手动配置.md
+        - 15.Site配置: autoconf/15.Site配置.md
+        - 4.初始化和输出文件: autoconf/4.初始化和输出文件.md
+        - 5.现有测试: autoconf/5.现有测试.md
+        - 6.编写测试: autoconf/6.编写测试.md
+        - 7.测试结果: autoconf/7.测试结果.md
+        - 8.使用M4编程: autoconf/8.使用M4编程.md
+        - 9.使用M4sh编程: autoconf/9.使用M4sh编程.md
+        - 简介: autoconf/简介.md
 theme: readthedocs
