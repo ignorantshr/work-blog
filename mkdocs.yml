@@ -21,6 +21,7 @@ nav:
         - event线程: python/event线程.md
         - json格式处理: python/json格式处理.md
     - Other:
+        - CSDN语法: other/CSDN语法.md
         - h5ai美化目录: other/h5ai美化目录.md
         - vdsm启动失败: other/vdsm启动失败.md
         - 制作iso镜像: other/制作iso镜像.md
@@ -55,6 +56,10 @@ nav:
         - Gerrit submit change after abandoning its parent: gerrit/Gerrit submit change after abandoning its parent.md
         - 使用Apache代理路径错误: gerrit/使用Apache代理路径错误.md
         - 刷新gerrit项目列表: gerrit/刷新gerrit项目列表.md
+    - Datastruct:
+        - 二叉树: datastruct/二叉树.md
+        - 散列表: datastruct/散列表.md
+        - 红黑树: datastruct/红黑树.md
     - Command:
         - linux挂载windows共享文件夹: command/linux挂载windows共享文件夹.md
         - ssh免密登录: command/ssh免密登录.md
@@ -99,4 +104,6 @@ nav:
         - 8.使用M4编程: autoconf/8.使用M4编程.md
         - 9.使用M4sh编程: autoconf/9.使用M4sh编程.md
         - 简介: autoconf/简介.md
+    - Algorithm:
+        - 选择排序: algorithm/选择排序.md
 theme: readthedocs
