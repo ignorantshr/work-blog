@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="shihr">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>rpms产出 - Sink</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "rpms\u4ea7\u51fa";
+    var mkdocs_page_input_path = "system\\rpms\u4ea7\u51fa.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Sink</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">System</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../epel源/">epel源</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">rpms产出</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#first-rsync-then-cp-iso">first rsync, then cp iso</a></li>
+    
+
+    <li class="toctree-l3"><a href="#get-vdc-winexe">get vdc-win.exe</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#ks-release-packersh">ks-release-packer.sh</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#get-modified-rpms">get modified rpms</a></li>
+    
+
+    <li class="toctree-l3"><a href="#get-last-vms-iso">get last vms-iso</a></li>
+    
+
+    <li class="toctree-l3"><a href="#get-vms-iso-rpms">get vms-iso-rpms</a></li>
+    
+
+    <li class="toctree-l3"><a href="#get-last-vdc-iso">get last vdc-iso</a></li>
+    
+
+    <li class="toctree-l3"><a href="#get-vdc-iso-rpms">get vdc-iso-rpms</a></li>
+    
+
+    <li class="toctree-l3"><a href="#get-last-tools-iso">get last tools-iso</a></li>
+    
+
+    <li class="toctree-l3"><a href="#rm-rf-version_date">rm -rf ${version}_${date}</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../rsync配置/">rsync配置</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../主机不能连接mariadb/">主机不能连接mariadb</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../修改centos7语言/">修改centos7语言</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../修改mariadb编码类型/">修改mariadb编码类型</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../关闭selinux/">关闭selinux</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../开启图形界面/">开启图形界面</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../改变系统时区/">改变系统时区</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../磁盘容量扩充/">磁盘容量扩充</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../网卡不存在/">网卡不存在</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../通过shell命令写文件/">通过shell命令写文件</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Spice</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../spice/使用范例/">使用范例</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../spice/函数所在文件/">函数所在文件</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../spice/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../python/event线程/">event线程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/json格式处理/">json格式处理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/执行shell命令/">执行shell命令</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/超时装饰器/">超时装饰器</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Other</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../other/CSDN语法/">CSDN语法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/h5ai美化目录/">h5ai美化目录</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/vdsm启动失败/">vdsm启动失败</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/制作iso镜像/">制作iso镜像</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/没有打印日志/">没有打印日志</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/编译安装vdsm之后主机安装失败/">编译安装vdsm之后主机安装失败</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Make</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../make/10.使用隐含规则/">10.使用隐含规则</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/11.使用make更新归档文件/">11.使用make更新归档文件</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/16.Makefile约定/">16.Makefile约定</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/4.编写规则/">4.编写规则</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/5.编写recipes/">5.编写recipes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/6.变量/">6.变量</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/7.Makefile中的条件语句/">7.Makefile中的条件语句</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/8.转换文本函数/">8.转换文本函数</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">M4</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../m4/11.文本处理的宏/">11.文本处理的宏</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../m4/6.条件、循环、递归/">6.条件、循环、递归</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../m4/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Linux网络编程</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../linux网络编程/socket通信流程/">socket通信流程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../linux网络编程/函数/">函数</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../linux网络编程/简单TCP通信实现/">简单TCP通信实现</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Java</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../java/作用范围级别/">作用范围级别</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Gluster</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../gluster/gluster安装/">gluster安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gluster/ovirt的gluster数据恢复bug/">ovirt的gluster数据恢复bug</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gluster/清理不可用的brick/">清理不可用的brick</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gluster/结点故障/">结点故障</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Git</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../git/git rebase(修改历史提交)/">git rebase(修改历史提交)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../git/windows无法使用git克隆/">windows无法使用git克隆</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Gerrit</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../gerrit/Apache代理添加新用户/">Apache代理添加新用户</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gerrit/Gerrit submit change after abandoning its parent/">Gerrit submit change after abandoning its parent</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gerrit/使用Apache代理路径错误/">使用Apache代理路径错误</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gerrit/刷新gerrit项目列表/">刷新gerrit项目列表</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Datastruct</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../datastruct/二叉树/">二叉树</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../datastruct/散列表/">散列表</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../datastruct/红黑树/">红黑树</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Command</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../command/linux挂载windows共享文件夹/">linux挂载windows共享文件夹</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/ssh免密登录/">ssh免密登录</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/tar命令打包去掉路径前缀/">tar命令打包去掉路径前缀</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/wget用法/">wget用法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/显示文件夹大小/">显示文件夹大小</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/更新、禁用yum仓库、只下载rpm/">更新、禁用yum仓库、只下载rpm</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/添加公钥/">添加公钥</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">C and c++</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../c and c++/动态编译/">动态编译</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../c and c++/程序运行时间/">程序运行时间</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Bash</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../bash/3.基本shell功能/">3.基本shell功能</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../bash/4.shell内置命令/">4.shell内置命令</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Automake</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../automake/10.其它GNU工具/">10.其它GNU工具</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/12.安装/">12.安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/13.清理/">13.清理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/14.发布/">14.发布</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/15.测试套件的支持/">15.测试套件的支持</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/18.规则杂项/">18.规则杂项</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/19.Include/">19.Include</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/20.条件语句/">20.条件语句</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/23.Automake不能满足使用时/">23.Automake不能满足使用时</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/5.创建Makefile.in/">5.创建Makefile.in</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/6.扫描configure.ac，使用aclocal/">6.扫描configure.ac，使用aclocal</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/7.文件夹/">7.文件夹</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/8.构建程序和库/">8.构建程序和库</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/9.其它派生对象/">9.其它派生对象</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Autogen</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../autogen/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Autoconf</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../autoconf/10.编写Autoconf宏/">10.编写Autoconf宏</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/11.便携式shell编程/">11.便携式shell编程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/14.手动配置/">14.手动配置</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/15.Site配置/">15.Site配置</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/4.初始化和输出文件/">4.初始化和输出文件</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/5.现有测试/">5.现有测试</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/6.编写测试/">6.编写测试</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/7.测试结果/">7.测试结果</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/8.使用M4编程/">8.使用M4编程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/9.使用M4sh编程/">9.使用M4sh编程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Algorithm</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../algorithm/加权有向图的最短路径/">加权有向图的最短路径</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../algorithm/复杂度分析/">复杂度分析</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../algorithm/选择排序/">选择排序</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Sink</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>System &raquo;</li>
+        
+      
+    
+    <li>rpms产出</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>rpms产出</p>
+<p>vdc-refa:
+    vdc-1.0.0-142.gitd62ccbc.refa.x86_64.rpm
+    vdc-debuginfo-1.0.0-142.gitd62ccbc.refa.x86_64.rpm
+    vdc-plugin-net-1.0.0-142.gitd62ccbc.refa.x86_64.rpm
+    vdc-plugin-vpn-1.0.0-142.gitd62ccbc.refa.x86_64.rpm</p>
+<p>vdc-zhgf:
+    vdc-1.0.0-29.gitdefba2a.zhgf.x86_64.rpm
+    vdc-debuginfo-1.0.0-29.gitdefba2a.zhgf.x86_64.rpm</p>
+<p>vdc-sec-2.5.10
+    vdc-1.0.0-194.git7cb4d66.sec.x86_64.rpm
+    vdc-debuginfo-1.0.0-194.git7cb4d66.sec.x86_64.rpm
+    vdc-plugin-net-1.0.0-194.git7cb4d66.sec.x86_64.rpm
+    vdc-plugin-vpn-1.0.0-194.git7cb4d66.sec.x86_64.rpm</p>
+<p>rpms:
+vms-sec-2.5.9</p>
+<p>vms-sec-sec-2.5.9/ovirt-engine
+vms-sec-sec-2.5.9/ovirt-engine-api
+vms-sec-sec-2.5.9/ovirt-engine-audit-portal
+vms-sec-sec-2.5.9/ovirt-engine-backend
+vms-sec-sec-2.5.9/ovirt-engine-dbscripts
+vms-sec-sec-2.5.9/ovirt-engine-extend-portal
+vms-sec-sec-2.5.9/ovirt-engine-lib
+vms-sec-sec-2.5.9/ovirt-engine-secrecy-portal
+vms-sec-sec-2.5.9/ovirt-engine-setup-base
+vms-sec-sec-2.5.9/ovirt-engine-setup-plugin-ovirt-engine
+vms-sec-sec-2.5.9/ovirt-engine-setup-plugin-ovirt-engine-common
+vms-sec-sec-2.5.9/ovirt-engine-setup-plugin-vmconsole-proxy-helper
+vms-sec-sec-2.5.9/ovirt-engine-setup-plugin-websocket-proxy
+vms-sec-sec-2.5.9/ovirt-engine-tools
+vms-sec-sec-2.5.9/ovirt-engine-tools-backup
+vms-sec-sec-2.5.9/ovirt-engine-vmconsole-proxy-helper
+vms-sec-sec-2.5.9/ovirt-engine-webadmin-portal
+vms-sec-sec-2.5.9/ovirt-engine-websocket-proxy
+vms-sec-sec-2.5.9/ovirt-engine-dashboard
+vdsm-sec/vdsm
+vdsm-sec/vdsm-api
+vdsm-sec/vdsm-cli
+vdsm-sec/vdsm-hook-vmfex-dev
+vdsm-sec/vdsm-infra
+vdsm-sec/vdsm-jsonrpc
+vdsm-sec/vdsm-python
+vdsm-sec/vdsm-xmlrpc
+vdsm-sec/vdsm-yajsonrpc
+qemu-kvm-ev-sec/qemu-kvm-tools-ev
+qemu-kvm-ev-sec/qemu-kvm-ev
+qemu-kvm-ev-sec/qemu-kvm-common-ev
+qemu-kvm-ev-sec/qemu-img-ev
+ovirt-provider-ovn-sec/ovirt-provider-ovn-driver
+ovirt-provider-ovn-sec/ovirt-provider-ovn
+secretclient-sec/secretclient
+ACloudAge-release-sec/ACloudAge-release
+ovs-sec/openvswitch
+ovs-sec/openvswitch-ovn-central
+ovs-sec/openvswitch-ovn-common
+ovs-sec/openvswitch-ovn-host
+ovs-sec/python-openvswitch
+tripwire-sec/tripwire
+spice-html5-sec/spice-html5</p>
+<p>vms-vgpu</p>
+<p>vms-sec-vgpu/ovirt-engine
+vms-sec-vgpu/ovirt-engine-api
+vms-sec-vgpu/ovirt-engine-audit-portal
+vms-sec-vgpu/ovirt-engine-backend
+vms-sec-vgpu/ovirt-engine-dbscripts
+vms-sec-vgpu/ovirt-engine-extend-portal
+vms-sec-vgpu/ovirt-engine-lib
+vms-sec-vgpu/ovirt-engine-secrecy-portal
+vms-sec-vgpu/ovirt-engine-setup-base
+vms-sec-vgpu/ovirt-engine-setup-plugin-ovirt-engine
+vms-sec-vgpu/ovirt-engine-setup-plugin-ovirt-engine-common
+vms-sec-vgpu/ovirt-engine-setup-plugin-vmconsole-proxy-helper
+vms-sec-vgpu/ovirt-engine-setup-plugin-websocket-proxy
+vms-sec-vgpu/ovirt-engine-tools
+vms-sec-vgpu/ovirt-engine-tools-backup
+vms-sec-vgpu/ovirt-engine-vmconsole-proxy-helper
+vms-sec-vgpu/ovirt-engine-webadmin-portal
+vms-sec-vgpu/ovirt-engine-websocket-proxy
+vms-sec-sec-2.5.9/ovirt-engine-dashboard
+vdsm-vgpu/vdsm
+vdsm-vgpu/vdsm-api
+vdsm-vgpu/vdsm-cli
+vdsm-vgpu/vdsm-hook-vmfex-dev
+vdsm-vgpu/vdsm-infra
+vdsm-vgpu/vdsm-jsonrpc
+vdsm-vgpu/vdsm-python
+vdsm-vgpu/vdsm-xmlrpc
+vdsm-vgpu/vdsm-yajsonrpc
+qemu-kvm-2.6.0-sec/qemu-kvm-tools-ev
+qemu-kvm-2.6.0-sec/qemu-kvm-ev
+qemu-kvm-2.6.0-sec/qemu-kvm-common-ev
+qemu-kvm-2.6.0-sec/qemu-img-ev
+ovirt-provider-ovn-sec/ovirt-provider-ovn-driver
+ovirt-provider-ovn-sec/ovirt-provider-ovn
+secretclient-sec/secretclient
+ACloudAge-release-sec/ACloudAge-release
+ovs-sec/openvswitch
+ovs-sec/openvswitch-ovn-central
+ovs-sec/openvswitch-ovn-common
+ovs-sec/openvswitch-ovn-host
+ovs-sec/python-openvswitch
+tripwire-sec/tripwire
+spice-html5-sec/spice-html5</p>
+<p>tools.iso打包</p>
+<p>remote_isos_path=http://172.16.6.189/pub/iso_output/tools
+iso_path=/home/pub/iso_output/tools
+output_name=tools-test.iso
+output_path=root@172.16.6.189:/home/pub/iso_output/vms
+rsync_url=rsync://172.16.6.189/extras_tools
+vdc_win=/home/pub/pkg_output/vdc-group/vdc-win/
+branch_path=http://172.16.6.189/pub/pkg_output/vdc-group/vdc-win</p>
+<p>isos=<code>ssh root@172.16.6.189 "ls --sort=time -r $iso_path"</code>
+for iso in $isos
+do
+        real=$iso
+done
+echo ${real}
+wget -P /tmp $remote_isos_path/$real
+if [ $? -ne 0 ]; then
+    echo "Failed to get iso!"
+    exit 1
+fi</p>
+<p>mkdir /tmp/${output_name}.tmp
+mount /tmp/$real /tmp/${output_name}.tmp
+if [ $? -ne 0 ]; then
+    echo "Failed to mount iso!"
+    exit 1
+fi</p>
+<p>mkdir /tmp/$output_name
+cd /tmp/$output_name</p>
+<h1 id="first-rsync-then-cp-iso">first rsync, then cp iso</h1>
+<p>rsync --delete -avrt $rsync_url  .
+if [ $? -ne 0 ]; then
+    echo "Failed to rsync iso base files!"
+    exit 1
+fi</p>
+<p>cp -r /tmp/${output_name}.tmp/. /tmp/$output_name/
+umount -v /tmp/${output_name}.tmp &amp;&amp; rm -rf /tmp/${output_name}.tmp &amp;&amp; rm -f /tmp/$real</p>
+<h1 id="get-vdc-winexe">get vdc-win.exe</h1>
+<p>branchs=<code>ssh root@172.16.6.189 "ls ${vdc_win}"</code>
+for branch in $branchs
+do
+    exes=<code>ssh root@172.16.6.189 "ls --sort=time -r ${vdc_win}/${branch}/output/"</code>
+    echo $exes
+    for exe in $exes
+    do
+        real_exe=$exe
+    done
+    echo ${branch_path}/$branch/output/${real_exe}
+    wget --quiet ${branch_path}/$branch/output/${real_exe}
+done</p>
+<p>mkisofs -J -rational-rock -full-iso9660-filenames -o ${output_name} .
+if [ $? -ne 0 ]; then
+    echo "Failed to make iso!"
+    exit 1
+fi</p>
+<p>scp $output_name $output_path
+rm -rf /tmp/$output_name/</p>
+<h2 id="ks-release-packersh">ks-release-packer.sh</h2>
+<p>version=v1.4
+date=<code>date +%Y%m%d%H%M%S</code>
+buildid=1
+ssh_path=root@172.16.6.189
+vms_iso_path=http://172.16.6.189/pub/iso_output/vms
+vdc_iso_path=http://172.16.6.189/pub/iso_output/vdc
+tools_iso_path=http://172.16.6.189/pub/iso_output/tools
+remote_repo=root@172.16.6.189:/home/pub/release
+modify_rpms=rpms.list</p>
+<p>vms_iso_server_path=/home/pub${vms_iso_path#<em>pub}
+vdc_iso_server_path=/home/pub${vdc_iso_path#</em>pub}
+tools_iso_server_path=/home/pub${tools_iso_path#*pub}</p>
+<p>mkdir ${version}<em>${date} &amp;&amp; cd ${version}</em>${date}
+rpms=build_${date}_${buildid}.info
+mkdir $rpms
+mkdir -p packages/vms packages/vdc</p>
+<h1 id="get-modified-rpms">get modified rpms</h1>
+<p>OLD_IFS="$IFS"
+for item in <code>cat ../${modify_rpms}</code>
+do
+    IFS="/"
+    arr=($item)
+    IFS="$OLD_IFS"
+    prod=${arr[0]}
+    repo=${arr[1]}
+    name=${arr[2]}
+    yum clean all --enablerepo=$repo
+    yumdownloader --enablerepo=$repo --destdir=packages/${prod} $name
+    if [ $? -ne 0 ]; then
+        echo "Failed to get ${prod} package $name in $repo!"
+        exit 1
+    fi
+done</p>
+<h1 id="get-last-vms-iso">get last vms-iso</h1>
+<p>vms_isos=<code>ssh ${ssh_path} "cd ${vms_iso_server_path} &amp;&amp; ls --sort=time -r *${version}*.iso"</code>
+for vms_iso in ${vms_isos}
+do
+    vms_iso_real=$vms_iso
+done
+wget -O ACloudAge_KS_vms_${version}.iso ${vms_iso_path}/${vms_iso_real}</p>
+<h1 id="get-vms-iso-rpms">get vms-iso-rpms</h1>
+<p>vms_iso_main=${vms_iso_real%.iso}
+wget -P ${rpms}/ ${vms_iso_path}/${vms_iso_main}-rpm.list</p>
+<h1 id="get-last-vdc-iso">get last vdc-iso</h1>
+<p>vdc_isos=<code>ssh ${ssh_path} "cd ${vdc_iso_server_path} &amp;&amp; ls --sort=time -r *${version}*.iso"</code>
+for vdc_iso in ${vdc_isos}
+do
+    vdc_iso_real=$vdc_iso
+done
+wget -O ACloudAge_KS_vdc_${version}.iso ${vdc_iso_path}/${vdc_iso_real}</p>
+<h1 id="get-vdc-iso-rpms">get vdc-iso-rpms</h1>
+<p>vdc_iso_main=${vdc_iso_real%.iso}
+wget -P ${rpms}/ ${vdc_iso_path}/${vdc_iso_main}-rpm.list</p>
+<h1 id="get-last-tools-iso">get last tools-iso</h1>
+<p>tools_isos=<code>ssh ${ssh_path} "cd ${tools_iso_server_path} &amp;&amp; ls --sort=time -r *${version}*.iso"</code>
+for tools_iso in ${tools_isos}
+do
+    tools_iso_real=$tools_iso
+done
+wget -O ACloudAge_KS_tools_${version}.iso ${tools_iso_path}/${tools_iso_real}</p>
+<p>cd ..
+scp -r ${version}_${date} ${remote_repo}</p>
+<h1 id="rm-rf-version_date">rm -rf ${version}_${date}</h1>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../rsync配置/" class="btn btn-neutral float-right" title="rsync配置">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../epel源/" class="btn btn-neutral" title="epel源"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../epel源/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../rsync配置/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

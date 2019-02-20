@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="shihr">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>红黑树 - Sink</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u7ea2\u9ed1\u6811";
+    var mkdocs_page_input_path = "datastruct\\\u7ea2\u9ed1\u6811.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Sink</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">System</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../system/epel源/">epel源</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/rpms产出/">rpms产出</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/rsync配置/">rsync配置</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/主机不能连接mariadb/">主机不能连接mariadb</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/修改centos7语言/">修改centos7语言</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/修改mariadb编码类型/">修改mariadb编码类型</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/关闭selinux/">关闭selinux</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/开启图形界面/">开启图形界面</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/改变系统时区/">改变系统时区</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/磁盘容量扩充/">磁盘容量扩充</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/网卡不存在/">网卡不存在</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/通过shell命令写文件/">通过shell命令写文件</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Spice</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../spice/使用范例/">使用范例</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../spice/函数所在文件/">函数所在文件</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../spice/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../python/event线程/">event线程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/json格式处理/">json格式处理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/执行shell命令/">执行shell命令</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/超时装饰器/">超时装饰器</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Other</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../other/CSDN语法/">CSDN语法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/h5ai美化目录/">h5ai美化目录</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/vdsm启动失败/">vdsm启动失败</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/制作iso镜像/">制作iso镜像</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/没有打印日志/">没有打印日志</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/编译安装vdsm之后主机安装失败/">编译安装vdsm之后主机安装失败</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Make</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../make/10.使用隐含规则/">10.使用隐含规则</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/11.使用make更新归档文件/">11.使用make更新归档文件</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/16.Makefile约定/">16.Makefile约定</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/4.编写规则/">4.编写规则</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/5.编写recipes/">5.编写recipes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/6.变量/">6.变量</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/7.Makefile中的条件语句/">7.Makefile中的条件语句</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/8.转换文本函数/">8.转换文本函数</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">M4</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../m4/11.文本处理的宏/">11.文本处理的宏</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../m4/6.条件、循环、递归/">6.条件、循环、递归</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../m4/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Linux网络编程</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../linux网络编程/socket通信流程/">socket通信流程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../linux网络编程/函数/">函数</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../linux网络编程/简单TCP通信实现/">简单TCP通信实现</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Java</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../java/作用范围级别/">作用范围级别</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Gluster</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../gluster/gluster安装/">gluster安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gluster/ovirt的gluster数据恢复bug/">ovirt的gluster数据恢复bug</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gluster/清理不可用的brick/">清理不可用的brick</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gluster/结点故障/">结点故障</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Git</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../git/git rebase(修改历史提交)/">git rebase(修改历史提交)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../git/windows无法使用git克隆/">windows无法使用git克隆</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Gerrit</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../gerrit/Apache代理添加新用户/">Apache代理添加新用户</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gerrit/Gerrit submit change after abandoning its parent/">Gerrit submit change after abandoning its parent</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gerrit/使用Apache代理路径错误/">使用Apache代理路径错误</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gerrit/刷新gerrit项目列表/">刷新gerrit项目列表</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Datastruct</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../二叉树/">二叉树</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../散列表/">散列表</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">红黑树</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#_1">一些概念：</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_2">下面说明一下实现</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_3">存储结点</a></li>
+        
+            <li><a class="toctree-l4" href="#_4">基本方法</a></li>
+        
+            <li><a class="toctree-l4" href="#_5">插入操作</a></li>
+        
+            <li><a class="toctree-l4" href="#_6">删除最小的键值对</a></li>
+        
+            <li><a class="toctree-l4" href="#_7">删除最大的键值对</a></li>
+        
+            <li><a class="toctree-l4" href="#_8">删除操作</a></li>
+        
+            <li><a class="toctree-l4" href="#_9">其它方法</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Command</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../command/linux挂载windows共享文件夹/">linux挂载windows共享文件夹</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/ssh免密登录/">ssh免密登录</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/tar命令打包去掉路径前缀/">tar命令打包去掉路径前缀</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/wget用法/">wget用法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/显示文件夹大小/">显示文件夹大小</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/更新、禁用yum仓库、只下载rpm/">更新、禁用yum仓库、只下载rpm</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/添加公钥/">添加公钥</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">C and c++</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../c and c++/动态编译/">动态编译</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../c and c++/程序运行时间/">程序运行时间</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Bash</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../bash/3.基本shell功能/">3.基本shell功能</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../bash/4.shell内置命令/">4.shell内置命令</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Automake</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../automake/10.其它GNU工具/">10.其它GNU工具</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/12.安装/">12.安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/13.清理/">13.清理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/14.发布/">14.发布</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/15.测试套件的支持/">15.测试套件的支持</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/18.规则杂项/">18.规则杂项</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/19.Include/">19.Include</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/20.条件语句/">20.条件语句</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/23.Automake不能满足使用时/">23.Automake不能满足使用时</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/5.创建Makefile.in/">5.创建Makefile.in</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/6.扫描configure.ac，使用aclocal/">6.扫描configure.ac，使用aclocal</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/7.文件夹/">7.文件夹</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/8.构建程序和库/">8.构建程序和库</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/9.其它派生对象/">9.其它派生对象</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Autogen</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../autogen/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Autoconf</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../autoconf/10.编写Autoconf宏/">10.编写Autoconf宏</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/11.便携式shell编程/">11.便携式shell编程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/14.手动配置/">14.手动配置</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/15.Site配置/">15.Site配置</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/4.初始化和输出文件/">4.初始化和输出文件</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/5.现有测试/">5.现有测试</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/6.编写测试/">6.编写测试</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/7.测试结果/">7.测试结果</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/8.使用M4编程/">8.使用M4编程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/9.使用M4sh编程/">9.使用M4sh编程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Algorithm</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../algorithm/加权有向图的最短路径/">加权有向图的最短路径</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../algorithm/复杂度分析/">复杂度分析</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../algorithm/选择排序/">选择排序</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Sink</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Datastruct &raquo;</li>
+        
+      
+    
+    <li>红黑树</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h3 id="_1">一些概念：</h3>
+<p>如果一个结点只存储一个键值对，那么叫做<code>2-结点</code>，所组成的树叫做<code>2-树</code>。同理，存储两个键值对的结点叫做<code>3-结点</code>。如果一个树中含有这两种结点，那么称作<code>2-3树</code>。</p>
+<p>红黑树是一种基于有序符号表的二叉平衡树的实现。</p>
+<p>红黑树二叉查找树，定义是满足下面条件的二叉查找树：</p>
+<ol>
+<li>红链接均为左链接</li>
+<li>没有任何一个结点同时和两条红链接相连</li>
+<li>该树是完美黑色平衡的，即任意空链接到根结点的路径上的黑链接数量相同
+ 这样的树和2-3树是一一对应的。</li>
+</ol>
+<h3 id="_2">下面说明一下实现</h3>
+<h4 id="_3">存储结点</h4>
+<pre><code class="java">public class RedBlackBST&lt;K extends Comparable&lt;K&gt;, V&gt; {
+    private Node root;
+
+    private static final boolean RED = true;
+    private static final boolean BLACK = false;
+
+    private class Node {
+        private K k;
+        private V v;
+        private Node left, right;
+        private int N;
+        private boolean color;  //结点的颜色，表示指向该结点的链接的颜色
+
+        Node(K k, V v, int n, boolean color) {
+            this.k = k;
+            this.v = v;
+            N = n;
+            this.color = color;
+        }
+    }
+}
+</code></pre>
+
+<h4 id="_4">基本方法</h4>
+<p>左旋和右旋。左旋即把左边的红链接转换到右边去；右旋相反</p>
+<p>在红黑树的变换中，是通过不断的左旋与右旋来实现的，故需要实现这两个方法。</p>
+<p>左旋</p>
+<pre><code class="java">    private Node rotateLeft(Node h){
+        /*
+        将一个右链接为红色的结点左旋。涉及到子树中结点位置的变换，颜色的改变，结点数量的改变。
+         */
+        Node x = h.right;
+        h.right = x.left;
+        x.left = h;
+        x.color = h.color;
+        h.color = RED;
+
+        x.N = h.N;
+        h.N = size(h.left) + size(h.right) + 1;
+
+        return x;
+    }
+</code></pre>
+
+<p>右旋只需将方向相反即可。</p>
+<p>颜色转换
+在插入的过程中可能会出现两个子结点都为红色的情况，此时相当于变成了<code>4-结点</code>，所以需要将中间结点提取出来，变成两个<code>2-结点</code>，将中间的结点放到父结点中继续处理。</p>
+<pre><code class="java">    private void flipColor(Node h, boolean reverse){
+
+        if (reverse){
+            /*
+            删除操作的转换，为了构造3-或4-子结点。转换一个结点的两个黑色结点的颜色，并将自己变为黑色结点。
+             */
+            h.color = BLACK;
+            h.right.color = h.left.color = RED;
+        }else {
+            /*
+            插入操作的转换。转换一个结点的两个红色结点的颜色，并将自己变为红色结点，相当于把自己送入到父节点中。
+             */
+            h.color = RED;
+            h.right.color = h.left.color = BLACK;
+        }
+    }
+</code></pre>
+
+<h4 id="_5">插入操作</h4>
+<p>将新结点不断的向下遍历，直到成为叶子节点。</p>
+<p>插入新的结点后可能会出现三种情况：</p>
+<ol>
+<li>若右子结点是红色而左子结点是黑色，那么左旋</li>
+<li>若左子结点为红色并且它的左子结点也为红色，即存在两个相连的红链，那么先右旋顶部的结点，再执行3.</li>
+<li>若两个子结点都为红色，那么改变颜色</li>
+</ol>
+<pre><code class="java">    void put(K k, V v){
+        root = put(root, k, v);
+        root.color = BLACK;
+    }
+
+    private Node put(Node h, K k, V v){
+        //插入新的结点，注意是红色结点
+        if (h == null){
+            return new Node(k, v, 1, RED);
+        }
+
+        //向下遍历
+        int re = k.compareTo(h.k);
+        if (re == 0){
+            //这里不能直接返回，不知道为什么？？？
+            h.v = v;
+        }else if (re &gt; 0){
+            h.right = put(h.right, k, v);
+        }else {
+            h.left = put(h.left, k, v);
+        }
+
+        //1.左旋
+        if (isRed(h.right) &amp;&amp; !isRed(h.left)){
+            h = rotateLeft(h);
+        }
+
+        //2.右旋
+        if (isRed(h.left) &amp;&amp; isRed(h.left.left)){
+            h = rotateRight(h);
+        }
+
+        //3.转换
+        if (isRed(h.left) &amp;&amp; isRed(h.right)){
+            flipColor(h, false);
+        }
+
+        h.N = size(h.left) + size(h.right) + 1;
+        return h;
+    }
+</code></pre>
+
+<h4 id="_6">删除最小的键值对</h4>
+<p>删除的时候允许临时的<code>4-结点</code>存在。</p>
+<p>在删除最小键的时候，因要保持树的平衡，所以需要确保每个左子结点都不是<code>2-结点</code>，即将遇到的每个2-结点都转化为3-结点或4-结点，这样删除的时候树仍然是平衡的。</p>
+<pre><code class="java">
+    private Node balance(Node h){
+        /*平衡红黑树，只要在put()方法的后五句加上此句就能达到效果???*/
+        //对可能出现的不平衡的情况做预处理
+        if (isRed(h.right)){
+            h = rotateLeft(h);
+        }
+
+        if (isRed(h.right) &amp;&amp; !isRed(h.left)){
+            h = rotateLeft(h);
+        }
+
+        if (isRed(h.left) &amp;&amp; isRed(h.left.left)){
+            h = rotateRight(h);
+        }
+
+        if (isRed(h.left) &amp;&amp; isRed(h.right)){
+            flipColor(h, false);
+        }
+
+        h.N = size(h.left) + size(h.right) + 1;
+        return h;
+    }
+
+    private Node moveRedLeft(Node h){
+        //变为h是黑色（为了不会产生5-结点），两个子结点是红色，先将h变成了一个3-结点，保证左子结点不是2-结点
+        flipColor(h, true);
+        //若右子树的根结点不是2-结点，将一个键移动到左子结点中，h继续变成一个4-结点；此时因为已经将右结点变为红色，所以无需判断其颜色。
+        if (isRed(h.right.left)){
+            h.right = rotateRight(h.right);  //右旋h的右子树，变为右边的4-结点
+            h = rotateLeft(h);  //再左旋h，将左子树变为4-结点
+        }
+        return h;
+    }
+
+    void deleteMin() {
+        //不知道为什么要转变颜色???
+        if(!isRed(root.left) &amp;&amp; !isRed(root.right)){
+            root.color = RED;
+        }
+        root = deleteMin(root);
+        if (!isEmpty()){
+            root.color = BLACK;
+        }
+    }
+
+    private Node deleteMin(Node h){
+        //删除最小结点
+        if (h.left == null){
+            return null;
+        }
+
+        //左子树的根结点是2-结点，转换为非2-结点，可能是3-结点或4-结点
+        if (!isRed(h.left) &amp;&amp; !isRed(h.left.left)){
+            h = moveRedLeft(h);
+        }
+
+        //此时已经保证了左子树的根结点不是2-结点
+        //向下删除结点，改变红黑树结构
+        h.left = deleteMin(h.left);
+        //向上平衡红黑树，消除临时产生的4-结点，平衡之后再更新结点大小
+        return balance(h);
+    }
+</code></pre>
+
+<h4 id="_7">删除最大的键值对</h4>
+<p>因红链接都为左链接，所以有稍微不同。
+<img alt="" src="../img/红黑树deleteMax.png" /></p>
+<pre><code class="java">    private Node moveRedRight(Node h){
+        //变为h是黑色，两个子结点是红色，先将h变成右边的3-结点，保证右子结点不是2-结点
+        flipColor(h, true);
+
+        //h的左子结点也是2-结点，将h的右子结点继续变为右边的4-结点
+        if (!isRed(h.left.left)){
+            h = rotateRight(h);
+        }
+
+        return h;
+    }
+
+    void deleteMax() {
+        if (!isRed(root.left) &amp;&amp; !isRed(root.right)){
+            root.color = RED;
+        }
+        root = deleteMax(root);
+        if (!isEmpty()){
+            root.color = BLACK;
+        }
+    }
+
+    private Node deleteMax(Node h){
+        //将为红色的左根结点直接转到右边来
+        if (isRed(h.left)){
+            h = rotateRight(h);
+        }
+
+        //删除最大结点
+        if (h.right == null){
+            return null;
+        }
+
+        //h的右子结点是黑色结点，并且右子树不是3-结点。
+        //因为第一步已经直接把为红色的左根结点转到右边，保证了此右树是右边的3-结点，所以不需要再进行变幻，要将其过滤
+        if (!isRed(h.right) &amp;&amp; !isRed(h.right.left)){
+            h = moveRedRight(h);
+        }
+
+        //向下删除结点
+        h.right = deleteMax(h.right);
+
+        //向上平衡二叉树
+        return balance(h);
+    }
+</code></pre>
+
+<h4 id="_8">删除操作</h4>
+<p>将删除最小值和最大值结合起来完成删除操作。</p>
+<pre><code class="java">    void delete(K k) {
+        if(!isRed(root.left) &amp;&amp; !isRed(root.right)){
+            root.color = RED;
+        }
+
+        root = delete(root, k);
+        if (!isEmpty()){
+            root.color = BLACK;
+        }
+    }
+
+    private Node delete(Node h, K k){
+        //在左子树中
+        if (k.compareTo(h.k) &lt; 0){
+            if (!isRed(h.left) &amp;&amp; !isRed(h.left.left)){
+                h = moveRedLeft(h);
+            }
+            h.left = delete(h.left, k);
+        }
+        //找到了该结点或在右子树中
+        else {
+            if (isRed(h.left)){
+                h = rotateRight(h);
+            }
+
+            //找到该结点，并且右子树为空，无需调整结构，删除该结点
+            if (k.compareTo(h.k) == 0 &amp;&amp; (h.right == null)){
+                return null;
+            }
+
+            //右子树是2-结点，转化为右边的4-或3-结点
+            if (!isRed(h.right) &amp;&amp; !isRed(h.right.left)){
+                h = moveRedRight(h);
+            }
+
+            //找到了该结点，但是右子树不为空，所以需要调整结构；与二叉树的删除方法类似
+            if (k.compareTo(h.k) == 0){
+                h.v = get(h.right, min(h.right).k);
+                h.k = min(h.right).k;
+                h.right = deleteMin(h.right);
+            }
+            //该结点在右子树中
+            else {
+                h.right = delete(h.right, k);
+            }
+        }
+        return balance(h);
+    }
+</code></pre>
+
+<h4 id="_9">其它方法</h4>
+<p>对于其它方法，因为不会涉及到颜色转换，所以可以直接使用二叉树的方法。</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../command/linux挂载windows共享文件夹/" class="btn btn-neutral float-right" title="linux挂载windows共享文件夹">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../散列表/" class="btn btn-neutral" title="散列表"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../散列表/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../command/linux挂载windows共享文件夹/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

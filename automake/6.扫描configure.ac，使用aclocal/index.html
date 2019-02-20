@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="shihr">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>6.扫描configure.ac，使用aclocal - Sink</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "6.\u626b\u63cfconfigure.ac\uff0c\u4f7f\u7528aclocal";
+    var mkdocs_page_input_path = "automake\\6.\u626b\u63cfconfigure.ac\uff0c\u4f7f\u7528aclocal.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Sink</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">System</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../system/epel源/">epel源</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/rpms产出/">rpms产出</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/rsync配置/">rsync配置</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/主机不能连接mariadb/">主机不能连接mariadb</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/修改centos7语言/">修改centos7语言</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/修改mariadb编码类型/">修改mariadb编码类型</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/关闭selinux/">关闭selinux</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/开启图形界面/">开启图形界面</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/改变系统时区/">改变系统时区</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/磁盘容量扩充/">磁盘容量扩充</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/网卡不存在/">网卡不存在</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/通过shell命令写文件/">通过shell命令写文件</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Spice</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../spice/使用范例/">使用范例</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../spice/函数所在文件/">函数所在文件</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../spice/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../python/event线程/">event线程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/json格式处理/">json格式处理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/执行shell命令/">执行shell命令</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/超时装饰器/">超时装饰器</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Other</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../other/CSDN语法/">CSDN语法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/h5ai美化目录/">h5ai美化目录</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/vdsm启动失败/">vdsm启动失败</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/制作iso镜像/">制作iso镜像</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/没有打印日志/">没有打印日志</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/编译安装vdsm之后主机安装失败/">编译安装vdsm之后主机安装失败</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Make</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../make/10.使用隐含规则/">10.使用隐含规则</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/11.使用make更新归档文件/">11.使用make更新归档文件</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/16.Makefile约定/">16.Makefile约定</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/4.编写规则/">4.编写规则</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/5.编写recipes/">5.编写recipes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/6.变量/">6.变量</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/7.Makefile中的条件语句/">7.Makefile中的条件语句</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/8.转换文本函数/">8.转换文本函数</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">M4</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../m4/11.文本处理的宏/">11.文本处理的宏</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../m4/6.条件、循环、递归/">6.条件、循环、递归</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../m4/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Linux网络编程</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../linux网络编程/socket通信流程/">socket通信流程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../linux网络编程/函数/">函数</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../linux网络编程/简单TCP通信实现/">简单TCP通信实现</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Java</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../java/作用范围级别/">作用范围级别</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Gluster</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../gluster/gluster安装/">gluster安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gluster/ovirt的gluster数据恢复bug/">ovirt的gluster数据恢复bug</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gluster/清理不可用的brick/">清理不可用的brick</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gluster/结点故障/">结点故障</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Git</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../git/git rebase(修改历史提交)/">git rebase(修改历史提交)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../git/windows无法使用git克隆/">windows无法使用git克隆</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Gerrit</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../gerrit/Apache代理添加新用户/">Apache代理添加新用户</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gerrit/Gerrit submit change after abandoning its parent/">Gerrit submit change after abandoning its parent</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gerrit/使用Apache代理路径错误/">使用Apache代理路径错误</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gerrit/刷新gerrit项目列表/">刷新gerrit项目列表</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Datastruct</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../datastruct/二叉树/">二叉树</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../datastruct/散列表/">散列表</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../datastruct/红黑树/">红黑树</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Command</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../command/linux挂载windows共享文件夹/">linux挂载windows共享文件夹</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/ssh免密登录/">ssh免密登录</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/tar命令打包去掉路径前缀/">tar命令打包去掉路径前缀</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/wget用法/">wget用法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/显示文件夹大小/">显示文件夹大小</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/更新、禁用yum仓库、只下载rpm/">更新、禁用yum仓库、只下载rpm</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/添加公钥/">添加公钥</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">C and c++</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../c and c++/动态编译/">动态编译</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../c and c++/程序运行时间/">程序运行时间</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Bash</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../bash/3.基本shell功能/">3.基本shell功能</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../bash/4.shell内置命令/">4.shell内置命令</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Automake</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../10.其它GNU工具/">10.其它GNU工具</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../12.安装/">12.安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../13.清理/">13.清理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../14.发布/">14.发布</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../15.测试套件的支持/">15.测试套件的支持</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../18.规则杂项/">18.规则杂项</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../19.Include/">19.Include</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../20.条件语句/">20.条件语句</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../23.Automake不能满足使用时/">23.Automake不能满足使用时</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../5.创建Makefile.in/">5.创建Makefile.in</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">6.扫描configure.ac，使用aclocal</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#61">6.1 配置要求</a></li>
+    
+
+    <li class="toctree-l3"><a href="#63-aclocalm4">6.3 自动生成aclocal.m4</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#631-aclocal">6.3.1 aclocal接受的一些选项。</a></li>
+        
+            <li><a class="toctree-l4" href="#632">6.3.2 宏搜索路径</a></li>
+        
+            <li><a class="toctree-l4" href="#633-aclocal">6.3.3 编写自己的aclocal宏</a></li>
+        
+            <li><a class="toctree-l4" href="#634">6.3.4 处理本地宏</a></li>
+        
+            <li><a class="toctree-l4" href="#635">6.3.5 编号</a></li>
+        
+            <li><a class="toctree-l4" href="#636-aclocal">6.3.6 aclocal的未来</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#64-automakeautoconf">6.4 Automake提供的Autoconf宏</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_1">公共宏</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../7.文件夹/">7.文件夹</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../8.构建程序和库/">8.构建程序和库</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../9.其它派生对象/">9.其它派生对象</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Autogen</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../autogen/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Autoconf</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../autoconf/10.编写Autoconf宏/">10.编写Autoconf宏</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/11.便携式shell编程/">11.便携式shell编程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/14.手动配置/">14.手动配置</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/15.Site配置/">15.Site配置</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/4.初始化和输出文件/">4.初始化和输出文件</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/5.现有测试/">5.现有测试</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/6.编写测试/">6.编写测试</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/7.测试结果/">7.测试结果</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/8.使用M4编程/">8.使用M4编程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/9.使用M4sh编程/">9.使用M4sh编程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Algorithm</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../algorithm/加权有向图的最短路径/">加权有向图的最短路径</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../algorithm/复杂度分析/">复杂度分析</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../algorithm/选择排序/">选择排序</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Sink</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Automake &raquo;</li>
+        
+      
+    
+    <li>6.扫描configure.ac，使用aclocal</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="61">6.1 配置要求</h2>
+<p>唯一的要求就是在configure.ac文件中加上<code>AM_INIT_AUTOMAKE</code>宏。</p>
+<p>下面是几个Automake要求的但是不会被<code>AM_INIT_AUTOMAKE</code>运行的宏</p>
+<ul>
+<li>AC_CONFIG_FILES</li>
+<li>AC_OUTPUT
+    这两个经常在末尾被调用，指明了哪些文件会被生成。如果以.am结尾则生成.in结尾的文件。不能识别shell变量，需要在<code>AC_SUBST</code>中注册，并且以<code>${xxx}</code>形式引用才可识别。</li>
+</ul>
+<pre><code class="make">    AC_SUBST([APIVERSION], …)
+    …
+    AC_CONFIG_FILES(
+      [tests/aclocal-${APIVERSION}:tests/aclocal.in],
+      [chmod +x tests/aclocal-${APIVERSION}],
+      [APIVERSION=$APIVERSION])
+    AC_CONFIG_FILES(
+      [tests/automake-${APIVERSION}:tests/automake.in],
+      [chmod +x tests/automake-${APIVERSION}])
+</code></pre>
+
+<ul>
+<li>等等...</li>
+</ul>
+<h2 id="63-aclocalm4">6.3 自动生成aclocal.m4</h2>
+<p>一些宏必须被定义在aclocal.m4中，否则autoconf不会找到他们。</p>
+<p>aclocal可以根据configure.ac生成aclocal.m4。首先aclocal扫描所有的.m4文件搜集宏定义，然后扫描configure.ac，所有在第一步找到的宏及其依赖的宏都会被放在aclocal.m4文件中。如果本地没有找到就会在系统层面的目录中寻找。</p>
+<p>通常宏放到aclocal.m4中是通过复制整个文件内容来完成的。但是通过命令参数<code>-I</code>来指定相对路径时，使用<code>m4_include</code>代替复制它到aclocal.m4文件中；指定绝对路径时或者是系统层面的目录时，会直接复制过来。故最好使用<code>-I `pwd`/reldir</code>代替<code>-I reldir</code>。</p>
+<p>acinclude.m4也会被指定放到aclocal.m4文件中，建议不要在新包中使用该文件。</p>
+<p>操作aclocal.m4时，aclocal运行<code>autom4te</code> (see <a href="http://www.gnu.org/software/autoconf/manual/autoconf.html#Using-autom4te">Using Autom4te</a> in The Autoconf Manual) 追踪哪些宏被真正的使用了。autom4e也要存在于PATH环境变量中。</p>
+<h3 id="631-aclocal">6.3.1 aclocal接受的一些选项。</h3>
+<p>比较重要的两个选项</p>
+<p>-I dir</p>
+<pre><code>Add the directory dir to the list of directories searched for .m4 files.
+</code></pre>
+<p>--install</p>
+<pre><code>Install system-wide third-party macros into the first directory specified with ‘-I dir’ instead of copying them in the output file. Note that this will happen also if dir is an absolute path.
+
+When this option is used, and only when this option is used, aclocal will also honor ‘#serial number’ lines that appear in macros: an M4 file is ignored if there exists another M4 file with the same basename and a greater serial number in the search path (see Serials).
+</code></pre>
+<h3 id="632">6.3.2 宏搜索路径</h3>
+<p>默认的搜索路径及顺序:
+- acdir-APIVERSION      APIVERSION取决于Automake的版本
+- acdir     此目录适用于第三方.m4文件，automake构建时被配置。通常被配置为${prefix}/share/aclocal/</p>
+<p>修改搜素路径方式一：
+<code>-I dir1 -I dir2</code>
+把会dir加到默认的前面：<code>dir1 -&gt; dir2 -&gt; 默认路径</code></p>
+<p>修改搜素路径方式二：
+dirlist</p>
+<p>修改搜素路径方式三：
+ACLOCAL_PATH</p>
+<h3 id="633-aclocal">6.3.3 编写自己的aclocal宏</h3>
+<p>这个技术可以被用于想要支持自己的Autoconf宏被其它程序使用的库（This can be used by libraries that want to supply their own Autoconf macros for use by other programs）。比如，gettext库支持AM_GNU_GETTEXT宏被用于任何使用gettext的包。库安装之后，其宏也被安装，这样aclocal就能找到它。</p>
+<p>A macro file’s name should end in .m4. Such files should be installed in $(datadir)/aclocal. This is as simple as writing: </p>
+<pre><code>aclocaldir = $(datadir)/aclocal
+aclocal_DATA = mymacro.m4 myothermacro.m4
+</code></pre>
+<p>宏文件应该由一系列的<code>quoted AC_DEFUN</code>(see <a href="http://www.gnu.org/software/autoconf/manual/autoconf.html#Macro-Definitions">Macro Definitions</a> in The Autoconf Manual)组成。</p>
+<h3 id="634">6.3.4 处理本地宏</h3>
+<p>Autoconf提供的功能测试不能满足所有的需求。人们需要用自己的宏或者第三方宏补充现有的测试。有以下两种方式：</p>
+<ul>
+<li>在acinclude.m4中列出你所有的宏</li>
+<li>（推荐方法）将每个宏写到自己的文件中然后放到一个目录中（通常是m4），然后在configure.ac中添加变量：<code>AC_CONFIG_MACRO_DIRS([m4])</code>。第三方的宏文件最好也放到这个目录下。</li>
+</ul>
+<p>aclocal提供了<code>--install</code>选项来复制系统层面的宏到你本地的宏目录，帮助你解决上面的问题。本地的宏比系统层面的宏有优先权。推荐在每次运行aclocal时使用<code>--install</code>选项。</p>
+<h3 id="635">6.3.5 编号</h3>
+<p>为了区分一个宏的版本。
+位于M4文件的宏定义的前面。
+<code>#</code>必须是此行的第一个字符，允许在version之后添加其他字符</p>
+<pre><code class="make">    #serial version garbage
+</code></pre>
+
+<p>使用了alcohol的--install选项的话，aclocal会选择含有#serial的或者编号比较新的那个文件。此编号对应的是整个文件，而不是单一的一个宏。</p>
+<h3 id="636-aclocal">6.3.6 aclocal的未来</h3>
+<p>aclocal可能会消失。因为处理M4的宏是Autoconf的任务。</p>
+<p>永远不要自己调用aclocal，让它处于autoreconf和Automake的构建规则的控制下。</p>
+<p>很多包含有bootstrap或者autogen.sh脚本，实际上他们只是安照正确的顺序调用命令（aclocal, libtoolize, gettextize or autopoint, autoconf, autoheader, and automake），这些工作autoreconf就可以做到。</p>
+<h2 id="64-automakeautoconf">6.4 Automake提供的Autoconf宏</h2>
+<p>• Public Macros:        Macros that you can use.
+• Obsolete Macros:      Macros that will soon be removed.
+• Private Macros:       Macros that you should not use. </p>
+<h3 id="_1">公共宏</h3>
+<h4 id="am_init_automake-options">AM_INIT_AUTOMAKE ([options])</h4>
+<p>使用空格分隔的automake选项。</p>
+<pre><code>    AM_INIT_AUTOMAKE([-Wno-portability])
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../7.文件夹/" class="btn btn-neutral float-right" title="7.文件夹">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../5.创建Makefile.in/" class="btn btn-neutral" title="5.创建Makefile.in"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../5.创建Makefile.in/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../7.文件夹/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

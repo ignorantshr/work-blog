@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="shihr">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>8.构建程序和库 - Sink</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "8.\u6784\u5efa\u7a0b\u5e8f\u548c\u5e93";
+    var mkdocs_page_input_path = "automake\\8.\u6784\u5efa\u7a0b\u5e8f\u548c\u5e93.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Sink</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">System</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../system/epel源/">epel源</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/rpms产出/">rpms产出</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/rsync配置/">rsync配置</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/主机不能连接mariadb/">主机不能连接mariadb</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/修改centos7语言/">修改centos7语言</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/修改mariadb编码类型/">修改mariadb编码类型</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/关闭selinux/">关闭selinux</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/开启图形界面/">开启图形界面</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/改变系统时区/">改变系统时区</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/磁盘容量扩充/">磁盘容量扩充</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/网卡不存在/">网卡不存在</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/通过shell命令写文件/">通过shell命令写文件</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Spice</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../spice/使用范例/">使用范例</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../spice/函数所在文件/">函数所在文件</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../spice/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../python/event线程/">event线程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/json格式处理/">json格式处理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/执行shell命令/">执行shell命令</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/超时装饰器/">超时装饰器</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Other</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../other/CSDN语法/">CSDN语法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/h5ai美化目录/">h5ai美化目录</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/vdsm启动失败/">vdsm启动失败</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/制作iso镜像/">制作iso镜像</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/没有打印日志/">没有打印日志</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/编译安装vdsm之后主机安装失败/">编译安装vdsm之后主机安装失败</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Make</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../make/10.使用隐含规则/">10.使用隐含规则</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/11.使用make更新归档文件/">11.使用make更新归档文件</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/16.Makefile约定/">16.Makefile约定</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/4.编写规则/">4.编写规则</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/5.编写recipes/">5.编写recipes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/6.变量/">6.变量</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/7.Makefile中的条件语句/">7.Makefile中的条件语句</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/8.转换文本函数/">8.转换文本函数</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">M4</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../m4/11.文本处理的宏/">11.文本处理的宏</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../m4/6.条件、循环、递归/">6.条件、循环、递归</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../m4/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Linux网络编程</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../linux网络编程/socket通信流程/">socket通信流程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../linux网络编程/函数/">函数</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../linux网络编程/简单TCP通信实现/">简单TCP通信实现</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Java</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../java/作用范围级别/">作用范围级别</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Gluster</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../gluster/gluster安装/">gluster安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gluster/ovirt的gluster数据恢复bug/">ovirt的gluster数据恢复bug</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gluster/清理不可用的brick/">清理不可用的brick</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gluster/结点故障/">结点故障</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Git</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../git/git rebase(修改历史提交)/">git rebase(修改历史提交)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../git/windows无法使用git克隆/">windows无法使用git克隆</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Gerrit</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../gerrit/Apache代理添加新用户/">Apache代理添加新用户</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gerrit/Gerrit submit change after abandoning its parent/">Gerrit submit change after abandoning its parent</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gerrit/使用Apache代理路径错误/">使用Apache代理路径错误</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gerrit/刷新gerrit项目列表/">刷新gerrit项目列表</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Datastruct</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../datastruct/二叉树/">二叉树</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../datastruct/散列表/">散列表</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../datastruct/红黑树/">红黑树</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Command</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../command/linux挂载windows共享文件夹/">linux挂载windows共享文件夹</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/ssh免密登录/">ssh免密登录</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/tar命令打包去掉路径前缀/">tar命令打包去掉路径前缀</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/wget用法/">wget用法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/显示文件夹大小/">显示文件夹大小</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/更新、禁用yum仓库、只下载rpm/">更新、禁用yum仓库、只下载rpm</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/添加公钥/">添加公钥</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">C and c++</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../c and c++/动态编译/">动态编译</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../c and c++/程序运行时间/">程序运行时间</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Bash</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../bash/3.基本shell功能/">3.基本shell功能</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../bash/4.shell内置命令/">4.shell内置命令</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Automake</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../10.其它GNU工具/">10.其它GNU工具</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../12.安装/">12.安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../13.清理/">13.清理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../14.发布/">14.发布</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../15.测试套件的支持/">15.测试套件的支持</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../18.规则杂项/">18.规则杂项</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../19.Include/">19.Include</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../20.条件语句/">20.条件语句</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../23.Automake不能满足使用时/">23.Automake不能满足使用时</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../5.创建Makefile.in/">5.创建Makefile.in</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../6.扫描configure.ac，使用aclocal/">6.扫描configure.ac，使用aclocal</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../7.文件夹/">7.文件夹</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">8.构建程序和库</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#81">8.1 构建一个程序</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#811">8.1.1 定义程序源</a></li>
+        
+            <li><a class="toctree-l4" href="#812">8.1.2 链接程序</a></li>
+        
+            <li><a class="toctree-l4" href="#813">8.1.3 源文件的条件编译</a></li>
+        
+            <li><a class="toctree-l4" href="#813_1">8.1.3 程序的条件编译</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#84">8.4 程序与库 的变量</a></li>
+    
+
+    <li class="toctree-l3"><a href="#85-_sources">8.5 默认的 _SOURCES</a></li>
+    
+
+    <li class="toctree-l3"><a href="#820">8.20 可执行扩展的支持</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../9.其它派生对象/">9.其它派生对象</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Autogen</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../autogen/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Autoconf</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../autoconf/10.编写Autoconf宏/">10.编写Autoconf宏</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/11.便携式shell编程/">11.便携式shell编程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/14.手动配置/">14.手动配置</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/15.Site配置/">15.Site配置</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/4.初始化和输出文件/">4.初始化和输出文件</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/5.现有测试/">5.现有测试</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/6.编写测试/">6.编写测试</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/7.测试结果/">7.测试结果</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/8.使用M4编程/">8.使用M4编程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/9.使用M4sh编程/">9.使用M4sh编程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Algorithm</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../algorithm/加权有向图的最短路径/">加权有向图的最短路径</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../algorithm/复杂度分析/">复杂度分析</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../algorithm/选择排序/">选择排序</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Sink</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Automake &raquo;</li>
+        
+      
+    
+    <li>8.构建程序和库</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="81">8.1 构建一个程序</h2>
+<p>为了构建一个程序，需要告知Automake哪些源是它的一部分，和它应该链接哪些库。</p>
+<h3 id="811">8.1.1 定义程序源</h3>
+<p>在一个包含了要被构建进程序的资源（非库或脚本）的文件夹，使用<code>PROGRAMS</code>。</p>
+<p>程序可以被安装到<code>bindir, sbindir, libexecdir, pkglibexecdir</code>，或者根本不安装(noinst_)，或者只在<code>make check</code>的时候构建（check_）。</p>
+<pre><code>bin_PROGRAMS = hello
+</code></pre>
+
+<p>与每个程序相关联的是以程序命名的几个辅助变量。这些变量是可选的，并且有合理的默认值。下面以hello为例做出说明。</p>
+<p>hello_SOURCES 用于指定哪些源文件被构建进入一个可执行文件：</p>
+<pre><code>hello_SOURCES = hello.c version.c getopt.c getopt1.c getopt.h system.h
+</code></pre>
+
+<p>改变量的默认变量是单个文件<code>hello.c</code>。</p>
+<p>一个文件夹可以构建多个程序。多个程序也可以共享一个单个的源文件。</p>
+<h3 id="812">8.1.2 链接程序</h3>
+<p>如果你想链接没有被configure发现的库，使用<code>LDADD</code>变量，链接标志则使用<code>AM_LDFLAGS</code>变量。</p>
+<p>有时，多个程序在一个目录下构建，但是链接需求不同。这种情况下，可以使用 <em>prog</em>_LDADD 变量来覆盖<code>LDADD</code>。</p>
+<p>例如，cpio、pax、mt 与库文件 libcpio.a 链接，但是同一个目录下还有另一个程序 rmt 被构建，它不需要这个库文件。并且，mt 和 rmt 只会在特定架构下被构建。下面是 cpio 的src/Makefile.am 文件的写法：</p>
+<pre><code class="make">    bin_PROGRAMS = cpio pax $(MT)
+    libexec_PROGRAMS = $(RMT)
+    EXTRA_PROGRAMS = mt rmt
+
+    LDADD = ../lib/libcpio.a $(INTLLIBS)
+    rmt_LDADD =
+
+    cpio_SOURCES = …
+    pax_SOURCES = …
+    mt_SOURCES = …
+    rmt_SOURCES = …
+</code></pre>
+
+<p>使用变量 <em>prog</em>_LDFLAGS 传递链接标志。</p>
+<h3 id="813">8.1.3 源文件的条件编译</h3>
+<p>你不能放置一个配置替换（e.g., ‘@FOO@’ or ‘$(FOO)’ where FOO is defined via AC_SUBST）到<code>_SOURCES</code>变量中。
+但是有两个方法可以达到同样的目的：1、在<code>_LDADD</code>中使用配置替换；2、使用Automake的条件语句。</p>
+<h5 id="1_ldadd">1.使用<code>_LDADD</code></h5>
+<p>Automake必须知道所有的可能用到的源文件。任何条件构建的文件都应放到合适的<code>EXTRA_</code>变量中。</p>
+<p>例如，相要 hello-linux.c 或 hello-generic.c 有条件地构建到 hello 中：</p>
+<pre><code>Makefile.am：
+    bin_PROGRAMS = hello
+    hello_SOURCES = hello-common.c
+    EXTRA_hello_SOURCES = hello-linux.c hello-generic.c
+    hello_LDADD = $(HELLO_SYSTEM)
+    hello_DEPENDENCIES = $(HELLO_SYSTEM)
+
+configure.ac：
+    case $host in
+      *linux*) HELLO_SYSTEM='hello-linux.$(OBJEXT)' ;;
+      *)       HELLO_SYSTEM='hello-generic.$(OBJEXT)' ;;
+    esac
+    AC_SUBST([HELLO_SYSTEM])
+</code></pre>
+
+<p>hello_DEPENDENCIES and hello_LDADD保证了构建和链接。</p>
+<h4 id="2automake">2.使用Automake的条件语句</h4>
+<p>这种方式更简单。还是上述的例子：</p>
+<pre><code>Makefile.am：
+    bin_PROGRAMS = hello
+    hello_SOURCES = hello-common.c
+    if LINUX
+    hello_SOURCES += hello-linux.c
+    else
+    hello_SOURCES += hello-generic.c
+    endif
+
+configure.ac：
+    AM_CONDITIONAL([LINUX],[
+        case $host in
+          *linux*) HELLO_SYSTEM='hello-linux.$(OBJEXT)' ;;
+          *)       HELLO_SYSTEM='hello-generic.$(OBJEXT)' ;;
+        esac
+    ])
+</code></pre>
+
+<p>你不需要定义<code>EXTRA_</code>变量。</p>
+<h3 id="813_1">8.1.3 程序的条件编译</h3>
+<p><code>_PROGRAMS</code>同样可以使用 <code>替换或条件语句</code> 来实现目的。</p>
+<h4 id="1configure">1.使用configure来替换</h4>
+<pre><code>bin_PROGRAMS = cpio pax $(MT)
+libexec_PROGRAMS = $(RMT)
+EXTRA_PROGRAMS = mt rmt
+</code></pre>
+
+<p><em>note</em>：As explained in <a href="https://www.gnu.org/software/automake/manual/automake.html#EXEEXT">EXEEXT</a>, Automake will rewrite bin_PROGRAMS, libexec_PROGRAMS, and EXTRA_PROGRAMS, appending ‘$(EXEEXT)’ to each binary.
+但是如果使用了变量替换，则不会扩展后缀。</p>
+<h4 id="2">2.使用条件语句</h4>
+<pre><code>bin_PROGRAMS = cpio pax
+if WANT_MT
+  bin_PROGRAMS += mt
+endif
+if WANT_RMT
+  libexec_PROGRAMS = rmt
+endif
+</code></pre>
+
+<p>这种方式不必担心 ‘$(EXEEXT)’ or EXTRA_PROGRAMS。</p>
+<h2 id="84">8.4 程序与库 的变量</h2>
+<p>有一组变量和每个程序相关，可用于修改程序的构建方式。库也类似。它们的名字呗用于命名这些变量的基础。</p>
+<p>下面，我使用名字<code>maude</code>代表程序或者库来说明这些变量。</p>
+<ul>
+<li>maude_SOURCES </li>
+<li>EXTRA_maude_SOURCES </li>
+<li>maude_LDADD </li>
+<li>maude_LDFLAGS</li>
+<li>maude_DEPENDENCIES </li>
+<li>EXTRA_maude_DEPENDENCIES </li>
+</ul>
+<h2 id="85-_sources">8.5 默认的 _SOURCES</h2>
+<p>_SOURCES variables are used to specify source files of programs (<a href="https://www.gnu.org/software/automake/manual/automake.html#A-Program">see A Program</a>), libraries (<a href="https://www.gnu.org/software/automake/manual/automake.html#A-Library">see A Library</a>), and Libtool libraries (<a href="https://www.gnu.org/software/automake/manual/automake.html#A-Shared-Library">see A Shared Library</a>). </p>
+<p>该变量没有被指定的时候，默认值是单个的同名 C文件 ，带有任何被<code>AM_DEFAULT_SOURCE_EXT</code>替换的后缀，默认的后缀是<code>.c</code>。</p>
+<pre><code>check_PROGRAMS = test1 test2 test3
+AM_DEFAULT_SOURCE_EXT = .cpp
+</code></pre>
+
+<h2 id="820">8.20 可执行扩展的支持</h2>
+<p>在一些平台，比如windows，可执行程序会被扩展成含有.exe的程序。</p>
+<p>Automake支持大部分这种转换。</p>
+<p>One thing you must be aware of is that, internally, Automake rewrites something like this:</p>
+<pre><code>bin_PROGRAMS = liver
+</code></pre>
+
+<p>to this:</p>
+<pre><code>bin_PROGRAMS = liver$(EXEEXT)
+</code></pre>
+
+<p><code>TESTS and XFAIL_TESTS</code>也会被重写如果在同一个Makefile中他们包含了已经被声明为程序的文件名。</p>
+<p>但是，这个技术不能应用于configure变量替换。这意味着如果你使用了条件构建，那么你必须自己在configure.ac中添加<code>$(EXEEXT)</code>扩展其后缀。</p>
+<p><code>no-exeext</code>选项可以关闭这个特性，它会覆盖<code>foo$(EXEEXT)</code>规则。</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../9.其它派生对象/" class="btn btn-neutral float-right" title="9.其它派生对象">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../7.文件夹/" class="btn btn-neutral" title="7.文件夹"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../7.文件夹/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../9.其它派生对象/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
