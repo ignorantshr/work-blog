@@ -112,14 +112,6 @@
 		
     <span class="caption-text">Spice</span>
     <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../使用范例/">使用范例</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../函数所在文件/">函数所在文件</a>
-                </li>
                 <li class=" current">
                     
     <a class="current" href="./">简介</a>
@@ -140,15 +132,6 @@
             <li><a class="toctree-l4" href="#_5">视频传输命令控制定义与实现</a></li>
         
             <li><a class="toctree-l4" href="#ffmpeg">FFMPEG解码库和视频传输</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#_8">各个部件对应代码库</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#vdagent">vdagent的消息数据结构</a></li>
         
         </ul>
     
@@ -270,25 +253,6 @@
                 <li class="">
                     
     <a class="" href="../../m4/简介/">简介</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Linux网络编程</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../linux网络编程/socket通信流程/">socket通信流程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../linux网络编程/函数/">函数</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../linux网络编程/简单TCP通信实现/">简单TCP通信实现</a>
                 </li>
     </ul>
 	    </li>
@@ -584,10 +548,6 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../algorithm/加权有向图的最短路径/">加权有向图的最短路径</a>
-                </li>
-                <li class="">
-                    
     <a class="" href="../../algorithm/复杂度分析/">复杂度分析</a>
                 </li>
                 <li class="">
@@ -672,13 +632,11 @@
 </div></p>
 <h2 id="ffmpeg">FFMPEG解码库和视频传输</h2>
 <h3 id="spice">关闭spice视频压缩方式</h3>
-<p>在视频重定向的模式下，spice协议的启动参数分别设定如下：</p>
-<pre><code class="shell">    mage-compression = auto_glz 
+<p>在视频重定向的模式下，spice协议的启动参数分别设定如下：
+    mage-compression = auto_glz 
     jpeg-wan-compression = never 
     zlib-glz-wan-compression = never 
-    streaming-video = off
-</code></pre>
-
+    streaming-video = off</p>
 <h3 id="guest-osffmpeg">在GUEST OS端FFMPEG解码库的重定义</h3>
 <p><div align="center">
     <img alt="" src="../img/控制信息数据流.png" />
@@ -696,98 +654,26 @@ Guest OS 中修改了 FFMPEG 的解码库,在解码库中相关函数中截获�
     <img alt="" src="../img/视频解码库的函数调用.png" />
 </div>
 <code>ffplay.c</code></p>
-<h1 id="_8">各个部件对应代码库</h1>
-<p>缺包时可能需要的是开发包</p>
-<p>ffmpeg编码库，完成</p>
-<p><code>spice-gtk</code> client
-0.34下载完整的源码包进行构建</p>
-<p><code>spice</code> server    0.14完成构建</p>
-<p><code>vdagent-win-0.8.0</code> 即vdagent、SPICE agent，包含在spice-nsis中
-<a href="https://blog.csdn.net/icycode/article/details/49339749">cximge的编译安装</a>
-不能编译出动态库，无法进行下一步</p>
-<pre><code class="shell">./configure --with-extra-includes=/root/spice-package/cximage599c/cximage/jasper/include/
-</code></pre>
-
-<p>动态库的安装（不行）：
-libcximage.so文件放在<code>/usr/lib64/</code>下，
-添加文件<code>/usr/lib64/pkgconfig/libcximage.so</code>:</p>
-<pre><code class="shell">    prefix=/usr
-    exec_prefix=${prefix}
-    libdir=/usr/lib64
-    sharedlibdir=${libdir}
-    includedir=/usr/include
-
-    Name: cximage
-    Description: cximage library
-    Version: 5.99
-
-    Requires:
-    Libs: -L${libdir} -L${sharedlibdir} -lz
-    Cflags: -fPIC -shared
-</code></pre>
-
-<p><code>spice-nsis</code> windows guest<br>
-工具打包项目：<code>spice-vdagent</code>（及它需要的<code>vioserial</code>驱动）、<code>QXL</code>驱动 <br>
-makensis -DSPICE -DVERSION=1.0 win-guest-tools.nsis
-还是需要这些东西塞进去才能打包为exe文件。</p>
+<p><code>vdagent-win-0.8.0</code>vdagent</p>
+<p><code>spice-gtk</code>client</p>
+<p><code>spice-nsis</code>guest</p>
+<p><code>spice</code>server</p>
 <p>需要修改的代码：</p>
 <ul>
-<li>
-<p>vdagent-win-0.8.0</p>
-</li>
-<li>
-<p>vd_agent.h</p>
-<ul>
+<li>vdagent-win-0.8.0<ul>
+<li>vd_agent.h<ul>
 <li>添加命令枚举类</li>
 <li>定义消息的结构体</li>
 </ul>
 </li>
-<li>
-<p>vdagent.cpp</p>
-<ul>
+<li>vdagent.cpp<ul>
 <li>dispatch_message(VDAgentMessage* msg, uint32_t port)</li>
 <li>处理命令，将数据发送给客户端</li>
 </ul>
 </li>
-<li>
-<p>在视频重定向的模式下，SPICE 协议的启动参数分别设定如下。</p>
+</ul>
 </li>
 </ul>
-<pre><code class="shell">    mage-compression = auto_glz
-    jpeg-wan-compression = never
-    zlib-glz-wan-compression = never
-    streaming-video  = off
-</code></pre>
-
-<h3 id="vdagent">vdagent的消息数据结构</h3>
-<pre><code class="C">typedef struct SPICE_ATTR_PACKED VDIChunkHeader {
-    uint32_t port;
-    uint32_t size;
-} VDIChunkHeader;
-</code></pre>
-
-<p>port的取值：
-    enum {
-        VDP_CLIENT_PORT = 1,
-        VDP_SERVER_PORT,
-        VDP_END_PORT
-    };</p>
-<pre><code class="C">typedef struct ALIGN_VC VDIChunk {
-    VDIChunkHeader hdr;
-    uint8_t data[0];
-} ALIGN_GCC VDIChunk;
-</code></pre>
-
-<pre><code class="C">typedef struct SPICE_ATTR_PACKED VDAgentMessage {
-    uint32_t protocol;
-    uint32_t type;
-    uint64_t opaque;//消息掩码，标识出消息的最终接收端
-    uint32_t size;
-    uint8_t data[0];
-} VDAgentMessage;
-</code></pre>
-
-<p>在virtio端口中的完整数据的大小等于sizeof(VDIChunkHeader) + sizeof(VDAgentMessage) + variable_data_len. （variable_data_len指的是可变长度数据的大小，即VDAgentMessage中的size值）。</p>
               
             </div>
           </div>
@@ -798,7 +684,7 @@ makensis -DSPICE -DVERSION=1.0 win-guest-tools.nsis
         <a href="../../python/event线程/" class="btn btn-neutral float-right" title="event线程">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../函数所在文件/" class="btn btn-neutral" title="函数所在文件"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../system/通过shell命令写文件/" class="btn btn-neutral" title="通过shell命令写文件"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -824,7 +710,7 @@ makensis -DSPICE -DVERSION=1.0 win-guest-tools.nsis
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../函数所在文件/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../system/通过shell命令写文件/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../../python/event线程/" style="color: #fcfcfc">Next &raquo;</a></span>
