@@ -17,6 +17,8 @@ nav:
         - 通过shell命令写文件: system/通过shell命令写文件.md
     - Spice:
         - 简介: spice/简介.md
+        - 使用范例: spice/使用范例.md
+        - 函数所在文件: spice/函数所在文件.md
     - Python:
         - event线程: python/event线程.md
         - json格式处理: python/json格式处理.md
@@ -45,6 +47,10 @@ nav:
         - 简介: m4/简介.md
     - Java:
         - 作用范围级别: java/作用范围级别.md
+    - Linux网络编程:
+        - 函数: linux网络编程/函数.md
+        - socket通信流程: linux网络编程/socket通信流程.md
+        - 简单tcp通信实现: linux网络编程/简单tcp通信实现.md
     - Gluster:
         - gluster安装: gluster/gluster安装.md
         - ovirt的gluster数据恢复bug: gluster/ovirt的gluster数据恢复bug.md
