@@ -90,6 +90,15 @@
     <a class="current" href="./">开启图形界面</a>
     <ul class="subnav">
             
+    <li class="toctree-l3"><a href="#_1">安装图形界面</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_2">设置文本界面</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_3">设置图形界面</a></li>
+    
+
     </ul>
                 </li>
                 <li class="">
@@ -254,6 +263,10 @@
                     
     <a class="" href="../../java/作用范围级别/">作用范围级别</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../../java/synchronized关键字/">synchronized关键字</a>
+                </li>
     </ul>
 	    </li>
           
@@ -363,6 +376,10 @@
                 <li class="">
                     
     <a class="" href="../../command/linux挂载windows共享文件夹/">linux挂载windows共享文件夹</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/sed/">sed</a>
                 </li>
                 <li class="">
                     
@@ -601,11 +618,21 @@
           <div role="main">
             <div class="section">
               
-                <ol>
-<li>yum groupinstall "GNOME Desktop" "Graphical Administration Tools"</li>
-<li>ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target</li>
-<li>reboot</li>
-</ol>
+                <h2 id="_1">安装图形界面</h2>
+<pre><code class="shell">yum groupinstall &quot;GNOME Desktop&quot; &quot;Graphical Administration Tools&quot;
+</code></pre>
+
+<h2 id="_2">设置文本界面</h2>
+<pre><code class="shell">systemctl set-default multi-user.target
+</code></pre>
+
+<p>或</p>
+<pre><code class="shell">ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target
+</code></pre>
+
+<h2 id="_3">设置图形界面</h2>
+<pre><code class="shell">systemctl set-default graphical.target
+</code></pre>
               
             </div>
           </div>

@@ -8,7 +8,7 @@
   
   <meta name="author" content="shihr">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>作用范围级别 - Sink</title>
+  <title>sed - Sink</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "\u4f5c\u7528\u8303\u56f4\u7ea7\u522b";
-    var mkdocs_page_input_path = "java\\\u4f5c\u7528\u8303\u56f4\u7ea7\u522b.md";
+    var mkdocs_page_name = "sed";
+    var mkdocs_page_input_path = "command\\sed.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -247,16 +247,13 @@
 		
     <span class="caption-text">Java</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">作用范围级别</a>
-    <ul class="subnav">
-            
-    </ul>
+    <a class="" href="../../java/作用范围级别/">作用范围级别</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../synchronized关键字/">synchronized关键字</a>
+    <a class="" href="../../java/synchronized关键字/">synchronized关键字</a>
                 </li>
     </ul>
 	    </li>
@@ -366,35 +363,38 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../command/linux挂载windows共享文件夹/">linux挂载windows共享文件夹</a>
+    <a class="" href="../linux挂载windows共享文件夹/">linux挂载windows共享文件夹</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">sed</a>
+    <ul class="subnav">
+            
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../command/sed/">sed</a>
+    <a class="" href="../ssh免密登录/">ssh免密登录</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../command/ssh免密登录/">ssh免密登录</a>
+    <a class="" href="../tar命令打包去掉路径前缀/">tar命令打包去掉路径前缀</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../command/tar命令打包去掉路径前缀/">tar命令打包去掉路径前缀</a>
+    <a class="" href="../wget用法/">wget用法</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../command/wget用法/">wget用法</a>
+    <a class="" href="../显示文件夹大小/">显示文件夹大小</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../command/显示文件夹大小/">显示文件夹大小</a>
+    <a class="" href="../更新、禁用yum仓库、只下载rpm/">更新、禁用yum仓库、只下载rpm</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../command/更新、禁用yum仓库、只下载rpm/">更新、禁用yum仓库、只下载rpm</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../command/添加公钥/">添加公钥</a>
+    <a class="" href="../添加公钥/">添加公钥</a>
                 </li>
     </ul>
 	    </li>
@@ -595,11 +595,11 @@
     
       
         
-          <li>Java &raquo;</li>
+          <li>Command &raquo;</li>
         
       
     
-    <li>作用范围级别</li>
+    <li>sed</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -609,10 +609,12 @@
           <div role="main">
             <div class="section">
               
-                <p>访问控制符</p>
-<p><img alt="" src="../img/访问控制符.png" /></p>
-<p>protected、private不能修饰类，除了内部类。</p>
-<p>访问控制只停留在编译层面，并没有真正的访问控制权限，可以通过反射等手段修改。</p>
+                <p>替换文件中的内容：</p>
+<pre><code class="shell">sed -i 's/refa/hyxz/' rpms.list
+</code></pre>
+
+<p>选项含意：
+- -i：写入到文件中</p>
               
             </div>
           </div>
@@ -620,10 +622,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../synchronized关键字/" class="btn btn-neutral float-right" title="synchronized关键字">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../ssh免密登录/" class="btn btn-neutral float-right" title="ssh免密登录">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../m4/简介/" class="btn btn-neutral" title="简介"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../linux挂载windows共享文件夹/" class="btn btn-neutral" title="linux挂载windows共享文件夹"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -649,10 +651,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../m4/简介/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../linux挂载windows共享文件夹/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../synchronized关键字/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../ssh免密登录/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
