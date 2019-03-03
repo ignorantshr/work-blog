@@ -47,6 +47,7 @@ nav:
         - 简介: m4/简介.md
     - Java:
         - 作用范围级别: java/作用范围级别.md
+        - synchronized关键字: java/synchronized关键字.md
     - Linux网络编程:
         - 函数: linux网络编程/函数.md
         - socket通信流程: linux网络编程/socket通信流程.md
@@ -70,6 +71,7 @@ nav:
         - 红黑树: datastruct/红黑树.md
     - Command:
         - linux挂载windows共享文件夹: command/linux挂载windows共享文件夹.md
+        - sed: command/sed.md
         - ssh免密登录: command/ssh免密登录.md
         - tar命令打包去掉路径前缀: command/tar命令打包去掉路径前缀.md
         - wget用法: command/wget用法.md
