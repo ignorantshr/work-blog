@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="shihr">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>模式 - Sink</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u6a21\u5f0f";
+    var mkdocs_page_input_path = "\u8bbe\u8ba1\u6a21\u5f0f\\\u6a21\u5f0f.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Sink</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">System</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../system/epel源/">epel源</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/rpms产出/">rpms产出</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/rsync配置/">rsync配置</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/主机不能连接mariadb/">主机不能连接mariadb</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/修改centos7语言/">修改centos7语言</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/修改mariadb编码类型/">修改mariadb编码类型</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/关闭selinux/">关闭selinux</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/开启图形界面/">开启图形界面</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/改变系统时区/">改变系统时区</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/磁盘容量扩充/">磁盘容量扩充</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/网卡不存在/">网卡不存在</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/通过shell命令写文件/">通过shell命令写文件</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">虚拟机迁移</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../虚拟机迁移/libguestfs架构/">libguestfs架构</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../虚拟机迁移/以ova为例virt-v2v磁盘转换流程/">以ova为例virt-v2v磁盘转换流程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../虚拟机迁移/virt-p2v-make-disk脚本分析/">virt-p2v-make-disk脚本分析</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../虚拟机迁移/virt-p2v介绍/">virt-p2v介绍</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../虚拟机迁移/virt-p2v磁盘转换流程/">virt-p2v磁盘转换流程</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Spice</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../spice/简介/">简介</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../spice/使用范例/">使用范例</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../spice/函数所在文件/">函数所在文件</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../python/event线程/">event线程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/json格式处理/">json格式处理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/执行shell命令/">执行shell命令</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/超时装饰器/">超时装饰器</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Other</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../other/CSDN语法/">CSDN语法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/h5ai美化目录/">h5ai美化目录</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/vdsm启动失败/">vdsm启动失败</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/制作iso镜像/">制作iso镜像</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/没有打印日志/">没有打印日志</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/编译安装vdsm之后主机安装失败/">编译安装vdsm之后主机安装失败</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Make</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../make/10.使用隐含规则/">10.使用隐含规则</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/11.使用make更新归档文件/">11.使用make更新归档文件</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/16.Makefile约定/">16.Makefile约定</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/4.编写规则/">4.编写规则</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/5.编写recipes/">5.编写recipes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/6.变量/">6.变量</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/7.Makefile中的条件语句/">7.Makefile中的条件语句</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/8.转换文本函数/">8.转换文本函数</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">M4</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../m4/11.文本处理的宏/">11.文本处理的宏</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../m4/6.条件、循环、递归/">6.条件、循环、递归</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../m4/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Java</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../java/IO/">IO</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../java/作用范围级别/">作用范围级别</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../java/synchronized关键字/">synchronized关键字</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">设计模式</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../设计原则/">设计原则</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">模式</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#1">1. 策略模式</a></li>
+    
+
+    <li class="toctree-l3"><a href="#2">2. 观察者模式</a></li>
+    
+
+    <li class="toctree-l3"><a href="#3">3. 装饰者模式</a></li>
+    
+
+    <li class="toctree-l3"><a href="#4">4. 简单工厂、工厂方法与抽象工厂模式</a></li>
+    
+
+    <li class="toctree-l3"><a href="#5">5. 单例模式</a></li>
+    
+
+    <li class="toctree-l3"><a href="#6">6. 命令模式</a></li>
+    
+
+    <li class="toctree-l3"><a href="#7">7.  适配器模式</a></li>
+    
+
+    <li class="toctree-l3"><a href="#8">8. 外观模式</a></li>
+    
+
+    <li class="toctree-l3"><a href="#9">9. 模板方法模式</a></li>
+    
+
+    <li class="toctree-l3"><a href="#10">10. 迭代器模式</a></li>
+    
+
+    <li class="toctree-l3"><a href="#11">11. 组合模式</a></li>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Linux网络编程</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../linux网络编程/函数/">函数</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../linux网络编程/socket通信流程/">socket通信流程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../linux网络编程/简单tcp通信实现/">简单tcp通信实现</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Gluster</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../gluster/gluster安装/">gluster安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gluster/ovirt的gluster数据恢复bug/">ovirt的gluster数据恢复bug</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gluster/清理不可用的brick/">清理不可用的brick</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gluster/结点故障/">结点故障</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Git</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../git/git rebase(修改历史提交)/">git rebase(修改历史提交)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../git/windows无法使用git克隆/">windows无法使用git克隆</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Gerrit</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../gerrit/Apache代理添加新用户/">Apache代理添加新用户</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gerrit/Gerrit submit change after abandoning its parent/">Gerrit submit change after abandoning its parent</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gerrit/使用Apache代理路径错误/">使用Apache代理路径错误</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gerrit/刷新gerrit项目列表/">刷新gerrit项目列表</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Datastruct</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../datastruct/二叉树/">二叉树</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../datastruct/散列表/">散列表</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../datastruct/红黑树/">红黑树</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Command</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../command/linux挂载windows共享文件夹/">linux挂载windows共享文件夹</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/sed/">sed</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/ssh免密登录/">ssh免密登录</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/tar命令打包去掉路径前缀/">tar命令打包去掉路径前缀</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/wget用法/">wget用法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/显示文件夹大小/">显示文件夹大小</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/更新、禁用yum仓库、只下载rpm/">更新、禁用yum仓库、只下载rpm</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/添加公钥/">添加公钥</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">C and c++</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../c and c++/动态编译/">动态编译</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../c and c++/程序运行时间/">程序运行时间</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Bash</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../bash/3.基本shell功能/">3.基本shell功能</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../bash/4.shell内置命令/">4.shell内置命令</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Automake</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../automake/10.其它GNU工具/">10.其它GNU工具</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/12.安装/">12.安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/13.清理/">13.清理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/14.发布/">14.发布</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/15.测试套件的支持/">15.测试套件的支持</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/18.规则杂项/">18.规则杂项</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/19.Include/">19.Include</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/20.条件语句/">20.条件语句</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/23.Automake不能满足使用时/">23.Automake不能满足使用时</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/5.创建Makefile.in/">5.创建Makefile.in</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/6.扫描configure.ac，使用aclocal/">6.扫描configure.ac，使用aclocal</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/7.文件夹/">7.文件夹</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/8.构建程序和库/">8.构建程序和库</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/9.其它派生对象/">9.其它派生对象</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Autogen</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../autogen/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Autoconf</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../autoconf/10.编写Autoconf宏/">10.编写Autoconf宏</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/11.便携式shell编程/">11.便携式shell编程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/14.手动配置/">14.手动配置</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/15.Site配置/">15.Site配置</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/4.初始化和输出文件/">4.初始化和输出文件</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/5.现有测试/">5.现有测试</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/6.编写测试/">6.编写测试</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/7.测试结果/">7.测试结果</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/8.使用M4编程/">8.使用M4编程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/9.使用M4sh编程/">9.使用M4sh编程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Algorithm</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../algorithm/复杂度分析/">复杂度分析</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../algorithm/选择排序/">选择排序</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Sink</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>设计模式 &raquo;</li>
+        
+      
+    
+    <li>模式</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="1">1. 策略模式</h2>
+<p><strong>定义</strong>：定义了算法族，分别封装起来，让他们可以互相替换，此模式让算法的变换独立于使用算法的客户。</p>
+<h2 id="2">2. 观察者模式</h2>
+<p><strong>定义</strong>：定义了对象之间一对多依赖，这样一来，当一个对象改变状态时，它的所有依赖者都会受到通知并自动更新。</p>
+<ul>
+<li>java内置的观察者模式：Observer（观察者）与Observable（观察对象），setChanges()，notifyObservers()（拉取），notifyObservers(Object arg)（推送）。</li>
+</ul>
+<h2 id="3">3. 装饰者模式</h2>
+<p><strong>定义</strong>：动态地将责任附加到对象上。若要扩展功能，装饰者提供了比继承更具有弹性的替代方案。</p>
+<ul>
+<li>装饰者与被装饰者有相同的超类型，以此达到<strong>类型匹配</strong>，而不是利用继承获得行为。</li>
+<li>装饰者可以在所委托被装饰者的行为之前或之后，加上自己的行为，已达到特定的目的。</li>
+<li>java.io包</li>
+</ul>
+<h2 id="4">4. 简单工厂、工厂方法与抽象工厂模式</h2>
+<p><strong>简单工厂</strong>：使用另一个对象来作为创建对象的工厂。</p>
+<p><strong>工厂方法模式定义</strong>：定义了一个创建对象的接口，但由子类决定要实例化的类是哪一个。工厂方法让类把实例化推迟到子类。</p>
+<p><strong>抽象工厂模式定义</strong>：提供一个接口，用于创建相关或依赖对象的家族，而不需要明确指定具体类。</p>
+<p>简单工厂与工厂方法之间的差异：</p>
+<pre><code>简单工厂在一个地方把所有东西都做完了；工厂方法却创建一个框架，让子类决定要如何实现。
+</code></pre>
+
+<p>工厂方法与抽象工厂之间的差异：</p>
+<table>
+<thead>
+<tr>
+<th align="center">工厂方法</th>
+<th align="center">抽象工厂</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">使用继承创建对象</td>
+<td align="center">使用对象的组合创建对象</td>
+</tr>
+<tr>
+<td align="center">通过子类创建对象，由子类负责决定具体的类型；把客户代码从需要实例化的具体类中解耦</td>
+<td align="center">提供一个用于创建一个产品家族的抽象类型，该类型的子类定义了产品被产生的方法</td>
+</tr>
+<tr>
+<td align="center">只创建一个产品</td>
+<td align="center">可以将一群相关的产品组合起来；加入新产品就必须改变接口</td>
+</tr>
+</tbody>
+</table>
+<p>抽象工厂的方法经常以工厂方法的方式实现。</p>
+<h2 id="5">5. 单例模式</h2>
+<p><strong>定义</strong>：确保一个类只有一个实例，并提供一个全局访问点。</p>
+<ul>
+<li>解决线程不安全问题：1. 使用synchronized；2. 类加载时立即实例化单个实例；3. 双重检查加锁。</li>
+<li>程序有多个类加载器时，需要自行指定类加载器，并指定同一个类加载器。</li>
+</ul>
+<h2 id="6">6. 命令模式</h2>
+<p><strong>定义</strong>：将请求封装成对象，这可以让你使用不同的请求、队列或日志请求来参数化其它对象。支持撤销操作。</p>
+<p>当需要发出请求的对象和执行请求的对象解耦时使用此模式。两者是通过命令对象来沟通的。</p>
+<p>空对象（null object），不想处理null时可用空对象代替，do nothing。</p>
+<ul>
+<li>client，command，concreteCommand，receiver，invoker</li>
+<li>宏命令</li>
+<li>队列，日志</li>
+</ul>
+<h2 id="7">7.  适配器模式</h2>
+<p><strong>定义</strong>：将一个类的接口，转换成客户期望的另一个接口。适配器让原本接口不兼容的类可以合作无间。</p>
+<ul>
+<li>类适配器，对象适配器，双向适配器</li>
+</ul>
+<p>模式之间的区别：</p>
+<table>
+<thead>
+<tr>
+<th align="center">模式</th>
+<th align="center">目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">装饰者</td>
+<td align="center">不改变接口，但加入责任</td>
+</tr>
+<tr>
+<td align="center">适配器</td>
+<td align="center">将接口转变为另一个接口</td>
+</tr>
+<tr>
+<td align="center">外观</td>
+<td align="center">让接口更简单</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8">8. 外观模式</h2>
+<p><strong>定义</strong>：提供了一个统一的接口，用来访问子系统中的一群接口。外观定义了一个高层接口，让子系统更容易使用。让客户与子系统之间避免紧耦合。</p>
+<h2 id="9">9. 模板方法模式</h2>
+<p><strong>定义</strong>：在一个方法中定义一个算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以在不改变算法结构的情况下重新定义算法中的某些步骤。</p>
+<ul>
+<li>保持好抽象方法的数目，在子类实现方法的数目与步骤数量之间折中。</li>
+<li>为了防止子类改变模板方法中的算法，可以将模板方法声明为final。</li>
+<li>模板方法模式与策略模式都封装算法，前者用继承，后者用组合。</li>
+<li>工厂方法时模板方法的一种特殊版本。</li>
+</ul>
+<p>钩子的几种用法：</p>
+<ul>
+<li>让子类实现算法中的可选部分</li>
+<li>在钩子对于子类的实现步重要的时候，子类可对钩子置之不理</li>
+<li>让子类能够有机会对模板方法中某些即将发生（或刚发生）的步骤做出反应</li>
+</ul>
+<h2 id="10">10. 迭代器模式</h2>
+<p><strong>定义</strong>：提供一种方法顺序访问一个聚合对象中的各个元素，而又不暴露其内部的表示。</p>
+<ul>
+<li>把遍历的任务放在迭代器上，而不是聚合上。简化了聚合的接口和实现，也让责任各得其所。</li>
+<li>迭代器意味着无序的。</li>
+<li>迭代器将遍历聚合的工作封装进一个对象中。</li>
+</ul>
+<h2 id="11">11. 组合模式</h2>
+<p><strong>定义</strong>：允许你将对象组合成<strong>树形结构</strong>来表现<code>整体/部分</code>层次结构。组合能让客户以一致的方式处理个别对象及对象组合。</p>
+<ul>
+<li>能把相同的操作应用在组合和个别的对象上。</li>
+<li>在实现该模式时，有很多设计上的折中。要根据需求平衡透明性和安全性。</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../linux网络编程/函数/" class="btn btn-neutral float-right" title="函数">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../设计原则/" class="btn btn-neutral" title="设计原则"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../设计原则/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../linux网络编程/函数/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
