@@ -15,6 +15,12 @@ nav:
         - 磁盘容量扩充: system/磁盘容量扩充.md
         - 网卡不存在: system/网卡不存在.md
         - 通过shell命令写文件: system/通过shell命令写文件.md
+    - 虚拟机迁移:
+        - libguestfs架构: 虚拟机迁移/libguestfs架构.md
+        - 以ova为例virt-v2v磁盘转换流程: 虚拟机迁移/以ova为例virt-v2v磁盘转换流程.md
+        - virt-p2v-make-disk脚本分析: 虚拟机迁移/virt-p2v-make-disk脚本分析.md
+        - virt-p2v介绍: 虚拟机迁移/virt-p2v介绍.md
+        - virt-p2v磁盘转换流程: 虚拟机迁移/virt-p2v磁盘转换流程.md
     - Spice:
         - 简介: spice/简介.md
         - 使用范例: spice/使用范例.md
@@ -46,8 +52,12 @@ nav:
         - 6.条件、循环、递归: m4/6.条件、循环、递归.md
         - 简介: m4/简介.md
     - Java:
+        - IO: java/IO.md
         - 作用范围级别: java/作用范围级别.md
         - synchronized关键字: java/synchronized关键字.md
+    - 设计模式:
+        - 设计原则: 设计模式/设计原则.md
+        - 模式: 设计模式/模式.md
     - Linux网络编程:
         - 函数: linux网络编程/函数.md
         - socket通信流程: linux网络编程/socket通信流程.md

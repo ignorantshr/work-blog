@@ -9,7 +9,7 @@ For full introductional documentation visit [mkdocs.org](https://mkdocs.org).
 * `mkdocs serve` - Start the live-reloading docs server.
 * `mkdocs build` - Build the documentation site.
 * `mkdocs help` - Print this help message.
-
+* `mkdocs gh-deploy -r github` - Deploy this blog.
 ## Project layout
 
     mkdocs.yml    # The configuration file.
