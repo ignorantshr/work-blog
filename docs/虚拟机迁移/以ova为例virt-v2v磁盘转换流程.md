@@ -1,4 +1,4 @@
-### 1.解析命令行
+### 1.解析命令行，初始化输入输出模块
 
 ```ocaml
 let cmdline, input, output = parse_cmdline () in
@@ -45,7 +45,7 @@ NICs:
         Bridge "nat" [e1000]
 ```
 
-### 4.创建overlay磁盘（copy模式独有）
+### 3.创建overlay磁盘（copy模式独有）
 
 ```ocaml
 let overlays = create_overlays source.s_disks in
@@ -57,19 +57,19 @@ let overlays = create_overlays source.s_disks in
 qemu-img 'create' '-q' '-f' 'qcow2' '-b' '/var/tmp/ova.x0YFry/centos2-disk1.vmdk' '-o' 'compat=1.1,backing_fmt=vmdk' '/var/tmp/v2vovl36099b.qcow2'
 ```
 
-### 5.初始化target结构体（copy模式独有）
+### 4.初始化target结构体（copy模式独有）
 
 ```ocaml
 let targets = init_targets cmdline output source overlays in
 ```
 
-### 6.创建处理器
+### 5.创建处理器
 
 ```ocaml
 let g = open_guestfs ~identifier:"v2v" () in
 ```
 
-### 7.启动appliance、守护进程guestfsd
+### 6.启动appliance、守护进程guestfsd
 
 ```ocaml
 g#launch ();
@@ -79,7 +79,7 @@ g#launch ();
 2. supermin5载入模块；创建设备目录（/dev/**）并挂载；设置网络；分配逻辑卷组
 3. libguestfs接收到GUESTFS_LAUNCH_FLAG信号，appliance启动成功
 
-### 8.检测源磁盘，获取信息
+### 7.检测源磁盘，获取信息
 
 ```ocaml
 let inspect = Inspect_source.inspect_source cmdline.root_choice g in
@@ -105,13 +105,39 @@ i_windows_system_hive =
 i_windows_current_control_set =
 ```
 
+### 8.估算每个 target disk 的空间要求
+
+```ocaml
+  let mpstats = get_mpstats g in
+  check_guest_free_space mpstats;
+  check_target_free_space mpstats source targets output
+```
+
+日志：
+
+```shell
+[ 133.5] Checking for sufficient free disk space in the guest
+[ 133.5] Estimating space required on target for each disk
+mpstats:
+mountpoint statvfs /dev/sda1 /boot (xfs):
+  bsize=4096 blocks=259584 bfree=224126 bavail=224126
+mountpoint statvfs /dev/cl/root / (xfs):
+  bsize=4096 blocks=4452864 bfree=4185952 bavail=4185952
+estimate_target_size: fs_total_size = 19302187008 [18.0G]
+estimate_target_size: source_total_size = 21474836480 [20.0G]
+estimate_target_size: ratio = 0.899
+estimate_target_size: fs_free = 18063679488 [16.8G]
+estimate_target_size: scaled_saving = 16236143164 [15.1G]
+estimate_target_size: sda: 5238693316 [4.9G]
+```
+
 ### 9.进行磁盘转换
 
 ```ocaml
 let guestcaps = do_convert g inspect source output rcaps in
 ```
 
-日志：
+结果日志：
 
 ```shell
 guestcaps:
@@ -121,9 +147,8 @@ gcaps_net_bus = virtio-net
 gcaps_video = qxl
 gcaps_arch = x86_64
 gcaps_acpi = true
+virt-v2v: This guest has virtio drivers installed.
 ```
-
-9.1 
 
 detect_kernels日志
 
@@ -151,8 +176,6 @@ libguestfs: trace: v2v: aug_get = "/dev/sda"
 libguestfs: trace: v2v: aug_set "/files/boot/grub2/device.map/hd0" "/dev/vda"
 ```
 
-
-
 ### 10.减少转换量
 
 ```ocaml
@@ -162,7 +185,7 @@ do_fstrim g inspect;
 
 日志：
 
-```
+```shell
 libguestfs: trace: v2v: fstrim "/"
 guestfsd: <= fstrim (0x14e) request length 72 bytes
 commandrvf: fstrim -v /sysroot/
@@ -201,7 +224,28 @@ libguestfs: command: run: \ -rf /tmp/libguestfs5EMQ5o
 
 **----------------------------------以下是copy模式独有的步骤-------------------------**
 
-### 12.创建目的磁盘
+### 12.分配磁盘到总线
+
+```
+let target_buses =
+         Target_bus_assignment.target_bus_assignment source targets guestcaps in
+```
+
+日志：
+
+```shell
+[ 188.3] Assigning disks to buses
+virtio-blk slot 0:
+target_file = [file] /var/tmp/qemu-vm/centos2-sda
+target_format = qcow2
+target_estimated_size = 5238693316
+target_overlay = /var/tmp/v2vovl36099b.qcow2
+target_overlay.ov_source = /var/tmp/ova.x0YFry/centos2-disk1.vmdk
+ide slot 0:
+        CD-ROM [ide] in slot 0
+```
+
+### 13.创建目的磁盘
 
 ```ocaml
 let targets = 
@@ -209,7 +253,7 @@ let targets =
 	else copy_targets cmdline targets input output in
 ```
 
-#### 	12.1创建目的磁盘
+#### 	13.1创建目的磁盘
 
 ```ocaml
 output#disk_create
@@ -220,9 +264,16 @@ output#disk_create
 日志：
 
 ```shell
+[ 188.3] Copying disk 1/1 to /var/tmp/qemu-vm/centos2-sda (qcow2)
+target_file = [file] /var/tmp/qemu-vm/centos2-sda
+target_format = qcow2
+target_estimated_size = 5238693316
+target_overlay = /var/tmp/v2vovl36099b.qcow2
+target_overlay.ov_source = /var/tmp/ova.x0YFry/centos2-disk1.vmdk
+
 disk_create "/var/tmp/qemu-vm/centos2-sda" "qcow2" 21474836480 "preallocation:sparse" "compat:1.1"
 ```
-#### 	12.2转换目的磁盘
+#### 	13.2转换目的磁盘
 
 ```ocaml
 let cmd = [ "qemu-img"; "convert" ] @
@@ -240,7 +291,7 @@ run_command cmd
 qemu-img 'convert' '-p' '-n' '-f' 'qcow2' '-O' 'qcow2' '/var/tmp/v2vovl36099b.qcow2' '/var/tmp/qemu-vm/centos2-sda'
 ```
 
-### 13.生成xml文件或可执行脚本
+### 14.生成 metadata 文件
 
 ```ocaml
 output#create_metadata source targets target_buses guestcaps inspect
@@ -252,3 +303,34 @@ output#create_metadata source targets target_buses guestcaps inspect
 ```shell
 Creating output metadata
 ```
+
+### 15.两种转换模式
+
+**15.1 `copying`模式**：
+
+在这种模式下，磁盘的转换流程是这样的：`source -> overlay -> target`。
+
+1. 获取原VM的一个或多个磁盘source描述。
+2. 在源磁盘的上面放可写的叠加磁盘overlay。
+3. 在overlay上面做转换。
+4. 复制overlay到目标磁盘target。
+
+**15.2 `in place`模式**：不会在目标Hypervisor创建新的虚拟机，而是调整原VM的操作系统以在输入的Hypervisor上运行。
+
+```shell
+virt-v2v -ic qemu:///system converted_vm --in-place
+```
+
+`virt-v2v`默认使用`copying`模式，在以下场景中可能会用到`in place`模式：
+
+​	一个外来VM已经被导入到基于KVM的Hypervisor上，但是仍然需要在guest上面调整使它运行在新的虚拟硬件上。
+
+​	在这种情况下，假设第三方工具基于原VM配置和内容在支持的基于KVM的Hypervisor中创建了目标VM，但是需要使用更适合KVM的虚拟设备（比如virtio存储网络、网络等）。
+
+**15.3 两种模式的区别**：
+
+|       转换模式       |   copying   | in place |
+| :------------------: | :---------: | :------: |
+| 是否在源磁盘上做修改 |     否      |    是    |
+| 是否创建overlays磁盘 |     是      |    否    |
+|  在哪个磁盘上做转换  | overlay磁盘 |  源磁盘  |

@@ -1,18 +1,35 @@
-`libguestfs`是访问并修改虚拟机磁盘映像的一系列工具。
+[官网](http://libguestfs.org/)
 
-它能让几乎任何磁盘映像imaginable。
+`libguestfs`是访问并修改虚拟机磁盘映像的一系列工具。
 
 它是一个C语言库。
 
 下面是其体系结构。
 
-[libguestfs官方网站](http://libguestfs.org/)
-
 [原文地址](http://libguestfs.org/guestfs-internals.1.html)
 
 # 1.架构
 
-![运行架构](img/libguestfs运行示意图.png)
+```shell
+ ┌───────────────────┐
+ │ main program      │
+ │                   │
+ │                   │           child process / appliance
+ │                   │          ┌──────────────────────────┐
+ │                   │          │ qemu                     │
+ ├───────────────────┤   RPC    │      ┌─────────────────┐ │
+ │ libguestfs  ◀╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍▶ guestfsd          │ │
+ │                   │          │      ├─────────────────┤ │
+ └───────────────────┘          │      │ Linux kernel    │ │
+                                │      └────────┬────────┘ │
+                                └───────────────│──────────┘
+                                                │
+                                                │ virtio-scsi
+                                         ┌──────┴──────┐
+                                         │  Device or  │
+                                         │  disk image │
+                                         └─────────────┘
+```
 
 libguestfs的实现方式是通过使用`qemu`运行一个`appliance`（一种特殊类型的小虚拟机）。`qemu`作为主程序的一个子进程运行。
 
@@ -46,10 +63,10 @@ API动作（例如函数 guestfs_mount）只能在`READY`状态的时候发送�
 
 ## 3.1 `appliance`启动进程
 
-开启调试模式，在命令行头部添加环境变量参数：`LIBguestFS_TRACE=1 LIBguestFS_DEBUG=1`。
+开启调试模式，在命令行头部添加环境变量参数：`LIBGUESTFS_TRACE=1 LIBGUESTFS_DEBUG=1`。
 
 ```shell
-LIBguestFS_TRACE=1 LIBguestFS_DEBUG=1 virt-v2v -i ova centos2.ova -o local -os /var/tmp/ -of qcow2 2>&1 | tee virt-v2v.log
+LIBGUESTFS_TRACE=1 LIBGUESTFS_DEBUG=1 virt-v2v -i ova centos2.ova -o local -os /var/tmp/ -of qcow2 2>&1 | tee virt-v2v.log
 ```
 
 ### 3.1.1 创建 appliance
@@ -86,7 +103,7 @@ libguestfs首先检查被qemu暴露的常规磁盘（eg. /dev/vda），最后一
 
 daemon期待看到被qemu公开的命名的virtio-serial端口（在`/dev/virtio-ports/`下），然后在另一端连接到`library`。
 
-daemon连接到这个端口并发送关键字`guestFS_LAUNCH_FLAG`来初始化通信协议。
+daemon连接到这个端口并发送关键字`GUESTFS_LAUNCH_FLAG`来初始化通信协议。
 
 ## 3.2 通信协议
 
@@ -109,7 +126,7 @@ daemon连接到这个端口并发送关键字`guestFS_LAUNCH_FLAG`来初始化�
  struct guestfs_<foo>_args (encoded as XDR)
 ```
 
-`total length`使`daemon`分配一个固定大小的缓存区，其中可以容纳消息的其余部分。总长度不超过`guestFS_MESSAGE_MAX`（当前是4MB）。
+`total length`使`daemon`分配一个固定大小的缓存区，其中可以容纳消息的其余部分。总长度不超过`GUESTFS_MESSAGE_MAX`（当前是4MB）。
 
 许多函数不带有参数，此时最后一个参数被忽略。
 
@@ -165,7 +182,7 @@ daemon连接到这个端口并发送关键字`guestFS_LAUNCH_FLAG`来初始化�
 
 写入的时候没有任何一个函数有超过一个`FileIn`的参数，虽然理论上支持。
 
-library (sender) 和 daemon (receiver) 都可能取消转换。`library`的做法是通过设置上述的chunk标志位。当`daemon`看到后，它会取消整个RPC，不发送也不回应，然后读取下一次请求。`daemon`的做法是向socket写入一个关键字`guestFS_CANCEL_FLAG`，在转换的时候library会监听，当它收到这个关键字的时候，会通过上述方式取消转换。即使在转换完成时（library完成写入并且开始监听回应信息）亦可以发送该关键字，这个虚假的取消标记不会与回应消息混淆。？？？
+library (sender) 和 daemon (receiver) 都可能取消转换。`library`的做法是通过设置上述的chunk标志位。当`daemon`看到后，它会取消整个RPC，不发送也不回应，然后读取下一次请求。`daemon`的做法是向socket写入一个关键字`GUESTFS_CANCEL_FLAG`，在转换的时候library会监听，当它收到这个关键字的时候，会通过上述方式取消转换。即使在转换完成时（library完成写入并且开始监听回应信息）亦可以发送该关键字，这个虚假的取消标记不会与回应消息混淆。？？？
 
 该协议允许传输任意大小的文件，以及预先不知道大小的文件（来自pipe或socket）。因为chunk很小，所以library和daemon都不需要在内存中保留太多内容。
 
@@ -185,19 +202,19 @@ library (sender) 和 daemon (receiver) 都可能取消转换。`library`的做�
 
 ## 3.3 初始化信息
 
-`daemon`启动时它会发送一个初始化关键字`guestFS_LAUNCH_FLAG`表明guest和daemon是活动的。这是函数`guestfs_launch`等待的内容。
+`daemon`启动时它会发送一个初始化关键字`GUESTFS_LAUNCH_FLAG`表明guest和daemon是活动的。这是函数`guestfs_launch`等待的内容。
 
 ## 3.4 进展通知信息
 
-`daemon`可能在任何时间发送进展通知信息。这些信息区分于其它信息的地方在于：正常长度单词`length`被替换为`guestFS_PROGRESS_FLAG`，后跟固定大小的进展信息。
+`daemon`可能在任何时间发送进展通知信息。这些信息区分于其它信息的地方在于：正常长度单词`length`被替换为`GUESTFS_PROGRESS_FLAG`，后跟固定大小的进展信息。
 
-如果注册过回调，`library`将它们转化到进展回调（参阅 ["guestFS_EVENT_PROGRESS"](http://libguestfs.org/guestfs.3.html#guestfs_event_progress)），否则丢弃之。
+如果注册过回调，`library`将它们转化到进展回调（参阅 ["GUESTFS_EVENT_PROGRESS"](http://libguestfs.org/guestfs.3.html#guestfs_event_progress)），否则丢弃之。
 
 `daemon`限制了这种信息发送频率（see `daemon/proto.c:notify_progress`）。不是所有的调用都会产生进展信息。
 
 ## 3.5 fixed appliance
 
-`libguestfs`或`libguestfs tools`运行时，它们为一个`appliance`寻找一个路径。这个路径被构建到libguestfs中，或使用环境变量`LIBguestFS_PATH`来设置。
+`libguestfs`或`libguestfs tools`运行时，它们为一个`appliance`寻找一个路径。这个路径被构建到libguestfs中，或使用环境变量`LIBGUESTFS_PATH`来设置。
 
 正常情况下一个`supermin appliance`位于["SUPERMIN APPLIANCE"](http://libguestfs.org/supermin.1.html#supermin-appliance)。libguestfs通过运行`supermin --build`将其重建为完整的appliance。
 

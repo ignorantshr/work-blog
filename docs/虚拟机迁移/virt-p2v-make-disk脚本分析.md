@@ -1,16 +1,18 @@
+[官方文档](http://libguestfs.org/virt-p2v-make-disk.1.html)
+
 用于创建包含`virt-p2v`的`可引导磁盘映像`或`USB key`的脚本，使用`virt-builder`实现。
 
 脚本位于`/libguestfs/p2v/virt-p2v-make-disk`。
 
 # 使用介绍
 
-输出一个virt-p2v可启动USB key到*/dev/sdX*：
+输出一个自动运行virt-p2v的USB启动盘到*/dev/sdX*：
 
 ```shell
  virt-p2v-make-disk -o /dev/sdX
 ```
 
-输出一个virt-p2v可启动虚拟磁盘，在qemu下启动：
+输出一个自动运行virt-p2v、可启动的虚拟磁盘；在qemu下启动：
 
 ```shell
  virt-p2v-make-disk -o /var/tmp/p2v.img

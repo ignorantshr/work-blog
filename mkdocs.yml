@@ -21,6 +21,11 @@ nav:
         - virt-p2v-make-disk脚本分析: 虚拟机迁移/virt-p2v-make-disk脚本分析.md
         - virt-p2v介绍: 虚拟机迁移/virt-p2v介绍.md
         - virt-p2v磁盘转换流程: 虚拟机迁移/virt-p2v磁盘转换流程.md
+        - VMware-ova转换: 虚拟机迁移/VMware-ova转换.md
+        - VMware-vmx转换: 虚拟机迁移/VMware-vmx转换.md
+        - VMware-vCenter转换: 虚拟机迁移/VMware-vCenter转换.md
+        - VMware-ESXI-hypervisor转换: 虚拟机迁移/VMware-ESXI-hypervisor转换.md
+        - Xen转换: 虚拟机迁移/Xen转换.md
     - Spice:
         - 简介: spice/简介.md
         - 使用范例: spice/使用范例.md
@@ -58,6 +63,13 @@ nav:
     - 设计模式:
         - 设计原则: 设计模式/设计原则.md
         - 模式: 设计模式/模式.md
+    - HTTP协议:
+        - 简介.md: http协议/简介.md
+        - HTTP 报文内的 HTTP 信息.md: http协议/HTTP 报文内的 HTTP 信息.md
+        - 返回结果的 HTTP 状态码.md: http协议/返回结果的 HTTP 状态码.md
+        - 与 HTTP 协作的 Web 服务器.md: http协议/与 HTTP 协作的 Web 服务器.md
+        - HTTP 首部.md: http协议/HTTP 首部.md
+        - HTTPS.md: http协议/HTTPS.md
     - Linux网络编程:
         - 函数: linux网络编程/函数.md
         - socket通信流程: linux网络编程/socket通信流程.md
@@ -127,4 +139,5 @@ nav:
     - Algorithm:
         - 复杂度分析: algorithm/复杂度分析.md
         - 选择排序: algorithm/选择排序.md
-theme: readthedocs
+# theme: readthedocs
+theme: windmill

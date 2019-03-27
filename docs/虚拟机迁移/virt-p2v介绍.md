@@ -6,11 +6,17 @@
 
 `virt-p2v`在物理机上面运行。它通过**SSH**与转换服务器（安装了`virt-v2v`）通信。
 
-![](img/virt-p2v通信示意图.png)
+```shell
+ ┌──────────────┐                  ┌─────────────────┐
+ │ virt-p2v     │                  │ virt-v2v        │
+ │ (physical    │  ssh connection  │ (conversion     │
+ │  server)   ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍▶ server)       │
+ └──────────────┘                  └─────────────────┘
+```
 
 `virt-v2v`执行真正的转换。
 
-SSH连接总是从物理机发起。设置免密登录。
+SSH连接总是从物理机发起。
 
 `virt-p2v`需要SSH的反向端口转发功能`ssh -R`，必须在转换服务器开启此功能。
 
@@ -79,7 +85,7 @@ SSH的scp功能也必须开启。
 
 > ​	*(before conversion)*
 >
-> ​	物理机上的对应指令输出（即[dmesg(1)](http://man.he.net/man1/dmesg)，[lscpu(1)](http://man.he.net/man1/lscpu)）。
+> ​	物理机上的对应指令输出（即[dmesg(1)](https://www.mankier.com/1/dmesg)，[lscpu(1)](https://www.mankier.com/1/lscpu)）。
 >
 > ​	*dmesg*输出用于检查错误。其它的输出用于调试新硬件配置。
 
@@ -141,7 +147,19 @@ SSH的scp功能也必须开启。
 
 普通情况下每个物理硬盘都有一个ssh连接：
 
-![](img/virt-p2v的ssh连接情况.png)
+```shell
+ ┌──────────────┐                      ┌─────────────────┐
+ │ virt-p2v     │                      │ virt-v2v        │
+ │ (physical    │  control connection  │ (conversion     │
+ │  server)   ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍▶ server)       │
+ │              │                      │                 │
+ │              │  data connection     │                 │
+ │            ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍▶               │
+ │qemu-nbd ← ─┘ │                      │└─ ← NBD         │
+ │/dev/sda      │                      │     requests    │
+ ∼              ∼                      ∼                 ∼
+ └──────────────┘                      └─────────────────┘
+```
 
 因为使用了ssh的反向端口转发功能，所以实际上NBD请求可以从转换服务器发送到物理机。这样`virt-2v`可以通过libguestfs可以打开直接读取物理硬盘的nbd连接。
 
@@ -153,15 +171,15 @@ virt-v2v -v -x --colours -i libvirtxml -o "libvirt" -oa sparse -os "/var/tmp" --
 
 # 6.使用
 
-先利用`virt-p2v-make-disk`制作一个运行``virt-p2v``的启动盘：
+先利用`virt-p2v-make-disk`制作一个运行`virt-p2v`的启动盘：
 
-```
+```shell
 virt-p2v-make-disk -v -o /var/tmp/p2v.img centos-7.5 2>&1 | tee virt-p2v.log
 ```
 
 因为使用VMware虚拟机模拟物理机，所以需要再将其转换为`vmdk`格式：
 
-```
+```shell
 qemu-img convert -f raw p2v.img -O vmdk p2v.vmdk
 ```
 
