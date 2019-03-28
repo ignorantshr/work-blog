@@ -1,695 +1,134 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <meta name="author" content="shihr">
-  <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>模式 - Sink</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="shihr">
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>模式 - Sink</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "\u6a21\u5f0f";
-    var mkdocs_page_input_path = "\u8bbe\u8ba1\u6a21\u5f0f\\\u6a21\u5f0f.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "1. \u7b56\u7565\u6a21\u5f0f", url: "#_top", children: [
+          ]},
+          {title: "2. \u89c2\u5bdf\u8005\u6a21\u5f0f", url: "#2", children: [
+          ]},
+          {title: "3. \u88c5\u9970\u8005\u6a21\u5f0f", url: "#3", children: [
+          ]},
+          {title: "4. \u7b80\u5355\u5de5\u5382\u3001\u5de5\u5382\u65b9\u6cd5\u4e0e\u62bd\u8c61\u5de5\u5382\u6a21\u5f0f", url: "#4", children: [
+          ]},
+          {title: "5. \u5355\u4f8b\u6a21\u5f0f", url: "#5", children: [
+          ]},
+          {title: "6. \u547d\u4ee4\u6a21\u5f0f", url: "#6", children: [
+          ]},
+          {title: "7.  \u9002\u914d\u5668\u6a21\u5f0f", url: "#7", children: [
+          ]},
+          {title: "8. \u5916\u89c2\u6a21\u5f0f", url: "#8", children: [
+          ]},
+          {title: "9. \u6a21\u677f\u65b9\u6cd5\u6a21\u5f0f", url: "#9", children: [
+          ]},
+          {title: "10. \u8fed\u4ee3\u5668\u6a21\u5f0f", url: "#10", children: [
+          ]},
+          {title: "11. \u7ec4\u5408\u6a21\u5f0f", url: "#11", children: [
+          ]},
+          {title: "12. \u72b6\u6001\u6a21\u5f0f", url: "#12", children: [
+          ]},
+          {title: "13. \u4ee3\u7406\u6a21\u5f0f", url: "#13", children: [
+          ]},
+          {title: "14. \u590d\u5408\u6a21\u5f0f", url: "#14", children: [
+          ]},
+          {title: "15. \u751f\u6210\u5668\u6a21\u5f0f\uff08\u5efa\u9020\u8005\u6a21\u5f0f\uff09", url: "#15", children: [
+          ]},
+          {title: "16. \u6865\u63a5\u6a21\u5f0f", url: "#16", children: [
+          ]},
+          {title: "17. \u8d23\u4efb\u94fe\u6a21\u5f0f", url: "#17", children: [
+          ]},
+          {title: "18. \u4eab\u5143\u6a21\u5f0f\uff08\u8747\u91cf\u6a21\u5f0f\uff09", url: "#18", children: [
+          ]},
+          {title: "19. \u89e3\u91ca\u5668\u6a21\u5f0f", url: "#19", children: [
+          ]},
+          {title: "20. \u4e2d\u4ecb\u8005\u6a21\u5f0f", url: "#20", children: [
+          ]},
+          {title: "21. \u5907\u5fd8\u5f55\u6a21\u5f0f", url: "#21", children: [
+          ]},
+          {title: "22. \u539f\u578b\u6a21\u5f0f", url: "#22", children: [
+          ]},
+          {title: "23. \u8bbf\u95ee\u8005\u6a21\u5f0f", url: "#23", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
 
-  <div class="wy-grid-for-nav">
 
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> Sink</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">System</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../system/epel源/">epel源</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/rpms产出/">rpms产出</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/rsync配置/">rsync配置</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/主机不能连接mariadb/">主机不能连接mariadb</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/修改centos7语言/">修改centos7语言</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/修改mariadb编码类型/">修改mariadb编码类型</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/关闭selinux/">关闭selinux</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/开启图形界面/">开启图形界面</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/改变系统时区/">改变系统时区</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/磁盘容量扩充/">磁盘容量扩充</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/网卡不存在/">网卡不存在</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/通过shell命令写文件/">通过shell命令写文件</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">虚拟机迁移</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../虚拟机迁移/libguestfs架构/">libguestfs架构</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../虚拟机迁移/以ova为例virt-v2v磁盘转换流程/">以ova为例virt-v2v磁盘转换流程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../虚拟机迁移/virt-p2v-make-disk脚本分析/">virt-p2v-make-disk脚本分析</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../虚拟机迁移/virt-p2v介绍/">virt-p2v介绍</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../虚拟机迁移/virt-p2v磁盘转换流程/">virt-p2v磁盘转换流程</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Spice</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../spice/简介/">简介</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../spice/使用范例/">使用范例</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../spice/函数所在文件/">函数所在文件</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Python</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../python/event线程/">event线程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../python/json格式处理/">json格式处理</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../python/执行shell命令/">执行shell命令</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../python/超时装饰器/">超时装饰器</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Other</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../other/CSDN语法/">CSDN语法</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../other/h5ai美化目录/">h5ai美化目录</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../other/vdsm启动失败/">vdsm启动失败</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../other/制作iso镜像/">制作iso镜像</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../other/没有打印日志/">没有打印日志</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../other/编译安装vdsm之后主机安装失败/">编译安装vdsm之后主机安装失败</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Make</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../make/10.使用隐含规则/">10.使用隐含规则</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/11.使用make更新归档文件/">11.使用make更新归档文件</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/16.Makefile约定/">16.Makefile约定</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/4.编写规则/">4.编写规则</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/5.编写recipes/">5.编写recipes</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/6.变量/">6.变量</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/7.Makefile中的条件语句/">7.Makefile中的条件语句</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/8.转换文本函数/">8.转换文本函数</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/简介/">简介</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">M4</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../m4/11.文本处理的宏/">11.文本处理的宏</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../m4/6.条件、循环、递归/">6.条件、循环、递归</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../m4/简介/">简介</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Java</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../java/IO/">IO</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../java/作用范围级别/">作用范围级别</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../java/synchronized关键字/">synchronized关键字</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">设计模式</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../设计原则/">设计原则</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">模式</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#1">1. 策略模式</a></li>
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
     
 
-    <li class="toctree-l3"><a href="#2">2. 观察者模式</a></li>
     
-
-    <li class="toctree-l3"><a href="#3">3. 装饰者模式</a></li>
-    
-
-    <li class="toctree-l3"><a href="#4">4. 简单工厂、工厂方法与抽象工厂模式</a></li>
-    
-
-    <li class="toctree-l3"><a href="#5">5. 单例模式</a></li>
-    
-
-    <li class="toctree-l3"><a href="#6">6. 命令模式</a></li>
-    
-
-    <li class="toctree-l3"><a href="#7">7.  适配器模式</a></li>
-    
-
-    <li class="toctree-l3"><a href="#8">8. 外观模式</a></li>
-    
-
-    <li class="toctree-l3"><a href="#9">9. 模板方法模式</a></li>
-    
-
-    <li class="toctree-l3"><a href="#10">10. 迭代器模式</a></li>
-    
-
-    <li class="toctree-l3"><a href="#11">11. 组合模式</a></li>
-    
-
-    </ul>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Linux网络编程</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../linux网络编程/函数/">函数</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../linux网络编程/socket通信流程/">socket通信流程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../linux网络编程/简单tcp通信实现/">简单tcp通信实现</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Gluster</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../gluster/gluster安装/">gluster安装</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../gluster/ovirt的gluster数据恢复bug/">ovirt的gluster数据恢复bug</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../gluster/清理不可用的brick/">清理不可用的brick</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../gluster/结点故障/">结点故障</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Git</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../git/git rebase(修改历史提交)/">git rebase(修改历史提交)</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../git/windows无法使用git克隆/">windows无法使用git克隆</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Gerrit</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../gerrit/Apache代理添加新用户/">Apache代理添加新用户</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../gerrit/Gerrit submit change after abandoning its parent/">Gerrit submit change after abandoning its parent</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../gerrit/使用Apache代理路径错误/">使用Apache代理路径错误</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../gerrit/刷新gerrit项目列表/">刷新gerrit项目列表</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Datastruct</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../datastruct/二叉树/">二叉树</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../datastruct/散列表/">散列表</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../datastruct/红黑树/">红黑树</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Command</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../command/linux挂载windows共享文件夹/">linux挂载windows共享文件夹</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../command/sed/">sed</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../command/ssh免密登录/">ssh免密登录</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../command/tar命令打包去掉路径前缀/">tar命令打包去掉路径前缀</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../command/wget用法/">wget用法</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../command/显示文件夹大小/">显示文件夹大小</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../command/更新、禁用yum仓库、只下载rpm/">更新、禁用yum仓库、只下载rpm</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../command/添加公钥/">添加公钥</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">C and c++</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../c and c++/动态编译/">动态编译</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../c and c++/程序运行时间/">程序运行时间</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Bash</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../bash/3.基本shell功能/">3.基本shell功能</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../bash/4.shell内置命令/">4.shell内置命令</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Automake</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../automake/10.其它GNU工具/">10.其它GNU工具</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/12.安装/">12.安装</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/13.清理/">13.清理</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/14.发布/">14.发布</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/15.测试套件的支持/">15.测试套件的支持</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/18.规则杂项/">18.规则杂项</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/19.Include/">19.Include</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/20.条件语句/">20.条件语句</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/23.Automake不能满足使用时/">23.Automake不能满足使用时</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/5.创建Makefile.in/">5.创建Makefile.in</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/6.扫描configure.ac，使用aclocal/">6.扫描configure.ac，使用aclocal</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/7.文件夹/">7.文件夹</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/8.构建程序和库/">8.构建程序和库</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/9.其它派生对象/">9.其它派生对象</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/简介/">简介</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Autogen</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../autogen/简介/">简介</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Autoconf</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../autoconf/10.编写Autoconf宏/">10.编写Autoconf宏</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../autoconf/11.便携式shell编程/">11.便携式shell编程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../autoconf/14.手动配置/">14.手动配置</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../autoconf/15.Site配置/">15.Site配置</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../autoconf/4.初始化和输出文件/">4.初始化和输出文件</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../autoconf/5.现有测试/">5.现有测试</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../autoconf/6.编写测试/">6.编写测试</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../autoconf/7.测试结果/">7.测试结果</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../autoconf/8.使用M4编程/">8.使用M4编程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../autoconf/9.使用M4sh编程/">9.使用M4sh编程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../autoconf/简介/">简介</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Algorithm</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../algorithm/复杂度分析/">复杂度分析</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../algorithm/选择排序/">选择排序</a>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">Sink</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../..">Docs</a> &raquo;</li>
     
       
-        
-          <li>设计模式 &raquo;</li>
-        
-      
     
-    <li>模式</li>
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
-              
-                <h2 id="1">1. 策略模式</h2>
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../mybatis/简介/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../mybatis/简介/" class="btn btn-xs btn-link">
+        简介.md
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../设计原则/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../设计原则/" class="btn btn-xs btn-link">
+        设计原则
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h2 id="1">1. 策略模式</h2>
 <p><strong>定义</strong>：定义了算法族，分别封装起来，让他们可以互相替换，此模式让算法的变换独立于使用算法的客户。</p>
+<ul>
+<li>将可以互换的行为封装起来，然后使用委托的方法，决定使用哪一个行为。</li>
+</ul>
 <h2 id="2">2. 观察者模式</h2>
 <p><strong>定义</strong>：定义了对象之间一对多依赖，这样一来，当一个对象改变状态时，它的所有依赖者都会受到通知并自动更新。</p>
 <ul>
@@ -806,52 +245,194 @@
 <li>能把相同的操作应用在组合和个别的对象上。</li>
 <li>在实现该模式时，有很多设计上的折中。要根据需求平衡透明性和安全性。</li>
 </ul>
-              
-            </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+<h2 id="12">12. 状态模式</h2>
+<p><strong>定义</strong>：允许对象在内部状态改变时改变它的行为，对象看起来好像修改了它的类。</p>
+<ul>
+<li>封装基于状态的行为，并将行为委托到当前状态。</li>
+<li>状态转换可以由state类或context类控制。</li>
+<li>如果有多个context实例，就需要将状态的实例转移到静态的实例变量中共享。</li>
+<li>该模式会导致设计中类的数量大量增加。</li>
+</ul>
+<h2 id="13">13. 代理模式</h2>
+<p><strong>定义</strong>：为另一个对象提供一个替身或占位符以控制对这个对象的访问。</p>
+<ul>
+<li>使用该模式创建代表对象，让代表对象控制某对象的访问。</li>
+<li>控制访问方式：<ul>
+<li>远程代理控制访问远程对象</li>
+<li>虚拟代理控制访问创建开销大的资源</li>
+<li>保护代理基于权限控制对资源的访问</li>
+</ul>
+</li>
+<li>java内置的代理支持：java.lang.reflect</li>
+<li>动态代理的含义是在运行时才将它的类创建出来</li>
+<li>变种：<ul>
+<li>防火墙代理，控制网络资源的访问，保护主题免于“坏客户”的侵害。</li>
+<li>智能引用代理，当主题被引用时，进行额外的动作，例如计算一个对象被引用的次数。</li>
+<li>缓存代理，为开销大的运算结果提供暂时的存储。它也允许多个客户共享结果，以减少计算或网络延迟。</li>
+<li>同步代理，在多线程的情况下为主题提供安全的访问。</li>
+<li>复杂隐藏代理，用来隐藏一个类的复杂集合的复杂度，并进行访问控制。也称外观代理。代理控制访问，而外观模式只提供另一组接口。</li>
+<li>写入时复制代理，用来控制对象的复制，方法是延迟对象的复制，直到客户真的需要为止。是虚拟代理的变体。</li>
+</ul>
+</li>
+</ul>
+<h2 id="14">14. 复合模式</h2>
+<p><strong>定义</strong>：结合多个模式，组成一个解决方案，解决一再发生的一般性问题。</p>
+<h2 id="15">15. 生成器模式（建造者模式）</h2>
+<p><strong>定义</strong>：讲一个复杂的对象地构造与它的表示分离，使同样的构建过程可以创建不同的表示。</p>
+<ul>
+<li>将一个复杂对象的创建过程封装起来</li>
+<li>允许对象通过多个步骤来创建，并且可改变过程（工厂方法只有一个步骤）</li>
+<li>结构：<ul>
+<li>产品：包含多个组成部件的复制对象</li>
+<li>抽象建造者：包含创建产品各个部件的接口，包含返回产品的方法</li>
+<li>具体建造者：实现抽象建造者的接口</li>
+<li>指挥者：调用建造者的部件构造并装配，完成产品的组装</li>
+</ul>
+</li>
+<li>适用场景：<ul>
+<li>创建的对象较复杂，由多个部件构成，各部件面临着复杂的变化，但构件间的建造顺序是稳定的。</li>
+<li>创建复杂对象的算法独立于该对象的组成部分以及它们的装配方式，即产品的构建过程和最终的表示是独立的。</li>
+</ul>
+</li>
+<li>可以根据需要省略掉抽象建造者、指挥者</li>
+</ul>
+<h2 id="16">16. 桥接模式</h2>
+<p><strong>定义</strong>：将抽象与实现分离，使它们可以独立变化。</p>
+<ul>
+<li>将抽象化部分与实现化部分分开，取消二者的继承关系，改用组合关系</li>
+</ul>
+<h2 id="17">17. 责任链模式</h2>
+<p><strong>定义</strong>：为了避免请求发送者与多个请求处理者的耦合，将所有请求的处理者通过前一对象记住其下一个对象的引用而连成一条链；当有请求发生时，可将请求沿着这条链传递，直到有对象处理它为止，或不处理。</p>
+<ul>
+<li>将请求的发送者与接受者解耦</li>
+<li>通过改变链内的成员或调动他们的顺序，允许动态地新增或删除接受者</li>
+<li>每个类都负责自己的工作，符合类的单一职责原则</li>
+<li>满足开闭原则</li>
+</ul>
+<h2 id="18">18. 享元模式（蝇量模式）</h2>
+<p><strong>定义</strong>：利用共享技术来有效地支持大量细粒度对象的复用。它通过共享已经存在的对象来大幅度减少需要创建的对象数量、避免大量相似类的开销，从而提高系统资源的利用率。</p>
+<ul>
+<li>减少运行时对象的实例个数，节省内存</li>
+<li>将许多虚拟对象的状态集中管理</li>
+<li>需要将不能共享的状态外部化</li>
+<li>单个逻辑实例将无法拥有独立而不同的行为</li>
+<li>两种状态：<ul>
+<li>内部状态：不会随着环境变化而发生变化的可共享部分</li>
+<li>外部状态：会因环境的改变而发生变化的可变部分</li>
+</ul>
+</li>
+<li>单纯享元模式，这种享元模式中的所有的具体享元类都是可以共享的，不存在非共享的具体享元类</li>
+<li>复合享元模式，这种享元模式中的有些享元对象是由一些单纯享元对象组合而成的，它们就是复合享元对象。虽然复合享元对象本身不能共享，但它们可以分解成单纯享元对象再被共享。</li>
+</ul>
+<p><strong>---------------------------------------以下模式未详细了解------------------------------------</strong></p>
+<h2 id="19">19. 解释器模式</h2>
+<h2 id="20">20. 中介者模式</h2>
+<p><strong>定义</strong>：定义一个中介对象来封装一系列对象之间的交互，使原有对象松耦合，且可以独立地改变它们之间的交互。</p>
+<ul>
+<li>迪米特法则的典型应用</li>
+<li>降低了对象之间的耦合性</li>
+<li>将对象之间的一对多关联转变为一对一的关联，提高系统的灵活性，使得系统易于维护和扩展</li>
+<li>同事类太多时，中介者的职责很大，难以维护</li>
+<li>适用场景<ul>
+<li>当对象之间存在复杂的网状结构关系而导致依赖关系混乱且难以复用时。</li>
+<li>当想创建一个运行于多个类之间的对象，又不想生成新的子类时。</li>
+</ul>
+</li>
+</ul>
+<h2 id="21">21. 备忘录模式</h2>
+<p><strong>定义</strong>：在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态，以便以后在需要时恢复该状态。</p>
+<ul>
+<li>将被存储的状态放在外面，不要和关键对象放在一起，可以帮助维护内聚</li>
+<li>保持关键对象的数据封装</li>
+<li>提供了容易实现的恢复能力</li>
+<li>储存和恢复过程可能会很耗时</li>
+<li>java可以考虑使用序列化机制储存系统的状态</li>
+</ul>
+<h2 id="22">22. 原型模式</h2>
+<p><strong>定义</strong>：用一个已经创建的实例作为原型，通过复制该原型对象来创建一个和原型相同或相似的新对象。</p>
+<ul>
+<li>
+<p>潜克隆：将一个对象复制后，基本数据类型的变量都会重新创建，而引用类型，指向的还是原对象所指向的。</p>
+</li>
+<li>
+<p>深克隆：将一个对象复制后，不论是基本数据类型还有引用类型，都是重新创建的。</p>
+</li>
+<li>
+<p>Cloneable 潜克隆</p>
+</li>
+<li>
+<p>Serializable 深克隆，采用流的形式读入当前对象的二进制输入，再写出二进制数据对应的对象。</p>
+</li>
+<li>
+<p>适用场景：</p>
+<ul>
+<li>对象之间相同或相似的时候</li>
+<li>对象的创建过程比较麻烦，但复制比较简单的时候</li>
+</ul>
+</li>
+<li>
+<p>克隆困难的场景：</p>
+<p>一个类引用不支持串行化的间接对象，或者引用含有循环结构的时候。</p>
+</li>
+<li>
+<p>经常与工厂方法一起使用</p>
+</li>
+</ul>
+<h2 id="23">23. 访问者模式</h2>
+<p><strong>定义</strong>：将作用于某种数据结构的各元素的操作分离出来封装成独立的类，使其在不改变数据结构的情况下可以添加作用于这些元素的新操作，为每个数据结构中的每个元素提供多种访问方式。</p>
+<ul>
+<li>将数据结构及其操作分离</li>
+<li>优点：<ul>
+<li>扩展性好。能够在不修改对象结构中的元素的情况下，为元素添加新功能。</li>
+<li>复用性好。可以通过定义访问者来定义整个对象结构通用的功能。</li>
+<li>符合单一职责原则。</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>增加新的元素类很困难。每增加一个元素，就要在每一个具体的访问者类中增加相应的具体操作，违背了<code>开闭原则</code>。</li>
+<li>破坏封装。具体元素对访问者公布细节，破坏了对象的<code>封装性</code>，违反了<code>迪米特法则</code>。</li>
+<li>违反了<code>依赖倒置原则</code>。依赖了具体类，而没有依赖抽象类。</li>
+</ul>
+</li>
+<li>与迭代器联用，与组合模式联用</li>
+</ul>
+
+  <br>
+    
+
+    
+    
       
-        <a href="../../linux网络编程/函数/" class="btn btn-neutral float-right" title="函数">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../设计原则/" class="btn btn-neutral" title="设计原则"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../mybatis/简介/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../mybatis/简介/" class="btn btn-xs btn-link">
+        简介.md
+      </a>
     </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
+    
+    <div class="wm-article-nav">
+      <a href="../设计原则/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../设计原则/" class="btn btn-xs btn-link">
+        设计原则
+      </a>
+    </div>
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-      
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../设计原则/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../../linux网络编程/函数/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+    <br>
 </div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme.js" defer></script>
-      <script src="../../search/main.js" defer></script>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
 
 </body>
 </html>

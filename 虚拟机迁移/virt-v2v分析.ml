@@ -1,4 +1,4 @@
-overlay模式的磁盘转换过程
+copying模式的磁盘转换过程
 (**
     There is a progression during conversion: source -> overlay ->
     target: We start with a description of the source VM (or physical
@@ -83,7 +83,6 @@ CONFIG过程
     g#set_memsize (g#get_memsize () * 20 / 5);
     g#set_network true;
 
-    check_guest_free_space mpstats
   	(match conversion_mode with
   		    			使用 qcow2 overlays 填充 guestfs handle 选项
    		| Copying (overlays, _) -> populate_overlays g overlays
@@ -125,16 +124,18 @@ READY之后
 	}*)
   	let inspect = Inspect_source.inspect_source cmdline.root_choice g in
 
-  	(match conversion_mode with
-		| Copying (_, targets) ->
-			估算每个 target disk 的空间要求，填充 target_estimated_size 字段
-		   check_target_free_space mpstats source targets output
-		| In_place -> ()
-	);
-
   	从挂载点收集设备信息，返回一个映射列表
   	(*{ mp_dev = dev; mp_path = path; mp_statvfs = statvfs; mp_vfs = vfs }, ...*)
   	let mpstats = get_mpstats g in
+  	检查虚拟机空间是否足够
+  	check_guest_free_space mpstats;
+
+  	估算每个 target disk 的空间要求，填充 target_estimated_size 字段
+  	(match conversion_mode with
+	   | Copying (_, targets) ->
+	       check_target_free_space mpstats source targets output
+	   | In_place -> ()
+  	);
 
   	进行磁盘转换
 	(* type guestcaps = {
@@ -262,11 +263,33 @@ mountpoint statvfs /dev/sda1 /boot (xfs):
 mountpoint statvfs /dev/cl/root / (xfs):
   bsize=4096 blocks=4452864 bfree=4185952 bavail=4185952 *)
 
-
 (* Conversion can fail if there is no space on the guest filesystems
  * Mainly we care about the root filesystem.
  *)
 and check_guest_free_space mpstats =
+
+(*
+算法：
+ * (1) 计算所有guest文件系统的全部虚拟大小
+ * eg: [ "/boot" = 500 MB, "/" = 2.5 GB ], total = 3 GB
+ *
+ * (2) 计算所有源磁盘的全部虚拟大小
+ * eg: [ sda = 1 GB, sdb = 3 GB ], total = 4 GB
+ *
+ * (3) 转换比例
+ * eg. ratio = 3/4
+ *
+ * (4) 计算出如果可以使用fstrim可以节省多少文件系统空间（小部分情况下会失败）
+ * eg. [ "/boot" = 200 MB used, "/" = 1 GB used ], saving = 3 - 1.2 = 1.8
+ *
+ * (5) 通过转换比例计算出所有源磁盘的节省虚拟大小，然后分配到每一块磁盘得到转换后的大小
+ * eg. scaled saving is 1.8 * 3/4 = 1.35     反？？？
+ *     sda has 1/4 of total virtual size, so it gets a saving of 1.35/4
+ *     sda final estimated size = 1 - (1.35/4) = 0.6625 GB
+ *     sdb has 3/4 of total virtual size, so it gets a saving of 3 * 1.35 / 4
+ *     sdb final estimate size = 3 - (3*1.35/4) = 1.9875 GB
+ *)
+and estimate_target_size mpstats targets =
 
 (* Perform the fstrim. *)
 and do_fstrim g inspect =

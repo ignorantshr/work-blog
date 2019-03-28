@@ -1,752 +1,118 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <meta name="author" content="shihr">
-  <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>4.初始化和输出文件 - Sink</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="shihr">
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>4.初始化和输出文件 - Sink</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "4.\u521d\u59cb\u5316\u548c\u8f93\u51fa\u6587\u4ef6";
-    var mkdocs_page_input_path = "autoconf\\4.\u521d\u59cb\u5316\u548c\u8f93\u51fa\u6587\u4ef6.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "4.1 \u521d\u59cb\u5316 configure", url: "#_top", children: [
+              {title: "AC_INIT (package, version, [bug-report], [tarname], [url])", url: "#ac_init-package-version-bug-report-tarname-url" },
+          ]},
+          {title: "4.2 \u89e3\u51b3Autoconf\u7684\u7248\u672c", url: "#42-autoconf", children: [
+              {title: "AC_PREREQ (version)", url: "#ac_prereq-version" },
+          ]},
+          {title: "4.4 \u627e\u5230 configure \u7684\u8f93\u5165", url: "#44-configure", children: [
+              {title: "AC_CONFIG_SRCDIR (unique-file-in-source-dir)", url: "#ac_config_srcdir-unique-file-in-source-dir" },
+              {title: "AC_CONFIG_AUX_DIR (dir)", url: "#ac_config_aux_dir-dir" },
+              {title: "AC_REQUIRE_AUX_FILE (file)", url: "#ac_require_aux_file-file" },
+              {title: "AC_CONFIG_MACRO_DIR (dir)", url: "#ac_config_macro_dir-dir" },
+          ]},
+          {title: "4.5 \u8f93\u51fa\u6587\u4ef6", url: "#45", children: [
+              {title: "AC_OUTPUT ([file]..., [extra-cmds], [init-cmds])", url: "#ac_output-file-extra-cmds-init-cmds" },
+              {title: "AC_OUTPUT", url: "#ac_output" },
+              {title: "AC_PROG_MAKE_SET", url: "#ac_prog_make_set" },
+          ]},
+          {title: "4.6 \u6267\u884c\u914d\u7f6e\u52a8\u4f5c", url: "#46", children: [
+          ]},
+          {title: "4.7 \u521b\u5efa\u914d\u7f6e\u6587\u4ef6", url: "#47", children: [
+              {title: "AC_CONFIG_FILES (file..., [cmds], [init-cmds])", url: "#ac_config_files-file-cmds-init-cmds" },
+          ]},
+          {title: "4.8 Makefile\u4e2d\u7684\u66ff\u6362", url: "#48-makefile", children: [
+              {title: "4.8.1 \u9884\u7f6e\u8f93\u51fa\u53d8\u91cf", url: "#481" },
+              {title: "4.8.2 \u5b89\u88c5\u76ee\u5f55\u53d8\u91cf", url: "#482" },
+          ]},
+          {title: "4.9 \u914d\u7f6e\u5934\u6587\u4ef6", url: "#49", children: [
+              {title: "AC_CONFIG_HEADERS (header ..., [cmds], [init-cmds])", url: "#ac_config_headers-header-cmds-init-cmds" },
+          ]},
+          {title: "4.10 \u8fd0\u884c\u4efb\u610f\u914d\u7f6e\u547d\u4ee4", url: "#410", children: [
+              {title: "AC_CONFIG_COMMANDS (tag..., [cmds], [init-cmds])", url: "#ac_config_commands-tag-cmds-init-cmds" },
+              {title: "AC_CONFIG_COMMANDS_PRE (cmds)", url: "#ac_config_commands_pre-cmds" },
+              {title: "AC_CONFIG_COMMANDS_POST (cmds)", url: "#ac_config_commands_post-cmds" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
 
-  <div class="wy-grid-for-nav">
 
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> Sink</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">System</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../system/epel源/">epel源</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/rpms产出/">rpms产出</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/rsync配置/">rsync配置</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/主机不能连接mariadb/">主机不能连接mariadb</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/修改centos7语言/">修改centos7语言</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/修改mariadb编码类型/">修改mariadb编码类型</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/关闭selinux/">关闭selinux</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/开启图形界面/">开启图形界面</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/改变系统时区/">改变系统时区</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/磁盘容量扩充/">磁盘容量扩充</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/网卡不存在/">网卡不存在</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/通过shell命令写文件/">通过shell命令写文件</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">虚拟机迁移</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../虚拟机迁移/libguestfs架构/">libguestfs架构</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../虚拟机迁移/以ova为例virt-v2v磁盘转换流程/">以ova为例virt-v2v磁盘转换流程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../虚拟机迁移/virt-p2v-make-disk脚本分析/">virt-p2v-make-disk脚本分析</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../虚拟机迁移/virt-p2v介绍/">virt-p2v介绍</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../虚拟机迁移/virt-p2v磁盘转换流程/">virt-p2v磁盘转换流程</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Spice</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../spice/简介/">简介</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../spice/使用范例/">使用范例</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../spice/函数所在文件/">函数所在文件</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Python</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../python/event线程/">event线程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../python/json格式处理/">json格式处理</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../python/执行shell命令/">执行shell命令</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../python/超时装饰器/">超时装饰器</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Other</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../other/CSDN语法/">CSDN语法</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../other/h5ai美化目录/">h5ai美化目录</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../other/vdsm启动失败/">vdsm启动失败</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../other/制作iso镜像/">制作iso镜像</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../other/没有打印日志/">没有打印日志</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../other/编译安装vdsm之后主机安装失败/">编译安装vdsm之后主机安装失败</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Make</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../make/10.使用隐含规则/">10.使用隐含规则</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/11.使用make更新归档文件/">11.使用make更新归档文件</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/16.Makefile约定/">16.Makefile约定</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/4.编写规则/">4.编写规则</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/5.编写recipes/">5.编写recipes</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/6.变量/">6.变量</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/7.Makefile中的条件语句/">7.Makefile中的条件语句</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/8.转换文本函数/">8.转换文本函数</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/简介/">简介</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">M4</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../m4/11.文本处理的宏/">11.文本处理的宏</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../m4/6.条件、循环、递归/">6.条件、循环、递归</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../m4/简介/">简介</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Java</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../java/IO/">IO</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../java/作用范围级别/">作用范围级别</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../java/synchronized关键字/">synchronized关键字</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">设计模式</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../设计模式/设计原则/">设计原则</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../设计模式/模式/">模式</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Linux网络编程</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../linux网络编程/函数/">函数</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../linux网络编程/socket通信流程/">socket通信流程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../linux网络编程/简单tcp通信实现/">简单tcp通信实现</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Gluster</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../gluster/gluster安装/">gluster安装</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../gluster/ovirt的gluster数据恢复bug/">ovirt的gluster数据恢复bug</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../gluster/清理不可用的brick/">清理不可用的brick</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../gluster/结点故障/">结点故障</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Git</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../git/git rebase(修改历史提交)/">git rebase(修改历史提交)</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../git/windows无法使用git克隆/">windows无法使用git克隆</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Gerrit</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../gerrit/Apache代理添加新用户/">Apache代理添加新用户</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../gerrit/Gerrit submit change after abandoning its parent/">Gerrit submit change after abandoning its parent</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../gerrit/使用Apache代理路径错误/">使用Apache代理路径错误</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../gerrit/刷新gerrit项目列表/">刷新gerrit项目列表</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Datastruct</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../datastruct/二叉树/">二叉树</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../datastruct/散列表/">散列表</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../datastruct/红黑树/">红黑树</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Command</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../command/linux挂载windows共享文件夹/">linux挂载windows共享文件夹</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../command/sed/">sed</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../command/ssh免密登录/">ssh免密登录</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../command/tar命令打包去掉路径前缀/">tar命令打包去掉路径前缀</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../command/wget用法/">wget用法</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../command/显示文件夹大小/">显示文件夹大小</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../command/更新、禁用yum仓库、只下载rpm/">更新、禁用yum仓库、只下载rpm</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../command/添加公钥/">添加公钥</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">C and c++</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../c and c++/动态编译/">动态编译</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../c and c++/程序运行时间/">程序运行时间</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Bash</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../bash/3.基本shell功能/">3.基本shell功能</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../bash/4.shell内置命令/">4.shell内置命令</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Automake</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../automake/10.其它GNU工具/">10.其它GNU工具</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/12.安装/">12.安装</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/13.清理/">13.清理</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/14.发布/">14.发布</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/15.测试套件的支持/">15.测试套件的支持</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/18.规则杂项/">18.规则杂项</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/19.Include/">19.Include</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/20.条件语句/">20.条件语句</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/23.Automake不能满足使用时/">23.Automake不能满足使用时</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/5.创建Makefile.in/">5.创建Makefile.in</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/6.扫描configure.ac，使用aclocal/">6.扫描configure.ac，使用aclocal</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/7.文件夹/">7.文件夹</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/8.构建程序和库/">8.构建程序和库</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/9.其它派生对象/">9.其它派生对象</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/简介/">简介</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Autogen</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../autogen/简介/">简介</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Autoconf</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../10.编写Autoconf宏/">10.编写Autoconf宏</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../11.便携式shell编程/">11.便携式shell编程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../14.手动配置/">14.手动配置</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../15.Site配置/">15.Site配置</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">4.初始化和输出文件</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#41-configure">4.1 初始化 configure</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#ac_init-package-version-bug-report-tarname-url">AC_INIT (package, version, [bug-report], [tarname], [url])</a></li>
-        
-        </ul>
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
     
 
-    <li class="toctree-l3"><a href="#42-autoconf">4.2 解决Autoconf的版本</a></li>
     
-        <ul>
-        
-            <li><a class="toctree-l4" href="#ac_prereq-version">AC_PREREQ (version)</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#44-configure">4.4 找到 configure 的输入</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#ac_config_srcdir-unique-file-in-source-dir">AC_CONFIG_SRCDIR (unique-file-in-source-dir)</a></li>
-        
-            <li><a class="toctree-l4" href="#ac_config_aux_dir-dir">AC_CONFIG_AUX_DIR (dir)</a></li>
-        
-            <li><a class="toctree-l4" href="#ac_require_aux_file-file">AC_REQUIRE_AUX_FILE (file)</a></li>
-        
-            <li><a class="toctree-l4" href="#ac_config_macro_dir-dir">AC_CONFIG_MACRO_DIR (dir)</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#45">4.5 输出文件</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#ac_output-file-extra-cmds-init-cmds">AC_OUTPUT ([file]..., [extra-cmds], [init-cmds])</a></li>
-        
-            <li><a class="toctree-l4" href="#ac_output">AC_OUTPUT</a></li>
-        
-            <li><a class="toctree-l4" href="#ac_prog_make_set">AC_PROG_MAKE_SET</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#46">4.6 执行配置动作</a></li>
-    
-
-    <li class="toctree-l3"><a href="#47">4.7 创建配置文件</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#ac_config_files-file-cmds-init-cmds">AC_CONFIG_FILES (file..., [cmds], [init-cmds])</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#48-makefile">4.8 Makefile中的替换</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#481">4.8.1 预置输出变量</a></li>
-        
-            <li><a class="toctree-l4" href="#482">4.8.2 安装目录变量</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#49">4.9 配置头文件</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#ac_config_headers-header-cmds-init-cmds">AC_CONFIG_HEADERS (header ..., [cmds], [init-cmds])</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#410">4.10 运行任意配置命令</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#ac_config_commands-tag-cmds-init-cmds">AC_CONFIG_COMMANDS (tag..., [cmds], [init-cmds])</a></li>
-        
-            <li><a class="toctree-l4" href="#ac_config_commands_pre-cmds">AC_CONFIG_COMMANDS_PRE (cmds)</a></li>
-        
-            <li><a class="toctree-l4" href="#ac_config_commands_post-cmds">AC_CONFIG_COMMANDS_POST (cmds)</a></li>
-        
-        </ul>
-    
-
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../5.现有测试/">5.现有测试</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../6.编写测试/">6.编写测试</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../7.测试结果/">7.测试结果</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../8.使用M4编程/">8.使用M4编程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../9.使用M4sh编程/">9.使用M4sh编程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../简介/">简介</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Algorithm</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../algorithm/复杂度分析/">复杂度分析</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../algorithm/选择排序/">选择排序</a>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">Sink</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../..">Docs</a> &raquo;</li>
     
       
-        
-          <li>Autoconf &raquo;</li>
-        
-      
     
-    <li>4.初始化和输出文件</li>
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
-              
-                <h2 id="41-configure">4.1 初始化 configure</h2>
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../5.现有测试/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../5.现有测试/" class="btn btn-xs btn-link">
+        5.现有测试
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../15.Site配置/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../15.Site配置/" class="btn btn-xs btn-link">
+        15.Site配置
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h2 id="41-configure">4.1 初始化 configure</h2>
 <h4 id="ac_init-package-version-bug-report-tarname-url">AC_INIT <em>(package, version, [bug-report], [tarname], [url])</em></h4>
 <p>第一个要执行的宏。设置程序名、版本号、联系方式...。他们都应该是静态的参数，不能是shell参数、引用或者新行，但是可以通过m4计算出来。</p>
 <pre><code class="autoconf">AC_INIT([vdsm],
@@ -850,52 +216,43 @@ config.status执行所有的配置动作：所有的输出文件、头文件、�
 <p>创建config.status之前执行。</p>
 <h4 id="ac_config_commands_post-cmds">AC_CONFIG_COMMANDS_POST <em>(cmds)</em></h4>
 <p>创建config.status之后执行。</p>
-              
-            </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+
+  <br>
+    
+
+    
+    
       
-        <a href="../5.现有测试/" class="btn btn-neutral float-right" title="5.现有测试">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../15.Site配置/" class="btn btn-neutral" title="15.Site配置"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../5.现有测试/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../5.现有测试/" class="btn btn-xs btn-link">
+        5.现有测试
+      </a>
     </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
+    
+    <div class="wm-article-nav">
+      <a href="../15.Site配置/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../15.Site配置/" class="btn btn-xs btn-link">
+        15.Site配置
+      </a>
+    </div>
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-      
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../15.Site配置/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../5.现有测试/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+    <br>
 </div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme.js" defer></script>
-      <script src="../../search/main.js" defer></script>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
 
 </body>
 </html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="shihr">
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>HTTP 报文内的 HTTP 信息.md - Sink</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "HTTP\u62a5\u6587", url: "#_top", children: [
+          ]},
+          {title: "\u7f16\u7801\u63d0\u5347\u4f20\u8f93\u901f\u7387", url: "#_1", children: [
+              {title: "\u62a5\u6587\u4e3b\u4f53\u548c\u5b9e\u4f53\u4e3b\u4f53\u7684\u5dee\u5f02", url: "#_2" },
+              {title: "\u538b\u7f29\u4f20\u8f93\u7684\u5185\u5bb9\u7f16\u7801", url: "#_3" },
+              {title: "\u5206\u5272\u53d1\u9001\u7684\u5206\u5757\u4f20\u8f93\u7f16\u7801", url: "#_4" },
+          ]},
+          {title: "\u53d1\u9001\u591a\u79cd\u6570\u636e\u7684\u591a\u90e8\u5206\u5bf9\u8c61\u96c6\u5408", url: "#_5", children: [
+          ]},
+          {title: "\u83b7\u53d6\u90e8\u5206\u5185\u5bb9\u7684\u8303\u56f4\u8bf7\u6c42", url: "#_6", children: [
+          ]},
+          {title: "\u5185\u5bb9\u534f\u5546\u8fd4\u56de\u6700\u5408\u9002\u7684\u5185\u5bb9", url: "#_7", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../返回结果的 HTTP 状态码/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../返回结果的 HTTP 状态码/" class="btn btn-xs btn-link">
+        返回结果的 HTTP 状态码.md
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../简介/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../简介/" class="btn btn-xs btn-link">
+        简介.md
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="http">HTTP报文</h1>
+<p>用于 HTTP  协议交互的信息被称为 HTTP  报文。</p>
+<p><img alt="HTTP报文的结构" src="../img/HTTP报文的结构.png" /></p>
+<p><img alt="" src="../img/请求报文和响应报文的结构.png" /></p>
+<p><img alt="响应报文实例" src="../img/响应报文实例.png" /></p>
+<p>请求行</p>
+<blockquote>
+<p>包含用于请求的方法，请求 U RI  和 HTTP  版本。</p>
+</blockquote>
+<p>状态行</p>
+<blockquote>
+<p>包含表明响应结果的状态码，原因短语和 HTTP  版本。</p>
+</blockquote>
+<p>首部字段</p>
+<blockquote>
+<p>包含表示请求和响应的各种条件和属性的各类首部。</p>
+<p>一般有 4 种首部，分别是：通用首部、请求首部、响应首部和实体首部。
+其他
+可能包含 HTTP  的 RFC 里未定义的首部（Cook ie 等）。</p>
+</blockquote>
+<h1 id="_1">编码提升传输速率</h1>
+<h2 id="_2">报文主体和实体主体的差异</h2>
+<ul>
+<li>
+<p>报文（message ）</p>
+<blockquote>
+<p>是 HTTP  通信中的基本单位，由 8 位组字节流（octet  sequence，
+其中 octet  为 8 个比特）组成，通过 HTTP  通信传输。</p>
+</blockquote>
+</li>
+<li>
+<p>实体（entity）</p>
+<blockquote>
+<p>作为请求或响应的有效载荷数据（补充项）被传输，其内容由实
+体首部和实体主体组成。</p>
+</blockquote>
+</li>
+</ul>
+<p>HTTP  报文的主体用于传输请求或响应的实体主体。</p>
+<p>通常，报文主体等于实体主体。只有当传输中进行编码操作时，实体主体的内容发生变化，才导致它和报文主体产生差异。</p>
+<h2 id="_3">压缩传输的内容编码</h2>
+<p>将实体编码压缩后进行传输。服务端压缩，客户端恢复。</p>
+<p>内容编码的类型：</p>
+<ul>
+<li>gzip （GNU zip）</li>
+<li>compress（UNIX  系统的标准压缩）</li>
+<li>deflate （zlib ）</li>
+<li>identity（不进行编码）</li>
+</ul>
+<h2 id="_4">分割发送的分块传输编码</h2>
+<p>把实体主体分块传输。这种功能叫做<code>分块传输编码</code>（Chunked Transfer Coding）。服务端压缩，客户端解码恢复。</p>
+<p>每一块都会用十六进制来标记块的大小，而实体主体的最后一块会使用“0(CR+L F)”来标记。</p>
+<h1 id="_5">发送多种数据的多部分对象集合</h1>
+<p>HTTP  协议中也采纳了多部分对象集合，发送的一份报文主体内可含有多类型实体。</p>
+<p>多部分对象集合包含的对象如下：</p>
+<ul>
+<li>
+<p>multipart/form-data</p>
+<blockquote>
+<p>在 W eb 表单文件上传时使用。 </p>
+</blockquote>
+</li>
+<li>
+<p>multipart/byteranges</p>
+<blockquote>
+<p>状态码 206（Partial  Content，部分内容）响应报文包含了多个范围的内容时使用。</p>
+</blockquote>
+</li>
+</ul>
+<p>在 HTTP  报文中使用多部分对象集合时，需要在首部字段里加上Content-type。
+使用 boundary  字符串来划分多部分对象集合指明的各类实体。</p>
+<p>多部分对象集合的每个部分类型中，都可以含有首部字段。另外，可以在某个部分中嵌套使用多部分对象集合。</p>
+<h1 id="_6">获取部分内容的范围请求</h1>
+<p>指定范围发送的请求叫做范围请求（Range Request）。</p>
+<p>针对范围请求，响应会返回状态码为 206 Partial  Content  的响应报文。另外，对于多重范围的范围请求，响应会在首部字段 Content Type 标明 multipart/byteranges 后返回响应报文。</p>
+<p>如果服务器端无法响应范围请求，则会返回状态码 200 OK 和完整的实体内容。</p>
+<p><img alt="" src="../img/范围请求实例.png" /></p>
+<h1 id="_7">内容协商返回最合适的内容</h1>
+<p>内容协商机制是指客户端和服务器端就响应的资源内容进行交涉，然后提供给客户端最为适合的资源。内容协商会以响应资源的语言、字符集、编码方式等作为判断的基准。</p>
+<p>有以下三种类型：</p>
+<ul>
+<li>服务器驱动协商（Server-driven  Negotiation）</li>
+<li>客户端驱动协商（Agent-driven  Negotiation）</li>
+<li>透明协商（Transparent  Negotiation）</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../返回结果的 HTTP 状态码/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../返回结果的 HTTP 状态码/" class="btn btn-xs btn-link">
+        返回结果的 HTTP 状态码.md
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../简介/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../简介/" class="btn btn-xs btn-link">
+        简介.md
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="shihr">
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>HTTPS.md - Sink</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../linux网络编程/函数/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../linux网络编程/函数/" class="btn btn-xs btn-link">
+        函数
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../HTTP 首部/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../HTTP 首部/" class="btn btn-xs btn-link">
+        HTTP 首部.md
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <p><strong>HTTP+ 加密 + 认证 + 完整性保护 = HTTPS</strong></p>
+<p>我们把添加了加密及认证机制的 HTTP 称为 HTTPS（HTTP Secure）。</p>
+<p>通常，HTTP  直接和 TCP  通信。当使用 SSL  时，则演变成先和 SSL  通信，再由 SSL  和 TCP  通信了。</p>
+<p>混合加密机制：在交换密钥环节使用<strong>非对称密钥</strong>加密方式，之后的建立通信交换报文阶段则使用<strong>对称密钥</strong>加密方式。</p>
+<p>数字证书认证机构（CA，Certificate Authority）和其相关机关颁发的公开密钥证书用于证明公开密钥正确性。数字证书认证机构处于客户端与服务器双方都可信赖的第三方机构的立场上。</p>
+<p>接到证书的客户端可使用数字证书认证机构的公开密钥，对那张证书上的数字签名进行验证，一旦验证通过，客户端便可明确两件事：</p>
+<ul>
+<li>认证服务器的公开密钥的是真实有效的数字证书认证机构。</li>
+<li>服务器的公开密钥是值得信赖的。</li>
+</ul>
+<p><img alt="HTTPS通信" src="../img/HTTPS通信.png" /></p>
+<p>如何获取认证机构的公开密钥：多数浏览器会事先在内部植入常用认证机关的公开密钥。</p>
+<p><img alt="通信认证过程" src="../img/通信认证过程.png" /></p>
+<p>SSL 的慢分两种。一种是指通信慢。另一种是指由于大量消耗CPU 及内存等资源，导致处理速度变慢。</p>
+<p>详细通信过程解读参考《图解HTTP》7.2 节。</p>
+<p>更多HTTP介绍参考《图解HTTP》。</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../linux网络编程/函数/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../linux网络编程/函数/" class="btn btn-xs btn-link">
+        函数
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../HTTP 首部/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../HTTP 首部/" class="btn btn-xs btn-link">
+        HTTP 首部.md
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,708 +1,118 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <meta name="author" content="shihr">
-  <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>以ova为例virt-v2v磁盘转换流程 - Sink</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="shihr">
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>以ova为例virt-v2v磁盘转换流程 - Sink</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "\u4ee5ova\u4e3a\u4f8bvirt-v2v\u78c1\u76d8\u8f6c\u6362\u6d41\u7a0b";
-    var mkdocs_page_input_path = "\u865a\u62df\u673a\u8fc1\u79fb\\\u4ee5ova\u4e3a\u4f8bvirt-v2v\u78c1\u76d8\u8f6c\u6362\u6d41\u7a0b.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "1.\u89e3\u6790\u547d\u4ee4\u884c\uff0c\u521d\u59cb\u5316\u8f93\u5165\u8f93\u51fa\u6a21\u5757", url: "#_top", children: [
+          ]},
+          {title: "2.\u83b7\u53d6\u4fe1\u606f", url: "#2", children: [
+          ]},
+          {title: "2.1\u5904\u7406\u8f93\u5165", url: "#21", children: [
+          ]},
+          {title: "3.\u521b\u5efaoverlay\u78c1\u76d8\uff08copy\u6a21\u5f0f\u72ec\u6709\uff09", url: "#3overlaycopy", children: [
+          ]},
+          {title: "4.\u521d\u59cb\u5316target\u7ed3\u6784\u4f53\uff08copy\u6a21\u5f0f\u72ec\u6709\uff09", url: "#4targetcopy", children: [
+          ]},
+          {title: "5.\u521b\u5efa\u5904\u7406\u5668", url: "#5", children: [
+          ]},
+          {title: "6.\u542f\u52a8appliance\u3001\u5b88\u62a4\u8fdb\u7a0bguestfsd", url: "#6applianceguestfsd", children: [
+          ]},
+          {title: "7.\u68c0\u6d4b\u6e90\u78c1\u76d8\uff0c\u83b7\u53d6\u4fe1\u606f", url: "#7", children: [
+          ]},
+          {title: "8.\u4f30\u7b97\u6bcf\u4e2a target disk \u7684\u7a7a\u95f4\u8981\u6c42", url: "#8-target-disk", children: [
+          ]},
+          {title: "9.\u8fdb\u884c\u78c1\u76d8\u8f6c\u6362", url: "#9", children: [
+          ]},
+          {title: "10.\u51cf\u5c11\u8f6c\u6362\u91cf", url: "#10", children: [
+          ]},
+          {title: "11.\u5173\u95ed\u5b88\u62a4\u8fdb\u7a0b", url: "#11", children: [
+          ]},
+          {title: "12.\u5206\u914d\u78c1\u76d8\u5230\u603b\u7ebf", url: "#12", children: [
+          ]},
+          {title: "13.\u521b\u5efa\u76ee\u7684\u78c1\u76d8", url: "#13", children: [
+              {title: "13.1\u521b\u5efa\u76ee\u7684\u78c1\u76d8", url: "#131" },
+              {title: "13.2\u8f6c\u6362\u76ee\u7684\u78c1\u76d8", url: "#132" },
+          ]},
+          {title: "14.\u751f\u6210 metadata \u6587\u4ef6", url: "#14-metadata", children: [
+          ]},
+          {title: "15.\u4e24\u79cd\u8f6c\u6362\u6a21\u5f0f", url: "#15", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
 
-  <div class="wy-grid-for-nav">
 
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> Sink</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">System</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../system/epel源/">epel源</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/rpms产出/">rpms产出</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/rsync配置/">rsync配置</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/主机不能连接mariadb/">主机不能连接mariadb</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/修改centos7语言/">修改centos7语言</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/修改mariadb编码类型/">修改mariadb编码类型</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/关闭selinux/">关闭selinux</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/开启图形界面/">开启图形界面</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/改变系统时区/">改变系统时区</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/磁盘容量扩充/">磁盘容量扩充</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/网卡不存在/">网卡不存在</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../system/通过shell命令写文件/">通过shell命令写文件</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">虚拟机迁移</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../libguestfs架构/">libguestfs架构</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">以ova为例virt-v2v磁盘转换流程</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#1">1.解析命令行</a></li>
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
     
 
-    <li class="toctree-l3"><a href="#2">2.获取信息</a></li>
     
-
-    <li class="toctree-l3"><a href="#21">2.1处理输入</a></li>
-    
-
-    <li class="toctree-l3"><a href="#4overlaycopy">4.创建overlay磁盘（copy模式独有）</a></li>
-    
-
-    <li class="toctree-l3"><a href="#5targetcopy">5.初始化target结构体（copy模式独有）</a></li>
-    
-
-    <li class="toctree-l3"><a href="#6">6.创建处理器</a></li>
-    
-
-    <li class="toctree-l3"><a href="#7applianceguestfsd">7.启动appliance、守护进程guestfsd</a></li>
-    
-
-    <li class="toctree-l3"><a href="#8">8.检测源磁盘，获取信息</a></li>
-    
-
-    <li class="toctree-l3"><a href="#9">9.进行磁盘转换</a></li>
-    
-
-    <li class="toctree-l3"><a href="#10">10.减少转换量</a></li>
-    
-
-    <li class="toctree-l3"><a href="#11">11.关闭守护进程</a></li>
-    
-
-    <li class="toctree-l3"><a href="#12">12.创建目的磁盘</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#121">12.1创建目的磁盘</a></li>
-        
-            <li><a class="toctree-l4" href="#122">12.2转换目的磁盘</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#13xml">13.生成xml文件或可执行脚本</a></li>
-    
-
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../virt-p2v-make-disk脚本分析/">virt-p2v-make-disk脚本分析</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../virt-p2v介绍/">virt-p2v介绍</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../virt-p2v磁盘转换流程/">virt-p2v磁盘转换流程</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Spice</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../spice/简介/">简介</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../spice/使用范例/">使用范例</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../spice/函数所在文件/">函数所在文件</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Python</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../python/event线程/">event线程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../python/json格式处理/">json格式处理</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../python/执行shell命令/">执行shell命令</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../python/超时装饰器/">超时装饰器</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Other</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../other/CSDN语法/">CSDN语法</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../other/h5ai美化目录/">h5ai美化目录</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../other/vdsm启动失败/">vdsm启动失败</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../other/制作iso镜像/">制作iso镜像</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../other/没有打印日志/">没有打印日志</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../other/编译安装vdsm之后主机安装失败/">编译安装vdsm之后主机安装失败</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Make</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../make/10.使用隐含规则/">10.使用隐含规则</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/11.使用make更新归档文件/">11.使用make更新归档文件</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/16.Makefile约定/">16.Makefile约定</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/4.编写规则/">4.编写规则</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/5.编写recipes/">5.编写recipes</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/6.变量/">6.变量</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/7.Makefile中的条件语句/">7.Makefile中的条件语句</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/8.转换文本函数/">8.转换文本函数</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../make/简介/">简介</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">M4</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../m4/11.文本处理的宏/">11.文本处理的宏</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../m4/6.条件、循环、递归/">6.条件、循环、递归</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../m4/简介/">简介</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Java</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../java/IO/">IO</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../java/作用范围级别/">作用范围级别</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../java/synchronized关键字/">synchronized关键字</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">设计模式</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../设计模式/设计原则/">设计原则</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../设计模式/模式/">模式</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Linux网络编程</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../linux网络编程/函数/">函数</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../linux网络编程/socket通信流程/">socket通信流程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../linux网络编程/简单tcp通信实现/">简单tcp通信实现</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Gluster</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../gluster/gluster安装/">gluster安装</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../gluster/ovirt的gluster数据恢复bug/">ovirt的gluster数据恢复bug</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../gluster/清理不可用的brick/">清理不可用的brick</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../gluster/结点故障/">结点故障</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Git</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../git/git rebase(修改历史提交)/">git rebase(修改历史提交)</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../git/windows无法使用git克隆/">windows无法使用git克隆</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Gerrit</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../gerrit/Apache代理添加新用户/">Apache代理添加新用户</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../gerrit/Gerrit submit change after abandoning its parent/">Gerrit submit change after abandoning its parent</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../gerrit/使用Apache代理路径错误/">使用Apache代理路径错误</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../gerrit/刷新gerrit项目列表/">刷新gerrit项目列表</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Datastruct</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../datastruct/二叉树/">二叉树</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../datastruct/散列表/">散列表</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../datastruct/红黑树/">红黑树</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Command</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../command/linux挂载windows共享文件夹/">linux挂载windows共享文件夹</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../command/sed/">sed</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../command/ssh免密登录/">ssh免密登录</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../command/tar命令打包去掉路径前缀/">tar命令打包去掉路径前缀</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../command/wget用法/">wget用法</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../command/显示文件夹大小/">显示文件夹大小</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../command/更新、禁用yum仓库、只下载rpm/">更新、禁用yum仓库、只下载rpm</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../command/添加公钥/">添加公钥</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">C and c++</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../c and c++/动态编译/">动态编译</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../c and c++/程序运行时间/">程序运行时间</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Bash</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../bash/3.基本shell功能/">3.基本shell功能</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../bash/4.shell内置命令/">4.shell内置命令</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Automake</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../automake/10.其它GNU工具/">10.其它GNU工具</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/12.安装/">12.安装</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/13.清理/">13.清理</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/14.发布/">14.发布</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/15.测试套件的支持/">15.测试套件的支持</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/18.规则杂项/">18.规则杂项</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/19.Include/">19.Include</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/20.条件语句/">20.条件语句</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/23.Automake不能满足使用时/">23.Automake不能满足使用时</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/5.创建Makefile.in/">5.创建Makefile.in</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/6.扫描configure.ac，使用aclocal/">6.扫描configure.ac，使用aclocal</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/7.文件夹/">7.文件夹</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/8.构建程序和库/">8.构建程序和库</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/9.其它派生对象/">9.其它派生对象</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../automake/简介/">简介</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Autogen</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../autogen/简介/">简介</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Autoconf</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../autoconf/10.编写Autoconf宏/">10.编写Autoconf宏</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../autoconf/11.便携式shell编程/">11.便携式shell编程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../autoconf/14.手动配置/">14.手动配置</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../autoconf/15.Site配置/">15.Site配置</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../autoconf/4.初始化和输出文件/">4.初始化和输出文件</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../autoconf/5.现有测试/">5.现有测试</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../autoconf/6.编写测试/">6.编写测试</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../autoconf/7.测试结果/">7.测试结果</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../autoconf/8.使用M4编程/">8.使用M4编程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../autoconf/9.使用M4sh编程/">9.使用M4sh编程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../autoconf/简介/">简介</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Algorithm</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../algorithm/复杂度分析/">复杂度分析</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../algorithm/选择排序/">选择排序</a>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">Sink</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../..">Docs</a> &raquo;</li>
     
       
-        
-          <li>虚拟机迁移 &raquo;</li>
-        
-      
     
-    <li>以ova为例virt-v2v磁盘转换流程</li>
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
-              
-                <h3 id="1">1.解析命令行</h3>
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../virt-p2v-make-disk脚本分析/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../virt-p2v-make-disk脚本分析/" class="btn btn-xs btn-link">
+        virt-p2v-make-disk脚本分析
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../libguestfs架构/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../libguestfs架构/" class="btn btn-xs btn-link">
+        libguestfs架构
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h3 id="1">1.解析命令行，初始化输入输出模块</h3>
 <pre><code class="ocaml">let cmdline, input, output = parse_cmdline () in
 </code></pre>
 
@@ -739,7 +149,7 @@ NICs:
         Bridge &quot;nat&quot; [e1000]
 </code></pre>
 
-<h3 id="4overlaycopy">4.创建overlay磁盘（copy模式独有）</h3>
+<h3 id="3overlaycopy">3.创建overlay磁盘（copy模式独有）</h3>
 <pre><code class="ocaml">let overlays = create_overlays source.s_disks in
 </code></pre>
 
@@ -747,15 +157,15 @@ NICs:
 <pre><code class="shell">qemu-img 'create' '-q' '-f' 'qcow2' '-b' '/var/tmp/ova.x0YFry/centos2-disk1.vmdk' '-o' 'compat=1.1,backing_fmt=vmdk' '/var/tmp/v2vovl36099b.qcow2'
 </code></pre>
 
-<h3 id="5targetcopy">5.初始化target结构体（copy模式独有）</h3>
+<h3 id="4targetcopy">4.初始化target结构体（copy模式独有）</h3>
 <pre><code class="ocaml">let targets = init_targets cmdline output source overlays in
 </code></pre>
 
-<h3 id="6">6.创建处理器</h3>
+<h3 id="5">5.创建处理器</h3>
 <pre><code class="ocaml">let g = open_guestfs ~identifier:&quot;v2v&quot; () in
 </code></pre>
 
-<h3 id="7applianceguestfsd">7.启动appliance、守护进程guestfsd</h3>
+<h3 id="6applianceguestfsd">6.启动appliance、守护进程guestfsd</h3>
 <pre><code class="ocaml">g#launch ();
 </code></pre>
 
@@ -764,7 +174,7 @@ NICs:
 <li>supermin5载入模块；创建设备目录（/dev/**）并挂载；设置网络；分配逻辑卷组</li>
 <li>libguestfs接收到GUESTFS_LAUNCH_FLAG信号，appliance启动成功</li>
 </ol>
-<h3 id="8">8.检测源磁盘，获取信息</h3>
+<h3 id="7">7.检测源磁盘，获取信息</h3>
 <pre><code class="ocaml">let inspect = Inspect_source.inspect_source cmdline.root_choice g in
 </code></pre>
 
@@ -786,11 +196,33 @@ i_windows_system_hive =
 i_windows_current_control_set =
 </code></pre>
 
+<h3 id="8-target-disk">8.估算每个 target disk 的空间要求</h3>
+<pre><code class="ocaml">  let mpstats = get_mpstats g in
+  check_guest_free_space mpstats;
+  check_target_free_space mpstats source targets output
+</code></pre>
+
+<p>日志：</p>
+<pre><code class="shell">[ 133.5] Checking for sufficient free disk space in the guest
+[ 133.5] Estimating space required on target for each disk
+mpstats:
+mountpoint statvfs /dev/sda1 /boot (xfs):
+  bsize=4096 blocks=259584 bfree=224126 bavail=224126
+mountpoint statvfs /dev/cl/root / (xfs):
+  bsize=4096 blocks=4452864 bfree=4185952 bavail=4185952
+estimate_target_size: fs_total_size = 19302187008 [18.0G]
+estimate_target_size: source_total_size = 21474836480 [20.0G]
+estimate_target_size: ratio = 0.899
+estimate_target_size: fs_free = 18063679488 [16.8G]
+estimate_target_size: scaled_saving = 16236143164 [15.1G]
+estimate_target_size: sda: 5238693316 [4.9G]
+</code></pre>
+
 <h3 id="9">9.进行磁盘转换</h3>
 <pre><code class="ocaml">let guestcaps = do_convert g inspect source output rcaps in
 </code></pre>
 
-<p>日志：</p>
+<p>结果日志：</p>
 <pre><code class="shell">guestcaps:
 rm_f = 0
 gcaps_block_bus = virtio-blk
@@ -798,9 +230,9 @@ gcaps_net_bus = virtio-net
 gcaps_video = qxl
 gcaps_arch = x86_64
 gcaps_acpi = true
+virt-v2v: This guest has virtio drivers installed.
 </code></pre>
 
-<p>9.1 </p>
 <p>detect_kernels日志</p>
 <pre><code class="shell">kernels offered by the bootloader in this guest (first in list is default):
 * kernel 3.10.0-514.el7.x86_64 (x86_64)
@@ -829,7 +261,7 @@ do_fstrim g inspect;
 </code></pre>
 
 <p>日志：</p>
-<pre><code>libguestfs: trace: v2v: fstrim &quot;/&quot;
+<pre><code class="shell">libguestfs: trace: v2v: fstrim &quot;/&quot;
 guestfsd: &lt;= fstrim (0x14e) request length 72 bytes
 commandrvf: fstrim -v /sysroot/
 /sysroot/: 16 GiB (17179185152 bytes) trimmed
@@ -862,23 +294,47 @@ libguestfs: command: run: \ -rf /tmp/libguestfs5EMQ5o
 </code></pre>
 
 <p><strong>----------------------------------以下是copy模式独有的步骤-------------------------</strong></p>
-<h3 id="12">12.创建目的磁盘</h3>
+<h3 id="12">12.分配磁盘到总线</h3>
+<pre><code>let target_buses =
+         Target_bus_assignment.target_bus_assignment source targets guestcaps in
+</code></pre>
+
+<p>日志：</p>
+<pre><code class="shell">[ 188.3] Assigning disks to buses
+virtio-blk slot 0:
+target_file = [file] /var/tmp/qemu-vm/centos2-sda
+target_format = qcow2
+target_estimated_size = 5238693316
+target_overlay = /var/tmp/v2vovl36099b.qcow2
+target_overlay.ov_source = /var/tmp/ova.x0YFry/centos2-disk1.vmdk
+ide slot 0:
+        CD-ROM [ide] in slot 0
+</code></pre>
+
+<h3 id="13">13.创建目的磁盘</h3>
 <pre><code class="ocaml">let targets = 
     if not cmdline.do_copy then targets
     else copy_targets cmdline targets input output in
 </code></pre>
 
-<h4 id="121">12.1创建目的磁盘</h4>
+<h4 id="131">13.1创建目的磁盘</h4>
 <pre><code class="ocaml">output#disk_create
     t.target_file t.target_format t.target_overlay.ov_virtual_size
     ?preallocation ?compat;
 </code></pre>
 
 <p>日志：</p>
-<pre><code class="shell">disk_create &quot;/var/tmp/qemu-vm/centos2-sda&quot; &quot;qcow2&quot; 21474836480 &quot;preallocation:sparse&quot; &quot;compat:1.1&quot;
+<pre><code class="shell">[ 188.3] Copying disk 1/1 to /var/tmp/qemu-vm/centos2-sda (qcow2)
+target_file = [file] /var/tmp/qemu-vm/centos2-sda
+target_format = qcow2
+target_estimated_size = 5238693316
+target_overlay = /var/tmp/v2vovl36099b.qcow2
+target_overlay.ov_source = /var/tmp/ova.x0YFry/centos2-disk1.vmdk
+
+disk_create &quot;/var/tmp/qemu-vm/centos2-sda&quot; &quot;qcow2&quot; 21474836480 &quot;preallocation:sparse&quot; &quot;compat:1.1&quot;
 </code></pre>
 
-<h4 id="122">12.2转换目的磁盘</h4>
+<h4 id="132">13.2转换目的磁盘</h4>
 <pre><code class="ocaml">let cmd = [ &quot;qemu-img&quot;; &quot;convert&quot; ] @
         (if not (quiet ()) then [ &quot;-p&quot; ] else []) @
         [ &quot;-n&quot;; &quot;-f&quot;; &quot;qcow2&quot;; &quot;-O&quot;; t.target_format ] @
@@ -892,7 +348,7 @@ run_command cmd
 <pre><code class="shell">qemu-img 'convert' '-p' '-n' '-f' 'qcow2' '-O' 'qcow2' '/var/tmp/v2vovl36099b.qcow2' '/var/tmp/qemu-vm/centos2-sda'
 </code></pre>
 
-<h3 id="13xml">13.生成xml文件或可执行脚本</h3>
+<h3 id="14-metadata">14.生成 metadata 文件</h3>
 <pre><code class="ocaml">output#create_metadata source targets target_buses guestcaps inspect
        target_firmware;
 </code></pre>
@@ -900,52 +356,87 @@ run_command cmd
 <p>日志：</p>
 <pre><code class="shell">Creating output metadata
 </code></pre>
-              
-            </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+
+<h3 id="15">15.两种转换模式</h3>
+<p><strong>15.1 <code>copying</code>模式</strong>：</p>
+<p>在这种模式下，磁盘的转换流程是这样的：<code>source -&gt; overlay -&gt; target</code>。</p>
+<ol>
+<li>获取原VM的一个或多个磁盘source描述。</li>
+<li>在源磁盘的上面放可写的叠加磁盘overlay。</li>
+<li>在overlay上面做转换。</li>
+<li>复制overlay到目标磁盘target。</li>
+</ol>
+<p><strong>15.2 <code>in place</code>模式</strong>：不会在目标Hypervisor创建新的虚拟机，而是调整原VM的操作系统以在输入的Hypervisor上运行。</p>
+<pre><code class="shell">virt-v2v -ic qemu:///system converted_vm --in-place
+</code></pre>
+
+<p><code>virt-v2v</code>默认使用<code>copying</code>模式，在以下场景中可能会用到<code>in place</code>模式：</p>
+<p>​   一个外来VM已经被导入到基于KVM的Hypervisor上，但是仍然需要在guest上面调整使它运行在新的虚拟硬件上。</p>
+<p>​   在这种情况下，假设第三方工具基于原VM配置和内容在支持的基于KVM的Hypervisor中创建了目标VM，但是需要使用更适合KVM的虚拟设备（比如virtio存储网络、网络等）。</p>
+<p><strong>15.3 两种模式的区别</strong>：</p>
+<table>
+<thead>
+<tr>
+<th align="center">转换模式</th>
+<th align="center">copying</th>
+<th align="center">in place</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">是否在源磁盘上做修改</td>
+<td align="center">否</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">是否创建overlays磁盘</td>
+<td align="center">是</td>
+<td align="center">否</td>
+</tr>
+<tr>
+<td align="center">在哪个磁盘上做转换</td>
+<td align="center">overlay磁盘</td>
+<td align="center">源磁盘</td>
+</tr>
+</tbody>
+</table>
+
+  <br>
+    
+
+    
+    
       
-        <a href="../virt-p2v-make-disk脚本分析/" class="btn btn-neutral float-right" title="virt-p2v-make-disk脚本分析">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../libguestfs架构/" class="btn btn-neutral" title="libguestfs架构"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../virt-p2v-make-disk脚本分析/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../virt-p2v-make-disk脚本分析/" class="btn btn-xs btn-link">
+        virt-p2v-make-disk脚本分析
+      </a>
     </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
+    
+    <div class="wm-article-nav">
+      <a href="../libguestfs架构/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../libguestfs架构/" class="btn btn-xs btn-link">
+        libguestfs架构
+      </a>
+    </div>
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-      
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../libguestfs架构/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../virt-p2v-make-disk脚本分析/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+    <br>
 </div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme.js" defer></script>
-      <script src="../../search/main.js" defer></script>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
 
 </body>
 </html>

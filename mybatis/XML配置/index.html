@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="shihr">
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>XML配置.md - Sink</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "\u5c5e\u6027\uff08properties\uff09", url: "#_top", children: [
+          ]},
+          {title: "\u8bbe\u7f6e\uff08settings\uff09", url: "#settings", children: [
+          ]},
+          {title: "\u7c7b\u578b\u522b\u540d\uff08typeAliases\uff09", url: "#typealiases", children: [
+          ]},
+          {title: "\u7c7b\u578b\u5904\u7406\u5668\uff08typeHandlers\uff09", url: "#typehandlers", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../http协议/简介/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../http协议/简介/" class="btn btn-xs btn-link">
+        简介.md
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../简介/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../简介/" class="btn btn-xs btn-link">
+        简介.md
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <p>mybatis的配置文件</p>
+<h3 id="properties">属性（properties）</h3>
+<p>这些属性都是可外部配置且可动态替换的，既可以在典型的 Java 属性文件中配置，亦可通过 properties 元素的子元素来传递。</p>
+<pre><code class="xml">&lt;properties resource=&quot;org/mybatis/example/config.properties&quot;&gt;
+  &lt;property name=&quot;username&quot; value=&quot;dev_user&quot;/&gt;
+  &lt;property name=&quot;password&quot; value=&quot;F2Fa3!33TYyg&quot;/&gt;
+&lt;/properties&gt;
+</code></pre>
+
+<p>然后其中的属性就可以在整个配置文件中被用来替换需要动态配置的属性值。比如:</p>
+<pre><code class="xml">&lt;dataSource type=&quot;POOLED&quot;&gt;
+  &lt;property name=&quot;username&quot; value=&quot;${username}&quot;/&gt;
+  &lt;property name=&quot;password&quot; value=&quot;${password}&quot;/&gt;
+&lt;/dataSource&gt;
+</code></pre>
+
+<p>通过<code>方法参数传递</code>的属性具有最高优先级，<code>resource/url 属性</code>中指定的配置文件次之，最低优先级的是 <code>properties 属性</code>中指定的属性。</p>
+<h3 id="settings">设置（settings）</h3>
+<p>会改变 MyBatis 的运行时行为。</p>
+<p><a href="http://www.mybatis.org/mybatis-3/zh/configuration.html#settings">详细说明</a></p>
+<h3 id="typealiases">类型别名（typeAliases）</h3>
+<p>类型别名是为 Java 类型设置一个短的名字。 它只和 XML 配置有关，存在的意义仅在于用来减少类完全限定名的冗余。</p>
+<pre><code class="xml">&lt;typeAliases&gt;
+  &lt;typeAlias alias=&quot;Author&quot; type=&quot;domain.blog.Author&quot;/&gt;
+&lt;/typeAliases&gt;
+</code></pre>
+
+<p>也可以指定一个包名，MyBatis 会在包名下面搜索需要的 Java Bean：</p>
+<pre><code class="xml">&lt;typeAliases&gt;
+  &lt;package name=&quot;domain.blog&quot;/&gt;
+&lt;/typeAliases&gt;
+</code></pre>
+
+<p>每一个在包 <code>domain.blog</code> 中的 Java Bean，在没有注解的情况下，会使用 Bean 的首字母小写的非限定类名来作为它的别名。 比如 <code>domain.blog.Author</code> 的别名为 <code>author</code>；若有注解，则别名为其注解值。</p>
+<pre><code class="java">@Alias(&quot;author&quot;)
+public class Author {
+    ...
+}
+</code></pre>
+
+<h3 id="typehandlers">类型处理器（typeHandlers）</h3>
+<p>用类型处理器将获取的值以合适的方式转换成 Java 类型。</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../http协议/简介/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../http协议/简介/" class="btn btn-xs btn-link">
+        简介.md
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../简介/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../简介/" class="btn btn-xs btn-link">
+        简介.md
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
