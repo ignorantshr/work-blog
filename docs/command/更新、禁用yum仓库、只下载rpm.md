@@ -13,3 +13,4 @@ yum-config-manager --enable base epel epel/x86_64/metalink extras updates
 yum install --downloadonly --downloaddir=/tmp <package-name>
 yumdownloader --resolve --downloadonly --downloaddir=/tmp <package-name>
 ```
+

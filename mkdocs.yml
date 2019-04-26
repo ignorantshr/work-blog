@@ -11,21 +11,33 @@ nav:
         - 修改mariadb编码类型: system/修改mariadb编码类型.md
         - 关闭selinux: system/关闭selinux.md
         - 开启图形界面: system/开启图形界面.md
+        - 文本安装时磁盘可选: system/文本安装时磁盘可选.md
         - 改变系统时区: system/改变系统时区.md
         - 磁盘容量扩充: system/磁盘容量扩充.md
         - 网卡不存在: system/网卡不存在.md
         - 通过shell命令写文件: system/通过shell命令写文件.md
-    - 虚拟机迁移:
-        - libguestfs架构: 虚拟机迁移/libguestfs架构.md
-        - 以ova为例virt-v2v磁盘转换流程: 虚拟机迁移/以ova为例virt-v2v磁盘转换流程.md
-        - virt-p2v-make-disk脚本分析: 虚拟机迁移/virt-p2v-make-disk脚本分析.md
-        - virt-p2v介绍: 虚拟机迁移/virt-p2v介绍.md
-        - virt-p2v磁盘转换流程: 虚拟机迁移/virt-p2v磁盘转换流程.md
-        - VMware-ova转换: 虚拟机迁移/VMware-ova转换.md
-        - VMware-vmx转换: 虚拟机迁移/VMware-vmx转换.md
-        - VMware-vCenter转换: 虚拟机迁移/VMware-vCenter转换.md
-        - VMware-ESXI-hypervisor转换: 虚拟机迁移/VMware-ESXI-hypervisor转换.md
-        - Xen转换: 虚拟机迁移/Xen转换.md
+    - 虚拟机转换:
+        - libguestfs架构: 虚拟机转换/libguestfs架构.md
+        - 以ova为例virt-v2v磁盘转换流程: 虚拟机转换/以ova为例virt-v2v磁盘转换流程.md
+        - virt-p2v-make-disk脚本分析: 虚拟机转换/virt-p2v-make-disk脚本分析.md
+        - virt-p2v介绍: 虚拟机转换/virt-p2v介绍.md
+        - virt-p2v磁盘转换流程: 虚拟机转换/virt-p2v磁盘转换流程.md
+        - VMware-ova转换: 虚拟机转换/VMware-ova转换.md
+        - VMware-vmx转换: 虚拟机转换/VMware-vmx转换.md
+        - VMware-vCenter转换: 虚拟机转换/VMware-vCenter转换.md
+        - VMware-ESXI-hypervisor转换: 虚拟机转换/VMware-ESXI-hypervisor转换.md
+        - VMware-vddk转换: 虚拟机转换/VMware-vddk转换.md
+        - Xen转换: 虚拟机转换/Xen转换.md
+    - 虚拟机转换脚本使用说明:
+        - 文档阅读说明: 虚拟机转换脚本使用说明/文档阅读说明.md
+        - 转换服务器的搭建: 虚拟机转换脚本使用说明/转换服务器的搭建.md
+        - 1.ova转换模式: 虚拟机转换脚本使用说明/1.ova转换模式.md
+        - 2.vmx转换模式: 虚拟机转换脚本使用说明/2.vmx转换模式.md
+        - 3.ESXi转换模式: 虚拟机转换脚本使用说明/3.ESXi转换模式.md
+        - 4.vCenter转换模式: 虚拟机转换脚本使用说明/4.vCenter转换模式.md
+        - 5.vddk转换模式: 虚拟机转换脚本使用说明/5.vddk转换模式.md
+        - 6.xen转换模式: 虚拟机转换脚本使用说明/6.xen转换模式.md
+        - 转换到ovirt平台: 虚拟机转换脚本使用说明/转换到ovirt平台.md
     - Spice:
         - 简介: spice/简介.md
         - 使用范例: spice/使用范例.md
@@ -60,9 +72,32 @@ nav:
         - IO: java/IO.md
         - 作用范围级别: java/作用范围级别.md
         - synchronized关键字: java/synchronized关键字.md
+    - servlet:
+        - 1.简介: servlet/1.简介.md
+        - 2.生命周期: servlet/2.生命周期.md
+        - 3.示例: servlet/3.示例.md
+        - 4.过滤器: servlet/4.过滤器.md
+        - 5.异常处理: servlet/5.异常处理.md
+        - 6.Cookie: servlet/6.Cookie.md
+        - 7.Session 跟踪: servlet/7.Session 跟踪.md
+        - 8.文件上传: servlet/8.文件上传.md
+        - 10.作用域: servlet/10.作用域.md
+    - Spring:
+        - 文件上传: spring/文件上传.md
+    - Spring Boot:
+        - 1.说明: springboot/1.说明.md
+        - 2.Maven: springboot/2.Maven.md
+        - 24.Application 属性文件: springboot/24.Application 属性文件.md
+        - 25.Profiles: springboot/25.Profiles.md
+        - 26.日志: springboot/26.日志.md
+        - 29.开发web应用: springboot/29.开发web应用.md
     - 设计模式:
         - 设计原则: 设计模式/设计原则.md
         - 模式: 设计模式/模式.md
+    - MyBatis:
+        - 简介.md: mybatis/简介.md
+        - XML配置.md: mybatis/XML配置.md
+        - 注意事项.md: mybatis/注意事项.md
     - HTTP协议:
         - 简介.md: http协议/简介.md
         - HTTP 报文内的 HTTP 信息.md: http协议/HTTP 报文内的 HTTP 信息.md
@@ -95,6 +130,7 @@ nav:
         - linux挂载windows共享文件夹: command/linux挂载windows共享文件夹.md
         - sed: command/sed.md
         - ssh免密登录: command/ssh免密登录.md
+        - shell脚本自动输入: command/shell脚本自动输入.md
         - tar命令打包去掉路径前缀: command/tar命令打包去掉路径前缀.md
         - wget用法: command/wget用法.md
         - 显示文件夹大小: command/显示文件夹大小.md
@@ -139,5 +175,5 @@ nav:
     - Algorithm:
         - 复杂度分析: algorithm/复杂度分析.md
         - 选择排序: algorithm/选择排序.md
-# theme: readthedocs
-theme: windmill
+theme: readthedocs
+# theme: windmill

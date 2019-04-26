@@ -6,7 +6,7 @@
 
 举例场景：
 
-> 有一个VMware vCenter服务器，地址是`vcenter.example.com`，一个数据中心`Datacenter`，和一个`ESXI hypervisor`叫做`esxi`。要转换的虚拟机叫`vmware_guest`。
+> 有一个VMware vCenter服务器，地址是`vcenter.example.com`，一个数据中心`Datacenter`，和一个`ESXi hypervisor`叫做`esxi`。要转换的虚拟机叫`vmware_guest`。
 
 ```shell
  virt-v2v -ic vpx://vcenter.example.com/Datacenter/esxi vmware_guest \
@@ -22,21 +22,21 @@
 
 默认使用libvirt从vCenter获取信息，所以使用该模式时默认添加`-i libvirt`选项。
 
-### 1. vCenter：从windows客户机移除`VMware-tools`
+## 1. vCenter：从windows客户机移除`VMware-tools`
 
 对于windows客户机，在转换之前需要将`VMware-tools`移除。否则在转换完成之后每次启动客户机的时候都会抱怨，并且该工具不能卸载。
 
-### 2. vCenter：URI
+## 2. vCenter：URI
 
 libvirt `URI`格式：
 
 ```shell
-vpx://user@server/Datacenter/esx
+vpx://user@server/Datacenter/esxi
 ```
 
 - user@
 
-    > 可选。如果包含`\`（eg. `DOMAIN\USER`），使用`%5c`（十六进制ASCII码）代替（eg. `DOMAIN%5cUSER`）。其它标点符号可能也需要如此。
+    > 可选。如果包含`\`（eg. `DOMAIN\USER`），使用`%5c`（十六进制ASCII码）代替（eg. `DOMAIN%5cUSER`）。其它标点符号可能也需要如此。@是`%40`，`.`不需要转换，[可在此查询](https://www.mokuge.com/tool/asciito16/)。这个地方一定要加上域名，例：`vpx://administrator%40vsphere.local@172.16.2.178/Datacenter/cluster/172.16.2.162?no_verify=1`
 
 - server
 
@@ -48,7 +48,7 @@ vpx://user@server/Datacenter/esx
 
 - esxi
 
-    > 运行虚拟机的ESXI hypervisor的名字
+    > 运行虚拟机的ESXi hypervisor的名字
 
 如果使用文件夹部署VMware，可能需要将其添加到URI，eg：
 
@@ -58,7 +58,7 @@ vpx://user@server/Datacenter/esx
 
 [详细的libvirt URIs](http://libvirt.org/drvesx.html)
 
-### 3. 测试libvirt到vCenter的连接
+## 3. 测试libvirt到vCenter的连接
 
 使用`virsh`列出虚拟机：
 
@@ -90,7 +90,7 @@ $ virsh -c 'vpx://root@vcenter.example.com/Datacenter/esxi' dumpxml "Windows 200
 
 **如果上述步骤失败了，那么就不能进行转换！**
 
-### 4. vCenter：导入虚拟机
+## 4. vCenter：导入虚拟机
 
 ```shell
  $ virt-v2v -ic 'vpx://root@vcenter.example.com/Datacenter/esxi?no_verify=1' \
@@ -102,7 +102,7 @@ $ virsh -c 'vpx://root@vcenter.example.com/Datacenter/esxi' dumpxml "Windows 200
 
 如果不想在转换时输入密码，使用`--password-file <file>`选项指定密码文件。
 
-### 5. vCenter：Non-Administrator 角色
+## 5. vCenter：Non-Administrator 角色
 
 可以使用非管理员角色执行转换，但是需要为其提供最小权限：
 
@@ -125,9 +125,9 @@ $ virsh -c 'vpx://root@vcenter.example.com/Datacenter/esxi' dumpxml "Windows 200
           - Guest Operating system management by VIX API
 </pre>
 
-### 6. vCenter：防火墙及代理设置
+## 6. vCenter：防火墙及代理设置
 
-#### 6.1 vCenter：端口
+### 6.1 vCenter：端口
 
 若是有防火墙，需要打开`443`（https）和`5480`端口。前者用于复制磁盘，后者用于查询虚拟机元数据。
 
@@ -148,7 +148,7 @@ $ virsh -c 'vpx://root@vcenter.example.com/Datacenter/esxi' dumpxml "Windows 200
 
 在做转换时代理环境变量（`https_proxy`, `all_proxy`, `no_proxy`, `HTTPS_PROXY`, `ALL_PROXY` and `NO_PROXY`）会失效。
 
-### 7. vCenter：SSL/TLS 证书问题
+## 7. vCenter：SSL/TLS 证书问题
 
 可能会看到这个错误：
 

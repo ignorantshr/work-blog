@@ -1,4 +1,4 @@
-# VMware-ESXI-hypervisor虚拟机转换
+# VMware-ESXi-hypervisor虚拟机转换
 
 所有的VMware平台的windows虚拟机都需要先卸载`VMware-tools`。
 
@@ -16,7 +16,7 @@
 
 `?no_verify=1`参数用于取消TLS证书检查。
 
-### 2. 测试libvirt到ESXI hypervisor的连接
+### 2. 测试libvirt到ESXi hypervisor的连接
 
 使用`virsh`工具：
 
@@ -38,7 +38,7 @@
 
 创建*guest.xml*, *guest-disk1*, ...
 
-可使用`--password-file <file>`选项，实际使用中该选项只能代替一次密码输入。
+可使用`--password-file <file>`选项，实际使用中该选项只能代替一次密码输入，可是有多达三次密码输入。
 
 ### 4. 执行 virt-v2v 转换
 

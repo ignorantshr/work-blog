@@ -8,7 +8,7 @@
 
 ### 1. 使用ssh-agent设置免密登录
 
-添加转换服务器的ssh公钥到Xen主机的`/etc/ssh/keys-root/authorized_keys`，然后验证。
+添加转换服务器的ssh公钥到Xen主机的`~/.ssh/authorized_keys`，然后验证。
 
 执行下面的命令，将私钥托管给`ssh-agent`：
 
@@ -83,3 +83,4 @@ rhel49-x86_64-pv是虚拟机名字，**必须关机**。
  virt-v2v -i libvirtxml guest.xml -o local -os /var/tmp
  rm guest.xml guest-disk*
 ```
+
