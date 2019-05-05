@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="shihr">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>VMware-vCenter转换 - Sink</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "VMware-vCenter\u8f6c\u6362";
+    var mkdocs_page_input_path = "\u865a\u62df\u673a\u8f6c\u6362\\VMware-vCenter\u8f6c\u6362.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Sink</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">System</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../system/epel源/">epel源</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/rpms产出/">rpms产出</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/rsync配置/">rsync配置</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/主机不能连接mariadb/">主机不能连接mariadb</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/修改centos7语言/">修改centos7语言</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/修改mariadb编码类型/">修改mariadb编码类型</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/关闭selinux/">关闭selinux</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/开启图形界面/">开启图形界面</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/文本安装时磁盘可选/">文本安装时磁盘可选</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/改变系统时区/">改变系统时区</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/磁盘容量扩充/">磁盘容量扩充</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/网卡不存在/">网卡不存在</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../system/通过shell命令写文件/">通过shell命令写文件</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">虚拟机转换</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../libguestfs架构/">libguestfs架构</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../以ova为例virt-v2v磁盘转换流程/">以ova为例virt-v2v磁盘转换流程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../virt-p2v-make-disk脚本分析/">virt-p2v-make-disk脚本分析</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../virt-p2v介绍/">virt-p2v介绍</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../virt-p2v磁盘转换流程/">virt-p2v磁盘转换流程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../VMware-ova转换/">VMware-ova转换</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../VMware-vmx转换/">VMware-vmx转换</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">VMware-vCenter转换</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#vmware-vcenter">VMware-vCenter虚拟机转换</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_1">输入模式</a></li>
+        
+            <li><a class="toctree-l4" href="#1-vcenterwindowsvmware-tools">1. vCenter：从windows客户机移除VMware-tools</a></li>
+        
+            <li><a class="toctree-l4" href="#2-vcenteruri">2. vCenter：URI</a></li>
+        
+            <li><a class="toctree-l4" href="#3-libvirtvcenter">3. 测试libvirt到vCenter的连接</a></li>
+        
+            <li><a class="toctree-l4" href="#4-vcenter">4. vCenter：导入虚拟机</a></li>
+        
+            <li><a class="toctree-l4" href="#5-vcenternon-administrator">5. vCenter：Non-Administrator 角色</a></li>
+        
+            <li><a class="toctree-l4" href="#6-vcenter">6. vCenter：防火墙及代理设置</a></li>
+        
+            <li><a class="toctree-l4" href="#7-vcenterssltls">7. vCenter：SSL/TLS 证书问题</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../VMware-ESXI-hypervisor转换/">VMware-ESXI-hypervisor转换</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../VMware-vddk转换/">VMware-vddk转换</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Xen转换/">Xen转换</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">虚拟机转换脚本使用说明</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../虚拟机转换脚本使用说明/文档阅读说明/">文档阅读说明</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../虚拟机转换脚本使用说明/转换服务器的搭建/">转换服务器的搭建</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../虚拟机转换脚本使用说明/1.ova转换模式/">1.ova转换模式</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../虚拟机转换脚本使用说明/2.vmx转换模式/">2.vmx转换模式</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../虚拟机转换脚本使用说明/3.ESXi转换模式/">3.ESXi转换模式</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../虚拟机转换脚本使用说明/4.vCenter转换模式/">4.vCenter转换模式</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../虚拟机转换脚本使用说明/5.vddk转换模式/">5.vddk转换模式</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../虚拟机转换脚本使用说明/6.xen转换模式/">6.xen转换模式</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../虚拟机转换脚本使用说明/转换到ovirt平台/">转换到ovirt平台</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Spice</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../spice/简介/">简介</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../spice/使用范例/">使用范例</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../spice/函数所在文件/">函数所在文件</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../python/event线程/">event线程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/json格式处理/">json格式处理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/执行shell命令/">执行shell命令</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/超时装饰器/">超时装饰器</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/@Property/">@Property</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/类属性和实例属性/">类属性和实例属性</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/高阶函数/">高阶函数</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Other</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../other/CSDN语法/">CSDN语法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/h5ai美化目录/">h5ai美化目录</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/vdsm启动失败/">vdsm启动失败</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/制作iso镜像/">制作iso镜像</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/没有打印日志/">没有打印日志</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../other/编译安装vdsm之后主机安装失败/">编译安装vdsm之后主机安装失败</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Make</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../make/10.使用隐含规则/">10.使用隐含规则</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/11.使用make更新归档文件/">11.使用make更新归档文件</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/16.Makefile约定/">16.Makefile约定</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/4.编写规则/">4.编写规则</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/5.编写recipes/">5.编写recipes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/6.变量/">6.变量</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/7.Makefile中的条件语句/">7.Makefile中的条件语句</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/8.转换文本函数/">8.转换文本函数</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../make/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">M4</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../m4/11.文本处理的宏/">11.文本处理的宏</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../m4/6.条件、循环、递归/">6.条件、循环、递归</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../m4/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Java</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../java/IO/">IO</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../java/作用范围级别/">作用范围级别</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../java/synchronized关键字/">synchronized关键字</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">servlet</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../servlet/1.简介/">1.简介</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../servlet/2.生命周期/">2.生命周期</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../servlet/3.示例/">3.示例</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../servlet/4.过滤器/">4.过滤器</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../servlet/5.异常处理/">5.异常处理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../servlet/6.Cookie/">6.Cookie</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../servlet/7.Session 跟踪/">7.Session 跟踪</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../servlet/8.文件上传/">8.文件上传</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../servlet/8.1文件下载/">8.1文件下载</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../servlet/9.重定向/">9.重定向</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../servlet/10.作用域/">10.作用域</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../servlet/11.监听器/">11.监听器</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Spring</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../spring/文件上传/">文件上传</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../spring/文件下载/">文件下载</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Spring Boot</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../springboot/1.说明/">1.说明</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../springboot/2.Maven/">2.Maven</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../springboot/24.Application 属性文件/">24.Application 属性文件</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../springboot/25.Profiles/">25.Profiles</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../springboot/26.日志/">26.日志</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../springboot/29.开发web应用/">29.开发web应用</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">设计模式</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../设计模式/设计原则/">设计原则</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../设计模式/模式/">模式</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">MyBatis</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../mybatis/简介/">简介.md</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../mybatis/XML配置/">XML配置.md</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../mybatis/注意事项/">注意事项.md</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">HTTP协议</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../http协议/简介/">简介.md</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../http协议/HTTP 报文内的 HTTP 信息/">HTTP 报文内的 HTTP 信息.md</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../http协议/返回结果的 HTTP 状态码/">返回结果的 HTTP 状态码.md</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../http协议/与 HTTP 协作的 Web 服务器/">与 HTTP 协作的 Web 服务器.md</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../http协议/HTTP 首部/">HTTP 首部.md</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../http协议/HTTPS/">HTTPS.md</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Linux网络编程</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../linux网络编程/函数/">函数</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../linux网络编程/socket通信流程/">socket通信流程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../linux网络编程/简单tcp通信实现/">简单tcp通信实现</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Gluster</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../gluster/gluster安装/">gluster安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gluster/ovirt的gluster数据恢复bug/">ovirt的gluster数据恢复bug</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gluster/清理不可用的brick/">清理不可用的brick</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gluster/结点故障/">结点故障</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Git</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../git/git rebase(修改历史提交)/">git rebase(修改历史提交)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../git/windows无法使用git克隆/">windows无法使用git克隆</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Gerrit</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../gerrit/Apache代理添加新用户/">Apache代理添加新用户</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gerrit/Gerrit submit change after abandoning its parent/">Gerrit submit change after abandoning its parent</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gerrit/使用Apache代理路径错误/">使用Apache代理路径错误</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../gerrit/刷新gerrit项目列表/">刷新gerrit项目列表</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Datastruct</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../datastruct/二叉树/">二叉树</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../datastruct/散列表/">散列表</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../datastruct/红黑树/">红黑树</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Command</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../command/linux挂载windows共享文件夹/">linux挂载windows共享文件夹</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/sed/">sed</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/ssh免密登录/">ssh免密登录</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/shell脚本自动输入/">shell脚本自动输入</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/创建文件自动添加执行权限/">创建文件自动添加执行权限</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/tar命令打包去掉路径前缀/">tar命令打包去掉路径前缀</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/wget用法/">wget用法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/显示文件夹大小/">显示文件夹大小</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/更新、禁用yum仓库、只下载rpm/">更新、禁用yum仓库、只下载rpm</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../command/添加公钥/">添加公钥</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">C and c++</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../c and c++/动态编译/">动态编译</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../c and c++/程序运行时间/">程序运行时间</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Bash</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../bash/3.基本shell功能/">3.基本shell功能</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../bash/4.shell内置命令/">4.shell内置命令</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Automake</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../automake/10.其它GNU工具/">10.其它GNU工具</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/12.安装/">12.安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/13.清理/">13.清理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/14.发布/">14.发布</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/15.测试套件的支持/">15.测试套件的支持</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/18.规则杂项/">18.规则杂项</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/19.Include/">19.Include</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/20.条件语句/">20.条件语句</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/23.Automake不能满足使用时/">23.Automake不能满足使用时</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/5.创建Makefile.in/">5.创建Makefile.in</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/6.扫描configure.ac，使用aclocal/">6.扫描configure.ac，使用aclocal</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/7.文件夹/">7.文件夹</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/8.构建程序和库/">8.构建程序和库</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/9.其它派生对象/">9.其它派生对象</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../automake/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Autogen</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../autogen/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Autoconf</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../autoconf/10.编写Autoconf宏/">10.编写Autoconf宏</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/11.便携式shell编程/">11.便携式shell编程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/14.手动配置/">14.手动配置</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/15.Site配置/">15.Site配置</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/4.初始化和输出文件/">4.初始化和输出文件</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/5.现有测试/">5.现有测试</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/6.编写测试/">6.编写测试</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/7.测试结果/">7.测试结果</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/8.使用M4编程/">8.使用M4编程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/9.使用M4sh编程/">9.使用M4sh编程</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../autoconf/简介/">简介</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Algorithm</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../algorithm/复杂度分析/">复杂度分析</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../algorithm/选择排序/">选择排序</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Sink</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>虚拟机转换 &raquo;</li>
+        
+      
+    
+    <li>VMware-vCenter转换</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="vmware-vcenter">VMware-vCenter虚拟机转换</h1>
+<p>从<code>VMware vCenter</code>转换虚拟机到<code>ovirt</code>平台。</p>
+<p><strong>要求</strong>：vCenter &gt;= 5.0</p>
+<p>举例场景：</p>
+<blockquote>
+<p>有一个VMware vCenter服务器，地址是<code>vcenter.example.com</code>，一个数据中心<code>Datacenter</code>，和一个<code>ESXi hypervisor</code>叫做<code>esxi</code>。要转换的虚拟机叫<code>vmware_guest</code>。</p>
+</blockquote>
+<pre><code class="shell"> virt-v2v -ic vpx://vcenter.example.com/Datacenter/esxi vmware_guest \
+   -o rhv-upload -oc https://ovirt-engine.example.com/ovirt-engine/api \
+   -os ovirt-data -op /tmp/ovirt-admin-password -of raw \
+   -oo rhv-cafile=/tmp/ca.pem -oo rhv-direct \
+   --bridge ovirtmgmt
+</code></pre>
+
+<p>输出到ovirt参考：<a href="../VMware-ova转换/">VMware-ova转换</a></p>
+<h2 id="_1">输入模式</h2>
+<p>默认使用libvirt从vCenter获取信息，所以使用该模式时默认添加<code>-i libvirt</code>选项。</p>
+<h2 id="1-vcenterwindowsvmware-tools">1. vCenter：从windows客户机移除<code>VMware-tools</code></h2>
+<p>对于windows客户机，在转换之前需要将<code>VMware-tools</code>移除。否则在转换完成之后每次启动客户机的时候都会抱怨，并且该工具不能卸载。</p>
+<h2 id="2-vcenteruri">2. vCenter：URI</h2>
+<p>libvirt <code>URI</code>格式：</p>
+<pre><code class="shell">vpx://user@server/Datacenter/esxi
+</code></pre>
+
+<ul>
+<li>
+<p>user@</p>
+<blockquote>
+<p>可选。如果包含<code>\</code>（eg. <code>DOMAIN\USER</code>），使用<code>%5c</code>（十六进制ASCII码）代替（eg. <code>DOMAIN%5cUSER</code>）。其它标点符号可能也需要如此。@是<code>%40</code>，<code>.</code>不需要转换，<a href="https://www.mokuge.com/tool/asciito16/">可在此查询</a>。这个地方一定要加上域名，例：<code>vpx://administrator%40vsphere.local@172.16.2.178/Datacenter/cluster/172.16.2.162?no_verify=1</code></p>
+</blockquote>
+</li>
+<li>
+<p>server</p>
+<blockquote>
+<p>服务器域名</p>
+</blockquote>
+</li>
+<li>
+<p>Datacenter</p>
+<blockquote>
+<p>数据中心的名字。空格使用<code>%20</code>代替。</p>
+</blockquote>
+</li>
+<li>
+<p>esxi</p>
+<blockquote>
+<p>运行虚拟机的ESXi hypervisor的名字</p>
+</blockquote>
+</li>
+</ul>
+<p>如果使用文件夹部署VMware，可能需要将其添加到URI，eg：</p>
+<pre><code class="shell"> vpx://user@server/Folder/Datacenter/esxi
+</code></pre>
+
+<p><a href="http://libvirt.org/drvesx.html">详细的libvirt URIs</a></p>
+<h2 id="3-libvirtvcenter">3. 测试libvirt到vCenter的连接</h2>
+<p>使用<code>virsh</code>列出虚拟机：</p>
+<pre><code class="shell"> $ virsh -c 'vpx://root@vcenter.example.com/Datacenter/esxi' list --all
+ Enter root's password for vcenter.example.com: ***
+
+  Id    Name                           State
+ ----------------------------------------------------
+  -     Fedora 20                      shut off
+  -     Windows 2003                   shut off
+</code></pre>
+
+<p>如果出现了证书相关的问题，可以导入vCenter主机的证书，或者跳过证书验证：</p>
+<pre><code class="shell">$ virsh -c 'vpx://root@vcenter.example.com/Datacenter/esxi?no_verify=1' list --all
+</code></pre>
+
+<p>你也应该尝试从任意虚拟机复制元数据：</p>
+<pre><code class="shell">$ virsh -c 'vpx://root@vcenter.example.com/Datacenter/esxi' dumpxml &quot;Windows 2003&quot;
+ &lt;domain type='vmware'&gt;
+   &lt;name&gt;Windows 2003&lt;/name&gt;
+   [...]
+ &lt;/domain&gt;
+</code></pre>
+
+<p><strong>如果上述步骤失败了，那么就不能进行转换！</strong></p>
+<h2 id="4-vcenter">4. vCenter：导入虚拟机</h2>
+<pre><code class="shell"> $ virt-v2v -ic 'vpx://root@vcenter.example.com/Datacenter/esxi?no_verify=1' \
+   &quot;Windows 2003&quot; \
+   -o local -os /var/tmp
+</code></pre>
+
+<p><strong>虚拟机必须关机</strong>。</p>
+<p>如果不想在转换时输入密码，使用<code>--password-file &lt;file&gt;</code>选项指定密码文件。</p>
+<h2 id="5-vcenternon-administrator">5. vCenter：Non-Administrator 角色</h2>
+<p>可以使用非管理员角色执行转换，但是需要为其提供最小权限：</p>
+<ol>
+<li>
+<p>在vCenter创建角色</p>
+</li>
+<li>
+<p>打开以下对象
+<pre></p>
+<p>Datastore:
+   - Browse datastore
+   - Low level file operations</p>
+<p>Sessions:
+   - Validate session</p>
+<p>Virtual Machine:
+    Provisioning:
+      - Allow disk access
+      - Allow read-only disk access
+      - Guest Operating system management by VIX API
+</pre></p>
+</li>
+</ol>
+<h2 id="6-vcenter">6. vCenter：防火墙及代理设置</h2>
+<h3 id="61-vcenter">6.1 vCenter：端口</h3>
+<p>若是有防火墙，需要打开<code>443</code>（https）和<code>5480</code>端口。前者用于复制磁盘，后者用于查询虚拟机元数据。</p>
+<p>如果使用了非默认端口，需要在URI中指定。这些端口只用于virt-v2v转换，如果想要使用其他功能需要打开其他端口。</p>
+<pre><code class="shell"> ┌────────────┐   port 443 ┌────────────┐        ┌────────────┐
+ │ virt-v2v   │───────────▶ vCenter    │────────▶ ESXi       │
+ │ conversion │────────────▶ server     │        │ hypervisor │
+ │ server     │  port 5480 │            │        │   ┌─────┐  │
+ └────────────┘            └────────────┘        │   │guest│  │
+                                                 └───┴─────┴──┘
+</code></pre>
+
+<p>箭头表示TCP启动方向，不是数据传输方向。</p>
+<p>从图中可以看出，virt-v2v 不是直接和ESXI连接，而是vCenter连接到hypervisor，所以，如果在vCenter与hypervisor之间有防火墙的话，需要打开额外的端口。</p>
+<p>在做转换时代理环境变量（<code>https_proxy</code>, <code>all_proxy</code>, <code>no_proxy</code>, <code>HTTPS_PROXY</code>, <code>ALL_PROXY</code> and <code>NO_PROXY</code>）会失效。</p>
+<h2 id="7-vcenterssltls">7. vCenter：SSL/TLS 证书问题</h2>
+<p>可能会看到这个错误：</p>
+<pre><code class="shell">  CURL: Error opening file: SSL: no alternative certificate subject
+  name matches target host name
+</code></pre>
+
+<p>（也许打开调试模式<code>virt-v2v -v -x</code>才能看到这个信息）</p>
+<p>这是因为使用了IP地址访问，需要使用vCenter服务器完全合格的域名。</p>
+<p>vCenter服务器不匹配的<code>FQDN</code>和IP地址（比如服务器获取了一个新的ip地址）会导致另一个证书问题。修复方法：改变DHCP服务或网络服务配置，让vCenter服务器有一个固定的IP地址；然后登录vCenter服务器的admin控制台<code>https://vcenter:5480/</code>，在<code>Admin</code>标签下，选择<code>Certificate regeneration enabled</code>，然后重启。</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../VMware-ESXI-hypervisor转换/" class="btn btn-neutral float-right" title="VMware-ESXI-hypervisor转换">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../VMware-vmx转换/" class="btn btn-neutral" title="VMware-vmx转换"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../VMware-vmx转换/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../VMware-ESXI-hypervisor转换/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
