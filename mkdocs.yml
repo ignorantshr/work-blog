@@ -47,6 +47,9 @@ nav:
         - json格式处理: python/json格式处理.md
         - 执行shell命令: python/执行shell命令.md
         - 超时装饰器: python/超时装饰器.md
+        - python\@Property.md
+        - python\类属性和实例属性.md
+        - python\高阶函数.md
     - Other:
         - CSDN语法: other/CSDN语法.md
         - h5ai美化目录: other/h5ai美化目录.md
@@ -81,9 +84,13 @@ nav:
         - 6.Cookie: servlet/6.Cookie.md
         - 7.Session 跟踪: servlet/7.Session 跟踪.md
         - 8.文件上传: servlet/8.文件上传.md
+        - servlet\8.1文件下载.md
+        - servlet\9.重定向.md
         - 10.作用域: servlet/10.作用域.md
+        - servlet\11.监听器.md
     - Spring:
         - 文件上传: spring/文件上传.md
+        - spring\文件下载.md
     - Spring Boot:
         - 1.说明: springboot/1.说明.md
         - 2.Maven: springboot/2.Maven.md
@@ -131,6 +138,7 @@ nav:
         - sed: command/sed.md
         - ssh免密登录: command/ssh免密登录.md
         - shell脚本自动输入: command/shell脚本自动输入.md
+        - 创建文件自动添加执行权限: command/创建文件自动添加执行权限.md
         - tar命令打包去掉路径前缀: command/tar命令打包去掉路径前缀.md
         - wget用法: command/wget用法.md
         - 显示文件夹大小: command/显示文件夹大小.md
