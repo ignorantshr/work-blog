@@ -1,0 +1,79 @@
+site_name: Work Sink
+site_author: shihr
+nav:
+    - Home: index.md
+    - 虚拟机转换:
+        - libguestfs架构: 虚拟机转换/libguestfs架构.md
+        - 以ova为例virt-v2v磁盘转换流程: 虚拟机转换/以ova为例virt-v2v磁盘转换流程.md
+        - virt-p2v-make-disk脚本分析: 虚拟机转换/virt-p2v-make-disk脚本分析.md
+        - virt-p2v介绍: 虚拟机转换/virt-p2v介绍.md
+        - virt-p2v磁盘转换流程: 虚拟机转换/virt-p2v磁盘转换流程.md
+        - VMware-ova转换: 虚拟机转换/VMware-ova转换.md
+        - VMware-vmx转换: 虚拟机转换/VMware-vmx转换.md
+        - VMware-vCenter转换: 虚拟机转换/VMware-vCenter转换.md
+        - VMware-ESXI-hypervisor转换: 虚拟机转换/VMware-ESXI-hypervisor转换.md
+        - VMware-vddk转换: 虚拟机转换/VMware-vddk转换.md
+        - Xen转换: 虚拟机转换/Xen转换.md
+    - 虚拟机转换脚本使用说明:
+        - 文档阅读说明: 虚拟机转换脚本使用说明/00文档阅读说明.md
+        - 转换服务器的搭建: 虚拟机转换脚本使用说明/转换服务器的搭建.md
+        - 1.ova转换模式: 虚拟机转换脚本使用说明/1.ova转换模式.md
+        - 2.vmx转换模式: 虚拟机转换脚本使用说明/2.vmx转换模式.md
+        - 3.ESXi转换模式: 虚拟机转换脚本使用说明/3.ESXi转换模式.md
+        - 4.vCenter转换模式: 虚拟机转换脚本使用说明/4.vCenter转换模式.md
+        - 5.vddk转换模式: 虚拟机转换脚本使用说明/5.vddk转换模式.md
+        - 6.xen转换模式: 虚拟机转换脚本使用说明/6.xen转换模式.md
+        - 转换到ovirt平台: 虚拟机转换脚本使用说明/转换到ovirt平台.md
+    - Spice:
+        - 简介: spice/简介.md
+        - 使用范例: spice/使用范例.md
+        - 函数所在文件: spice/函数所在文件.md
+    - Make:
+        - 10.使用隐含规则: make/10.使用隐含规则.md
+        - 11.使用make更新归档文件: make/11.使用make更新归档文件.md
+        - 16.Makefile约定: make/16.Makefile约定.md
+        - 4.编写规则: make/4.编写规则.md
+        - 5.编写recipes: make/5.编写recipes.md
+        - 6.变量: make/6.变量.md
+        - 7.Makefile中的条件语句: make/7.Makefile中的条件语句.md
+        - 8.转换文本函数: make/8.转换文本函数.md
+        - 简介: make/简介.md
+    - M4:
+        - 11.文本处理的宏: m4/11.文本处理的宏.md
+        - 6.条件、循环、递归: m4/6.条件、循环、递归.md
+        - 简介: m4/简介.md
+    - Bash:
+        - 3.基本shell功能: bash/3.基本shell功能.md
+        - 4.shell内置命令: bash/4.shell内置命令.md
+    - Automake:
+        - 10.其它GNU工具: automake/10.其它GNU工具.md
+        - 12.安装: automake/12.安装.md
+        - 13.清理: automake/13.清理.md
+        - 14.发布: automake/14.发布.md
+        - 15.测试套件的支持: automake/15.测试套件的支持.md
+        - 18.规则杂项: automake/18.规则杂项.md
+        - 19.Include: automake/19.Include.md
+        - 20.条件语句: automake/20.条件语句.md
+        - 23.Automake不能满足使用时: automake/23.Automake不能满足使用时.md
+        - 5.创建Makefile.in: automake/5.创建Makefile.in.md
+        - 6.扫描configure.ac，使用aclocal: automake/6.扫描configure.ac，使用aclocal.md
+        - 7.文件夹: automake/7.文件夹.md
+        - 8.构建程序和库: automake/8.构建程序和库.md
+        - 9.其它派生对象: automake/9.其它派生对象.md
+        - 简介: automake/简介.md
+    - Autogen:
+        - 简介: autogen/简介.md
+    - Autoconf:
+        - 10.编写Autoconf宏: autoconf/10.编写Autoconf宏.md
+        - 11.便携式shell编程: autoconf/11.便携式shell编程.md
+        - 14.手动配置: autoconf/14.手动配置.md
+        - 15.Site配置: autoconf/15.Site配置.md
+        - 4.初始化和输出文件: autoconf/4.初始化和输出文件.md
+        - 5.现有测试: autoconf/5.现有测试.md
+        - 6.编写测试: autoconf/6.编写测试.md
+        - 7.测试结果: autoconf/7.测试结果.md
+        - 8.使用M4编程: autoconf/8.使用M4编程.md
+        - 9.使用M4sh编程: autoconf/9.使用M4sh编程.md
+        - 简介: autoconf/简介.md
+theme: readthedocs
+# theme: windmill
