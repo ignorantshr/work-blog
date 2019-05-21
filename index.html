@@ -1,425 +1,283 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="None">
-  <meta name="author" content="shihr">
-  <link rel="shortcut icon" href="img/favicon.ico">
-  <title>Home - Work Sink</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="None">
+    <meta name="author" content="shihr">
+    
+    <link rel="shortcut icon" href="./img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Work Sink</title>
+    <link href="./css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="./css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="./css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 
-  <link rel="stylesheet" href="css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Home";
-    var mkdocs_page_input_path = "index.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="js/jquery-2.1.1.min.js" defer></script>
-  <script src="js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/bootstrap-3.3.7.min.js"></script>
+    <script src="./js/highlight.pack.js"></script>
+    
+      <script src="./js/elasticlunr.min.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '.';
+      var is_top_frame = (window === window.parent);
+        
+        var pageToc = [
+          {title: "Welcome to Work Sink", url: "#_top", children: [
+              {title: "mkdocs Commands", url: "#mkdocs-commands" },
+              {title: "Project layout", url: "#project-layout" },
+          ]},
+        ];
+
+    </script>
+    <script src="./js/base.js"></script> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
 
-  <div class="wy-grid-for-nav">
-
+<nav class="navbar wm-page-top-frame">
+  <div class="container-fluid wm-top-container">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="." class="icon icon-home"> Work Sink</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+    <div class="wm-top-tool pull-right wm-vcenter">
+      <form class="dropdown wm-vcentered" id="wm-search-form" action="./search.html">
+        
+        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
+          ><i class="fa fa-search" aria-hidden="true"></i></button>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href=".">Home</a>
-    <ul class="subnav">
+        <div class="input-group input-group-sm wm-top-search">
+          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
+          <span class="input-group-btn" role="search">
             
-    <li class="toctree-l2"><a href="#welcome-to-work-sink">Welcome to Work Sink</a></li>
+            <button class="btn btn-default dropdown-toggle collapse" data-toggle="dropdown" type="button"><span class="caret"></span></button>
+            <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-right"></ul>
+            <button id="wm-search-go" class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
+
     
-        <ul>
-        
-            <li><a class="toctree-l3" href="#mkdocs-commands">mkdocs Commands</a></li>
-        
-            <li><a class="toctree-l3" href="#project-layout">Project layout</a></li>
-        
-        </ul>
+    <div class="wm-top-tool wm-vcenter pull-right wm-small-left">
+      <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-th-list" aria-hidden="true"></i></button>
+    </div>
+
+    
     
 
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">虚拟机转换</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="虚拟机转换/libguestfs架构/">libguestfs架构</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="虚拟机转换/以ova为例virt-v2v磁盘转换流程/">以ova为例virt-v2v磁盘转换流程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="虚拟机转换/virt-p2v-make-disk脚本分析/">virt-p2v-make-disk脚本分析</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="虚拟机转换/virt-p2v介绍/">virt-p2v介绍</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="虚拟机转换/virt-p2v磁盘转换流程/">virt-p2v磁盘转换流程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="虚拟机转换/VMware-ova转换/">VMware-ova转换</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="虚拟机转换/VMware-vmx转换/">VMware-vmx转换</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="虚拟机转换/VMware-vCenter转换/">VMware-vCenter转换</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="虚拟机转换/VMware-ESXI-hypervisor转换/">VMware-ESXI-hypervisor转换</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="虚拟机转换/VMware-vddk转换/">VMware-vddk转换</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="虚拟机转换/Xen转换/">Xen转换</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">虚拟机转换脚本使用说明</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="虚拟机转换脚本使用说明/00文档阅读说明/">文档阅读说明</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="虚拟机转换脚本使用说明/转换服务器的搭建/">转换服务器的搭建</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="虚拟机转换脚本使用说明/1.ova转换模式/">1.ova转换模式</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="虚拟机转换脚本使用说明/2.vmx转换模式/">2.vmx转换模式</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="虚拟机转换脚本使用说明/3.ESXi转换模式/">3.ESXi转换模式</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="虚拟机转换脚本使用说明/4.vCenter转换模式/">4.vCenter转换模式</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="虚拟机转换脚本使用说明/5.vddk转换模式/">5.vddk转换模式</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="虚拟机转换脚本使用说明/6.xen转换模式/">6.xen转换模式</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="虚拟机转换脚本使用说明/转换到ovirt平台/">转换到ovirt平台</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Spice</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="spice/简介/">简介</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="spice/使用范例/">使用范例</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="spice/函数所在文件/">函数所在文件</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Make</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="make/10.使用隐含规则/">10.使用隐含规则</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="make/11.使用make更新归档文件/">11.使用make更新归档文件</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="make/16.Makefile约定/">16.Makefile约定</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="make/4.编写规则/">4.编写规则</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="make/5.编写recipes/">5.编写recipes</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="make/6.变量/">6.变量</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="make/7.Makefile中的条件语句/">7.Makefile中的条件语句</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="make/8.转换文本函数/">8.转换文本函数</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="make/简介/">简介</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">M4</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="m4/11.文本处理的宏/">11.文本处理的宏</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="m4/6.条件、循环、递归/">6.条件、循环、递归</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="m4/简介/">简介</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Bash</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="bash/3.基本shell功能/">3.基本shell功能</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="bash/4.shell内置命令/">4.shell内置命令</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Automake</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="automake/10.其它GNU工具/">10.其它GNU工具</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="automake/12.安装/">12.安装</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="automake/13.清理/">13.清理</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="automake/14.发布/">14.发布</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="automake/15.测试套件的支持/">15.测试套件的支持</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="automake/18.规则杂项/">18.规则杂项</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="automake/19.Include/">19.Include</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="automake/20.条件语句/">20.条件语句</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="automake/23.Automake不能满足使用时/">23.Automake不能满足使用时</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="automake/5.创建Makefile.in/">5.创建Makefile.in</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="automake/6.扫描configure.ac，使用aclocal/">6.扫描configure.ac，使用aclocal</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="automake/7.文件夹/">7.文件夹</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="automake/8.构建程序和库/">8.构建程序和库</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="automake/9.其它派生对象/">9.其它派生对象</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="automake/简介/">简介</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Autogen</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="autogen/简介/">简介</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Autoconf</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="autoconf/10.编写Autoconf宏/">10.编写Autoconf宏</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="autoconf/11.便携式shell编程/">11.便携式shell编程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="autoconf/14.手动配置/">14.手动配置</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="autoconf/15.Site配置/">15.Site配置</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="autoconf/4.初始化和输出文件/">4.初始化和输出文件</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="autoconf/5.现有测试/">5.现有测试</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="autoconf/6.编写测试/">6.编写测试</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="autoconf/7.测试结果/">7.测试结果</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="autoconf/8.使用M4编程/">8.使用M4编程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="autoconf/9.使用M4sh编程/">9.使用M4sh编程</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="autoconf/简介/">简介</a>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
+    
+    <a href="" class="wm-top-brand wm-top-link wm-vcenter">
+      
+      <div class="wm-top-title">
+        Work Sink<br>
+        
       </div>
-      &nbsp;
-    </nav>
+    </a>
+  </div>
+</nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href=".">Work Sink</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href=".">Docs</a> &raquo;</li>
+  <div id="main-content" class="wm-page-top-frame">
     
-      
-    
-    <li>Home</li>
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
+<nav class="wm-toc-pane">
+  
+  <ul class="wm-toctree">
+        <li class="wm-toc-li wm-toc-lev1 "><a href="" class="wm-article-link wm-toc-text">Home</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">虚拟机转换</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="虚拟机转换/libguestfs架构/" class="wm-article-link wm-toc-text">libguestfs架构</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="虚拟机转换/以ova为例virt-v2v磁盘转换流程/" class="wm-article-link wm-toc-text">以ova为例virt-v2v磁盘转换流程</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="虚拟机转换/virt-p2v-make-disk脚本分析/" class="wm-article-link wm-toc-text">virt-p2v-make-disk脚本分析</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="虚拟机转换/virt-p2v介绍/" class="wm-article-link wm-toc-text">virt-p2v介绍</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="虚拟机转换/virt-p2v磁盘转换流程/" class="wm-article-link wm-toc-text">virt-p2v磁盘转换流程</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="虚拟机转换/VMware-ova转换/" class="wm-article-link wm-toc-text">VMware-ova转换</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="虚拟机转换/VMware-vmx转换/" class="wm-article-link wm-toc-text">VMware-vmx转换</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="虚拟机转换/VMware-vCenter转换/" class="wm-article-link wm-toc-text">VMware-vCenter转换</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="虚拟机转换/VMware-ESXI-hypervisor转换/" class="wm-article-link wm-toc-text">VMware-ESXI-hypervisor转换</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="虚拟机转换/VMware-vddk转换/" class="wm-article-link wm-toc-text">VMware-vddk转换</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="虚拟机转换/Xen转换/" class="wm-article-link wm-toc-text">Xen转换</a>
+</li>
   </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
-              
-                <h1 id="welcome-to-work-sink">Welcome to Work Sink</h1>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Spice</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="spice/简介/" class="wm-article-link wm-toc-text">简介</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="spice/使用范例/" class="wm-article-link wm-toc-text">使用范例</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="spice/函数所在文件/" class="wm-article-link wm-toc-text">函数所在文件</a>
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Make</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="make/10.使用隐含规则/" class="wm-article-link wm-toc-text">10.使用隐含规则</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="make/11.使用make更新归档文件/" class="wm-article-link wm-toc-text">11.使用make更新归档文件</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="make/16.Makefile约定/" class="wm-article-link wm-toc-text">16.Makefile约定</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="make/4.编写规则/" class="wm-article-link wm-toc-text">4.编写规则</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="make/5.编写recipes/" class="wm-article-link wm-toc-text">5.编写recipes</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="make/6.变量/" class="wm-article-link wm-toc-text">6.变量</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="make/7.Makefile中的条件语句/" class="wm-article-link wm-toc-text">7.Makefile中的条件语句</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="make/8.转换文本函数/" class="wm-article-link wm-toc-text">8.转换文本函数</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="make/简介/" class="wm-article-link wm-toc-text">简介</a>
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">M4</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="m4/11.文本处理的宏/" class="wm-article-link wm-toc-text">11.文本处理的宏</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="m4/6.条件、循环、递归/" class="wm-article-link wm-toc-text">6.条件、循环、递归</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="m4/简介/" class="wm-article-link wm-toc-text">简介</a>
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Bash</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="bash/3.基本shell功能/" class="wm-article-link wm-toc-text">3.基本shell功能</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="bash/4.shell内置命令/" class="wm-article-link wm-toc-text">4.shell内置命令</a>
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Automake</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="automake/10.其它GNU工具/" class="wm-article-link wm-toc-text">10.其它GNU工具</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="automake/12.安装/" class="wm-article-link wm-toc-text">12.安装</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="automake/13.清理/" class="wm-article-link wm-toc-text">13.清理</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="automake/14.发布/" class="wm-article-link wm-toc-text">14.发布</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="automake/15.测试套件的支持/" class="wm-article-link wm-toc-text">15.测试套件的支持</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="automake/18.规则杂项/" class="wm-article-link wm-toc-text">18.规则杂项</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="automake/19.Include/" class="wm-article-link wm-toc-text">19.Include</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="automake/20.条件语句/" class="wm-article-link wm-toc-text">20.条件语句</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="automake/23.Automake不能满足使用时/" class="wm-article-link wm-toc-text">23.Automake不能满足使用时</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="automake/5.创建Makefile.in/" class="wm-article-link wm-toc-text">5.创建Makefile.in</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="automake/6.扫描configure.ac，使用aclocal/" class="wm-article-link wm-toc-text">6.扫描configure.ac，使用aclocal</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="automake/7.文件夹/" class="wm-article-link wm-toc-text">7.文件夹</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="automake/8.构建程序和库/" class="wm-article-link wm-toc-text">8.构建程序和库</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="automake/9.其它派生对象/" class="wm-article-link wm-toc-text">9.其它派生对象</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="automake/简介/" class="wm-article-link wm-toc-text">简介</a>
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Autogen</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="autogen/简介/" class="wm-article-link wm-toc-text">简介</a>
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Autoconf</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="autoconf/10.编写Autoconf宏/" class="wm-article-link wm-toc-text">10.编写Autoconf宏</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="autoconf/11.便携式shell编程/" class="wm-article-link wm-toc-text">11.便携式shell编程</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="autoconf/14.手动配置/" class="wm-article-link wm-toc-text">14.手动配置</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="autoconf/15.Site配置/" class="wm-article-link wm-toc-text">15.Site配置</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="autoconf/4.初始化和输出文件/" class="wm-article-link wm-toc-text">4.初始化和输出文件</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="autoconf/5.现有测试/" class="wm-article-link wm-toc-text">5.现有测试</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="autoconf/6.编写测试/" class="wm-article-link wm-toc-text">6.编写测试</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="autoconf/7.测试结果/" class="wm-article-link wm-toc-text">7.测试结果</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="autoconf/8.使用M4编程/" class="wm-article-link wm-toc-text">8.使用M4编程</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="autoconf/9.使用M4sh编程/" class="wm-article-link wm-toc-text">9.使用M4sh编程</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="autoconf/简介/" class="wm-article-link wm-toc-text">简介</a>
+</li>
+  </ul>
+</li>
+
+  </ul>
+</nav>
+
+    <div class="wm-content-pane">
+      <iframe class="wm-article" name="article"></iframe>
+    </div>
+  </div>
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="welcome-to-work-sink">Welcome to Work Sink</h1>
 <p>This is a work blog of shihr.</p>
+<p>RUN COMMAND:</p>
+<p><code>mkdocs serve -a localhost:9002</code></p>
 <h2 id="mkdocs-commands">mkdocs Commands</h2>
 <ul>
 <li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
@@ -435,53 +293,39 @@ docs/
     ...       # Other markdown pages, images and other files.
 </code></pre>
 <p>For full introductional documentation visit <a href="https://mkdocs.org">mkdocs.org</a>.</p>
-              
-            </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+
+  <br>
+    
+
+    
+    
       
-        <a href="虚拟机转换/libguestfs架构/" class="btn btn-neutral float-right" title="libguestfs架构">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="虚拟机转换/libguestfs架构/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="虚拟机转换/libguestfs架构/" class="btn btn-xs btn-link">
+        libguestfs架构
+      </a>
     </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-      
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-      
-        <span style="margin-left: 15px"><a href="虚拟机转换/libguestfs架构/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+    <br>
 </div>
-    <script>var base_url = '.';</script>
-    <script src="js/theme.js" defer></script>
-      <script src="search/main.js" defer></script>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
 
 </body>
 </html>
-
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2019-05-10 05:33:34
+Build Date UTC : 2019-05-21 03:34:54
 -->
