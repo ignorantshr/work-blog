@@ -1,5 +1,11 @@
 # Welcome to Work Sink
-This is work blog of shihr.
+This is a work blog of shihr.
+
+
+
+RUN COMMAND:
+
+`mkdocs serve -a localhost:9002`
 
 ## mkdocs Commands
 
@@ -17,3 +23,4 @@ This is work blog of shihr.
         ...       # Other markdown pages, images and other files.
 
 For full introductional documentation visit [mkdocs.org](https://mkdocs.org).
+

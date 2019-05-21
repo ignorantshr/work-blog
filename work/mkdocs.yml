@@ -14,16 +14,16 @@ nav:
         - VMware-ESXI-hypervisor转换: 虚拟机转换/VMware-ESXI-hypervisor转换.md
         - VMware-vddk转换: 虚拟机转换/VMware-vddk转换.md
         - Xen转换: 虚拟机转换/Xen转换.md
-    - 虚拟机转换脚本使用说明:
-        - 文档阅读说明: 虚拟机转换脚本使用说明/00文档阅读说明.md
-        - 转换服务器的搭建: 虚拟机转换脚本使用说明/转换服务器的搭建.md
-        - 1.ova转换模式: 虚拟机转换脚本使用说明/1.ova转换模式.md
-        - 2.vmx转换模式: 虚拟机转换脚本使用说明/2.vmx转换模式.md
-        - 3.ESXi转换模式: 虚拟机转换脚本使用说明/3.ESXi转换模式.md
-        - 4.vCenter转换模式: 虚拟机转换脚本使用说明/4.vCenter转换模式.md
-        - 5.vddk转换模式: 虚拟机转换脚本使用说明/5.vddk转换模式.md
-        - 6.xen转换模式: 虚拟机转换脚本使用说明/6.xen转换模式.md
-        - 转换到ovirt平台: 虚拟机转换脚本使用说明/转换到ovirt平台.md
+    # - 虚拟机转换脚本使用说明:
+    #     - 文档阅读说明: 虚拟机转换脚本使用说明/00文档阅读说明.md
+    #     - 转换服务器的搭建: 虚拟机转换脚本使用说明/转换服务器的搭建.md
+    #     - 1.ova转换模式: 虚拟机转换脚本使用说明/1.ova转换模式.md
+    #     - 2.vmx转换模式: 虚拟机转换脚本使用说明/2.vmx转换模式.md
+    #     - 3.ESXi转换模式: 虚拟机转换脚本使用说明/3.ESXi转换模式.md
+    #     - 4.vCenter转换模式: 虚拟机转换脚本使用说明/4.vCenter转换模式.md
+    #     - 5.vddk转换模式: 虚拟机转换脚本使用说明/5.vddk转换模式.md
+    #     - 6.xen转换模式: 虚拟机转换脚本使用说明/6.xen转换模式.md
+    #     - 转换到ovirt平台: 虚拟机转换脚本使用说明/转换到ovirt平台.md
     - Spice:
         - 简介: spice/简介.md
         - 使用范例: spice/使用范例.md
@@ -75,5 +75,7 @@ nav:
         - 8.使用M4编程: autoconf/8.使用M4编程.md
         - 9.使用M4sh编程: autoconf/9.使用M4sh编程.md
         - 简介: autoconf/简介.md
-theme: readthedocs
-# theme: windmill
+# theme: readthedocs
+extra:
+    article_nav_top: false
+theme: windmill

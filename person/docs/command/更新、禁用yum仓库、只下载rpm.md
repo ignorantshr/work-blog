@@ -14,3 +14,12 @@ yum install --downloadonly --downloaddir=/tmp <package-name>
 yumdownloader --resolve --downloadonly --downloaddir=/tmp <package-name>
 ```
 
+- 查看仓库下所有的rpm
+
+```shell
+# 列出所有仓库的rpm
+yum list
+# 列出某一仓库的rpm
+yum repo-pkgs <repo-name> list
+```
+

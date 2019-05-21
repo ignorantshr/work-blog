@@ -1,5 +1,11 @@
 # Welcome to Person Sink
-This is personal blog of shihr.
+This is a personal blog of shihr.
+
+
+
+RUN COMMAND:
+
+`mkdocs serve -a localhost:9001`
 
 ## Commands
 

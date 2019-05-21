@@ -5,7 +5,6 @@ nav:
     - System:
         - epel源: system/epel源.md
         - rpms产出: system/rpms产出.md
-        - rsync配置: system/rsync配置.md
         - 主机不能连接mariadb: system/主机不能连接mariadb.md
         - 修改centos7语言: system/修改centos7语言.md
         - 修改mariadb编码类型: system/修改mariadb编码类型.md
@@ -30,6 +29,8 @@ nav:
         - 更新、禁用yum仓库、只下载rpm: command/更新、禁用yum仓库、只下载rpm.md
         - 添加公钥: command/添加公钥.md
         - command\locate初始化.md
+        - command\rsync.md
+        - command\echo的颜色输出与光标定位.md
     - Python:
         - event线程: python/event线程.md
         - json格式处理: python/json格式处理.md
@@ -38,6 +39,7 @@ nav:
         - python\@Property.md
         - python\类属性和实例属性.md
         - python\高阶函数.md
+        - python\获取命令行参数.md
     - Other:
         - CSDN语法: other/CSDN语法.md
         - h5ai美化目录: other/h5ai美化目录.md
@@ -88,6 +90,26 @@ nav:
         - sql\10. MySQL常用函数.md
         - sql\11. MySQL存储引擎.md
         - sql\12. MySQL数据类型的选择.md
+        - sql\13. MySQL字符集.md
+        - sql\14. MySQL索引的设计和使用.md
+        - sql\15. MySQL视图.md
+        - sql\16. MySQL存储过程和函数.md
+        - sql\17.0 MySQL复合语句.md
+        - sql\17.1 BEGIN...END复合语句.md
+        - sql\17.2 语句标签.md
+        - sql\17.3 声明语法.md
+        - sql\17.4 变量.md
+        - sql\17.5 流程控制.md
+        - sql\17.6 游标.md
+        - sql\17.7 错误状况及处理.md
+        - sql\17.8 SIGNAL.md
+        - sql\17.9 RESIGNAL.md
+        - sql\18. MySQL触发器.md
+        - sql\19. MySQL事务与锁定语句.md
+        - sql\20. SQL中的安全问题.md
+        - sql\21. SQL Mode.md
+        - sql\22. 常用 SQL 技巧和常见问题.md
+        - sql\23. MySQL分区.md
     - MyBatis:
         - 简介.md: mybatis/简介.md
         - XML配置.md: mybatis/XML配置.md
@@ -100,7 +122,8 @@ nav:
         - HTTP 首部.md: http协议/HTTP 首部.md
         - HTTPS.md: http协议/HTTPS.md
     - CS50:
-        - CS50\简介.md
+        - CS50\1. 简介.md
+        - CS50\2. 编译器.md
     - Linux网络编程:
         - 函数: linux网络编程/函数.md
         - socket通信流程: linux网络编程/socket通信流程.md
@@ -128,5 +151,7 @@ nav:
     - Algorithm:
         - 复杂度分析: algorithm/复杂度分析.md
         - 选择排序: algorithm/选择排序.md
-theme: readthedocs
-# theme: windmill
+    - 奇技淫巧:
+        - 奇技淫巧\位运算.md
+# theme: readthedocs
+theme: windmill
