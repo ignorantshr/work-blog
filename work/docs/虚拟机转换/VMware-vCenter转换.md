@@ -36,7 +36,7 @@ vpx://user@server/Datacenter/esxi
 
 - user@
 
-    > 可选。如果包含`\`（eg. `DOMAIN\USER`），使用`%5c`（十六进制ASCII码）代替（eg. `DOMAIN%5cUSER`）。其它标点符号可能也需要如此。@是`%40`，`.`不需要转换，[可在此查询](https://www.mokuge.com/tool/asciito16/)。这个地方一定要加上域名，例：`vpx://administrator%40vsphere.local@172.16.2.178/Datacenter/cluster/172.16.2.162?no_verify=1`
+    > 可选。如果包含`\`（eg. `DOMAIN\USER`），使用`%5c`（十六进制ASCII码）代替（eg. `DOMAIN%5cUSER`）。其它标点符号可能也需要如此。@是`%40`，`.`不需要转换，[可在此查询](http://www.bejson.com/convert/ox2str/)。这个地方一定要加上域名，例：`vpx://administrator%40vsphere.local@172.16.2.178/Datacenter/cluster/172.16.2.162?no_verify=1`
 
 - server
 

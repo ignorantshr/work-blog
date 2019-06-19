@@ -40,20 +40,21 @@ mkisofs -o xxx.iso -J -R -V bb diretory
 	eg.
 	%packages
 	vdsm
-	ACloudAge-release
+	tree
 	%end
 
 #####4.	更新rpm仓库
 
     拷贝xml文件到home目录下 cp 2727...comps.xml /home
-	清空repodata文件夹内容 rm -f repodata/*
-	拷贝xml文件到repodata并重命名 mv /home/...comps.xml repodata/comps.xml
-	createrepo -d -g repodata/comps.xml .
+    清空repodata文件夹内容 rm -f repodata/*
+    拷贝xml文件到repodata并重命名 mv /home/...comps.xml repodata/comps.xml
+    createrepo -d -g repodata/comps.xml .
 
 #####5.	替换对应的logo 在home/myerh/isolinux/erh中替换图片
 
 #####6.	打包iso镜像（该操作在home/myerh目录下进行）
-（/home/ovirt3.5.iso为文件iso文件名，ACloudAge为ISO卷标,需要跟iso文件中的名字保持一致。）
+（/home/ovirt3.5.iso为文件iso文件名，ovirt为ISO卷标,需要跟iso文件中的名字保持一致。）
+
 ```shell
-  mkisofs -R -J -T -r -l -d -o /home/ovirt3.5.iso -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -V ACloudAge .
+  mkisofs -R -J -T -r -l -d -o /home/ovirt3.5.iso -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -V ovirt .
 ```

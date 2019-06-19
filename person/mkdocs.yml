@@ -1,10 +1,10 @@
 site_name: Person Sink
 site_author: shihr
+repo_url: https://github.com/shihr/question
 nav:
     - Home: index.md
     - System:
         - epel源: system/epel源.md
-        - rpms产出: system/rpms产出.md
         - 主机不能连接mariadb: system/主机不能连接mariadb.md
         - 修改centos7语言: system/修改centos7语言.md
         - 修改mariadb编码类型: system/修改mariadb编码类型.md
@@ -17,6 +17,7 @@ nav:
         - 通过shell命令写文件: system/通过shell命令写文件.md
         - system\删除网桥.md
         - system\Linux逻辑卷划分示意图.md
+        - system\软链接与硬链接.md
     - Command:
         - linux挂载windows共享文件夹: command/linux挂载windows共享文件夹.md
         - sed: command/sed.md
@@ -31,6 +32,7 @@ nav:
         - command\locate初始化.md
         - command\rsync.md
         - command\echo的颜色输出与光标定位.md
+        - command\xargs与管道.md
     - Python:
         - event线程: python/event线程.md
         - json格式处理: python/json格式处理.md
@@ -110,6 +112,10 @@ nav:
         - sql\21. SQL Mode.md
         - sql\22. 常用 SQL 技巧和常见问题.md
         - sql\23. MySQL分区.md
+        - sql\24. MySQL分区限制.md
+        - sql\25. SQL优化.md
+        - sql\26. 优化数据库对象.md
+        - sql\27. 锁.md
     - MyBatis:
         - 简介.md: mybatis/简介.md
         - XML配置.md: mybatis/XML配置.md
@@ -133,6 +139,12 @@ nav:
         - ovirt的gluster数据恢复bug: gluster/ovirt的gluster数据恢复bug.md
         - 清理不可用的brick: gluster/清理不可用的brick.md
         - 结点故障: gluster/结点故障.md
+    - Docker:
+        - docker\1. 入门-安装.md
+        - docker\2. 入门-容器.md
+        - docker\3. 入门-服务.md
+        - docker\4. 入门-集群.md
+        - docker\5. 入门-栈.md
     - Git:
         - git rebase(修改历史提交): git/git rebase(修改历史提交).md
         - windows无法使用git克隆: git/windows无法使用git克隆.md
@@ -154,4 +166,29 @@ nav:
     - 奇技淫巧:
         - 奇技淫巧\位运算.md
 # theme: readthedocs
-theme: windmill
+# theme: windmill
+# theme: mkdocs
+        
+# pip install mkdocs-material
+theme:
+    name: 'material'
+
+# admonition开启警告之类的提示框语法
+# codehilite代码高亮
+markdown_extensions:
+    - admonition
+    - codehilite
+    - footnotes
+    - toc:
+        permalink: true
+
+plugins: 
+    - search
+    - mkdocs-add-number-plugin:
+        strict_mode: False # 模式选项
+        # excludes: 
+        #     - '*'
+        # includes: 
+        #     - sql/
+        #     - mybatis\
+        # order: 1

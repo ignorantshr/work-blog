@@ -1,4 +1,4 @@
-@[TOC](这里写自定义目录标题)
+[TOC]
 
 # 欢迎使用Markdown编辑器
 
@@ -16,7 +16,7 @@
  6. 增加了 **多屏幕编辑** Markdown文章功能；
  7. 增加了 **焦点写作模式、预览模式、简洁写作模式、左右区域同步滚轮设置** 等功能，功能按钮位于编辑区域与预览区域中间；
  8. 增加了 **检查列表** 功能。
- [^1]: [mermaid语法说明](https://mermaidjs.github.io/)
+[^1]: [mermaid语法说明](https://mermaidjs.github.io/)
 
 ## 功能快捷键
 
@@ -111,7 +111,7 @@ var foo = 'bar';
 使用`----------:`居右
 | 第一列       | 第二列         | 第三列        |
 |:-----------:| -------------:|:-------------|
-| 第一列文本居中 | 第二列文本居右  | 第三列文本居左 | 
+| 第一列文本居中 | 第二列文本居右  | 第三列文本居左 |
 
 
 ### SmartyPants
@@ -229,7 +229,7 @@ cond(no)->op
 如果你想加载一篇你写过的.md文件或者.html文件，在上方工具栏可以选择导入功能进行对应扩展名的文件导入，
 继续你的创作。
 
- [1]: http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference
- [2]: https://mermaidjs.github.io/
- [3]: https://mermaidjs.github.io/
- [4]: http://adrai.github.io/flowchart.js/
+[1]: http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference
+[2]: https://mermaidjs.github.io/
+[3]: https://mermaidjs.github.io/
+[4]: http://adrai.github.io/flowchart.js/

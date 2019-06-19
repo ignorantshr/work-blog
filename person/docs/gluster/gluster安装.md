@@ -1,7 +1,9 @@
 ### 安装
 先安装yum源，这是最新版本；centos的库不是最新版，如果版本不匹配会造成挂载失败
 
+```shell
 yum install centos-release-gluster
+```
 
 centos快速安装：
 

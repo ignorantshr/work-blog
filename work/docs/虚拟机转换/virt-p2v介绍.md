@@ -1,8 +1,10 @@
+[TOC]
+
 原文地址：[virt-p2v](http://libguestfs.org/virt-p2v.1.html)
 
-不要直接运行`virt-p2v`。你应该使用可启动`CDROM,ISO,PXE image`来启动物理机。这个映像包括virt-p2v二进制文件，并会自动地运行它。这么做的原因是被磁盘必须是非活动状态，因为其他程序会修改活动磁盘的内容。这个启动映像由`virt-p2v-make-disk`制作。
+不要直接运行`virt-p2v`。你应该使用可启动`CDROM,ISO,PXE image`来启动物理机。这个映像包括virt-p2v二进制文件，并会自动地运行它。这么做的原因是被转换的磁盘必须是非活动状态，因为其他程序会修改活动磁盘的内容。这个启动映像由`virt-p2v-make-disk`制作。
 
-# 1.网络设置
+## 1.网络设置
 
 `virt-p2v`在物理机上面运行。它通过**SSH**与转换服务器（安装了`virt-v2v`）通信。
 
@@ -24,21 +26,21 @@ SSH的scp功能也必须开启。
 
 转换的速度很大程度上取决于两者的网络情况。
 
-# 2.GUI交互式配置
+## 2.GUI交互式配置
 
 启动映像时，会有一些配置。
 
-## 2.1 SSH配置
+### 2.1 SSH配置
 
-## 2.2 磁盘和网络配置
+### 2.2 磁盘和网络配置
 
 配置虚拟机的参数，virt-v2v的选项，要转换的硬盘，可移动媒体（CD...），要在虚拟机上创建的网络接口
 
-## 2.3 转换运行界面
+### 2.3 转换运行界面
 
 转换完成之后，关闭物理机，不要重启。
 
-# 3. 内核命令行配置
+## 3. 内核命令行配置
 
 如果你不想通过图形界面配置，可使用此方法。
 
@@ -57,7 +59,7 @@ SSH的scp功能也必须开启。
 
 [KERNEL COMMAND LINE CONFIGURATION](http://libguestfs.org/virt-p2v.1.html#kernel-command-line-configuration)
 
-# 4.SSH认证
+4.SSH认证
 
 比密码方式更安全的是SSH认证。
 
@@ -65,7 +67,7 @@ SSH的scp功能也必须开启。
 
 ![](img/virt-p2v的ssh配置.png)
 
-# 5.工作方式
+## 5.工作方式
 
 首先建立一个或多个SSH连接来查询远程`virt-v2v`的版本及其功能。测试连接在转换开始前会被关闭。
 
@@ -169,11 +171,17 @@ SSH的scp功能也必须开启。
 virt-v2v -v -x --colours -i libvirtxml -o "libvirt" -oa sparse -os "/var/tmp" --root first physical.xml </dev/null
 ```
 
-# 6.使用
+## 6.使用
 
-先利用`virt-p2v-make-disk`制作一个运行`virt-p2v`的启动盘：
+首先安装`virt-p2v-maker`。
+
+利用`virt-p2v-make-disk`制作一个运行`virt-p2v`的启动盘：
 
 ```shell
+# USB启动盘
+virt-p2v-make-disk -o /dev/sdX
+
+# 虚拟启动磁盘
 virt-p2v-make-disk -v -o /var/tmp/p2v.img centos-7.5 2>&1 | tee virt-p2v.log
 ```
 

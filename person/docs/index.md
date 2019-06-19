@@ -1,6 +1,11 @@
 # Welcome to Person Sink
 This is a personal blog of shihr.
 
+<!-- The document style is based on the secondary development of windmill. If you like this style, please refer to the blog：
+[Beautiful windmill style](https://blog.csdn.net/SHRINKSHR/article/details/90403852). -->
+
+And using myself plugin to add number to titles: [mkdocs-add-number-plugin](https://github.com/shihr/mkdocs-add-number-plugin)
+
 
 
 RUN COMMAND:
