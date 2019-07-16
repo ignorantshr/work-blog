@@ -30,15 +30,17 @@ SSH的scp功能也必须开启。
 
 启动映像时，会有一些配置。
 
-### 2.1 SSH配置
+### 2.1 用户名密码或SSH配置
 
-### 2.2 磁盘和网络配置
+必须要配置网络。
+
+### 2.2 磁盘和虚拟机网络配置
 
 配置虚拟机的参数，virt-v2v的选项，要转换的硬盘，可移动媒体（CD...），要在虚拟机上创建的网络接口
 
 ### 2.3 转换运行界面
 
-转换完成之后，关闭物理机，不要重启。
+转换完成之后，拔掉U盘，关闭物理机。
 
 ## 3. 内核命令行配置
 
@@ -59,7 +61,7 @@ SSH的scp功能也必须开启。
 
 [KERNEL COMMAND LINE CONFIGURATION](http://libguestfs.org/virt-p2v.1.html#kernel-command-line-configuration)
 
-4.SSH认证
+## 4.SSH认证
 
 比密码方式更安全的是SSH认证。
 
@@ -175,7 +177,7 @@ virt-v2v -v -x --colours -i libvirtxml -o "libvirt" -oa sparse -os "/var/tmp" --
 
 首先安装`virt-p2v-maker`。
 
-利用`virt-p2v-make-disk`制作一个运行`virt-p2v`的启动盘：
+利用`virt-p2v-make-disk`制作一个运行`virt-p2v`的启动盘（要配置好网络和DNS）：
 
 ```shell
 # USB启动盘
@@ -191,7 +193,7 @@ virt-p2v-make-disk -v -o /var/tmp/p2v.img centos-7.5 2>&1 | tee virt-p2v.log
 qemu-img convert -f raw p2v.img -O vmdk p2v.vmdk
 ```
 
-然后将这个磁盘添加到虚拟机上面，设置开机启动进入固件，调整硬盘的启动顺序，开机时选择第一个linux内核，此时即进入了`virt-p2v`的启动盘。然后按照提示进行配置即可开始转换。
+然后将这个磁盘添加到虚拟机上面，设置开机启动进入固件，调整硬盘的启动顺序，开机时选择启动盘的linux内核，此时即进入了`virt-p2v`的启动盘。然后按照提示进行配置即可开始转换。
 
 **注意**：选择libvirt作为输出格式的时候，`os`选项填写`pool`的名字，可通过`virsh pool-list`查看有哪些pool。
 

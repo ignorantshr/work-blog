@@ -36,7 +36,7 @@
 
         mount.cifs [//172.16.2.27/ova](notion://172.16.2.27/ova) /tmp/ova_tmp -o user=phy,pass=KVM.123456
 
-    挂载失败使用加上参数：
+    挂载失败时加上参数：
 
         mount.cifs //172.16.2.27/ova ova_tmp/ -o user=phy,pass=KVM.123456,sec=ntlm
 

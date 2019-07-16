@@ -15,6 +15,9 @@ nav:
         - VMware-ESXI-hypervisor转换: 虚拟机转换/VMware-ESXI-hypervisor转换.md
         - VMware-vddk转换: 虚拟机转换/VMware-vddk转换.md
         - Xen转换: 虚拟机转换/Xen转换.md
+    - Citrix:
+        - citrix\00技术概述.md
+        - citrix\01安装.md
     - Spice:
         - 简介: spice/简介.md
         - 使用范例: spice/使用范例.md
@@ -70,9 +73,20 @@ nav:
 
 theme:
     name: 'material'
-
+    
+# admonition开启警告之类的提示框语法
+# codehilite代码高亮
 markdown_extensions:
     - codehilite
     - footnotes
     - toc:
         permalink: true
+
+plugins: 
+    - search
+    - mkdocs-add-number-plugin:
+        strict_mode: False # 模式选项
+        excludes: 
+            - '*'
+        includes:
+            - citrix/

@@ -18,6 +18,7 @@ nav:
         - system\删除网桥.md
         - system\Linux逻辑卷划分示意图.md
         - system\软链接与硬链接.md
+        - system\Linux下查看文件类型.md
     - Command:
         - linux挂载windows共享文件夹: command/linux挂载windows共享文件夹.md
         - sed: command/sed.md
@@ -42,6 +43,9 @@ nav:
         - python\类属性和实例属性.md
         - python\高阶函数.md
         - python\获取命令行参数.md
+        - python\asyncore模块.md
+        - python\select模块.md
+        - python\mkdown2reStructuredText.md
     - Other:
         - CSDN语法: other/CSDN语法.md
         - h5ai美化目录: other/h5ai美化目录.md
@@ -49,6 +53,10 @@ nav:
         - 制作iso镜像: other/制作iso镜像.md
         - 没有打印日志: other/没有打印日志.md
         - 编译安装vdsm之后主机安装失败: other/编译安装vdsm之后主机安装失败.md
+        - other\Stomp协议.md
+    - Ansible:
+        - ansible\01. 简介.md
+        - ansible\02. Inventory文件.md
     - Java:
         - IO: java/IO.md
         - 作用范围级别: java/作用范围级别.md
@@ -79,43 +87,45 @@ nav:
     - 设计模式:
         - 设计原则: 设计模式/设计原则.md
         - 模式: 设计模式/模式.md
-    - SQL:
-        - sql\1. 简介.md
-        - sql\2. 关系模型.md
-        - sql\3. 管理数据库.md
-        - sql\4. 查询数据.md
-        - sql\5. 修改数据.md
-        - sql\6. 事务.md
-        - sql\7. 实用SQL语句.md
-        - sql\8. MySQL数据类型.md
-        - sql\9. MySQL的运算符.md
-        - sql\10. MySQL常用函数.md
-        - sql\11. MySQL存储引擎.md
-        - sql\12. MySQL数据类型的选择.md
-        - sql\13. MySQL字符集.md
-        - sql\14. MySQL索引的设计和使用.md
-        - sql\15. MySQL视图.md
-        - sql\16. MySQL存储过程和函数.md
-        - sql\17.0 MySQL复合语句.md
-        - sql\17.1 BEGIN...END复合语句.md
-        - sql\17.2 语句标签.md
-        - sql\17.3 声明语法.md
-        - sql\17.4 变量.md
-        - sql\17.5 流程控制.md
-        - sql\17.6 游标.md
-        - sql\17.7 错误状况及处理.md
-        - sql\17.8 SIGNAL.md
-        - sql\17.9 RESIGNAL.md
-        - sql\18. MySQL触发器.md
-        - sql\19. MySQL事务与锁定语句.md
-        - sql\20. SQL中的安全问题.md
-        - sql\21. SQL Mode.md
-        - sql\22. 常用 SQL 技巧和常见问题.md
-        - sql\23. MySQL分区.md
-        - sql\24. MySQL分区限制.md
-        - sql\25. SQL优化.md
-        - sql\26. 优化数据库对象.md
-        - sql\27. 锁.md
+    - MySQL:
+        - mysql\1. 简介.md
+        - mysql\2. 关系模型.md
+        - mysql\3. 管理数据库.md
+        - mysql\4. 查询数据.md
+        - mysql\5. 修改数据.md
+        - mysql\6. 事务.md
+        - mysql\7. 实用SQL语句.md
+        - mysql\8. MySQL数据类型.md
+        - mysql\9. MySQL的运算符.md
+        - mysql\10. MySQL常用函数.md
+        - mysql\11. MySQL存储引擎.md
+        - mysql\12. MySQL数据类型的选择.md
+        - mysql\13. MySQL字符集.md
+        - mysql\14. MySQL索引的设计和使用.md
+        - mysql\15. MySQL视图.md
+        - mysql\16. MySQL存储过程和函数.md
+        - mysql\17.0 MySQL复合语句.md
+        - mysql\17.1 BEGIN...END复合语句.md
+        - mysql\17.2 语句标签.md
+        - mysql\17.3 声明语法.md
+        - mysql\17.4 变量.md
+        - mysql\17.5 流程控制.md
+        - mysql\17.6 游标.md
+        - mysql\17.7 错误状况及处理.md
+        - mysql\17.8 SIGNAL.md
+        - mysql\17.9 RESIGNAL.md
+        - mysql\18. MySQL触发器.md
+        - mysql\19. MySQL事务与锁定语句.md
+        - mysql\20. SQL中的安全问题.md
+        - mysql\21. SQL Mode.md
+        - mysql\22. 常用 SQL 技巧和常见问题.md
+        - mysql\23. MySQL分区.md
+        - mysql\24. MySQL分区限制.md
+        - mysql\25. SQL优化.md
+        - mysql\26. 优化数据库对象.md
+        - mysql\27. 锁.md
+        - mysql\28. MySQL Server的优化.md
+        - mysql\29. MySQL磁盘 IO 问题.md
     - MyBatis:
         - 简介.md: mybatis/简介.md
         - XML配置.md: mybatis/XML配置.md
@@ -140,11 +150,17 @@ nav:
         - 清理不可用的brick: gluster/清理不可用的brick.md
         - 结点故障: gluster/结点故障.md
     - Docker:
-        - docker\1. 入门-安装.md
-        - docker\2. 入门-容器.md
-        - docker\3. 入门-服务.md
-        - docker\4. 入门-集群.md
-        - docker\5. 入门-栈.md
+        - docker\01. 入门-安装.md
+        - docker\02. 入门-容器.md
+        - docker\03. 入门-服务.md
+        - docker\04. 入门-集群.md
+        - docker\05. 入门-栈.md
+        - docker\06. 使用docker镜像.md
+        - docker\07. 容器操作.md
+        - docker\08. docker仓库.md
+        - docker\09. Docker数据管理.md
+        - docker\10 端口映射与容器互联.md
+        - docker\11. Dockerfile.md
     - Git:
         - git rebase(修改历史提交): git/git rebase(修改历史提交).md
         - windows无法使用git克隆: git/windows无法使用git克隆.md
@@ -167,7 +183,6 @@ nav:
         - 奇技淫巧\位运算.md
 # theme: readthedocs
 # theme: windmill
-# theme: mkdocs
         
 # pip install mkdocs-material
 theme:

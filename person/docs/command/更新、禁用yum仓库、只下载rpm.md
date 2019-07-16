@@ -11,6 +11,7 @@ yum-config-manager --enable base epel epel/x86_64/metalink extras updates
 *	只下载不安装rpm
 ```shell
 yum install --downloadonly --downloaddir=/tmp <package-name>
+# 需要先安装yum-utils
 yumdownloader --resolve --downloadonly --downloaddir=/tmp <package-name>
 ```
 
