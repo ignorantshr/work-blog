@@ -15,10 +15,12 @@ nav:
         - 磁盘容量扩充: system/磁盘容量扩充.md
         - 网卡不存在: system/网卡不存在.md
         - 通过shell命令写文件: system/通过shell命令写文件.md
-        - system\删除网桥.md
-        - system\Linux逻辑卷划分示意图.md
-        - system\软链接与硬链接.md
-        - system\Linux下查看文件类型.md
+        - system/删除网桥.md
+        - system/Linux逻辑卷划分示意图.md
+        - system/软链接与硬链接.md
+        - system/Linux下查看文件类型.md
+        - system/Linux文件系统层次结构标准.md
+        - system/命令行编写循环体.md
     - Command:
         - linux挂载windows共享文件夹: command/linux挂载windows共享文件夹.md
         - sed: command/sed.md
@@ -30,22 +32,22 @@ nav:
         - 显示文件夹大小: command/显示文件夹大小.md
         - 更新、禁用yum仓库、只下载rpm: command/更新、禁用yum仓库、只下载rpm.md
         - 添加公钥: command/添加公钥.md
-        - command\locate初始化.md
-        - command\rsync.md
-        - command\echo的颜色输出与光标定位.md
-        - command\xargs与管道.md
+        - command/locate初始化.md
+        - command/rsync.md
+        - command/echo的颜色输出与光标定位.md
+        - command/xargs与管道.md
     - Python:
         - event线程: python/event线程.md
         - json格式处理: python/json格式处理.md
         - 执行shell命令: python/执行shell命令.md
         - 超时装饰器: python/超时装饰器.md
-        - python\@Property.md
-        - python\类属性和实例属性.md
-        - python\高阶函数.md
-        - python\获取命令行参数.md
-        - python\asyncore模块.md
-        - python\select模块.md
-        - python\mkdown2reStructuredText.md
+        - python/@Property.md
+        - python/类属性和实例属性.md
+        - python/高阶函数.md
+        - python/获取命令行参数.md
+        - python/asyncore模块.md
+        - python/select模块.md
+        - python/mkdown2reStructuredText.md
     - Other:
         - CSDN语法: other/CSDN语法.md
         - h5ai美化目录: other/h5ai美化目录.md
@@ -53,10 +55,14 @@ nav:
         - 制作iso镜像: other/制作iso镜像.md
         - 没有打印日志: other/没有打印日志.md
         - 编译安装vdsm之后主机安装失败: other/编译安装vdsm之后主机安装失败.md
-        - other\Stomp协议.md
+        - other/Stomp协议.md
     - Ansible:
-        - ansible\01. 简介.md
-        - ansible\02. Inventory文件.md
+        - ansible/01. 简介.md
+        - ansible/02. Inventory文件.md
+    - RPM:
+        - rpm/00 示例.md
+        - rpm/01 打包前的准备工作.md
+        - rpm/02 打包软件.md
     - Java:
         - IO: java/IO.md
         - 作用范围级别: java/作用范围级别.md
@@ -70,13 +76,13 @@ nav:
         - 6.Cookie: servlet/6.Cookie.md
         - 7.Session 跟踪: servlet/7.Session 跟踪.md
         - 8.文件上传: servlet/8.文件上传.md
-        - servlet\8.1文件下载.md
-        - servlet\9.重定向.md
+        - servlet/8.1文件下载.md
+        - servlet/9.重定向.md
         - 10.作用域: servlet/10.作用域.md
-        - servlet\11.监听器.md
+        - servlet/11.监听器.md
     - Spring:
         - 文件上传: spring/文件上传.md
-        - spring\文件下载.md
+        - spring/文件下载.md
     - Spring Boot:
         - 1.说明: springboot/1.说明.md
         - 2.Maven: springboot/2.Maven.md
@@ -88,44 +94,44 @@ nav:
         - 设计原则: 设计模式/设计原则.md
         - 模式: 设计模式/模式.md
     - MySQL:
-        - mysql\1. 简介.md
-        - mysql\2. 关系模型.md
-        - mysql\3. 管理数据库.md
-        - mysql\4. 查询数据.md
-        - mysql\5. 修改数据.md
-        - mysql\6. 事务.md
-        - mysql\7. 实用SQL语句.md
-        - mysql\8. MySQL数据类型.md
-        - mysql\9. MySQL的运算符.md
-        - mysql\10. MySQL常用函数.md
-        - mysql\11. MySQL存储引擎.md
-        - mysql\12. MySQL数据类型的选择.md
-        - mysql\13. MySQL字符集.md
-        - mysql\14. MySQL索引的设计和使用.md
-        - mysql\15. MySQL视图.md
-        - mysql\16. MySQL存储过程和函数.md
-        - mysql\17.0 MySQL复合语句.md
-        - mysql\17.1 BEGIN...END复合语句.md
-        - mysql\17.2 语句标签.md
-        - mysql\17.3 声明语法.md
-        - mysql\17.4 变量.md
-        - mysql\17.5 流程控制.md
-        - mysql\17.6 游标.md
-        - mysql\17.7 错误状况及处理.md
-        - mysql\17.8 SIGNAL.md
-        - mysql\17.9 RESIGNAL.md
-        - mysql\18. MySQL触发器.md
-        - mysql\19. MySQL事务与锁定语句.md
-        - mysql\20. SQL中的安全问题.md
-        - mysql\21. SQL Mode.md
-        - mysql\22. 常用 SQL 技巧和常见问题.md
-        - mysql\23. MySQL分区.md
-        - mysql\24. MySQL分区限制.md
-        - mysql\25. SQL优化.md
-        - mysql\26. 优化数据库对象.md
-        - mysql\27. 锁.md
-        - mysql\28. MySQL Server的优化.md
-        - mysql\29. MySQL磁盘 IO 问题.md
+        - mysql/1. 简介.md
+        - mysql/2. 关系模型.md
+        - mysql/3. 管理数据库.md
+        - mysql/4. 查询数据.md
+        - mysql/5. 修改数据.md
+        - mysql/6. 事务.md
+        - mysql/7. 实用SQL语句.md
+        - mysql/8. MySQL数据类型.md
+        - mysql/9. MySQL的运算符.md
+        - mysql/10. MySQL常用函数.md
+        - mysql/11. MySQL存储引擎.md
+        - mysql/12. MySQL数据类型的选择.md
+        - mysql/13. MySQL字符集.md
+        - mysql/14. MySQL索引的设计和使用.md
+        - mysql/15. MySQL视图.md
+        - mysql/16. MySQL存储过程和函数.md
+        - mysql/17.0 MySQL复合语句.md
+        - mysql/17.1 BEGIN...END复合语句.md
+        - mysql/17.2 语句标签.md
+        - mysql/17.3 声明语法.md
+        - mysql/17.4 变量.md
+        - mysql/17.5 流程控制.md
+        - mysql/17.6 游标.md
+        - mysql/17.7 错误状况及处理.md
+        - mysql/17.8 SIGNAL.md
+        - mysql/17.9 RESIGNAL.md
+        - mysql/18. MySQL触发器.md
+        - mysql/19. MySQL事务与锁定语句.md
+        - mysql/20. SQL中的安全问题.md
+        - mysql/21. SQL Mode.md
+        - mysql/22. 常用 SQL 技巧和常见问题.md
+        - mysql/23. MySQL分区.md
+        - mysql/24. MySQL分区限制.md
+        - mysql/25. SQL优化.md
+        - mysql/26. 优化数据库对象.md
+        - mysql/27. 锁.md
+        - mysql/28. MySQL Server的优化.md
+        - mysql/29. MySQL磁盘 IO 问题.md
     - MyBatis:
         - 简介.md: mybatis/简介.md
         - XML配置.md: mybatis/XML配置.md
@@ -138,8 +144,8 @@ nav:
         - HTTP 首部.md: http协议/HTTP 首部.md
         - HTTPS.md: http协议/HTTPS.md
     - CS50:
-        - CS50\1. 简介.md
-        - CS50\2. 编译器.md
+        - CS50/1. 简介.md
+        - CS50/2. 编译器.md
     - Linux网络编程:
         - 函数: linux网络编程/函数.md
         - socket通信流程: linux网络编程/socket通信流程.md
@@ -150,17 +156,17 @@ nav:
         - 清理不可用的brick: gluster/清理不可用的brick.md
         - 结点故障: gluster/结点故障.md
     - Docker:
-        - docker\01. 入门-安装.md
-        - docker\02. 入门-容器.md
-        - docker\03. 入门-服务.md
-        - docker\04. 入门-集群.md
-        - docker\05. 入门-栈.md
-        - docker\06. 使用docker镜像.md
-        - docker\07. 容器操作.md
-        - docker\08. docker仓库.md
-        - docker\09. Docker数据管理.md
-        - docker\10 端口映射与容器互联.md
-        - docker\11. Dockerfile.md
+        - docker/01. 入门-安装.md
+        - docker/02. 入门-容器.md
+        - docker/03. 入门-服务.md
+        - docker/04. 入门-集群.md
+        - docker/05. 入门-栈.md
+        - docker/06. 使用docker镜像.md
+        - docker/07. 容器操作.md
+        - docker/08. docker仓库.md
+        - docker/09. Docker数据管理.md
+        - docker/10 端口映射与容器互联.md
+        - docker/11. Dockerfile.md
     - Git:
         - git rebase(修改历史提交): git/git rebase(修改历史提交).md
         - windows无法使用git克隆: git/windows无法使用git克隆.md
@@ -180,7 +186,7 @@ nav:
         - 复杂度分析: algorithm/复杂度分析.md
         - 选择排序: algorithm/选择排序.md
     - 奇技淫巧:
-        - 奇技淫巧\位运算.md
+        - 奇技淫巧/位运算.md
 # theme: readthedocs
 # theme: windmill
         
