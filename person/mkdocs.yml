@@ -14,28 +14,33 @@ nav:
         - 改变系统时区: system/改变系统时区.md
         - 磁盘容量扩充: system/磁盘容量扩充.md
         - 网卡不存在: system/网卡不存在.md
-        - 通过shell命令写文件: system/通过shell命令写文件.md
         - system/删除网桥.md
         - system/Linux逻辑卷划分示意图.md
         - system/软链接与硬链接.md
         - system/Linux下查看文件类型.md
-        - system/Linux文件系统层次结构标准.md
-        - system/命令行编写循环体.md
-    - Command:
-        - linux挂载windows共享文件夹: command/linux挂载windows共享文件夹.md
-        - sed: command/sed.md
-        - ssh免密登录: command/ssh免密登录.md
-        - shell脚本自动输入: command/shell脚本自动输入.md
-        - 创建文件自动添加执行权限: command/创建文件自动添加执行权限.md
-        - tar命令打包去掉路径前缀: command/tar命令打包去掉路径前缀.md
-        - wget用法: command/wget用法.md
-        - 显示文件夹大小: command/显示文件夹大小.md
-        - 更新、禁用yum仓库、只下载rpm: command/更新、禁用yum仓库、只下载rpm.md
-        - 添加公钥: command/添加公钥.md
-        - command/locate初始化.md
-        - command/rsync.md
-        - command/echo的颜色输出与光标定位.md
-        - command/xargs与管道.md
+        - system/Linux文件系统层次结构标准FHS.md
+        - system/centos重启卡死.md
+    - 命令:
+        - linux挂载windows共享文件夹: 命令/linux挂载windows共享文件夹.md
+        - sed: 命令/sed.md
+        - ssh免密登录: 命令/ssh免密登录.md
+        - 创建文件自动添加执行权限: 命令/创建文件自动添加执行权限.md
+        - tar命令打包去掉路径前缀: 命令/tar命令打包去掉路径前缀.md
+        - wget用法: 命令/wget用法.md
+        - 显示文件夹大小: 命令/显示文件夹大小.md
+        - 更新、禁用yum仓库、只下载rpm: 命令/更新、禁用yum仓库、只下载rpm.md
+        - 添加公钥: 命令/添加公钥.md
+        - 命令/locate初始化.md
+        - 命令/rsync.md
+        - 命令/echo的颜色输出与光标定位.md
+        - 命令/xargs与管道.md
+        - 命令/trap.md
+    - Shell:
+        - shell/shell脚本自动输入.md
+        - shell/命令行编写循环体.md
+        - shell/在后台执行命令.md
+        - shell/通过shell命令写文件.md
+        - shell/截取字符串.md
     - Python:
         - event线程: python/event线程.md
         - json格式处理: python/json格式处理.md
@@ -47,22 +52,32 @@ nav:
         - python/获取命令行参数.md
         - python/asyncore模块.md
         - python/select模块.md
+        - python/subprocess模块.md
         - python/mkdown2reStructuredText.md
-    - Other:
-        - CSDN语法: other/CSDN语法.md
-        - h5ai美化目录: other/h5ai美化目录.md
-        - vdsm启动失败: other/vdsm启动失败.md
-        - 制作iso镜像: other/制作iso镜像.md
-        - 没有打印日志: other/没有打印日志.md
-        - 编译安装vdsm之后主机安装失败: other/编译安装vdsm之后主机安装失败.md
-        - other/Stomp协议.md
+        - python/上下文管理器.md
+    - 鸟哥的linux私房菜:
+        - 鸟哥的linux私房菜/00 linux帮助文档.md
+        - 鸟哥的linux私房菜/01 正确的关机方法.md
+        - 鸟哥的linux私房菜/03 文件类型与目录权限.md
+        - 鸟哥的linux私房菜/04 文件查阅.md
+    - 其它:
+        - CSDN语法: 其它/CSDN语法.md
+        - h5ai美化目录: 其它/h5ai美化目录.md
+        - vdsm启动失败: 其它/vdsm启动失败.md
+        - 制作iso镜像: 其它/制作iso镜像.md
+        - 没有打印日志: 其它/没有打印日志.md
+        - 编译安装vdsm之后主机安装失败: 其它/编译安装vdsm之后主机安装失败.md
+        - 其它/Stomp协议.md
+        - 其它/Windows格式化磁盘.md
     - Ansible:
         - ansible/01. 简介.md
         - ansible/02. Inventory文件.md
+        - ansible/03. playbooks-roles.md
     - RPM:
         - rpm/00 示例.md
         - rpm/01 打包前的准备工作.md
         - rpm/02 打包软件.md
+        - rpm/03 高级话题.md
     - Java:
         - IO: java/IO.md
         - 作用范围级别: java/作用范围级别.md
@@ -179,9 +194,10 @@ nav:
         - 二叉树: datastruct/二叉树.md
         - 散列表: datastruct/散列表.md
         - 红黑树: datastruct/红黑树.md
-    - C and c++:
-        - 动态编译: c and c++/动态编译.md
-        - 程序运行时间: c and c++/程序运行时间.md
+    - C:
+        - 动态编译: c/动态编译.md
+        - 程序运行时间: c/程序运行时间.md
+        - c/结构体中的函数指针.md
     - Algorithm:
         - 复杂度分析: algorithm/复杂度分析.md
         - 选择排序: algorithm/选择排序.md

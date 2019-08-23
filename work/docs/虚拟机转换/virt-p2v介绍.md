@@ -12,7 +12,7 @@
  ┌──────────────┐                  ┌─────────────────┐
  │ virt-p2v     │                  │ virt-v2v        │
  │ (physical    │  ssh connection  │ (conversion     │
- │  server)   ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍▶ server)       │
+ │  server)   ╍╍╍╍╍╍╍╍╍╍╍╍╍╍▶ server)       │
  └──────────────┘                  └─────────────────┘
 ```
 

@@ -25,14 +25,16 @@ gid = nobody
 # dont compress   = *.gz *.tgz *.zip *.z *.Z *.rpm *.deb *.bz2
 log file = /var/log/rsyncd.log
 
-[vdc_iso]
-path = /home/pub/deps/vdc/vdc_iso/
+[ovirt_iso]
+path = /home/pub/ovirt_iso/
 # [ftp]
 #        path = /home/ftp
 #        comment = ftp export area
 ```
 
 详细配置执行：`man rsyncd.conf`
+
+客户端即可通过rsync进行远程同步。
 
 ## 语法
 
