@@ -34,7 +34,7 @@ path = /home/pub/ovirt_iso/
 
 详细配置执行：`man rsyncd.conf`
 
-客户端即可通过rsync进行远程同步。
+然后服务端以daemon的形式运行：`rsync --daemon`，同时检查防火墙端口是否开放。客户端即可通过rsync进行远程同步。
 
 ## 语法
 

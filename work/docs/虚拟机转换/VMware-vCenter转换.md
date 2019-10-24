@@ -95,7 +95,7 @@ $ virsh -c 'vpx://root@vcenter.example.com/Datacenter/esxi' dumpxml "Windows 200
 ```shell
  $ virt-v2v -ic 'vpx://root@vcenter.example.com/Datacenter/esxi?no_verify=1' \
    "Windows 2003" \
-   -o local -os /var/tmp
+   --password-file vCenter.pass -o local -os /var/tmp
 ```
 
 **虚拟机必须关机**。

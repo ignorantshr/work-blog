@@ -1,6 +1,6 @@
 # VMware-vddk虚拟机转换
 
-此种转换方式可在vCenter与ESXi服务器（版本>=5.5）上面使用。提供的uri连接也是这两种形式的。下面介绍最简单的转换用法。
+此种转换方式可在**vCenter**与**ESXi**服务器（版本>=5.5）上面使用。提供的uri连接也是这两种形式的。下面介绍最简单的转换用法。
 
 需要在VMware下载[开发库](https://code.vmware.com/web/sdk/6.7/vddk)，但是此库是非开源的，不允许重新分发或商业用途，慎用。
 
@@ -36,3 +36,4 @@ virt-v2v -ic esx://root@192.168.216.153?no_verify=1 centos-esxi-1 \
 - vddk-thumbprint 指定服务器的指纹
 
 其它可选选项：*-io vddk-config*, *-io vddk-cookie*, *-io vddk-nfchostport*, *-io vddk-port*, *-io vddk-snapshot*, *-io vddk-transports* and *-io vddk-vimapiver*，可通过`man nbdkit-vddk-plugin`查看具体意思。
+

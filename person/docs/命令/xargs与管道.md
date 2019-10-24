@@ -4,3 +4,16 @@ xargs 是给命令传递参数的一个过滤器，也是组合多个命令的�
 
 xargs[教程](https://www.runoob.com/linux/linux-comm-xargs.html)
 
+对于不支持管道的命令，可以使用xargs来为其提供参数：
+
+```bash
+[root@dev vitest]# find . -perm /7000 | xargs ls -l
+-rwSr--r-- 1 root root 18 Oct 10 14:15 ./num1
+```
+
+此法也可以解决命令行参数过长的问题：
+
+```shell
+[root@dev vitest]# find / -type f 2> /dev/null | xargs -n 10 grep -l '\*' 2> /dev/null
+```
+

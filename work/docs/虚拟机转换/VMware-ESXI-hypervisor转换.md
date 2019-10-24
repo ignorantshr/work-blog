@@ -38,7 +38,9 @@
 
 创建*guest.xml*, *guest-disk1*, ...
 
-可使用`--password-file <file>`选项，实际使用中该选项只能代替一次密码输入，可是有多达三次密码输入。
+
+
+此过程中共需要输入三次密码，第一次是libvirt连接时，后两次是curl命令连接时（一块磁盘两次，两块磁盘就是四次……），`--password-file <file>`选项可以代替手动输入密码。
 
 ### 4. 执行 virt-v2v 转换
 
@@ -48,4 +50,5 @@
 
 ### 5. 清理
 
-删掉 *guest.xml* 、 *guest-disk** 文件
+删掉 *guest.xml* 、 *guest-disk\** 文件
+

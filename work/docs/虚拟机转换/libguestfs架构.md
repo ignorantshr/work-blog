@@ -227,7 +227,12 @@ library (sender) 和 daemon (receiver) 都可能取消转换。`library`的做�
 
 如果找到了fixed appliance，libguestfs会完全跳过supermin，然后使用固定设备中的kernel、initrd和root disk运行虚拟机（使用qemu或当前的后台，see  ["BACKEND"](http://libguestfs.org/guestfs.3.html#backend)）。
 
+# 4. [构建libguestfs](http://libguestfs.org/guestfs-building.1.html)
 
-
-
+```bash
+cd libguestfs/
+./autogen.sh
+make -j 10
+make INSTALLDIRS=vendor DESTDIR=/home/tmp/ install	# 可选
+```
 

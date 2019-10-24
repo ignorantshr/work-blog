@@ -14,7 +14,7 @@
 	git rebase --continue
 	解决冲突
 	git add .
-	git rebase –continue
+	git rebase –-continue
 
 *taps*:忘记了流程。。。
 
@@ -38,3 +38,4 @@ git rebase -i HEAD~2
 - 选择exec操作，git会在shell中运行这个命令
 
 根据上述的提示将想要合并的提交改变其操作，保存之后会提示修改后的信息，如果需要可以再次更改提交信息。下面的补丁会应用到上面的pick提交。
+

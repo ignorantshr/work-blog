@@ -10,7 +10,7 @@
             raise Exception(output)
         return output
 ```
-- 利用子进程执行命令调用方法：
+- 利用子进程执行命令调用方法（详细使用方法参见：subprocess模块）：
 ```
     @setTimeout()
     def aaa():
@@ -22,3 +22,4 @@
             print "aaa kill"
             sub.terminate()
 ```
+

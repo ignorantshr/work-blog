@@ -3,26 +3,44 @@ site_author: shihr
 repo_url: https://github.com/shihr/question
 nav:
     - Home: index.md
-    - System:
-        - epel源: system/epel源.md
-        - 主机不能连接mariadb: system/主机不能连接mariadb.md
-        - 修改centos7语言: system/修改centos7语言.md
-        - 修改mariadb编码类型: system/修改mariadb编码类型.md
-        - 关闭selinux: system/关闭selinux.md
-        - 开启图形界面: system/开启图形界面.md
-        - 文本安装时磁盘可选: system/文本安装时磁盘可选.md
-        - 改变系统时区: system/改变系统时区.md
-        - 磁盘容量扩充: system/磁盘容量扩充.md
-        - 网卡不存在: system/网卡不存在.md
-        - system/删除网桥.md
-        - system/Linux逻辑卷划分示意图.md
-        - system/软链接与硬链接.md
-        - system/Linux下查看文件类型.md
-        - system/Linux文件系统层次结构标准FHS.md
-        - system/centos重启卡死.md
+    - Linux:
+        - epel源: linux/epel源.md
+        - 主机不能连接mariadb: linux/主机不能连接mariadb.md
+        - 修改centos7语言: linux/修改centos7语言.md
+        - 修改mariadb编码类型: linux/修改mariadb编码类型.md
+        - 关闭selinux: linux/关闭selinux.md
+        - 开启图形界面: linux/开启图形界面.md
+        - 文本安装时磁盘可选: linux/文本安装时磁盘可选.md
+        - 改变系统时区: linux/改变系统时区.md
+        - 磁盘容量扩充: linux/磁盘容量扩充.md
+        - 网卡不存在: linux/网卡不存在.md
+        - linux/删除网桥.md
+        - linux/Linux逻辑卷划分示意图.md
+        - linux/软链接与硬链接.md
+        - linux/Linux下查看文件类型.md
+        - linux/Linux文件系统层次结构标准FHS.md
+        - linux/centos重启卡死.md
+        - linux\Windows、Mac与Unix的换行符与编码转换.md
+    - 鸟哥的linux私房菜:
+        - 鸟哥的linux私房菜/00 linux帮助文档.md
+        - 鸟哥的linux私房菜/01 正确的关机方法.md
+        - 鸟哥的linux私房菜/03 文件类型与目录权限.md
+        - 鸟哥的linux私房菜/04 文件内容查阅与文件属性.md
+        - 鸟哥的linux私房菜/05 文件系统.md
+        - 鸟哥的linux私房菜/06 磁盘.md
+        - 鸟哥的linux私房菜/07 打包、压缩与备份.md
+        - 鸟哥的linux私房菜/08 bash.md
+        - 鸟哥的linux私房菜/09 shell脚本.md
+        - 鸟哥的linux私房菜/10 linux账号与群组.md
+        - 鸟哥的linux私房菜/11 ACL.md
+        - 鸟哥的linux私房菜/12 身份切换.md
+        - 鸟哥的linux私房菜/13 批量创建账号.md
+        - 鸟哥的linux私房菜/14 quota.md
+        - 鸟哥的linux私房菜/15 磁盘阵列.md
     - 命令:
         - linux挂载windows共享文件夹: 命令/linux挂载windows共享文件夹.md
         - sed: 命令/sed.md
+        - 命令/awk.md
         - ssh免密登录: 命令/ssh免密登录.md
         - 创建文件自动添加执行权限: 命令/创建文件自动添加执行权限.md
         - tar命令打包去掉路径前缀: 命令/tar命令打包去掉路径前缀.md
@@ -35,12 +53,16 @@ nav:
         - 命令/echo的颜色输出与光标定位.md
         - 命令/xargs与管道.md
         - 命令/trap.md
+        - 命令/字符转换命令.md
+        - 命令/split.md
+        - 命令/文件对比.md
+        - 命令/gpg.md
     - Shell:
         - shell/shell脚本自动输入.md
         - shell/命令行编写循环体.md
         - shell/在后台执行命令.md
         - shell/通过shell命令写文件.md
-        - shell/截取字符串.md
+        - shell/变量的截取与替换.md
     - Python:
         - event线程: python/event线程.md
         - json格式处理: python/json格式处理.md
@@ -55,11 +77,7 @@ nav:
         - python/subprocess模块.md
         - python/mkdown2reStructuredText.md
         - python/上下文管理器.md
-    - 鸟哥的linux私房菜:
-        - 鸟哥的linux私房菜/00 linux帮助文档.md
-        - 鸟哥的linux私房菜/01 正确的关机方法.md
-        - 鸟哥的linux私房菜/03 文件类型与目录权限.md
-        - 鸟哥的linux私房菜/04 文件查阅.md
+        - python/网络编程.md
     - 其它:
         - CSDN语法: 其它/CSDN语法.md
         - h5ai美化目录: 其它/h5ai美化目录.md
@@ -185,11 +203,16 @@ nav:
     - Git:
         - git rebase(修改历史提交): git/git rebase(修改历史提交).md
         - windows无法使用git克隆: git/windows无法使用git克隆.md
+        - git/修改历史.md
+        - git/回滚.md
+        - git/远程相关.md
     - Gerrit:
         - Apache代理添加新用户: gerrit/Apache代理添加新用户.md
         - Gerrit submit change after abandoning its parent: gerrit/Gerrit submit change after abandoning its parent.md
         - 使用Apache代理路径错误: gerrit/使用Apache代理路径错误.md
         - 刷新gerrit项目列表: gerrit/刷新gerrit项目列表.md
+    - 小玩具:
+        - little toys\摩斯转换.md
     - Datastruct:
         - 二叉树: datastruct/二叉树.md
         - 散列表: datastruct/散列表.md
@@ -198,6 +221,7 @@ nav:
         - 动态编译: c/动态编译.md
         - 程序运行时间: c/程序运行时间.md
         - c/结构体中的函数指针.md
+        - c/mutiple definition of xxx.md
     - Algorithm:
         - 复杂度分析: algorithm/复杂度分析.md
         - 选择排序: algorithm/选择排序.md

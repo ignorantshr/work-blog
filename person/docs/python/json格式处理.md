@@ -4,4 +4,4 @@
 
 	(2)	json.loads()函数是将json格式数据转换为字典（可以这么理解，json.loads()函数是将字符串转化为字典）
 
-2.	`json.dump()` 和 `json.load()` 主要用来读写json文件函数
+2.	`json.dump()` 和 `json.load()` 主要用来读写json文件
