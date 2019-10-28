@@ -37,6 +37,7 @@ nav:
         - 鸟哥的linux私房菜/13 批量创建账号.md
         - 鸟哥的linux私房菜/14 quota.md
         - 鸟哥的linux私房菜/15 磁盘阵列.md
+        - 鸟哥的linux私房菜/16 LVM.md
     - 命令:
         - linux挂载windows共享文件夹: 命令/linux挂载windows共享文件夹.md
         - sed: 命令/sed.md
