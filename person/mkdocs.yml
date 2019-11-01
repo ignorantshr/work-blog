@@ -20,7 +20,7 @@ nav:
         - linux/Linux下查看文件类型.md
         - linux/Linux文件系统层次结构标准FHS.md
         - linux/centos重启卡死.md
-        - linux\Windows、Mac与Unix的换行符与编码转换.md
+        - linux/Windows、Mac与Unix的换行符与编码转换.md
     - 鸟哥的linux私房菜:
         - 鸟哥的linux私房菜/00 linux帮助文档.md
         - 鸟哥的linux私房菜/01 正确的关机方法.md
@@ -38,6 +38,7 @@ nav:
         - 鸟哥的linux私房菜/14 quota.md
         - 鸟哥的linux私房菜/15 磁盘阵列.md
         - 鸟哥的linux私房菜/16 LVM.md
+        - 鸟哥的linux私房菜/17 crontab.md
     - 命令:
         - linux挂载windows共享文件夹: 命令/linux挂载windows共享文件夹.md
         - sed: 命令/sed.md
@@ -213,7 +214,7 @@ nav:
         - 使用Apache代理路径错误: gerrit/使用Apache代理路径错误.md
         - 刷新gerrit项目列表: gerrit/刷新gerrit项目列表.md
     - 小玩具:
-        - little toys\摩斯转换.md
+        - little toys/摩斯转换.md
     - Datastruct:
         - 二叉树: datastruct/二叉树.md
         - 散列表: datastruct/散列表.md
