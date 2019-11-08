@@ -13,7 +13,7 @@ trap [-lp] [[arg] sigspec ...]
 - 若`arg`不存在且提供了选项`-p`，则显示与每个`sigspec`关联的trap命令。
 - 若没有提供任何参数或只有选项`-p`，那么打印和每个信号关联的命令列表。
 - `-l`选项使 shell 打印信号名称及其相应编号的列表。
-- `sigspec`可以是信号号码或者信号名称（在`<signal.h>`中定义）。信号名称不区分大小写，SIG 前缀是可选的。
+- `sigspec`可以是信号号码或者信号名称（通过`man 7 signal`查看）。信号名称不区分大小写，SIG 前缀是可选的。
 
 `sigspec`其它的值：
 
@@ -32,11 +32,17 @@ trap [-lp] [[arg] sigspec ...]
 
 ## 常见信号
 
-参考：https://www.jianshu.com/p/b26d4e520385
+参考：
+
+https://www.jianshu.com/p/b26d4e520385
+
+https://dsa.cs.tsinghua.edu.cn/oj/static/unix_signal.html
+
+`man 7 signal`
 
 | 信号 | 值      | 描述                                |
 | ---- | ------- | ----------------------------------- |
-| 1    | SIGHP   | 挂起进程                            |
+| 1    | SIGHUP  | 挂起进程，见下方详细解释            |
 | 2    | SIGINT  | 终止进程（打断进程？？？）Ctrl+C    |
 | 3    | SIGQUIT | 停止进程                            |
 | 9    | SIGKILL | 无条件终止进程                      |
@@ -44,6 +50,8 @@ trap [-lp] [[arg] sigspec ...]
 | 17   | SIGSTOP | 无条件停止进程，但不是终止进程      |
 | 18   | SIGTSTP | 停止或暂停进程，但不终止进程 Ctrl+Z |
 | 19   | SIGCONT | 继续运行停止的进程                  |
+
+- SIGHUP：控制终端被关闭时该信号会被发送到进程。最初被设计成通知挂起的过程。在现代操作系统中，该信号通常意味着伪终端或虚拟终端被关闭了。许多 daemons 会 reload 它们的配置文件和 reopen 他们的日志文件，而不是退出。`nohup`可以让指令忽略该信号，与`&`搭配使用可让你在脱机状态下继续执行指令，[参考在后台执行命令](../shell/在后台执行命令.md)。
 
 ## 举例
 
