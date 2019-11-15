@@ -4,7 +4,7 @@ repo_url: https://github.com/shihr/question
 nav:
     - Home: index.md
     - 虚拟机转换:
-        - libguestfs架构: 虚拟机转换/libguestfs架构.md
+        - libguestfs: 虚拟机转换/libguestfs.md
         - 以ova为例virt-v2v磁盘转换流程: 虚拟机转换/以ova为例virt-v2v磁盘转换流程.md
         - virt-p2v-make-disk脚本分析: 虚拟机转换/virt-p2v-make-disk脚本分析.md
         - virt-p2v介绍: 虚拟机转换/virt-p2v介绍.md

@@ -181,6 +181,7 @@ virt-v2v -v -x --colours -i libvirtxml -o "libvirt" -oa sparse -os "/var/tmp" --
 
 ```shell
 # USB启动盘
+# 安装 libguestfs-xfs RPM包，删除掉USB的所有分区，使用 partprobe 更新分区表
 virt-p2v-make-disk -o /dev/sdX
 
 # 虚拟启动磁盘

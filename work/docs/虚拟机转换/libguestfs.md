@@ -231,8 +231,15 @@ library (sender) 和 daemon (receiver) 都可能取消转换。`library`的做�
 
 ```bash
 cd libguestfs/
-./autogen.sh
+
+./autogen.sh --disable-erlang \
+--disable-gobject \
+--disable-golang \
+--disable-haskell \
+--disable-lua \
+--disable-php \
+--disable-ruby
+
 make -j 10
 make INSTALLDIRS=vendor DESTDIR=/home/tmp/ install	# 可选
 ```
-
