@@ -673,6 +673,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../鸟哥的linux私房菜/18 进程/" title="18 进程" class="md-nav__link">
+      18 进程
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../鸟哥的linux私房菜/19 查看系统资源/" title="19 查看系统资源" class="md-nav__link">
+      19 查看系统资源
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../鸟哥的linux私房菜/20 SELinux/" title="20 SELinux" class="md-nav__link">
+      20 SELinux
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2925,6 +2961,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../git/拉取与推送/" title="拉取与推送" class="md-nav__link">
+      拉取与推送
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../git/git rebase(修改历史提交)/" title="git rebase(修改历史提交)" class="md-nav__link">
       git rebase(修改历史提交)
     </a>
@@ -3381,7 +3429,7 @@
 <li>若<code>arg</code>不存在且提供了选项<code>-p</code>，则显示与每个<code>sigspec</code>关联的trap命令。</li>
 <li>若没有提供任何参数或只有选项<code>-p</code>，那么打印和每个信号关联的命令列表。</li>
 <li><code>-l</code>选项使 shell 打印信号名称及其相应编号的列表。</li>
-<li><code>sigspec</code>可以是信号号码或者信号名称（在<code>&lt;signal.h&gt;</code>中定义）。信号名称不区分大小写，SIG 前缀是可选的。</li>
+<li><code>sigspec</code>可以是信号号码或者信号名称（通过<code>man 7 signal</code>查看）。信号名称不区分大小写，SIG 前缀是可选的。</li>
 </ul>
 <p><code>sigspec</code>其它的值：</p>
 <ul>
@@ -3399,7 +3447,10 @@
 <p>信号被忽略后，再进入shell时不会被捕获、重置或列出。创建未被忽略的捕获信号将重置为子shell或子shell环境中的原始值。</p>
 <p>如果有任何<code>sigspec</code>是不合格的，那么trap命令的返回值是<code>false</code>，否则是<code>true</code>。</p>
 <h2 id="2">2. 常见信号<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<p>参考：https://www.jianshu.com/p/b26d4e520385</p>
+<p>参考：</p>
+<p>https://www.jianshu.com/p/b26d4e520385</p>
+<p>https://dsa.cs.tsinghua.edu.cn/oj/static/unix_signal.html</p>
+<p><code>man 7 signal</code></p>
 <table>
 <thead>
 <tr>
@@ -3411,8 +3462,8 @@
 <tbody>
 <tr>
 <td>1</td>
-<td>SIGHP</td>
-<td>挂起进程</td>
+<td>SIGHUP</td>
+<td>挂起进程，见下方详细解释</td>
 </tr>
 <tr>
 <td>2</td>
@@ -3451,6 +3502,9 @@
 </tr>
 </tbody>
 </table>
+<ul>
+<li>SIGHUP：控制终端被关闭时该信号会被发送到进程。最初被设计成通知挂起的过程。在现代操作系统中，该信号通常意味着伪终端或虚拟终端被关闭了。许多 daemons 会 reload 它们的配置文件和 reopen 他们的日志文件，而不是退出。<code>nohup</code>可以让指令忽略该信号，与<code>&amp;</code>搭配使用可让你在脱机状态下继续执行指令，<a href="../../shell/在后台执行命令/">参考在后台执行命令</a>。</li>
+</ul>
 <h2 id="3">3. 举例<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <p>当发生信号时忽略该信号</p>
 <div class="codehilite"><pre><span></span><span class="ch">#!/bin/sh</span>
