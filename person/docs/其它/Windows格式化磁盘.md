@@ -4,7 +4,7 @@
 
 在`cmd`中执行：
 
-![Windows格式化磁盘](img/Windows格式化磁盘)
+![Windows格式化磁盘](img/Windows格式化磁盘.png)
 
 命令说明：
 
