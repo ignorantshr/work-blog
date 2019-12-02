@@ -838,6 +838,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../22 登录文件/" title="22 登录文件" class="md-nav__link">
+      22 登录文件
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -3608,24 +3620,13 @@
 
 
 <ul>
-<li>
-<p>R：对目录递归地改变属性</p>
-</li>
-<li>
-<p>+ ： 增加某一个特殊参数， 其他原 本存在参数则 不动。</p>
-</li>
-<li>
-<p>- ： 移除某一个特殊参数， 其他原 本存在参数则 不动。</p>
-</li>
-<li>
-<p>= ： 设置一定， 且仅有后面接的参数</p>
-</li>
-<li>
-<p>i：   让一个文件“不能被删除、改名、设置链接、无法写入或新增数据。只有 root 能设置或清除此属性。</p>
-</li>
-<li>
-<p>A：有存取此文件（ 或目录）时，他的存取时间 atime 将不会被修改，可避免 I/O 较慢的机器过度的存取磁盘。（ 目前建议使用文件系统挂载参数处理这个项目）</p>
-</li>
+<li>R：对目录递归地改变属性</li>
+<li>+ ： 增加某一个特殊参数， 其他原 本存在参数则 不动。</li>
+<li>- ： 移除某一个特殊参数， 其他原 本存在参数则 不动。</li>
+<li>= ：设置一定， 且仅有后面接的参数。</li>
+<li>a： 让一个文件只能在追加模式下打开以进行写入。也不能进行删除、修改等操作。只有 root 能设置或清除此属性。</li>
+<li>i：  让一个文件“不能被删除、改名、设置链接、无法写入或新增数据。只有 root 能设置或清除此属性。</li>
+<li>A：有存取此文件（ 或目录）时，他的存取时间 atime 将不会被修改，可避免 I/O 较慢的机器过度的存取磁盘。（ 目前建议使用文件系统挂载参数处理这个项目）</li>
 </ul>
 <h3 id="32-lsattr">3.2 <code>lsattr</code>显示文件/目录隐藏属性<a class="headerlink" href="#32-lsattr" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="n">lsattr</span> <span class="p">[</span> <span class="o">-</span><span class="n">RVadv</span> <span class="p">]</span> <span class="p">[</span> <span class="n">files</span><span class="p">...</span>  <span class="p">]</span>
