@@ -43,6 +43,7 @@ nav:
         - 鸟哥的linux私房菜/19 查看系统资源.md
         - 鸟哥的linux私房菜/20 SELinux.md
         - 鸟哥的linux私房菜/21 系统服务.md
+        - 鸟哥的linux私房菜/22 登录文件.md
     - 命令:
         - linux挂载windows共享文件夹: 命令/linux挂载windows共享文件夹.md
         - sed: 命令/sed.md
