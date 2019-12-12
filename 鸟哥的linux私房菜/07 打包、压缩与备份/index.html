@@ -857,6 +857,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../23 开机流程/" title="23 开机流程" class="md-nav__link">
+      23 开机流程
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../24 grub2/" title="24 grub2" class="md-nav__link">
+      24 grub2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../25 开机过程的问题解决/" title="25 开机过程的问题解决" class="md-nav__link">
+      25 开机过程的问题解决
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -3904,7 +3940,7 @@ drwx------. <span class="m">5</span> root root      <span class="m">132</span> S
 <span class="nl">Options</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="o">-</span><span class="n">a</span><span class="w">                  </span><span class="n">不修改被备份文件的atime</span><span class="w"></span>
 <span class="w">    </span><span class="o">-</span><span class="n">B</span><span class="w">                  </span><span class="n">设置</span><span class="w"> </span><span class="n">I</span><span class="o">/</span><span class="n">O</span><span class="w"> </span><span class="n">block</span><span class="w"> </span><span class="k">size</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">5120</span><span class="w"> </span><span class="n">bytes</span><span class="p">.</span><span class="n">默认是</span><span class="w"> </span><span class="mi">512</span><span class="w"> </span><span class="n">bytes</span><span class="p">.</span><span class="w"></span>
-<span class="w">    </span><span class="o">-</span><span class="n">c</span><span class="w">                  </span><span class="n">使用新的</span><span class="w"> </span><span class="p">(</span><span class="n">SVR4</span><span class="p">)</span><span class="w"> </span><span class="n">portable</span><span class="w"> </span><span class="nf">format</span><span class="p">.</span><span class="w"> </span><span class="n">老的</span><span class="w"> </span><span class="n">portable</span><span class="w"> </span><span class="p">(</span><span class="nf">ASCII</span><span class="p">)</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="nf">format</span><span class="w"> </span><span class="n">使用</span><span class="err">“</span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="n">odc</span><span class="err">”</span><span class="w"></span>
+<span class="w">    </span><span class="o">-</span><span class="n">c</span><span class="w">                  </span><span class="n">使用新的</span><span class="w"> </span><span class="p">(</span><span class="n">SVR4</span><span class="p">)</span><span class="w"> </span><span class="n">portable</span><span class="w"> </span><span class="nf">format</span><span class="err">，</span><span class="n">与</span><span class="err">“</span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="n">newc</span><span class="err">”</span><span class="n">一样</span><span class="p">.</span><span class="w"> </span><span class="n">老的</span><span class="w"> </span><span class="n">portable</span><span class="w"> </span><span class="p">(</span><span class="nf">ASCII</span><span class="p">)</span><span class="w"> </span><span class="n">archive</span><span class="w"> </span><span class="nf">format</span><span class="w"> </span><span class="n">使用</span><span class="err">“</span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="n">odc</span><span class="err">”</span><span class="w"></span>
 <span class="err">#</span><span class="w"> </span><span class="n">还原</span><span class="w"></span>
 <span class="n">cpio</span><span class="w"> </span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">file</span><span class="o">/</span><span class="n">device</span><span class="w"></span>
 <span class="nl">Options</span><span class="p">:</span><span class="w"></span>
@@ -3913,6 +3949,9 @@ drwx------. <span class="m">5</span> root root      <span class="m">132</span> S
 <span class="w">    </span><span class="o">-</span><span class="n">d</span><span class="w">                  </span><span class="n">自动创建目录</span><span class="err">。</span><span class="n">因为使用cpio备份的数据内容不一定会在同一个目录中</span><span class="err">，</span><span class="n">所以必须让它可以创建目录</span><span class="w"></span>
 <span class="w">    </span><span class="o">-</span><span class="n">u</span><span class="w">                  </span><span class="n">自动使用新文件覆盖就文件</span><span class="w"></span>
 <span class="w">    </span><span class="o">-</span><span class="n">t</span><span class="w">                  </span><span class="n">查看备份文件的内容</span><span class="w"></span>
+
+<span class="n">备份及还原都适用的选项</span><span class="err">：</span><span class="w"></span>
+<span class="w">    </span><span class="c1">--no-absolute-filenames 在当前目录下创建文件</span>
 </pre></div>
 
 

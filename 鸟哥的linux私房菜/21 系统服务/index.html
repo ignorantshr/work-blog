@@ -986,6 +986,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../23 开机流程/" title="23 开机流程" class="md-nav__link">
+      23 开机流程
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../24 grub2/" title="24 grub2" class="md-nav__link">
+      24 grub2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../25 开机过程的问题解决/" title="25 开机过程的问题解决" class="md-nav__link">
+      25 开机过程的问题解决
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -3960,6 +3996,8 @@
 <ul>
 <li>static：这个 daemon 不可以自己启动 (enable 不可)，不过可能会被其他的 enabled 的服务来唤醒 (依赖
   的服务)</li>
+<li>mask：这个 daemon 无论如何都无法被启动!因为已经被强制注销 (非删除)。可透过 systemctl unmask 方
+  式改回原本状态</li>
 </ul>
 <h3 id="24">2.4 服务管理<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="n">systemctl</span> <span class="n">mask</span> <span class="o">&lt;</span><span class="n">unit</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>          <span class="err">强制注销服务，增强版的</span> <span class="n">disable</span><span class="err">，无论如何都不能启动该服务</span>

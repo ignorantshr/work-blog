@@ -729,6 +729,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../鸟哥的linux私房菜/23 开机流程/" title="23 开机流程" class="md-nav__link">
+      23 开机流程
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../鸟哥的linux私房菜/24 grub2/" title="24 grub2" class="md-nav__link">
+      24 grub2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../鸟哥的linux私房菜/25 开机过程的问题解决/" title="25 开机过程的问题解决" class="md-nav__link">
+      25 开机过程的问题解决
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -3352,67 +3388,11 @@
                 
                   <h1>网络编程</h1>
                 
-                <p>简单的交互式网络编程：</p>
-<p>server.py</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">socket</span>
-
-<span class="n">socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
-<span class="n">socket</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="mi">9003</span><span class="p">))</span>
-<span class="n">socket</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">cli</span><span class="p">,</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
-<span class="k">print</span> <span class="s2">&quot;accept from </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">repr</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
-
-<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-    <span class="c1"># recv_info = &#39;&#39;</span>
-    <span class="n">recv_info</span> <span class="o">=</span> <span class="n">cli</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">4096</span><span class="p">)</span>
-
-    <span class="c1"># while tmp_info != &#39;&#39;:</span>
-    <span class="c1">#     recv_info += tmp_info</span>
-    <span class="c1">#     tmp_info = cli.recv(4096)</span>
-
-    <span class="n">recv_info</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">morse2line</span><span class="p">(</span><span class="n">recv_info</span><span class="p">)</span>
-    <span class="k">print</span> <span class="n">recv_info</span>
-
-    <span class="k">if</span> <span class="nb">str</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="n">recv_info</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;exit&#39;</span><span class="p">:</span>
-        <span class="n">cli</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-        <span class="n">socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-        <span class="nb">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-
-    <span class="n">msg</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s1">&#39;&gt; &#39;</span><span class="p">)</span>
-    <span class="n">cli</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">line2morse</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span>
-    <span class="k">if</span> <span class="nb">str</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;exit&#39;</span><span class="p">:</span>
-        <span class="n">cli</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-        <span class="n">socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-        <span class="nb">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-
-
-<p>client.py</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">socket</span>
-<span class="kn">import</span> <span class="nn">test</span>
-
-<span class="n">socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
-<span class="n">socket</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="mi">9003</span><span class="p">))</span>
-
-<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-    <span class="n">msg</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s2">&quot;&gt; &quot;</span><span class="p">)</span>
-    <span class="n">socket</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">line2morse</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span>
-    <span class="k">if</span> <span class="nb">str</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;exit&#39;</span><span class="p">:</span>
-        <span class="n">socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-        <span class="nb">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-
-    <span class="c1"># ret_info = &#39;&#39;</span>
-    <span class="n">ret_info</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">4096</span><span class="p">)</span>
-    <span class="c1"># while tmp_info != &#39;&#39;:</span>
-    <span class="c1">#     ret_info += tmp_info</span>
-    <span class="c1">#     tmp_info = socket.recv(4096)</span>
-
-    <span class="n">ret_info</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">morse2line</span><span class="p">(</span><span class="n">ret_info</span><span class="p">)</span>
-    <span class="k">print</span> <span class="n">ret_info</span>
-    <span class="k">if</span> <span class="nb">str</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="n">ret_info</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;exit&#39;</span><span class="p">:</span>
-        <span class="n">socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-        <span class="nb">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
+                <p>python2.x 编码说明：</p>
+<p>https://www.jianshu.com/p/5017d8342dd2</p>
+<p>http://wklken.me/posts/2013/08/31/python-extra-coding-intro.html</p>
+<p>简单的socket网络编程：</p>
+<p>https://github.com/ignorantshr/socket-communication</p>
                 
                   
                 

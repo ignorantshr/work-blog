@@ -1,0 +1,4383 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="shihr">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+    
+    
+      
+        <title>23 开机流程 - Person Sink</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#1-bios-boot-loader-kernel" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Person Sink" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Person Sink
+            </span>
+            <span class="md-header-nav__topic">
+              
+                23 开机流程
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/shihr/question/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Person Sink" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Person Sink
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/shihr/question/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Linux
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/epel源/" title="epel源" class="md-nav__link">
+      epel源
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/主机不能连接mariadb/" title="主机不能连接mariadb" class="md-nav__link">
+      主机不能连接mariadb
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/修改centos7语言/" title="修改centos7语言" class="md-nav__link">
+      修改centos7语言
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/修改mariadb编码类型/" title="修改mariadb编码类型" class="md-nav__link">
+      修改mariadb编码类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/关闭selinux/" title="关闭selinux" class="md-nav__link">
+      关闭selinux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/开启图形界面/" title="开启图形界面" class="md-nav__link">
+      开启图形界面
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/文本安装时磁盘可选/" title="文本安装时磁盘可选" class="md-nav__link">
+      文本安装时磁盘可选
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/改变系统时区/" title="改变系统时区" class="md-nav__link">
+      改变系统时区
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/磁盘容量扩充/" title="磁盘容量扩充" class="md-nav__link">
+      磁盘容量扩充
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/网卡不存在/" title="网卡不存在" class="md-nav__link">
+      网卡不存在
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/删除网桥/" title="删除网桥" class="md-nav__link">
+      删除网桥
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/Linux逻辑卷划分示意图/" title="Linux逻辑卷划分示意图" class="md-nav__link">
+      Linux逻辑卷划分示意图
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/软链接与硬链接/" title="软链接与硬链接" class="md-nav__link">
+      软链接与硬链接
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/Linux下查看文件类型/" title="Linux下查看文件类型" class="md-nav__link">
+      Linux下查看文件类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/Linux文件系统层次结构标准FHS/" title="Linux文件系统层次结构标准FHS" class="md-nav__link">
+      Linux文件系统层次结构标准FHS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/centos重启卡死/" title="Centos重启卡死" class="md-nav__link">
+      Centos重启卡死
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/Windows、Mac与Unix的换行符与编码转换/" title="Windows、Mac与Unix的换行符与编码转换" class="md-nav__link">
+      Windows、Mac与Unix的换行符与编码转换
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      鸟哥的linux私房菜
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        鸟哥的linux私房菜
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../00 linux帮助文档/" title="00 linux帮助文档" class="md-nav__link">
+      00 linux帮助文档
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../01 正确的关机方法/" title="01 正确的关机方法" class="md-nav__link">
+      01 正确的关机方法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../03 文件类型与目录权限/" title="03 文件类型与目录权限" class="md-nav__link">
+      03 文件类型与目录权限
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../04 文件内容查阅与文件属性/" title="04 文件内容查阅与文件属性" class="md-nav__link">
+      04 文件内容查阅与文件属性
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../05 文件系统/" title="05 文件系统" class="md-nav__link">
+      05 文件系统
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../06 磁盘/" title="06 磁盘" class="md-nav__link">
+      06 磁盘
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../07 打包、压缩与备份/" title="07 打包、压缩与备份" class="md-nav__link">
+      07 打包、压缩与备份
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../08 bash/" title="08 bash" class="md-nav__link">
+      08 bash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../09 shell脚本/" title="09 shell脚本" class="md-nav__link">
+      09 shell脚本
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../10 linux账号与群组/" title="10 linux账号与群组" class="md-nav__link">
+      10 linux账号与群组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../11 ACL/" title="11 ACL" class="md-nav__link">
+      11 ACL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../12 身份切换/" title="12 身份切换" class="md-nav__link">
+      12 身份切换
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../13 批量创建账号/" title="13 批量创建账号" class="md-nav__link">
+      13 批量创建账号
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../14 quota/" title="14 quota" class="md-nav__link">
+      14 quota
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../15 磁盘阵列/" title="15 磁盘阵列" class="md-nav__link">
+      15 磁盘阵列
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../16 LVM/" title="16 LVM" class="md-nav__link">
+      16 LVM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../17 crontab/" title="17 crontab" class="md-nav__link">
+      17 crontab
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../18 进程/" title="18 进程" class="md-nav__link">
+      18 进程
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../19 查看系统资源/" title="19 查看系统资源" class="md-nav__link">
+      19 查看系统资源
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../20 SELinux/" title="20 SELinux" class="md-nav__link">
+      20 SELinux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../21 系统服务/" title="21 系统服务" class="md-nav__link">
+      21 系统服务
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../22 登录文件/" title="22 登录文件" class="md-nav__link">
+      22 登录文件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        23 开机流程
+      </label>
+    
+    <a href="./" title="23 开机流程" class="md-nav__link md-nav__link--active">
+      23 开机流程
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-bios-boot-loader-kernel" class="md-nav__link">
+    1. BIOS， boot loader 与 kernel 载入
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-bios-mbrgpt" class="md-nav__link">
+    1.1 BIOS， 开机自我测试与 MBR/GPT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-boot-loader" class="md-nav__link">
+    1.2 Boot Loader 的功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-initramfs" class="md-nav__link">
+    1.3 加载内核检测硬件与 initramfs 的功能
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-systemd-defaulttarget" class="md-nav__link">
+    2. 第一个程序 systemd 及使用 default.target 进入开机程序分析
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-runlevel" class="md-nav__link">
+    2.1 兼容于 runlevel 的等级
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-systemd" class="md-nav__link">
+    2.2 systemd 的处理流程
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-sysinittarget-basictarget" class="md-nav__link">
+    2.2.1 sysinit.target 初始化系统、basic.target 准备系统
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2211-sysinittarget" class="md-nav__link">
+    2.2.1.1 sysinit.target 大致内容
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-dev-hugepagesmount-dev-mqueuemount-dev-devhugepages-devmqueue" class="md-nav__link">
+    - 特殊文件系统装置的挂载：包括 dev-hugepages.mount dev-mqueue.mount 等挂载服务，主要在挂载跟巨量内存分页使用与消息队列的功能。 挂载成功后，会在 /dev 底下建立 /dev/hugepages/， /dev/mqueue/ 等目录;
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2212-basictarget" class="md-nav__link">
+    2.2.1.2 basic.target 大致内容
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-multi-usertarget" class="md-nav__link">
+    2.2.2 启动 multi-user.target 下的服务
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2221-systemv-rc-localservice" class="md-nav__link">
+    2.2.2.1 兼容 systemV 的 rc-local.service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2222-tty" class="md-nav__link">
+    2.2.2.2 提供 tty 界面与登入的服务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-graphicaltarget" class="md-nav__link">
+    2.2.3 启动 graphical.target 下的服务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 开机过程会用到的主要配置文件
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 模块配置文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 其它的环境配置文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 内核与内核模块
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1 内核模块与依赖
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 内核模块的查看
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    4.3 内核模块的加载与移除
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../24 grub2/" title="24 grub2" class="md-nav__link">
+      24 grub2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../25 开机过程的问题解决/" title="25 开机过程的问题解决" class="md-nav__link">
+      25 开机过程的问题解决
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      命令
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        命令
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/linux挂载windows共享文件夹/" title="linux挂载windows共享文件夹" class="md-nav__link">
+      linux挂载windows共享文件夹
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/sed/" title="sed" class="md-nav__link">
+      sed
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/awk/" title="Awk" class="md-nav__link">
+      Awk
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/ssh免密登录/" title="ssh免密登录" class="md-nav__link">
+      ssh免密登录
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/创建文件自动添加执行权限/" title="创建文件自动添加执行权限" class="md-nav__link">
+      创建文件自动添加执行权限
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/tar命令打包去掉路径前缀/" title="tar命令打包去掉路径前缀" class="md-nav__link">
+      tar命令打包去掉路径前缀
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/wget用法/" title="wget用法" class="md-nav__link">
+      wget用法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/显示文件夹大小/" title="显示文件夹大小" class="md-nav__link">
+      显示文件夹大小
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/更新、禁用yum仓库、只下载rpm/" title="更新、禁用yum仓库、只下载rpm" class="md-nav__link">
+      更新、禁用yum仓库、只下载rpm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/添加公钥/" title="添加公钥" class="md-nav__link">
+      添加公钥
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/locate初始化/" title="Locate初始化" class="md-nav__link">
+      Locate初始化
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/rsync/" title="Rsync" class="md-nav__link">
+      Rsync
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/echo的颜色输出与光标定位/" title="Echo的颜色输出与光标定位" class="md-nav__link">
+      Echo的颜色输出与光标定位
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/xargs与管道/" title="Xargs与管道" class="md-nav__link">
+      Xargs与管道
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/trap/" title="Trap" class="md-nav__link">
+      Trap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/字符转换命令/" title="字符转换命令" class="md-nav__link">
+      字符转换命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/split/" title="Split" class="md-nav__link">
+      Split
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/文件对比/" title="文件对比" class="md-nav__link">
+      文件对比
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/gpg/" title="Gpg" class="md-nav__link">
+      Gpg
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Shell
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Shell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../shell/shell脚本自动输入/" title="Shell脚本自动输入" class="md-nav__link">
+      Shell脚本自动输入
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../shell/命令行编写循环体/" title="命令行编写循环体" class="md-nav__link">
+      命令行编写循环体
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../shell/在后台执行命令/" title="在后台执行命令" class="md-nav__link">
+      在后台执行命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../shell/通过shell命令写文件/" title="通过shell命令写文件" class="md-nav__link">
+      通过shell命令写文件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../shell/变量的截取与替换/" title="变量的截取与替换" class="md-nav__link">
+      变量的截取与替换
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Python
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/event线程/" title="event线程" class="md-nav__link">
+      event线程
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/json格式处理/" title="json格式处理" class="md-nav__link">
+      json格式处理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/执行shell命令/" title="执行shell命令" class="md-nav__link">
+      执行shell命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/超时装饰器/" title="超时装饰器" class="md-nav__link">
+      超时装饰器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/@Property/" title="@Property" class="md-nav__link">
+      @Property
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/类属性和实例属性/" title="类属性和实例属性" class="md-nav__link">
+      类属性和实例属性
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/高阶函数/" title="高阶函数" class="md-nav__link">
+      高阶函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/获取命令行参数/" title="获取命令行参数" class="md-nav__link">
+      获取命令行参数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/asyncore模块/" title="Asyncore模块" class="md-nav__link">
+      Asyncore模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/select模块/" title="Select模块" class="md-nav__link">
+      Select模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/subprocess模块/" title="Subprocess模块" class="md-nav__link">
+      Subprocess模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/mkdown2reStructuredText/" title="mkdown2reStructuredText" class="md-nav__link">
+      mkdown2reStructuredText
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/上下文管理器/" title="上下文管理器" class="md-nav__link">
+      上下文管理器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/网络编程/" title="网络编程" class="md-nav__link">
+      网络编程
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      其它
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        其它
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../其它/CSDN语法/" title="CSDN语法" class="md-nav__link">
+      CSDN语法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../其它/h5ai美化目录/" title="h5ai美化目录" class="md-nav__link">
+      h5ai美化目录
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../其它/vdsm启动失败/" title="vdsm启动失败" class="md-nav__link">
+      vdsm启动失败
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../其它/制作iso镜像/" title="制作iso镜像" class="md-nav__link">
+      制作iso镜像
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../其它/没有打印日志/" title="没有打印日志" class="md-nav__link">
+      没有打印日志
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../其它/编译安装vdsm之后主机安装失败/" title="编译安装vdsm之后主机安装失败" class="md-nav__link">
+      编译安装vdsm之后主机安装失败
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../其它/Stomp协议/" title="Stomp协议" class="md-nav__link">
+      Stomp协议
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../其它/Windows格式化磁盘/" title="Windows格式化磁盘" class="md-nav__link">
+      Windows格式化磁盘
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Ansible
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Ansible
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ansible/01. 简介/" title="01. 简介" class="md-nav__link">
+      01. 简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ansible/02. Inventory文件/" title="02. Inventory文件" class="md-nav__link">
+      02. Inventory文件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ansible/03. playbooks-roles/" title="03. playbooks roles" class="md-nav__link">
+      03. playbooks roles
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      RPM
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        RPM
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../rpm/00 示例/" title="00 示例" class="md-nav__link">
+      00 示例
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../rpm/01 打包前的准备工作/" title="01 打包前的准备工作" class="md-nav__link">
+      01 打包前的准备工作
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../rpm/02 打包软件/" title="02 打包软件" class="md-nav__link">
+      02 打包软件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../rpm/03 高级话题/" title="03 高级话题" class="md-nav__link">
+      03 高级话题
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      Java
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        Java
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../java/IO/" title="IO" class="md-nav__link">
+      IO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../java/作用范围级别/" title="作用范围级别" class="md-nav__link">
+      作用范围级别
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../java/synchronized关键字/" title="synchronized关键字" class="md-nav__link">
+      synchronized关键字
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+    
+    <label class="md-nav__link" for="nav-11">
+      servlet
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-11">
+        servlet
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/1.简介/" title="1.简介" class="md-nav__link">
+      1.简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/2.生命周期/" title="2.生命周期" class="md-nav__link">
+      2.生命周期
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/3.示例/" title="3.示例" class="md-nav__link">
+      3.示例
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/4.过滤器/" title="4.过滤器" class="md-nav__link">
+      4.过滤器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/5.异常处理/" title="5.异常处理" class="md-nav__link">
+      5.异常处理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/6.Cookie/" title="6.Cookie" class="md-nav__link">
+      6.Cookie
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/7.Session 跟踪/" title="7.Session 跟踪" class="md-nav__link">
+      7.Session 跟踪
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/8.文件上传/" title="8.文件上传" class="md-nav__link">
+      8.文件上传
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/8.1文件下载/" title="8.1文件下载" class="md-nav__link">
+      8.1文件下载
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/9.重定向/" title="9.重定向" class="md-nav__link">
+      9.重定向
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/10.作用域/" title="10.作用域" class="md-nav__link">
+      10.作用域
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/11.监听器/" title="11.监听器" class="md-nav__link">
+      11.监听器
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+    
+    <label class="md-nav__link" for="nav-12">
+      Spring
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
+        Spring
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../spring/文件上传/" title="文件上传" class="md-nav__link">
+      文件上传
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../spring/文件下载/" title="文件下载" class="md-nav__link">
+      文件下载
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+    
+    <label class="md-nav__link" for="nav-13">
+      Spring Boot
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-13">
+        Spring Boot
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../springboot/1.说明/" title="1.说明" class="md-nav__link">
+      1.说明
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../springboot/2.Maven/" title="2.Maven" class="md-nav__link">
+      2.Maven
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../springboot/24.Application 属性文件/" title="24.Application 属性文件" class="md-nav__link">
+      24.Application 属性文件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../springboot/25.Profiles/" title="25.Profiles" class="md-nav__link">
+      25.Profiles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../springboot/26.日志/" title="26.日志" class="md-nav__link">
+      26.日志
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../springboot/29.开发web应用/" title="29.开发web应用" class="md-nav__link">
+      29.开发web应用
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+    
+    <label class="md-nav__link" for="nav-14">
+      设计模式
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-14">
+        设计模式
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/设计原则/" title="设计原则" class="md-nav__link">
+      设计原则
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/模式/" title="模式" class="md-nav__link">
+      模式
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+    
+    <label class="md-nav__link" for="nav-15">
+      MySQL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-15">
+        MySQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/1. 简介/" title="1. 简介" class="md-nav__link">
+      1. 简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/2. 关系模型/" title="2. 关系模型" class="md-nav__link">
+      2. 关系模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/3. 管理数据库/" title="3. 管理数据库" class="md-nav__link">
+      3. 管理数据库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/4. 查询数据/" title="4. 查询数据" class="md-nav__link">
+      4. 查询数据
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/5. 修改数据/" title="5. 修改数据" class="md-nav__link">
+      5. 修改数据
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/6. 事务/" title="6. 事务" class="md-nav__link">
+      6. 事务
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/7. 实用SQL语句/" title="7. 实用SQL语句" class="md-nav__link">
+      7. 实用SQL语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/8. MySQL数据类型/" title="8. MySQL数据类型" class="md-nav__link">
+      8. MySQL数据类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/9. MySQL的运算符/" title="9. MySQL的运算符" class="md-nav__link">
+      9. MySQL的运算符
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/10. MySQL常用函数/" title="10. MySQL常用函数" class="md-nav__link">
+      10. MySQL常用函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/11. MySQL存储引擎/" title="11. MySQL存储引擎" class="md-nav__link">
+      11. MySQL存储引擎
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/12. MySQL数据类型的选择/" title="12. MySQL数据类型的选择" class="md-nav__link">
+      12. MySQL数据类型的选择
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/13. MySQL字符集/" title="13. MySQL字符集" class="md-nav__link">
+      13. MySQL字符集
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/14. MySQL索引的设计和使用/" title="14. MySQL索引的设计和使用" class="md-nav__link">
+      14. MySQL索引的设计和使用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/15. MySQL视图/" title="15. MySQL视图" class="md-nav__link">
+      15. MySQL视图
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/16. MySQL存储过程和函数/" title="16. MySQL存储过程和函数" class="md-nav__link">
+      16. MySQL存储过程和函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/17.0 MySQL复合语句/" title="17.0 MySQL复合语句" class="md-nav__link">
+      17.0 MySQL复合语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/17.1 BEGIN...END复合语句/" title="17.1 BEGIN...END复合语句" class="md-nav__link">
+      17.1 BEGIN...END复合语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/17.2 语句标签/" title="17.2 语句标签" class="md-nav__link">
+      17.2 语句标签
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/17.3 声明语法/" title="17.3 声明语法" class="md-nav__link">
+      17.3 声明语法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/17.4 变量/" title="17.4 变量" class="md-nav__link">
+      17.4 变量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/17.5 流程控制/" title="17.5 流程控制" class="md-nav__link">
+      17.5 流程控制
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/17.6 游标/" title="17.6 游标" class="md-nav__link">
+      17.6 游标
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/17.7 错误状况及处理/" title="17.7 错误状况及处理" class="md-nav__link">
+      17.7 错误状况及处理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/17.8 SIGNAL/" title="17.8 SIGNAL" class="md-nav__link">
+      17.8 SIGNAL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/17.9 RESIGNAL/" title="17.9 RESIGNAL" class="md-nav__link">
+      17.9 RESIGNAL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/18. MySQL触发器/" title="18. MySQL触发器" class="md-nav__link">
+      18. MySQL触发器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/19. MySQL事务与锁定语句/" title="19. MySQL事务与锁定语句" class="md-nav__link">
+      19. MySQL事务与锁定语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/20. SQL中的安全问题/" title="20. SQL中的安全问题" class="md-nav__link">
+      20. SQL中的安全问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/21. SQL Mode/" title="21. SQL Mode" class="md-nav__link">
+      21. SQL Mode
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/22. 常用 SQL 技巧和常见问题/" title="22. 常用 SQL 技巧和常见问题" class="md-nav__link">
+      22. 常用 SQL 技巧和常见问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/23. MySQL分区/" title="23. MySQL分区" class="md-nav__link">
+      23. MySQL分区
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/24. MySQL分区限制/" title="24. MySQL分区限制" class="md-nav__link">
+      24. MySQL分区限制
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/25. SQL优化/" title="25. SQL优化" class="md-nav__link">
+      25. SQL优化
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/26. 优化数据库对象/" title="26. 优化数据库对象" class="md-nav__link">
+      26. 优化数据库对象
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/27. 锁/" title="27. 锁" class="md-nav__link">
+      27. 锁
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/28. MySQL Server的优化/" title="28. MySQL Server的优化" class="md-nav__link">
+      28. MySQL Server的优化
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/29. MySQL磁盘 IO 问题/" title="29. MySQL磁盘 IO 问题" class="md-nav__link">
+      29. MySQL磁盘 IO 问题
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
+    
+    <label class="md-nav__link" for="nav-16">
+      MyBatis
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-16">
+        MyBatis
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mybatis/简介/" title="简介.md" class="md-nav__link">
+      简介.md
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mybatis/XML配置/" title="XML配置.md" class="md-nav__link">
+      XML配置.md
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mybatis/注意事项/" title="注意事项.md" class="md-nav__link">
+      注意事项.md
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+    
+    <label class="md-nav__link" for="nav-17">
+      HTTP协议
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-17">
+        HTTP协议
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../http协议/简介/" title="简介.md" class="md-nav__link">
+      简介.md
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../http协议/HTTP 报文内的 HTTP 信息/" title="HTTP 报文内的 HTTP 信息.md" class="md-nav__link">
+      HTTP 报文内的 HTTP 信息.md
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../http协议/返回结果的 HTTP 状态码/" title="返回结果的 HTTP 状态码.md" class="md-nav__link">
+      返回结果的 HTTP 状态码.md
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../http协议/与 HTTP 协作的 Web 服务器/" title="与 HTTP 协作的 Web 服务器.md" class="md-nav__link">
+      与 HTTP 协作的 Web 服务器.md
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../http协议/HTTP 首部/" title="HTTP 首部.md" class="md-nav__link">
+      HTTP 首部.md
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../http协议/HTTPS/" title="HTTPS.md" class="md-nav__link">
+      HTTPS.md
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-18" type="checkbox" id="nav-18">
+    
+    <label class="md-nav__link" for="nav-18">
+      CS50
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-18">
+        CS50
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../CS50/1. 简介/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../CS50/2. 编译器/" title="编译器" class="md-nav__link">
+      编译器
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-19" type="checkbox" id="nav-19">
+    
+    <label class="md-nav__link" for="nav-19">
+      Linux网络编程
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-19">
+        Linux网络编程
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux网络编程/函数/" title="函数" class="md-nav__link">
+      函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux网络编程/socket通信流程/" title="socket通信流程" class="md-nav__link">
+      socket通信流程
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux网络编程/简单tcp通信实现/" title="简单tcp通信实现" class="md-nav__link">
+      简单tcp通信实现
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-20" type="checkbox" id="nav-20">
+    
+    <label class="md-nav__link" for="nav-20">
+      Gluster
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-20">
+        Gluster
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../gluster/gluster安装/" title="gluster安装" class="md-nav__link">
+      gluster安装
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../gluster/ovirt的gluster数据恢复bug/" title="ovirt的gluster数据恢复bug" class="md-nav__link">
+      ovirt的gluster数据恢复bug
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../gluster/清理不可用的brick/" title="清理不可用的brick" class="md-nav__link">
+      清理不可用的brick
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../gluster/结点故障/" title="结点故障" class="md-nav__link">
+      结点故障
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-21" type="checkbox" id="nav-21">
+    
+    <label class="md-nav__link" for="nav-21">
+      Docker
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-21">
+        Docker
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/01. 入门-安装/" title="01. 入门 安装" class="md-nav__link">
+      01. 入门 安装
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/02. 入门-容器/" title="02. 入门 容器" class="md-nav__link">
+      02. 入门 容器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/03. 入门-服务/" title="03. 入门 服务" class="md-nav__link">
+      03. 入门 服务
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/04. 入门-集群/" title="04. 入门 集群" class="md-nav__link">
+      04. 入门 集群
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/05. 入门-栈/" title="05. 入门 栈" class="md-nav__link">
+      05. 入门 栈
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/06. 使用docker镜像/" title="06. 使用docker镜像" class="md-nav__link">
+      06. 使用docker镜像
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/07. 容器操作/" title="07. 容器操作" class="md-nav__link">
+      07. 容器操作
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/08. docker仓库/" title="08. docker仓库" class="md-nav__link">
+      08. docker仓库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/09. Docker数据管理/" title="09. Docker数据管理" class="md-nav__link">
+      09. Docker数据管理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/10 端口映射与容器互联/" title="10 端口映射与容器互联" class="md-nav__link">
+      10 端口映射与容器互联
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/11. Dockerfile/" title="11. Dockerfile" class="md-nav__link">
+      11. Dockerfile
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-22" type="checkbox" id="nav-22">
+    
+    <label class="md-nav__link" for="nav-22">
+      Git
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-22">
+        Git
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../git/拉取与推送/" title="拉取与推送" class="md-nav__link">
+      拉取与推送
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../git/git rebase(修改历史提交)/" title="git rebase(修改历史提交)" class="md-nav__link">
+      git rebase(修改历史提交)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../git/windows无法使用git克隆/" title="windows无法使用git克隆" class="md-nav__link">
+      windows无法使用git克隆
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../git/修改历史/" title="修改历史" class="md-nav__link">
+      修改历史
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../git/回滚/" title="回滚" class="md-nav__link">
+      回滚
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../git/远程相关/" title="远程相关" class="md-nav__link">
+      远程相关
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-23" type="checkbox" id="nav-23">
+    
+    <label class="md-nav__link" for="nav-23">
+      Gerrit
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-23">
+        Gerrit
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../gerrit/Apache代理添加新用户/" title="Apache代理添加新用户" class="md-nav__link">
+      Apache代理添加新用户
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../gerrit/Gerrit submit change after abandoning its parent/" title="Gerrit submit change after abandoning its parent" class="md-nav__link">
+      Gerrit submit change after abandoning its parent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../gerrit/使用Apache代理路径错误/" title="使用Apache代理路径错误" class="md-nav__link">
+      使用Apache代理路径错误
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../gerrit/刷新gerrit项目列表/" title="刷新gerrit项目列表" class="md-nav__link">
+      刷新gerrit项目列表
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-24" type="checkbox" id="nav-24">
+    
+    <label class="md-nav__link" for="nav-24">
+      小玩具
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-24">
+        小玩具
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../little toys/摩斯转换/" title="摩斯转换" class="md-nav__link">
+      摩斯转换
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-25" type="checkbox" id="nav-25">
+    
+    <label class="md-nav__link" for="nav-25">
+      Datastruct
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-25">
+        Datastruct
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../datastruct/二叉树/" title="二叉树" class="md-nav__link">
+      二叉树
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../datastruct/散列表/" title="散列表" class="md-nav__link">
+      散列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../datastruct/红黑树/" title="红黑树" class="md-nav__link">
+      红黑树
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-26" type="checkbox" id="nav-26">
+    
+    <label class="md-nav__link" for="nav-26">
+      C
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-26">
+        C
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../c/动态编译/" title="动态编译" class="md-nav__link">
+      动态编译
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../c/程序运行时间/" title="程序运行时间" class="md-nav__link">
+      程序运行时间
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../c/结构体中的函数指针/" title="结构体中的函数指针" class="md-nav__link">
+      结构体中的函数指针
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../c/mutiple definition of xxx/" title="Mutiple definition of xxx" class="md-nav__link">
+      Mutiple definition of xxx
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-27" type="checkbox" id="nav-27">
+    
+    <label class="md-nav__link" for="nav-27">
+      Algorithm
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-27">
+        Algorithm
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../algorithm/复杂度分析/" title="复杂度分析" class="md-nav__link">
+      复杂度分析
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../algorithm/选择排序/" title="选择排序" class="md-nav__link">
+      选择排序
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-28" type="checkbox" id="nav-28">
+    
+    <label class="md-nav__link" for="nav-28">
+      奇技淫巧
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-28">
+        奇技淫巧
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../奇技淫巧/位运算/" title="位运算" class="md-nav__link">
+      位运算
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-bios-boot-loader-kernel" class="md-nav__link">
+    1. BIOS， boot loader 与 kernel 载入
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-bios-mbrgpt" class="md-nav__link">
+    1.1 BIOS， 开机自我测试与 MBR/GPT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-boot-loader" class="md-nav__link">
+    1.2 Boot Loader 的功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-initramfs" class="md-nav__link">
+    1.3 加载内核检测硬件与 initramfs 的功能
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-systemd-defaulttarget" class="md-nav__link">
+    2. 第一个程序 systemd 及使用 default.target 进入开机程序分析
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-runlevel" class="md-nav__link">
+    2.1 兼容于 runlevel 的等级
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-systemd" class="md-nav__link">
+    2.2 systemd 的处理流程
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-sysinittarget-basictarget" class="md-nav__link">
+    2.2.1 sysinit.target 初始化系统、basic.target 准备系统
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2211-sysinittarget" class="md-nav__link">
+    2.2.1.1 sysinit.target 大致内容
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-dev-hugepagesmount-dev-mqueuemount-dev-devhugepages-devmqueue" class="md-nav__link">
+    - 特殊文件系统装置的挂载：包括 dev-hugepages.mount dev-mqueue.mount 等挂载服务，主要在挂载跟巨量内存分页使用与消息队列的功能。 挂载成功后，会在 /dev 底下建立 /dev/hugepages/， /dev/mqueue/ 等目录;
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2212-basictarget" class="md-nav__link">
+    2.2.1.2 basic.target 大致内容
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-multi-usertarget" class="md-nav__link">
+    2.2.2 启动 multi-user.target 下的服务
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2221-systemv-rc-localservice" class="md-nav__link">
+    2.2.2.1 兼容 systemV 的 rc-local.service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2222-tty" class="md-nav__link">
+    2.2.2.2 提供 tty 界面与登入的服务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-graphicaltarget" class="md-nav__link">
+    2.2.3 启动 graphical.target 下的服务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 开机过程会用到的主要配置文件
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 模块配置文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 其它的环境配置文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 内核与内核模块
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1 内核模块与依赖
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 内核模块的查看
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    4.3 内核模块的加载与移除
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/shihr/question/edit/master/docs/鸟哥的linux私房菜/23 开机流程.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>23 开机流程</h1>
+                
+                <ol>
+<li>
+<p>加载 BIOS 的硬件信息与进行自我测试，并依据设定取得第一个可开机的装置；</p>
+</li>
+<li>
+<p>读取并执行第一个开机装置内 MBR 的 boot Loader (亦即是 grub2， spfdisk 等程序)；</p>
+</li>
+<li>依据 boot loader 的设定加载 Kernel ，Kernel 会开始侦测硬件与加载驱动程序；</li>
+<li>在硬件驱动成功后，Kernel 会主动呼叫 systemd 程序，并以 default.target 流程开机；</li>
+<li>systemd 执行 sysinit.target 初始化系统及 basic.target 准备操作系统；</li>
+<li>systemd 启动 multi-user.target 下的本机与服务器服务；</li>
+<li>systemd 执行 multi-user.target 下的 /etc/rc.d/rc.local 文件；</li>
+<li>systemd 执行 multi-user.target 下的 getty.target 及登入服务；</li>
+<li>systemd 执行 graphical 需要的服务</li>
+</ol>
+<p>本文名词说明：</p>
+<ul>
+<li>
+<p>BIOS：不论传统 BIOS 还是 UEFI BIOS 都会被简称为 BIOS；</p>
+</li>
+<li>
+<p>MBR：虽然分区表有传统 MBR 以及新式 GPT，不过 GPT 也有保留一块兼容 MBR 的区块，MBR 就代表该磁盘的最前面可安装 boot loader 的那个区块。</p>
+</li>
+</ul>
+<h2 id="1-bios-boot-loader-kernel">1. BIOS， boot loader 与 kernel 载入<a class="headerlink" href="#1-bios-boot-loader-kernel" title="Permanent link">&para;</a></h2>
+<h3 id="11-bios-mbrgpt">1.1 BIOS， 开机自我测试与 MBR/GPT<a class="headerlink" href="#11-bios-mbrgpt" title="Permanent link">&para;</a></h3>
+<p>在个人计算机架构下，你想要启动整部系统首先就得要让系统去加载 <code>BIOS</code> (Basic Input Output System)，并透过 BIOS 程序去加载 CMOS 的信息，并且藉由 CMOS 内的设定值取得主机的各项硬件配置；进行开机自我测试 (Power-on Self Test， POST) 。 然后开始执行硬件侦测的初始化，并设定 PnP 装置，之后再定义出可开机的装置顺序，接下来就会开始进行开机装置的数据读取了。</p>
+<p>但由于不同的操作系统他的文件系统格式不相同，因此我们必须要以一个开机管理程序来处理内核文件加载 (load) 的问题，即 <code>Boot Loader</code>。该程序安装在在开机装置的第一个扇区 (sector) 内，即 <code>MBR</code> (Master Boot Record， 主要启动记录区)。</p>
+<p>因为每个操作系统都有自己的 boot loader ，所以 BIOS 是透过硬件的 <code>INT 13</code> 中断功能来读取 MBR 的。只要 BIOS 能够检测的到你的磁盘，它就能读取到 boot loader 并执行。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>每颗硬盘的最前面区块含有 MBR 或 GPT 分区表的提供 loader 的区块，读取哪个要看BIOS 的设置了。系统的 MBR 其实指的是 <strong>第一个开机设备的 MBR</strong>。</p>
+</div>
+<h3 id="12-boot-loader">1.2 Boot Loader 的功能<a class="headerlink" href="#12-boot-loader" title="Permanent link">&para;</a></h3>
+<p>问题：必须要使用自己的 loader 才能够加载属于自己的操作系统内核，但是系统的 MBR 只有一个，那么该如何安装多个操作系统呢？</p>
+<p>其实每个文件系统 (filesystem，或者是 partition) 都会保留一块启动扇区 (boot sector) 提供操作系统安装 boot loader ， 而通常操作系统默认都会安装一份 loader 到它根目录所在的文件系统的 boot sector 上。下面是 boot loader 存放示意图：</p>
+<p><img alt="" src="../img/boot_loader存放位置.png" /></p>
+<p>如上图所示，每个操作系统默认是会安装一套 boot loader 到他自己的文件系统中。在 Linux 系统安装时，将 boot loader 安装到 MBR 去是可选的；在 Windows 安装时，他预设会主动的将 MBR 与 boot sector 都装上一份。boot loader 主要的功能如下：</p>
+<ul>
+<li>提供选单：用户可以选择不同的开机项目，这也是多重引导的重要功能！</li>
+<li>载入内核文件：直接指向可开机的程序区段来开始操作系统；</li>
+<li>转交其他 loader：将开机管理功能转交给其他 loader 负责。</li>
+</ul>
+<p>由于具有选单功能，因此我们可以选择不同的内核来开机。而由于具有控制权转交的功能，因此我们可以加载其他 boot sector 内的 loader 啦！不过 <strong>Windows 的 loader 预设不具有控制权转交的功能</strong>，因此你不能使用 Windows 的 loader 来加载 Linux 的 loader！所以在<strong>安装多重操作系统时必须要先安装Windows</strong>！</p>
+<p><img alt="boot_loader选单与转交控制权功能" src="../img/boot_loader选单与转交控制权功能.png" /></p>
+<p>最终 boot loader 的功能就是加载<strong>kernel 文件</strong>啦。</p>
+<h3 id="13-initramfs">1.3 加载内核检测硬件与 initramfs 的功能<a class="headerlink" href="#13-initramfs" title="Permanent link">&para;</a></h3>
+<p>藉由 boot loader 的管理而开始读取内核文件后，接下来， Linux 就会将内核解压缩到主存储器当中， 并且利用内核的功能，开始测试与驱动各个周边装置。此时 Linux 内核会以自己的功能重新侦测一次硬件，而不一定会使用 BIOS 侦测到的硬件信息！也就是说，<strong>内核此时开始接管 BIOS 后的工作</strong>了。</p>
+<p>内核文件<code>/boot/vmlinuz</code>：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>sink@dev ~<span class="o">]</span>$ ls -1 /boot/
+config-3.10.0-1062.el7.x86_64   <span class="c1"># 此版本内核被编译时选择的功能与模块配置文件</span>
+efi
+extlinux
+grub                            <span class="c1"># 旧版 grub，不管它</span>
+grub2                           <span class="c1"># 开机管理程序 grub2 相关数据目录</span>
+initramfs-0-rescue-0242c388ca104d46b8d6d9a4b951ff3f.img <span class="c1"># 救援用的虚拟文件系统文件</span>
+initramfs-3.10.0-1062.el7.x86_64.img                    <span class="c1"># 正常开机会用到的虚拟文件系统</span>
+initramfs-3.10.0-1062.el7.x86_64kdump.img               <span class="c1"># 内核出问题时会用到的虚拟文件系统</span>
+initrd-plymouth.img
+symvers-3.10.0-1062.el7.x86_64.gz
+System.map-3.10.0-1062.el7.x86_64                       <span class="c1"># 内核功能放置到内存地址的对应表</span>
+vmlinuz-0-rescue-0242c388ca104d46b8d6d9a4b951ff3f       <span class="c1"># 救援用的内核文件</span>
+vmlinuz-3.10.0-1062.el7.x86_64                          <span class="c1"># 内核文件</span>
+</pre></div>
+
+
+<p>Linux 内核是可以通过动态加载内核模块的(就请想成驱动程序即可)，这些内核模块就放置在 <code>/lib/modules/</code> 目录内。由于模块放置到磁盘根目录内 (要记得 <strong>/lib 不可以与 / 分别放在不同的 partition</strong> !)， 因此在开机的过程中<strong>内核必须要挂载根目录，这样才能够读取内核模块提供加载驱动程序</strong>的功能。 而且为了担心影响到磁盘内的文件系统，因此开机过程中根目录是以只读的方式来挂载的。</p>
+<p>一般来说，非必要的功能且可以编译成为模块的内核功能，目前的 Linux distributions 都会将他编译成为模块。因此 <strong>USB， SATA， SCSI... 等磁盘装置的驱动程序通常都是以模块的方式来存在的</strong>。</p>
+<p>问题是，内核根本不认识 SATA 磁盘，所以需要加载 SATA 磁盘的驱动程序， 否则根本就无法挂载根目录。但是 SATA 的驱动程序在 <em>/lib/modules</em> 内，你根本无法挂载根目录又怎么读取到 <em>/lib/modules/</em> 内的驱动程序？解决该问题的方法就是虚拟文件系统。</p>
+<p><strong>虚拟文件系统</strong> (Initial RAM Disk 或 Initial RAM Filesystem) 一般使用的文件名为 <code>/boot/initrd</code> 或 <code>/boot/initramfs</code>。也能够透过 boot loader 来加载到内存中，然后这个文件会被解压缩并且<strong>在内存当中仿真成一个根目录</strong>， 且此仿真在内存当中的文件系统能够提供一支可执行的程序，透过该程序来加载开机过程中所最需要的内核模块， 通常这些模块就是 USB， RAID， LVM，SCSI 等文件系统与磁盘接口的驱动程序啦！等载入完成后， <strong>会帮助内核重新呼叫 systemd 来开始后续的正常开机流程</strong>。</p>
+<p><img alt="" src="../img/BIOS-Boot_loader-kernel加载流程.png" /></p>
+<p>更详细的 initramfs 说明，使用 <code>man initrd</code>查阅。</p>
+<p>initramfs 文件内容：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev boot<span class="o">]</span>$ lsinitrd initramfs-3.10.0-1062.el7.x86_64.img
+<span class="c1"># 数据介绍，会占用容量</span>
+Image: initramfs-3.10.0-1062.el7.x86_64.img: <span class="nv">31M</span>
+<span class="o">========================================================================</span>
+Early CPIO <span class="nv">image</span>
+<span class="o">========================================================================</span>
+drwxr-xr-x   <span class="m">3</span> root     root            <span class="m">0</span> Oct <span class="m">22</span> <span class="m">16</span>:19 .
+-rw-r--r--   <span class="m">1</span> root     root            <span class="m">2</span> Oct <span class="m">22</span> <span class="m">16</span>:19 early_cpio
+drwxr-xr-x   <span class="m">3</span> root     root            <span class="m">0</span> Oct <span class="m">22</span> <span class="m">16</span>:19 kernel
+drwxr-xr-x   <span class="m">3</span> root     root            <span class="m">0</span> Oct <span class="m">22</span> <span class="m">16</span>:19 kernel/x86
+drwxr-xr-x   <span class="m">2</span> root     root            <span class="m">0</span> Oct <span class="m">22</span> <span class="m">16</span>:19 kernel/x86/microcode
+-rw-r--r--   <span class="m">1</span> root     root       <span class="m">100352</span> Oct <span class="m">22</span> <span class="m">16</span>:19 kernel/x86/microcode/GenuineIntel.bin
+<span class="o">========================================================================</span>
+Version: dracut-033-564.el7
+
+Arguments: -f
+
+<span class="c1"># 所有的模块</span>
+dracut modules:
+bash
+nss-softokn
+i18n
+……
+<span class="nv">shutdown</span>
+<span class="o">========================================================================</span>
+<span class="c1"># 所有的文件</span>
+drwxr-xr-x  <span class="m">12</span> root     root            <span class="m">0</span> Oct <span class="m">22</span> <span class="m">16</span>:19 .
+crw-r--r--   <span class="m">1</span> root     root       <span class="m">5</span>,   <span class="m">1</span> Oct <span class="m">22</span> <span class="m">16</span>:19 dev/console
+crw-r--r--   <span class="m">1</span> root     root       <span class="m">1</span>,  <span class="m">11</span> Oct <span class="m">22</span> <span class="m">16</span>:19 dev/kmsg
+crw-r--r--   <span class="m">1</span> root     root       <span class="m">1</span>,   <span class="m">3</span> Oct <span class="m">22</span> <span class="m">16</span>:19 dev/null
+lrwxrwxrwx   <span class="m">1</span> root     root            <span class="m">7</span> Oct <span class="m">22</span> <span class="m">16</span>:19 bin -&gt; usr/bin
+……
+lrwxrwxrwx   <span class="m">1</span> root     root           <span class="m">23</span> Oct <span class="m">22</span> <span class="m">16</span>:19 init -&gt; usr/lib/systemd/systemd
+lrwxrwxrwx   <span class="m">1</span> root     root            <span class="m">9</span> Oct <span class="m">22</span> <span class="m">16</span>:19 lib64 -&gt; usr/lib64
+lrwxrwxrwx   <span class="m">1</span> root     root            <span class="m">7</span> Oct <span class="m">22</span> <span class="m">16</span>:19 lib -&gt; usr/lib
+……
+drwxr-xr-x   <span class="m">2</span> root     root            <span class="m">0</span> Oct <span class="m">22</span> <span class="m">16</span>:19 usr/lib/dracut/hooks/mount
+drwxr-xr-x   <span class="m">2</span> root     root            <span class="m">0</span> Oct <span class="m">22</span> <span class="m">16</span>:19 usr/lib/dracut/hooks/netroot
+……
+lrwxrwxrwx   <span class="m">1</span> root     root            <span class="m">6</span> Oct <span class="m">22</span> <span class="m">16</span>:19 var/run -&gt; ../run
+<span class="o">========================================================================</span>
+</pre></div>
+
+
+<p>解压查看内容：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev boot<span class="o">]</span><span class="c1"># mkdir /tmp/initramfs</span>
+<span class="o">[</span>root@dev boot<span class="o">]</span><span class="c1"># cd /tmp/initramfs</span>
+<span class="o">[</span>root@dev initramfs<span class="o">]</span><span class="c1"># cp /boot/initramfs-3.10.0-1062.el7.x86_64.img .</span>
+<span class="o">[</span>root@dev initramfs<span class="o">]</span><span class="c1"># file initramfs-3.10.0-1062.el7.x86_64.img </span>
+initramfs-3.10.0-1062.el7.x86_64.img: ASCII cpio archive <span class="o">(</span>SVR4 with no CRC<span class="o">)</span>
+<span class="o">[</span>root@dev initramfs<span class="o">]</span><span class="c1"># cpio -i -d -H newc --no-absolute-filenames &lt; initramfs-3.10.0-1062.el7.x86_64.img </span>
+<span class="m">198</span> blocks
+<span class="o">[</span>root@dev initramfs<span class="o">]</span><span class="c1"># ll</span>
+<span class="c1"># 这里就对应了 lsinitrd 列出信息的前三部分</span>
+total <span class="m">31188</span>
+-rw-r--r--. <span class="m">1</span> root root        <span class="m">2</span> Dec  <span class="m">5</span> <span class="m">16</span>:10 early_cpio
+-rw-------. <span class="m">1</span> root root <span class="m">31929564</span> Dec  <span class="m">5</span> <span class="m">16</span>:10 initramfs-3.10.0-1062.el7.x86_64.img
+drwxr-xr-x. <span class="m">3</span> root root       <span class="m">17</span> Dec  <span class="m">5</span> <span class="m">16</span>:10 kernel
+</pre></div>
+
+
+<p>要想真正地解压 <em>initramfs.img</em>，就要先去掉去除前面不需要的文件头数据部份：</p>
+<p>计算偏移量的方法：</p>
+<ul>
+<li>方法一：其实<em>initramfs.img</em>是cpio打包的gzip格式的文件，gzip文件压缩的又是cpio打包的目录，所以需要知道gzip文件在最外层的cpio文件的偏移量。而gzip格式的文件开头字节是<code>0x1f 0x8b 0x08</code>，所以只要查找出这几个字节的偏移量即可。</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1"># 命令一。每一个单元代表一个字节，所以偏移量是 101376 + 0 = 101376</span>
+<span class="c1"># -t 输出格式，x1 表示每个整数占1个字节，-A 文件偏移量格式，d 表示使用带符号的十进制</span>
+<span class="o">[</span>root@dev initramfs<span class="o">]</span><span class="c1"># od -t x1 -A d initramfs-3.10.0-1062.el7.x86_64.img | grep &quot;1f 8b 08&quot;</span>
+<span class="m">0101376</span> 1f 8b <span class="m">08</span> <span class="m">00</span> 9e bb ae 5d <span class="m">02</span> <span class="m">03</span> 9c bd <span class="m">07</span> 5c <span class="m">13</span> 4d
+<span class="c1"># 命令二。每一个单元代表一个字节，所以偏移量是 0018c00(十六进制) = 101376(十进制)</span>
+<span class="o">[</span>root@dev initramfs<span class="o">]</span><span class="c1"># xxd -g 1 initramfs-3.10.0-1062.el7.x86_64.img | grep &quot;1f 8b 08&quot;</span>
+0018c00: 1f 8b <span class="m">08</span> <span class="m">00</span> 9e bb ae 5d <span class="m">02</span> <span class="m">03</span> 9c bd <span class="m">07</span> 5c <span class="m">13</span> 4d  .......<span class="o">]</span>.....<span class="se">\.</span>M
+^C
+</pre></div>
+
+
+<ul>
+<li>方法二：获取kernel目录下的那个文件大小，然后加上1024，即得到偏移量。看出来的规律，我也不知道为什么。//TODO</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1"># 首先计算出偏移量为 0101376 </span>
+<span class="o">[</span>root@dev initramfs<span class="o">]</span><span class="c1"># dd if=initramfs-3.10.0-1062.el7.x86_64.img of=initramfs.gz bs=0101376 skip=1</span>
+<span class="o">[</span>root@dev initramfs<span class="o">]</span><span class="c1"># file initramfs.gz </span>
+initramfs.gz: gzip compressed data, from Unix, last modified: Tue Oct <span class="m">22</span> <span class="m">16</span>:19:42 <span class="m">2019</span>, max compression
+<span class="o">[</span>root@dev initramfs<span class="o">]</span><span class="c1"># mkdir initramfs &amp;&amp; mv initramfs.gz initramfs/ &amp;&amp; cd initramfs/</span>
+<span class="c1"># 先用 gzip 解压</span>
+<span class="o">[</span>root@dev initramfs<span class="o">]</span><span class="c1"># gzip -d initramfs.gz </span>
+<span class="c1"># 解压出来一个 cpio 文件</span>
+<span class="o">[</span>root@dev initramfs<span class="o">]</span><span class="c1"># ll</span>
+total <span class="m">64348</span>
+-rw-r--r--. <span class="m">1</span> root root <span class="m">65891328</span> Dec  <span class="m">5</span> <span class="m">16</span>:57 initramfs
+<span class="o">[</span>root@dev initramfs<span class="o">]</span><span class="c1"># file initramfs </span>
+initramfs: ASCII cpio archive <span class="o">(</span>SVR4 with no CRC<span class="o">)</span>
+<span class="c1"># 再用 cpio 解压</span>
+<span class="o">[</span>root@dev initramfs<span class="o">]</span><span class="c1"># cpio -i -d -F initramfs --no-absolute-filenames -c</span>
+<span class="o">[</span>root@dev initramfs<span class="o">]</span><span class="c1"># ll</span>
+total <span class="m">64356</span>
+lrwxrwxrwx.  <span class="m">1</span> root root        <span class="m">7</span> Dec  <span class="m">5</span> <span class="m">17</span>:10 bin -&gt; usr/bin
+drwxr-xr-x.  <span class="m">2</span> root root       <span class="m">45</span> Dec  <span class="m">5</span> <span class="m">17</span>:10 dev
+drwxr-xr-x. <span class="m">12</span> root root     <span class="m">4096</span> Dec  <span class="m">5</span> <span class="m">17</span>:10 etc
+lrwxrwxrwx.  <span class="m">1</span> root root       <span class="m">23</span> Dec  <span class="m">5</span> <span class="m">17</span>:10 init -&gt; usr/lib/systemd/systemd
+-rw-r--r--.  <span class="m">1</span> root root <span class="m">65891328</span> Dec  <span class="m">5</span> <span class="m">16</span>:57 initramfs        <span class="c1"># 这是原文件</span>
+lrwxrwxrwx.  <span class="m">1</span> root root        <span class="m">7</span> Dec  <span class="m">5</span> <span class="m">17</span>:10 lib -&gt; usr/lib
+lrwxrwxrwx.  <span class="m">1</span> root root        <span class="m">9</span> Dec  <span class="m">5</span> <span class="m">17</span>:10 lib64 -&gt; usr/lib64
+drwxr-xr-x.  <span class="m">2</span> root root        <span class="m">6</span> Dec  <span class="m">5</span> <span class="m">17</span>:10 proc
+drwxr-xr-x.  <span class="m">2</span> root root        <span class="m">6</span> Dec  <span class="m">5</span> <span class="m">17</span>:10 root
+drwxr-xr-x.  <span class="m">2</span> root root        <span class="m">6</span> Dec  <span class="m">5</span> <span class="m">17</span>:10 run
+lrwxrwxrwx.  <span class="m">1</span> root root        <span class="m">8</span> Dec  <span class="m">5</span> <span class="m">17</span>:10 sbin -&gt; usr/sbin
+-rwxr-xr-x.  <span class="m">1</span> root root     <span class="m">3117</span> Dec  <span class="m">5</span> <span class="m">17</span>:10 shutdown
+drwxr-xr-x.  <span class="m">2</span> root root        <span class="m">6</span> Dec  <span class="m">5</span> <span class="m">17</span>:10 sys
+drwxr-xr-x.  <span class="m">2</span> root root        <span class="m">6</span> Dec  <span class="m">5</span> <span class="m">17</span>:10 sysroot
+drwxr-xr-x.  <span class="m">2</span> root root        <span class="m">6</span> Dec  <span class="m">5</span> <span class="m">17</span>:10 tmp
+drwxr-xr-x.  <span class="m">7</span> root root       <span class="m">66</span> Dec  <span class="m">5</span> <span class="m">17</span>:10 usr
+drwxr-xr-x.  <span class="m">2</span> root root       <span class="m">29</span> Dec  <span class="m">5</span> <span class="m">17</span>:10 var
+</pre></div>
+
+
+<p>整个文件夹就类似于一个根目录，这样kernel就能挂载了。</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 看看默认的操作环境，指向的就是 initrd.target</span>
+<span class="o">[</span>root@dev initramfs<span class="o">]</span><span class="c1"># ll usr/lib/systemd/system/default.target </span>
+lrwxrwxrwx. <span class="m">1</span> root root <span class="m">13</span> Dec  <span class="m">6</span> <span class="m">08</span>:40 usr/lib/systemd/system/default.target -&gt; initrd.target
+</pre></div>
+
+
+<p>initrd.target 也是需要读入一堆例如 basic.target， sysinit.target 等等的硬件检测、内核功能启用的流程， 然后开始让系统顺利运作。<strong>最终才又卸载 initramfs 的小型文件系统，实际挂载系统的根目录</strong>。</p>
+<p>同理，直接将开机所需模块编译到内核中，也能顺利启动了。</p>
+<h2 id="2-systemd-defaulttarget">2. 第一个程序 systemd 及使用 default.target 进入开机程序分析<a class="headerlink" href="#2-systemd-defaulttarget" title="Permanent link">&para;</a></h2>
+<p>systemd 最主要的功能就是准备软件执行的环境，包括系统的主机名、网络设定、语系处理、文件系统格式及其他服务的启动等。 而所有的动作都会透过 systemd 的默认启动服务集合，亦即是 <code>/etc/systemd/system/default.target</code> 来规划。</p>
+<h3 id="21-runlevel">2.1 兼容于 runlevel 的等级<a class="headerlink" href="#21-runlevel" title="Permanent link">&para;</a></h3>
+<p>systemd 为了兼容于旧式的 <code>system V</code> 操作行为, 所以也将 <code>runlevel</code> 与操作环境做了结合：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># ll /usr/lib/systemd/system/runlevel?.target</span>
+lrwxrwxrwx. <span class="m">1</span> root root <span class="m">15</span> Oct <span class="m">22</span> <span class="m">16</span>:01 /usr/lib/systemd/system/runlevel0.target -&gt; poweroff.target
+lrwxrwxrwx. <span class="m">1</span> root root <span class="m">13</span> Oct <span class="m">22</span> <span class="m">16</span>:01 /usr/lib/systemd/system/runlevel1.target -&gt; rescue.target
+lrwxrwxrwx. <span class="m">1</span> root root <span class="m">17</span> Oct <span class="m">22</span> <span class="m">16</span>:01 /usr/lib/systemd/system/runlevel2.target -&gt; multi-user.target
+lrwxrwxrwx. <span class="m">1</span> root root <span class="m">17</span> Oct <span class="m">22</span> <span class="m">16</span>:01 /usr/lib/systemd/system/runlevel3.target -&gt; multi-user.target
+lrwxrwxrwx. <span class="m">1</span> root root <span class="m">17</span> Oct <span class="m">22</span> <span class="m">16</span>:01 /usr/lib/systemd/system/runlevel4.target -&gt; multi-user.target
+lrwxrwxrwx. <span class="m">1</span> root root <span class="m">16</span> Oct <span class="m">22</span> <span class="m">16</span>:01 /usr/lib/systemd/system/runlevel5.target -&gt; graphical.target
+lrwxrwxrwx. <span class="m">1</span> root root <span class="m">13</span> Oct <span class="m">22</span> <span class="m">16</span>:01 /usr/lib/systemd/system/runlevel6.target -&gt; reboot.target
+</pre></div>
+
+
+<p>切换执行等级可以使用<code>init &lt;number&gt;</code>来执行，例如：<code>init 3</code>，相当于 <code>systemctl isolate multi-user.target</code>。</p>
+<h3 id="22-systemd">2.2 systemd 的处理流程<a class="headerlink" href="#22-systemd" title="Permanent link">&para;</a></h3>
+<p>CentOS 7.x 的 systemd 开机流程大约是这样：</p>
+<ol>
+<li>local-fs.target + swap.target：这两个 target 主要在挂载本机 <code>/etc/fstab</code> 里面所规范的文件系统与相关的内存交换空间。</li>
+<li>sysinit.target：这个 target 主要在侦测硬件，加载所需要的内核模块等动作。</li>
+<li>basic.target：加载主要的外部硬件驱动程序与防火墙相关任务</li>
+<li>multi-user.target 底下的其它一般系统或网络服务的加载</li>
+<li>图形界面相关服务如 gdm.service 等其他服务的加载</li>
+</ol>
+<p>下面简要介绍一下这些target的作用是什么，详细的服务还是根据配置的依赖关系查看吧，<code>systemctl list-dependencies xxx</code>。</p>
+<h4 id="221-sysinittarget-basictarget">2.2.1 sysinit.target 初始化系统、basic.target 准备系统<a class="headerlink" href="#221-sysinittarget-basictarget" title="Permanent link">&para;</a></h4>
+<h5 id="2211-sysinittarget">2.2.1.1 sysinit.target 大致内容<a class="headerlink" href="#2211-sysinittarget" title="Permanent link">&para;</a></h5>
+<h2 id="-dev-hugepagesmount-dev-mqueuemount-dev-devhugepages-devmqueue">- 特殊文件系统装置的挂载：包括 dev-hugepages.mount dev-mqueue.mount 等挂载服务，主要在挂载跟巨量内存分页使用与消息队列的功能。 挂载成功后，会在 /dev 底下建立 /dev/hugepages/， /dev/mqueue/ 等目录;<a class="headerlink" href="#-dev-hugepagesmount-dev-mqueuemount-dev-devhugepages-devmqueue" title="Permanent link">&para;</a></h2>
+<p>特殊文件系统的启用：包括磁盘阵列、网络驱动器 (iscsi)、LVM 文件系统、文件系统对照服务 (multipath)等等，也会在这里被侦测与使用到！
+- 开机过程的讯息传递与动画执行：使用 plymouthd 服务搭配 plymouth 指令来传递动画与讯息
+- 日志式登录文件的使用：就是 systemd-journald 这个服务的启用啊！
+- 加载额外的内核模块：透过 <code>/etc/modules-load.d/*.conf</code> 文件的设定，让内核额外加载管理员所需要的内核模块！
+- 加载额外的内核参数设定：包括 <code>/etc/sysctl.conf</code> 以及 <code>/etc/sysctl.d/*.conf</code> 内部设定！
+- 启动系统的随机数生成器：随机数生成器可以帮助系统进行一些密码加密演算的功能
+- 设定终端机 (console) 字形
+- 启动动态设备管理器：就是 udevd 这个家伙！用在动态对应实际装置存取与装置文件名对应的一个服务！相当重要喔！也是在这里启动的！</p>
+<h5 id="2212-basictarget">2.2.1.2 basic.target 大致内容<a class="headerlink" href="#2212-basictarget" title="Permanent link">&para;</a></h5>
+<p>sysinit.target 在初始化系统，而这个 basic .target 则是一个最简陋的操作系统了。</p>
+<ul>
+<li>加载 alsa 音效驱动程序：这个 alsa 是个音效相关的驱动程序，会让你的系统有音效产生啰；</li>
+<li>载入 firewalld 防火墙：CentOS 7.x 以后使用 firewalld 取代 iptables 的防火墙设定，虽然最终都是使用 iptables 的架构， 不过在设定上面差很多喔！</li>
+<li>加载 CPU 的微指令功能；</li>
+<li>启动与设定 SELinux 的安全本文：如果由 disable 的状态改成 enable 的状态，或者是管理员设定强制重新设定一次 SELinux 的安全本文， 也在这个阶段处理喔！</li>
+<li>将目前的开机过程所产生的开机信息写入到 /var/log/dmesg 当中</li>
+<li>由 /etc/sysconfig/modules/*.modules 及 /etc/rc.modules 加载管理员指定的模块！</li>
+<li>加载 systemd 支持的 timer 功能</li>
+</ul>
+<h4 id="222-multi-usertarget">2.2.2 启动 multi-user.target 下的服务<a class="headerlink" href="#222-multi-usertarget" title="Permanent link">&para;</a></h4>
+<p>basic.target 让系统成为操作系统的基础，之后就是服务器要顺利运作时，需要的各种主机服务以及提供服务器功能的网络服务的启动了。这些服务的启动则大多是附挂在 multi-user.target 这个操作环境底下。</p>
+<h5 id="2221-systemv-rc-localservice">2.2.2.1 兼容 systemV 的 rc-local.service<a class="headerlink" href="#2221-systemv-rc-localservice" title="Permanent link">&para;</a></h5>
+<p>在以前的版本中，当系统完成开机后还想要让系统额外执行某些程序的话，可以将该程序指令或脚本的绝对路径名称写入到 <code>/etc/rc.d/rc.local</code> 这个文件去！新的 systemd 机制中，它建议直接写一个 systemd 的启动脚本配置文件到 /etc/systemd/system 底下，然后使用systemctl enable 的方式来设定启用它，而不要直接使用 rc.local 这个文件。</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>sink@dev boot<span class="o">]</span>$ cat /etc/rc.d/rc.local 
+<span class="c1">#!/bin/bash</span>
+<span class="c1"># THIS FILE IS ADDED FOR COMPATIBILITY PURPOSES</span>
+<span class="c1">#</span>
+<span class="c1"># It is highly advisable to create own systemd services or udev rules</span>
+<span class="c1"># to run scripts during boot instead of using this file.</span>
+<span class="c1">#</span>
+<span class="c1"># In contrast to previous versions due to parallel execution during boot</span>
+<span class="c1"># this script will NOT be run after all other services.</span>
+<span class="c1">#</span>
+<span class="c1"># Please note that you must run &#39;chmod +x /etc/rc.d/rc.local&#39; to ensure</span>
+<span class="c1"># that this script will be executed during boot.</span>
+
+touch /var/lock/subsys/local
+</pre></div>
+
+
+<h5 id="2222-tty">2.2.2.2 提供 tty 界面与登入的服务<a class="headerlink" href="#2222-tty" title="Permanent link">&para;</a></h5>
+<p>由于服务都是同步运作，不一定哪个服务先启动完毕。如果 <code>getty</code> 服务先启动完毕时，你会发现到有可用的终端机尝试让你登入系统了。 问题是，如果 <code>systemd-logind.service</code> 或 <code>systemd-user-sessions.service</code> 服务尚未执行完毕的话，那么你还是无法登入系统的。</p>
+<h4 id="223-graphicaltarget">2.2.3 启动 graphical.target 下的服务<a class="headerlink" href="#223-graphicaltarget" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="o">[</span>sink@dev ~<span class="o">]</span>$ systemctl list-dependencies graphical.target
+graphical.target
+● ├─accounts-daemon.service
+● ├─gdm.service                 <span class="c1"># 让用户可以利用图形界面登入的最重要服务</span>
+● ├─network.service
+● ├─rtkit-daemon.service
+● ├─systemd-readahead-collect.service
+● ├─systemd-readahead-replay.service
+● ├─systemd-update-utmp-runlevel.service
+● └─multi-user.target
+●   ├─abrt-ccpp.service
+●   ├─abrt-oops.service
+</pre></div>
+
+
+<h2 id="3">3. 开机过程会用到的主要配置文件<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p>systemd 有自己的配置文件处理方式，不过为了兼容于 systemV ,其实很多的服务脚本设定还是会读取位于 <code>/etc/sysconfig/</code> 底下的环境配置文件。</p>
+<h3 id="31">3.1 模块配置文件<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p><code>sysinit.target</code>中有加载用户自定义模块的地方：</p>
+<ul>
+<li><code>/etc/modules-load.d/*.conf</code>：单纯要内核加载模块的位置；</li>
+<li><code>/etc/modprobe.d/*.conf</code>：可以加上模块参数的位置。</li>
+</ul>
+<p>systemd 在开机时已经把需要的驱动都加载了，基本上无需改动。如果你有某些特定的参数要处理时，才需要在这里做一些处理。</p>
+<p>下面是鸟哥举的一个例子。</p>
+<p>在前文中我们向 vdftpd de端口改成了 555，其中一个针对 FTP 很重要的防火墙模块为 <em>nf_conntrack_ftp</em>，你可以将这个模块写入到系统开机流程中：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># cat /etc/modules-load.d/sink.conf</span>
+nf_conntrack_ftp
+</pre></div>
+
+
+<p>一个模块 (驱动程序) 写一行。上述的模块基本上是针对默认 FTP 端口 21 所设定的，如果需要调整到 port 555 的话，得在另一个目录下外带参数才行：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># cat /etc/modprobe.d/sink.conf</span>
+options nf_conntrack_ftp <span class="nv">ports</span><span class="o">=</span><span class="m">555</span>
+</pre></div>
+
+
+<p>之后重新启动就能够顺利的载入并且处理好这个模块了。那么非重启的方法是什么呢：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># lsmod | grep nf_conntrack_ftp</span>
+<span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># systemctl restart systemd-modules-load.service </span>
+<span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># lsmod | grep nf_conntrack_ftp</span>
+nf_conntrack_ftp       <span class="m">18478</span>  <span class="m">0</span> 
+nf_conntrack          <span class="m">139224</span>  <span class="m">8</span> nf_nat,nf_nat_ipv4,nf_nat_ipv6,xt_conntrack,nf_nat_masquerade_ipv4,nf_conntrack_ftp,nf_conntrack_ipv4,nf_conntrack_ipv6
+</pre></div>
+
+
+<h3 id="32">3.2 其它的环境配置文件<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p>这些文件都在<code>/etc/sysconfig/</code>目录下：</p>
+<ul>
+<li><code>authconfig</code></li>
+</ul>
+<p>这个文件主要在规范使用者的身份认证的机制，包括是否使用本机的 /etc/passwd， /etc/shadow 等， 以及 /etc/shadow 密码记录使用何种加密算法，还有是否使用外部密码服务器提供的账号验证 (NIS, LDAP) 等。使用 <code>authconfig-tui</code> 来修改。</p>
+<ul>
+<li><code>cpupower</code></li>
+</ul>
+<p><code>cpupower.service</code>服务使用的配置文件。主要是 Linux 内核如何操作 CPU 的规则。 一般来说,启动 cpupower.service 之后，系统会让 CPU 以最大效能的方式来运作，否则预设就是用多少算多少的模式来处理的。</p>
+<ul>
+<li><code>firewalld, iptables-config, iptables-config, ebtables-config</code></li>
+</ul>
+<p>防火墙服务。参考服务器篇。</p>
+<ul>
+<li><code>network-scripts/</code></li>
+</ul>
+<p>设定网卡。参考服务器篇。</p>
+<h2 id="4">4. 内核与内核模块<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>在上文中提到，在整个开机的过程当中，是否能够成功的驱动我们主机的硬件设备，是内核 (kernel) 的工作。目前的内核都具有 modules (模块化) 的功能。</p>
+<p>内核与内核模块的位置：</p>
+<ul>
+<li>内核： /boot/vmlinuz 或 /boot/vmlinuz-version；</li>
+<li>内核解压缩所需 RAM Disk： /boot/initramfs (/boot/initramfs-version)；</li>
+<li>内核模块： /lib/modules/version/kernel 或 /lib/modules/$(uname -r)/kernel；</li>
+<li>内核原码： /usr/src/linux 或 /usr/src/kernels/ (要安装才会有,预设不安装)。</li>
+</ul>
+<p>如果该内核被顺利的加载系统当中了,那么就会有几个信息纪录下来:</p>
+<ul>
+<li>内核版本：/proc/version</li>
+<li>系统内核功能：/proc/sys/kernel/</li>
+</ul>
+<p>如果有个新的硬件，让系统支持的两种方法：</p>
+<ul>
+<li>重新编译内核,并加入最新的硬件驱动程序原始码；</li>
+<li>将该硬件的驱动程序编译成为模块，在开机时加载该模块。</li>
+</ul>
+<p>关于编译的方法，可以参考后续章节。下面说明一下如何加载一个已存在的模块。</p>
+<h3 id="41">4.1 内核模块与依赖<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<p>内核模块一般放在<code>/lib/modules/$(uname -r)/kernel</code>目录下：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># ls -1 /lib/modules/$(uname -r)/kernel/</span>
+arch    <span class="c1"># 与硬件平台有关的项目,例如 CPU 的等级等等</span>
+crypto  <span class="c1"># 内核所支持的加密的技术,例如 md5 或者是 des 等等</span>
+drivers <span class="c1"># 一些硬件的驱动程序</span>
+fs      <span class="c1"># 内核所支持的文件系统</span>
+kernel
+lib     <span class="c1"># 一些函数库;</span>
+mm
+net     <span class="c1"># 与网络有关的各项协议数据,还有防火墙模块 (net/ipv4/netfilter/*) 等等;</span>
+sound   <span class="c1"># 与音效有关的各项模块;</span>
+virt
+</pre></div>
+
+
+<p><code>/lib/modules/$(uname -r)/modules.dep</code>文件记录了在内核支持的模块的各项依赖。利用 <code>depmod</code> 这个指令就可以建立该文件：</p>
+<div class="codehilite"><pre><span></span><span class="nv">depmod</span> <span class="o">-</span>[<span class="nv">aA</span>] [<span class="nv">options</span>] [<span class="nv">forced_version</span>]
+输出适用于 <span class="nv">modprobe</span> 的依赖列表
+不加任何选项等同于“<span class="nv">depmod</span> <span class="o">-</span><span class="nv">a</span>”
+
+<span class="nv">Options</span>:
+    <span class="o">-</span><span class="nv">a</span>, <span class="o">--</span><span class="nv">all</span>            <span class="nv">Probe</span> <span class="nv">all</span> <span class="nv">modules</span>，并写入到文件中
+    <span class="o">-</span><span class="nv">A</span>, <span class="o">--</span><span class="nv">quick</span>          找到新模块才更新文件
+    <span class="o">-</span><span class="nv">n</span>, <span class="o">--</span><span class="k">show</span>           不写入 <span class="nv">modules</span>.<span class="nv">dep</span> ,而是将结果输出到屏幕上<span class="ss">(</span><span class="nv">standard</span> <span class="nv">out</span><span class="ss">)</span>
+    <span class="o">-</span><span class="nv">e</span>, <span class="o">--</span><span class="nv">errsyms</span>        显示出目前已加载的不可执行的模块名称
+</pre></div>
+
+
+<p>若我做好一个网卡驱动程序 <em>a.ko</em>，该如何更新核心的依赖：</p>
+<div class="codehilite"><pre><span></span>cp a.ko /lib/modules/<span class="k">$(</span>uname -r<span class="k">)</span>/kernel/drivers/net
+depmod
+</pre></div>
+
+
+<h3 id="42">4.2 内核模块的查看<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<p>列出模块、大小、依赖：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># lsmod </span>
+<span class="c1"># 名字                   大小  此模块是否被其他模块所使用</span>
+Module                  Size  Used by
+nf_conntrack_ftp       <span class="m">18478</span>  <span class="m">0</span> 
+tcp_lp                 <span class="m">12663</span>  <span class="m">0</span> 
+llc                    <span class="m">14552</span>  <span class="m">2</span> stp,bridge
+……
+</pre></div>
+
+
+<p>查看具体的某个模块的信息：</p>
+<div class="codehilite"><pre><span></span><span class="n">modinfo</span><span class="w"> </span><span class="o">[</span><span class="n">options</span><span class="o">]</span><span class="w"> </span><span class="n">filename</span><span class="w"> </span><span class="o">[</span><span class="n">args</span><span class="o">]</span><span class="w"></span>
+<span class="n">filename</span><span class="w"> </span><span class="n">可以是模块名字或模块文件</span><span class="w"></span>
+<span class="nl">Options</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="o">-</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="c1">--author                Print only &#39;author&#39;</span>
+<span class="w">    </span><span class="o">-</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="c1">--description           Print only &#39;description&#39;</span>
+<span class="w">    </span><span class="o">-</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="c1">--license               Print only &#39;license&#39;</span>
+<span class="w">    </span><span class="o">-</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="c1">--parameters            Print only &#39;parm&#39;</span>
+<span class="w">    </span><span class="o">-</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="c1">--filename              Print only &#39;filename&#39;</span>
+<span class="w">    </span><span class="o">-</span><span class="n">F</span><span class="p">,</span><span class="w"> </span><span class="c1">--field=FIELD           Print only provided FIELD</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># modinfo fuse</span>
+filename:       /lib/modules/3.10.0-1062.el7.x86_64/kernel/fs/fuse/fuse.ko.xz
+alias:          devname:fuse
+alias:          char-major-10-229
+alias:          fs-fuseblk
+alias:          fs-fuse
+license:        GPL
+description:    Filesystem in Userspace
+……
+<span class="c1"># 查看自己的模块信息</span>
+<span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># modinfo a.ko</span>
+</pre></div>
+
+
+<h3 id="43">4.3 内核模块的加载与移除<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<p>有两个加载模块的命令：</p>
+<ul>
+<li>modprobe：会主动的去搜寻 modules.dep 的内容，先解决模块的依赖后， 才决定需要加载的模块有哪些，很方便。</li>
+<li>insmod：完全由使用者自行加载一个<strong>完整文件名</strong>的模块， 并不会主动的分析模块的依赖。</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># lsmod | grep fat</span>
+<span class="c1"># 加载</span>
+<span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># insmod /lib/modules/3.10.0-1062.el7.x86_64/kernel/fs/fat/fat.ko.xz</span>
+<span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># lsmod | grep fat</span>
+fat                    <span class="m">65950</span>  <span class="m">0</span>
+<span class="c1"># 移除</span>
+<span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># rmmod /lib/modules/3.10.0-1062.el7.x86_64/kernel/fs/fat/fat.ko.xz</span>
+</pre></div>
+
+
+<p>使用 insmod 与 rmmod 的问题就是，你必须要自行找到模块的完整文件名才行，而且万一模块有依赖性问题，你将无法直接加载或移除该模块。</p>
+<div class="codehilite"><pre><span></span><span class="nv">modprobe</span> [<span class="nv">options</span>] <span class="nv">modulename</span>
+
+<span class="nv">Management</span> <span class="nv">Options</span>:
+    <span class="o">-</span><span class="nv">r</span>, <span class="o">--</span><span class="nv">remove</span>                <span class="nv">Remove</span> <span class="nv">modules</span> <span class="nv">instead</span> <span class="nv">of</span> <span class="nv">inserting</span>
+    <span class="o">-</span><span class="nv">f</span>, <span class="o">--</span><span class="nv">force</span>                 <span class="nv">Force</span> <span class="nv">module</span> <span class="nv">insertion</span> <span class="nv">or</span> <span class="nv">removal</span>.
+<span class="nv">Query</span> <span class="nv">Options</span>:
+    <span class="o">-</span><span class="nv">c</span>, <span class="o">--</span><span class="nv">showconfig</span>            <span class="nv">Print</span> <span class="nv">out</span> <span class="nv">known</span> <span class="nv">configuration</span> <span class="nv">and</span> <span class="k">exit</span>
+<span class="nv">General</span> <span class="nv">Options</span>:
+    <span class="o">-</span><span class="nv">n</span>, <span class="o">--</span><span class="nv">dry</span><span class="o">-</span><span class="nv">run</span>               <span class="k">Do</span> <span class="nv">not</span> <span class="nv">execute</span> <span class="nv">operations</span>, <span class="nv">just</span> <span class="nv">print</span> <span class="nv">out</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># modprobe fat</span>
+<span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># lsmod | grep fat</span>
+fat                    <span class="m">65950</span>  <span class="m">0</span> 
+<span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># modprobe -r fat</span>
+</pre></div>
+
+
+<p>真是比 insmod 方便多了！</p>
+<p>至于模块的选项指定参考上文喽。</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../22 登录文件/" title="22 登录文件" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                22 登录文件
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../24 grub2/" title="24 grub2" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                24 grub2
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.ac79c3b0.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
