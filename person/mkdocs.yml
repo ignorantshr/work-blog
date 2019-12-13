@@ -47,6 +47,8 @@ nav:
         - 鸟哥的linux私房菜/23 开机流程.md
         - 鸟哥的linux私房菜/24 grub2.md
         - 鸟哥的linux私房菜/25 开机过程的问题解决.md
+        - 鸟哥的linux私房菜/26 系统基本设定.md
+        - 鸟哥的linux私房菜/27 硬件数据的收集.md
     - 命令:
         - linux挂载windows共享文件夹: 命令/linux挂载windows共享文件夹.md
         - sed: 命令/sed.md
