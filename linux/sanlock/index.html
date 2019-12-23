@@ -38,7 +38,7 @@
     
     
       
-        <title>epel源 - Person Sink</title>
+        <title>Sanlock - Person Sink</title>
       
     
     
@@ -101,7 +101,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                epel源
+                Sanlock
               
             </span>
           
@@ -243,18 +243,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" title="epel源" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../epel源/" title="epel源" class="md-nav__link">
       epel源
     </a>
-    
   </li>
 
         
@@ -454,11 +447,18 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../sanlock/" title="Sanlock" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+    <a href="./" title="Sanlock" class="md-nav__link md-nav__link--active">
       Sanlock
     </a>
+    
   </li>
 
         
@@ -3431,19 +3431,170 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/shihr/question/edit/master/docs/linux/epel源.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/shihr/question/edit/master/docs/linux/sanlock.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>epel源</h1>
+                  <h1>Sanlock</h1>
                 
-                <div class="codehilite"><pre><span></span>yum install -y epel-release
+                <p>参考资源：</p>
+<ul>
+<li>https://www.ibm.com/developerworks/cn/linux/1404_zhouzs_sanlock/</li>
+<li>https://www.ibm.com/developerworks/cn/linux/l-cn-watchdog/</li>
+<li>https://www.ovirt.org/develop/developer-guide/vdsm/sanlock.html</li>
+</ul>
+<p>安装sanlock</p>
+<div class="codehilite"><pre><span></span>yum install sanlock sanlock-python  <span class="c1"># 安装sanlock 与 python 库</span>
+systemctl start sanlock.service     <span class="c1"># 会自动加载 softdog 模块</span>
 </pre></div>
 
 
-<p>libvirt_storage_backend_rbd.so缺失
-缺失的链接库文件在librbd1包里，解决方法如下：</p>
-<div class="codehilite"><pre><span></span><span class="n">yum</span> <span class="k">update</span> <span class="n">librbd1</span>
-<span class="n">systemctl</span> <span class="k">restart</span> <span class="n">libvirtd</span>
+<p>准备工作</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@linux tmp<span class="o">]</span><span class="c1"># mount.nfs 192.168.216.10:/sanlock_test/ sanlock-test/</span>
+<span class="o">[</span>root@linux tmp<span class="o">]</span><span class="c1"># dd if=/dev/zero of=sanlock-test/ids bs=1048576 count=1</span>
+<span class="o">[</span>root@linux tmp<span class="o">]</span><span class="c1"># dd if=/dev/zero of=sanlock-test/leases bs=1048576 count=1</span>
+<span class="o">[</span>root@linux tmp<span class="o">]</span><span class="c1"># chown sanlock:sanlock sanlock-test/{ids,leases}</span>
+</pre></div>
+
+
+<p>初始化资源</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@linux tmp<span class="o">]</span><span class="c1"># sanlock client init -s LS:0:/tmp/sanlock-test/ids:0</span>
+init
+init <span class="k">done</span> <span class="m">0</span>
+<span class="o">[</span>root@linux tmp<span class="o">]</span><span class="c1"># sanlock client init -r LS:leader:/tmp/sanlock-test/leases:0</span>
+init
+init <span class="k">done</span> <span class="m">0</span>
+</pre></div>
+
+
+<p>运行sanlock</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@linux tmp<span class="o">]</span><span class="c1"># ./sanlock-test/ha.py 1 /tmp/sanlock-test/ids /tmp/sanlock-test/leases &amp;</span>
+Try to acquire host id LS:1:/tmp/sanlock-test/ids:0
+Try to acquire leader lease LS:leader:/tmp/sanlock-test/leases:0
+<span class="m">2019</span> <span class="m">12</span> CST <span class="m">09</span>:08:06 Service is running
+……
+</pre></div>
+
+
+<p>此时断开NFS存储网络，系统将在60s后警告20s，然后尝试kill掉进程，如果60s（前40s执行<code>kill -15</code>，后20s执行<code>kill -9</code>）内kill失败，那么系统将重启。</p>
+<p><code>/var/log/sanlock.log</code>只记载 <code>sanlock</code> 日志，<code>/var/log/messages</code> 会记载 <code>sanlock</code>与<code>wdmd</code>日志。不过两者的日志都记录不全最好在终端查看：<code>tailf /var/log/sanlock.log</code>。</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 重启后查看日志</span>
+<span class="o">[</span>root@linux ~<span class="o">]</span><span class="c1"># vi /var/log/messages</span>
+<span class="c1"># 断开网络后开始报错</span>
+Dec <span class="m">23</span> <span class="m">09</span>:25:31 linux sanlock<span class="o">[</span><span class="m">1816</span><span class="o">]</span>: <span class="m">2019</span>-12-23 <span class="m">09</span>:25:31 <span class="m">2395</span> <span class="o">[</span><span class="m">2234</span><span class="o">]</span>: s2 delta_renew <span class="nb">read</span> timeout <span class="m">10</span> sec offset <span class="m">0</span> /tmp/sanlock-test/ids
+Dec <span class="m">23</span> <span class="m">09</span>:25:31 linux sanlock<span class="o">[</span><span class="m">1816</span><span class="o">]</span>: <span class="m">2019</span>-12-23 <span class="m">09</span>:25:31 <span class="m">2395</span> <span class="o">[</span><span class="m">2234</span><span class="o">]</span>: s2 renewal error -202 delta_length <span class="m">10</span> last_success <span class="m">2365</span>
+Dec <span class="m">23</span> <span class="m">09</span>:25:51 linux sanlock<span class="o">[</span><span class="m">1816</span><span class="o">]</span>: <span class="m">2019</span>-12-23 <span class="m">09</span>:25:51 <span class="m">2416</span> <span class="o">[</span><span class="m">2234</span><span class="o">]</span>: s2 delta_renew <span class="nb">read</span> timeout <span class="m">10</span> sec offset <span class="m">0</span> /tmp/sanlock-test/ids
+Dec <span class="m">23</span> <span class="m">09</span>:25:51 linux sanlock<span class="o">[</span><span class="m">1816</span><span class="o">]</span>: <span class="m">2019</span>-12-23 <span class="m">09</span>:25:51 <span class="m">2416</span> <span class="o">[</span><span class="m">2234</span><span class="o">]</span>: s2 renewal error -202 delta_length <span class="m">20</span> last_success <span class="m">2365</span>
+<span class="c1"># 开始警告</span>
+Dec <span class="m">23</span> <span class="m">09</span>:26:01 linux sanlock<span class="o">[</span><span class="m">1816</span><span class="o">]</span>: <span class="m">2019</span>-12-23 <span class="m">09</span>:26:01 <span class="m">2425</span> <span class="o">[</span><span class="m">1816</span><span class="o">]</span>: s2 check_our_lease warning <span class="m">60</span> last_success <span class="m">2365</span>
+Dec <span class="m">23</span> <span class="m">09</span>:26:02 linux sanlock<span class="o">[</span><span class="m">1816</span><span class="o">]</span>: <span class="m">2019</span>-12-23 <span class="m">09</span>:26:02 <span class="m">2426</span> <span class="o">[</span><span class="m">1816</span><span class="o">]</span>: s2 check_our_lease warning <span class="m">61</span> last_success <span class="m">2365</span>
+……
+Dec <span class="m">23</span> <span class="m">09</span>:26:15 linux wdmd<span class="o">[</span><span class="m">1825</span><span class="o">]</span>: <span class="nb">test</span> warning now <span class="m">2440</span> ping <span class="m">2430</span> close <span class="m">2037</span> renewal <span class="m">2365</span> expire <span class="m">2445</span> client <span class="m">1816</span> sanlock_LS:1
+<span class="c1"># wdmd 的 watchdog 日志</span>
+Dec <span class="m">23</span> <span class="m">09</span>:26:15 linux wdmd<span class="o">[</span><span class="m">1825</span><span class="o">]</span>: /dev/watchdog0 closed unclean
+Dec <span class="m">23</span> <span class="m">09</span>:26:15 linux kernel: watchdog watchdog0: watchdog did not stop!
+……
+Dec <span class="m">23</span> <span class="m">09</span>:26:19 linux wdmd<span class="o">[</span><span class="m">1825</span><span class="o">]</span>: <span class="nb">test</span> warning now <span class="m">2444</span> ping <span class="m">2430</span> close <span class="m">2440</span> renewal <span class="m">2365</span> expire <span class="m">2445</span> client <span class="m">1816</span> sanlock_LS:1
+Dec <span class="m">23</span> <span class="m">09</span>:26:20 linux sanlock<span class="o">[</span><span class="m">1816</span><span class="o">]</span>: <span class="m">2019</span>-12-23 <span class="m">09</span>:26:20 <span class="m">2444</span> <span class="o">[</span><span class="m">1816</span><span class="o">]</span>: s2 check_our_lease warning <span class="m">79</span> last_success <span class="m">2365</span>
+Dec <span class="m">23</span> <span class="m">09</span>:26:20 linux wdmd<span class="o">[</span><span class="m">1825</span><span class="o">]</span>: <span class="nb">test</span> failed rem <span class="m">55</span> now <span class="m">2445</span> ping <span class="m">2430</span> close <span class="m">2440</span> renewal <span class="m">2365</span> expire <span class="m">2445</span> client <span class="m">1816</span> sanlock_LS:1
+<span class="c1"># 80s 结束</span>
+Dec <span class="m">23</span> <span class="m">09</span>:26:21 linux sanlock<span class="o">[</span><span class="m">1816</span><span class="o">]</span>: <span class="m">2019</span>-12-23 <span class="m">09</span>:26:21 <span class="m">2445</span> <span class="o">[</span><span class="m">1816</span><span class="o">]</span>: s2 check_our_lease failed <span class="m">80</span>
+<span class="c1"># kill 掉进程</span>
+Dec <span class="m">23</span> <span class="m">09</span>:26:21 linux sanlock<span class="o">[</span><span class="m">1816</span><span class="o">]</span>: <span class="m">2019</span>-12-23 <span class="m">09</span>:26:21 <span class="m">2445</span> <span class="o">[</span><span class="m">1816</span><span class="o">]</span>: s2 <span class="nb">kill</span> <span class="m">2236</span> sig <span class="m">15</span> count <span class="m">1</span>
+Dec <span class="m">23</span> <span class="m">09</span>:26:21 linux sanlock<span class="o">[</span><span class="m">1816</span><span class="o">]</span>: <span class="m">2019</span>-12-23 <span class="m">09</span>:26:21 <span class="m">2446</span> <span class="o">[</span><span class="m">1816</span><span class="o">]</span>: s2 <span class="nb">kill</span> <span class="m">2236</span> sig <span class="m">15</span> count <span class="m">2</span>
+……
+<span class="c1"># 不能 kill 掉进程的原因</span>
+Dec <span class="m">23</span> <span class="m">09</span>:26:30 linux setroubleshoot: SELinux is preventing /usr/sbin/sanlock from using the signal access on a process. For <span class="nb">complete</span> SELinux messages run: sealert -l 7a8e5ae9-5274-4d09-81b2-a93b37cd716d
+Dec <span class="m">23</span> <span class="m">09</span>:26:30 linux python: SELinux is preventing /usr/sbin/sanlock from using the signal access on a process.#012#012*****  Plugin catchall <span class="o">(</span><span class="m">100</span>. confidence<span class="o">)</span> suggests   **************************#012#012If you believe that sanlock should be allowed signal access on processes labeled unconfined_t by default.#012Then you should report this as a bug.……
+<span class="c1"># 下面是系统启动日志</span>
+Dec <span class="m">23</span> <span class="m">09</span>:27:23 linux journal: Runtime journal is using <span class="m">8</span>.0M <span class="o">(</span>max allowed <span class="m">91</span>.0M, trying to leave <span class="m">136</span>.6M free of <span class="m">902</span>.7M available → current limit <span class="m">91</span>.0M<span class="o">)</span>.
+Dec <span class="m">23</span> <span class="m">09</span>:27:23 linux kernel: Initializing cgroup subsys cpuset
+Dec <span class="m">23</span> <span class="m">09</span>:27:23 linux kernel: Initializing cgroup subsys cpu
+</pre></div>
+
+
+<p>解决selinux的问题之后，再次尝试，发现进程被成功地kill掉了，系统不会重启：</p>
+<div class="codehilite"><pre><span></span><span class="m">2019</span> <span class="m">12</span> CST <span class="m">10</span>:08:09 Service is running
+
+<span class="o">[</span><span class="m">1</span><span class="o">]</span>+  Done                    ./sanlock-test/ha.py <span class="m">1</span> /tmp/sanlock-test/ids /tmp/sanlock-test/leases
+<span class="o">[</span>root@linux tmp<span class="o">]</span><span class="c1"># vi /var/log/messages</span>
+Dec <span class="m">23</span> <span class="m">10</span>:08:07 linux kernel: watchdog watchdog0: watchdog did not stop!
+Dec <span class="m">23</span> <span class="m">10</span>:08:07 linux wdmd<span class="o">[</span><span class="m">1750</span><span class="o">]</span>: <span class="nb">test</span> warning now <span class="m">2444</span> ping <span class="m">2434</span> close <span class="m">0</span> renewal <span class="m">2366</span> expire <span class="m">2446</span> client <span class="m">1737</span> sanlock_LS:1
+Dec <span class="m">23</span> <span class="m">10</span>:08:07 linux wdmd<span class="o">[</span><span class="m">1750</span><span class="o">]</span>: /dev/watchdog0 closed unclean
+Dec <span class="m">23</span> <span class="m">10</span>:08:07 linux sanlock<span class="o">[</span><span class="m">1737</span><span class="o">]</span>: <span class="m">2019</span>-12-23 <span class="m">10</span>:08:07 <span class="m">2444</span> <span class="o">[</span><span class="m">1737</span><span class="o">]</span>: s1 check_our_lease warning <span class="m">78</span> last_success <span class="m">2366</span>
+Dec <span class="m">23</span> <span class="m">10</span>:08:08 linux wdmd<span class="o">[</span><span class="m">1750</span><span class="o">]</span>: <span class="nb">test</span> warning now <span class="m">2445</span> ping <span class="m">2434</span> close <span class="m">2444</span> renewal <span class="m">2366</span> expire <span class="m">2446</span> client <span class="m">1737</span> sanlock_LS:1
+Dec <span class="m">23</span> <span class="m">10</span>:08:08 linux sanlock<span class="o">[</span><span class="m">1737</span><span class="o">]</span>: <span class="m">2019</span>-12-23 <span class="m">10</span>:08:08 <span class="m">2445</span> <span class="o">[</span><span class="m">1737</span><span class="o">]</span>: s1 check_our_lease warning <span class="m">79</span> last_success <span class="m">2366</span>
+Dec <span class="m">23</span> <span class="m">10</span>:08:09 linux wdmd<span class="o">[</span><span class="m">1750</span><span class="o">]</span>: <span class="nb">test</span> failed rem <span class="m">58</span> now <span class="m">2446</span> ping <span class="m">2434</span> close <span class="m">2444</span> renewal <span class="m">2366</span> expire <span class="m">2446</span> client <span class="m">1737</span> sanlock_LS:1
+Dec <span class="m">23</span> <span class="m">10</span>:08:09 linux sanlock<span class="o">[</span><span class="m">1737</span><span class="o">]</span>: <span class="m">2019</span>-12-23 <span class="m">10</span>:08:09 <span class="m">2446</span> <span class="o">[</span><span class="m">1737</span><span class="o">]</span>: s1 check_our_lease failed <span class="m">80</span>
+Dec <span class="m">23</span> <span class="m">10</span>:08:09 linux sanlock<span class="o">[</span><span class="m">1737</span><span class="o">]</span>: <span class="m">2019</span>-12-23 <span class="m">10</span>:08:09 <span class="m">2446</span> <span class="o">[</span><span class="m">1737</span><span class="o">]</span>: s1 <span class="nb">kill</span> <span class="m">1831</span> sig <span class="m">15</span> count <span class="m">1</span>
+Dec <span class="m">23</span> <span class="m">10</span>:08:09 linux sanlock<span class="o">[</span><span class="m">1737</span><span class="o">]</span>: <span class="m">2019</span>-12-23 <span class="m">10</span>:08:09 <span class="m">2446</span> <span class="o">[</span><span class="m">1737</span><span class="o">]</span>: dead <span class="m">1831</span> ci <span class="m">2</span> count <span class="m">1</span>
+Dec <span class="m">23</span> <span class="m">10</span>:08:10 linux wdmd<span class="o">[</span><span class="m">1750</span><span class="o">]</span>: /dev/watchdog0 reopen
+<span class="c1"># 这里指示进程已经被 kill 了</span>
+Dec <span class="m">23</span> <span class="m">10</span>:08:10 linux sanlock<span class="o">[</span><span class="m">1737</span><span class="o">]</span>: <span class="m">2019</span>-12-23 <span class="m">10</span>:08:10 <span class="m">2447</span> <span class="o">[</span><span class="m">1737</span><span class="o">]</span>: s1 all pids clear
+</pre></div>
+
+
+<p>python文件<code>ha.py</code></p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1"># coding=utf-8</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span>
+<span class="kn">import</span> <span class="nn">sanlock</span>
+
+
+<span class="c1"># simpleHA 主程序，加入 sanlock 集群并尝试获取 Paxos Lease</span>
+<span class="k">def</span> <span class="nf">serviceMain</span><span class="p">(</span><span class="n">hostId</span><span class="p">,</span> <span class="n">lockspacePath</span><span class="p">,</span> <span class="n">leasePath</span><span class="p">):</span>
+    <span class="n">sfd</span> <span class="o">=</span> <span class="n">sanlock</span><span class="o">.</span><span class="n">register</span><span class="p">()</span>  <span class="c1"># 把本进程注册到 sanlock 服务上</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># 若尚未加入 sanlock 集群，则尝试获取对 hostId 的 Delta Lease</span>
+            <span class="c1"># 并尝试加入 sanlock 集群</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">sanlock</span><span class="o">.</span><span class="n">inq_lockspace</span><span class="p">(</span><span class="s2">&quot;LS&quot;</span><span class="p">,</span> <span class="n">hostId</span><span class="p">,</span> <span class="n">lockspacePath</span><span class="p">):</span>
+                <span class="k">print</span> <span class="s2">&quot;Try to acquire host id LS:</span><span class="si">%s</span><span class="s2">:</span><span class="si">%s</span><span class="s2">:0&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">hostId</span><span class="p">,</span>
+                                                             <span class="n">lockspacePath</span><span class="p">)</span>
+                <span class="n">sanlock</span><span class="o">.</span><span class="n">add_lockspace</span><span class="p">(</span><span class="s2">&quot;LS&quot;</span><span class="p">,</span> <span class="n">hostId</span><span class="p">,</span> <span class="n">lockspacePath</span><span class="p">)</span>
+
+            <span class="c1"># 尝试获取 Delta Lease</span>
+            <span class="k">print</span> <span class="s2">&quot;Try to acquire leader lease LS:leader:</span><span class="si">%s</span><span class="s2">:0&quot;</span> <span class="o">%</span> <span class="n">leasePath</span>
+            <span class="n">sanlock</span><span class="o">.</span><span class="n">acquire</span><span class="p">(</span><span class="s2">&quot;LS&quot;</span><span class="p">,</span> <span class="s2">&quot;leader&quot;</span><span class="p">,</span> <span class="p">[(</span><span class="n">leasePath</span><span class="p">,</span> <span class="mi">0</span><span class="p">)],</span> <span class="n">sfd</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">sanlock</span><span class="o">.</span><span class="n">SanlockException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">print</span> <span class="n">e</span>
+            <span class="c1"># 无法加入集群，或无法获取 Delta Lease</span>
+            <span class="c1"># 10 秒后重试</span>
+            <span class="k">print</span> <span class="s2">&quot;Failed to acquire leases, try again in 10s.&quot;</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">break</span>  <span class="c1"># 成功获取 Paxos Lease，不再重试</span>
+
+    <span class="c1"># 成功加入了 sanlock 集群并获取了 Paxos Lease</span>
+    <span class="c1"># 执行实际的应用服务</span>
+    <span class="n">serve</span><span class="p">()</span>
+
+
+<span class="c1"># 让它一直运行</span>
+<span class="k">def</span> <span class="nf">serve</span><span class="p">():</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y %m %Z %H:%M:%S&quot;</span><span class="p">),</span> <span class="s2">&quot;Service is running&quot;</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+    <span class="k">print</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y %m %Z %H:%M:%S&quot;</span><span class="p">),</span> <span class="s2">&quot;Service crashed&quot;</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">hostId</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">lockspacePath</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">leasePath</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="s2">&quot;Usage: </span><span class="si">%s</span><span class="s2"> host_id lockspace_path lease_path</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">serviceMain</span><span class="p">,</span>
+                <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">hostId</span><span class="p">,</span> <span class="n">lockspacePath</span><span class="p">,</span> <span class="n">leasePath</span><span class="p">))</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
 </pre></div>
                 
                   
@@ -3465,7 +3616,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../.." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../Windows、Mac与Unix的换行符与编码转换/" title="Windows、Mac与Unix的换行符与编码转换" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -3474,19 +3625,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Home
+                Windows、Mac与Unix的换行符与编码转换
               </span>
             </div>
           </a>
         
         
-          <a href="../主机不能连接mariadb/" title="主机不能连接mariadb" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../鸟哥的linux私房菜/00 linux帮助文档/" title="00 linux帮助文档" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                主机不能连接mariadb
+                00 linux帮助文档
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
