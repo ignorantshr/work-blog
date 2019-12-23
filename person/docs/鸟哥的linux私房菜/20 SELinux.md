@@ -27,9 +27,9 @@ Linux系统中有两种自主访问控制策略，一种是9位权限码（User-
 
   由于进程与文件数量庞大，会预设一些策略，这些策略内还会有详细的规则 (rule) 来指定不同的服务开放某些资源的存取与否。CentOS 7.x 里面仅有提供三个主要的策略：
 
-  - targeted：针对网络服务限制较多，针对本机限制较少，是预设的策略；
-  - minimum：由 target 修订而来，仅针对选择的进程来保护；
-  - mls：完整的 SELinux 限制，限制方面较为严格。
+	- targeted：针对网络服务限制较多，针对本机限制较少，是预设的策略；
+	- minimum：由 target 修订而来，仅针对选择的进程来保护；
+	- mls：完整的 SELinux 限制，限制方面较为严格。
 
 - 安全性本文 (security context)
 
@@ -65,11 +65,11 @@ unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 18923 pts/5 00:00:00 ps
 内容格式为*SELinux user:role:type:level*，主要分为三个字段：
 
 - SELinux user (Identify)：相当于账号方面的身份识别。类型：
-  - unconfined_u：不受限的用户，也就是说，该文件来自于**不受限的进程**所产生的。一般情况下，预设的bash是不受SELinux管控的。
-  - system_u：系统用户，大部分就是系统自己产生的文件。
+	- unconfined_u：不受限的用户，也就是说，该文件来自于**不受限的进程**所产生的。一般情况下，预设的bash是不受SELinux管控的。
+	- system_u：系统用户，大部分就是系统自己产生的文件。
 - 角色 (Role)：说明资料是属于进程、文件资源还是代表使用者。类型：
-  - object_r：代表的是文件或目录等文件资源。
-  - system_r：代表的就是进程啦；不过，一般使用者也会被指定成为 system_r。
+	- object_r：代表的是文件或目录等文件资源。
+	- system_r：代表的就是进程啦；不过，一般使用者也会被指定成为 system_r。
 - 类型 (Type)：定义进程的域（domain）和文件的类型（type）。SELinux 策略规则定义Type如何相互访问，无论是访问type的domain，还是访问另一个domain的domain。**在 targeted 策略下，只有该字段会影响存取。**
 
 ```bash

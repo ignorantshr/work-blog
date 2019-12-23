@@ -21,6 +21,7 @@ nav:
         - linux/Linux文件系统层次结构标准FHS.md
         - linux/centos重启卡死.md
         - linux/Windows、Mac与Unix的换行符与编码转换.md
+        - linux/sanlock.md
     - 鸟哥的linux私房菜:
         - 鸟哥的linux私房菜/00 linux帮助文档.md
         - 鸟哥的linux私房菜/01 正确的关机方法.md
