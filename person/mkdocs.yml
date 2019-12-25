@@ -51,6 +51,8 @@ nav:
         - 鸟哥的linux私房菜/26 系统基本设定.md
         - 鸟哥的linux私房菜/27 硬件数据的收集.md
         - 鸟哥的linux私房菜/28 备份.md
+        - 鸟哥的linux私房菜/29 Tarball 的管理与建议.md
+        - 鸟哥的linux私房菜/30 库文件的管理与文件正确性检查.md
     - 命令:
         - linux挂载windows共享文件夹: 命令/linux挂载windows共享文件夹.md
         - sed: 命令/sed.md
