@@ -2,7 +2,7 @@
 
 1. 取得原始档：将 tarball 文件在 /usr/local/src 目录下解压缩；
 2. 取得步骤流程：进入新建立的目录底下，去查阅 INSTALL 与 README 等相关文件内容 (很重要的步骤！ )；
-3. 相依属性软件安装：根据 INSTALL/README 的内容察看并安装好一些依赖的软件 (非必要)；
+3.  依赖软件安装：根据 INSTALL/README 的内容察看并安装好一些依赖的软件 (非必要)；
 4. 建立 makefile：以自动检测程序 (configure 或 config) 检测作业环境，并建立 Makefile 文件；
 5. 编译：以 make 这个程序并使用该目录下的 Makefile 做为他的参数配置文件，来进行 make (编译或其他)的动作；
 6. 安装：以 make 这个程序，并以 Makefile 这个参数配置文件，依据 install 这个目标 (target) 的指定来安装到正确的路径！
@@ -14,11 +14,11 @@
 
 2. 安装时，最好安装到 `/usr/local` 这个默认路径下；
 
-3. 考虑未来的反安装步骤，最好可以将每个软件单独的安装在 `/usr/local/<software>` 底下。例如`/usr/local/wine/`，通过定义安装路径来实现：`./configure --prefix=/usr/local/ntp`；
+3. 考虑未来的卸载步骤，最好可以将每个软件单独的安装在 `/usr/local/<software>` 底下。例如`/usr/local/wine/`，通过定义安装路径来实现：`./configure --prefix=/usr/local/ntp`；
 
 4. 为安装到单独目录的软件之 man page 加入 man path 搜寻：
-  如果你安装的软件放置到 `/usr/local/<software>/` ，那么 man page 搜寻的设定中，可能就得要在 `/etc/man_db.conf` 内的 40~50 行左右处，写入如下的一行：
-  `MANPATH_MAP /usr/local/software/bin /usr/local/software/man`
+    如果你安装的软件放置到 `/usr/local/<software>/` ，那么 man page 搜寻的设定中，可能就得要在 `/etc/man_db.conf` 内的 40~50 行左右处，写入如下的一行：
+    `MANPATH_MAP /usr/local/software/bin /usr/local/software/man`
 
   这样才可以使用 man 来查询该软件的在线文件！
 
