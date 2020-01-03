@@ -12,7 +12,7 @@
       
       
       
-        <meta name="author" content="shihr">
+        <meta name="author" content="ignorantshr">
       
       
         <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -147,7 +147,7 @@
 
   
 
-<a href="https://github.com/shihr/question/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/ignorantshr/question/" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -194,7 +194,7 @@
 
   
 
-<a href="https://github.com/shihr/question/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/ignorantshr/question/" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -884,6 +884,30 @@
   <li class="md-nav__item">
     <a href="../../鸟哥的linux私房菜/30 库文件的管理与文件正确性检查/" title="30 库文件的管理与文件正确性检查" class="md-nav__link">
       30 库文件的管理与文件正确性检查
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../鸟哥的linux私房菜/31 RPM 与 YUM/" title="31 RPM 与 YUM" class="md-nav__link">
+      31 RPM 与 YUM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../鸟哥的linux私房菜/32 内核编译/" title="32 内核编译" class="md-nav__link">
+      32 内核编译
     </a>
   </li>
 
@@ -3535,7 +3559,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/shihr/question/edit/master/docs/linux/磁盘容量扩充.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/ignorantshr/question/edit/master/docs/linux/磁盘容量扩充.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                 <div class="toc">
@@ -3660,6 +3684,7 @@ lvextend –L +15G /dev/mapper/cl-root
 </pre></div>
 
 
+<p>如果出现了<code>couldn't create temporary archive name.</code>的错误，那么是磁盘空间被填满了，此时删除一些文件即可。</p>
 <h3 id="333-xfs">3.3.3 在线调整xfs格式文件系统大小<a class="headerlink" href="#333-xfs" title="Permanent link">&para;</a></h3>
 <p>此时通过<code>df -h</code>还不能看到扩充的容量，执行下面的命令即可：</p>
 <div class="codehilite"><pre><span></span>xfs_growfs /dev/mapper/cl-root

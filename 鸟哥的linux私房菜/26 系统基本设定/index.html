@@ -12,7 +12,7 @@
       
       
       
-        <meta name="author" content="shihr">
+        <meta name="author" content="ignorantshr">
       
       
         <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -147,7 +147,7 @@
 
   
 
-<a href="https://github.com/shihr/question/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/ignorantshr/question/" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -194,7 +194,7 @@
 
   
 
-<a href="https://github.com/shihr/question/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/ignorantshr/question/" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -934,6 +934,30 @@
   <li class="md-nav__item">
     <a href="../30 库文件的管理与文件正确性检查/" title="30 库文件的管理与文件正确性检查" class="md-nav__link">
       30 库文件的管理与文件正确性检查
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../31 RPM 与 YUM/" title="31 RPM 与 YUM" class="md-nav__link">
+      31 RPM 与 YUM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../32 内核编译/" title="32 内核编译" class="md-nav__link">
+      32 内核编译
     </a>
   </li>
 
@@ -3637,12 +3661,12 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/shihr/question/edit/master/docs/鸟哥的linux私房菜/26 系统基本设定.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/ignorantshr/question/edit/master/docs/鸟哥的linux私房菜/26 系统基本设定.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                   <h1>26 系统基本设定</h1>
                 
-                <p>CentOS 6.x 以前有个名为 setup 的软件将许多的设定做成类图形界面，因为 CentOS 7 已经将很多加入了 <em>bash-complete</em> 的功能。</p>
+                <p>CentOS 6.x 以前有个名为 setup 的软件将许多的设定做成类图形界面， CentOS 7 已经为很多命令加入了 <em>bash-complete</em> 的功能。</p>
 <h2 id="1">1. 网络设置<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p><a href="http://linux.vbird.org/linux_server/0110network_basic.php">鸟哥的网络基础介绍</a></p>
 <div class="codehilite"><pre><span></span><span class="n">nmcli</span> <span class="p">[</span><span class="n">OPTIONS</span><span class="p">]</span> <span class="n">OBJECT</span> <span class="p">{</span> <span class="n">COMMAND</span> <span class="o">|</span> <span class="n">help</span> <span class="p">}</span>
@@ -3698,8 +3722,9 @@ IP4.GATEWAY:                            --
 <p>如上表的输出，最底下的大写的 IP4， IP6 指的是目前的实际使用的网络参数，最上面的 connection 开头的部份则指的是联机的状态。比较重要的参数：</p>
 <ul>
 <li>connection.autoconnect [yes|no] ：是否于开机时启动这个联机，预设通常是 yes 才对!</li>
-<li>ipv4.method [auto|manual] ：自动还是手动设定网络参数的意思 ipv4.dns [dns_server_ip] :就是填写 DNS 的 IP 地址~</li>
-<li>ipv4.addresses [IP/Netmask] ：就是 IP 与 netmask 的集合，中间用斜线 / 来隔开~</li>
+<li>ipv4.method [auto|manual] ：自动还是手动设定网络参数的意思</li>
+<li>ipv4.dns [dns_server_ip] :就是填写 DNS 的 IP 地址~</li>
+<li>ipv4.addresses [IP/Netmask] ：就是 IP 与 netmask 的集合，中间用斜线 <code>/</code> 来隔开~</li>
 <li>ipv4.gateway [gw_ip] ：就是 gateway 的 IP 地址!</li>
 </ul>
 <h3 id="12">1.2 手动设置网络参数<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
@@ -3708,7 +3733,7 @@ IP4.GATEWAY:                            --
 <span class="c1"># 启动</span>
 <span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># nmcli connection up ens33 </span>
 Connection successfully activated <span class="o">(</span>D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/4<span class="o">)</span>
-<span class="c1"># 设置完成之后有一哥联机代号消失了。。。</span>
+<span class="c1"># 设置完成之后有一个联机代号消失了。。。</span>
 <span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># nmcli connection show</span>
 NAME    UUID                                  TYPE      DEVICE 
 ens37   4a5516a4-dfa4-24af-b1c4-e843e312e2fd  ethernet  ens37  
@@ -3806,7 +3831,7 @@ NTP synchronized: yes
 </pre></div>
 
 
-<p>后续可以使用 crontab 来更新系统时间。</p>
+<p>后续可以利用 crontab 来更新系统时间。</p>
 <h2 id="4">4. 语言环境设置<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
 <p><em>系统</em>的语言环境与<em>当前终端</em>的语言环境不一定是一致的。</p>
 <div class="codehilite"><pre><span></span><span class="nv">localectl</span> [<span class="nv">OPTIONS</span>...] <span class="nv">COMMAND</span> ...

@@ -12,7 +12,7 @@
       
       
       
-        <meta name="author" content="shihr">
+        <meta name="author" content="ignorantshr">
       
       
         <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -147,7 +147,7 @@
 
   
 
-<a href="https://github.com/shihr/question/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/ignorantshr/question/" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -194,7 +194,7 @@
 
   
 
-<a href="https://github.com/shihr/question/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/ignorantshr/question/" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -837,6 +837,30 @@
   <li class="md-nav__item">
     <a href="../../鸟哥的linux私房菜/30 库文件的管理与文件正确性检查/" title="30 库文件的管理与文件正确性检查" class="md-nav__link">
       30 库文件的管理与文件正确性检查
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../鸟哥的linux私房菜/31 RPM 与 YUM/" title="31 RPM 与 YUM" class="md-nav__link">
+      31 RPM 与 YUM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../鸟哥的linux私房菜/32 内核编译/" title="32 内核编译" class="md-nav__link">
+      32 内核编译
     </a>
   </li>
 
@@ -3813,7 +3837,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/shihr/question/edit/master/docs/rpm/02 打包软件.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/ignorantshr/question/edit/master/docs/rpm/02 打包软件.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                   <h1>02 打包软件</h1>
@@ -3915,11 +3939,11 @@ $ tree ~/rpmbuild/
 </tr>
 <tr>
 <td><code>Source0</code></td>
-<td>远端源代码的压缩存档的路径或 URL(未修补,修补程序在其他地方处理)。这应该指向存档的可访问和可靠的存储，例如上游页面，而不是打包程序的本地存储。Path or URL to the compressed archive of the upstream source code (unpatched, patches are handled elsewhere). This should point to an accessible and reliable storage of the archive, for example, the upstream page and not the packager’s local storage. If needed, more SourceX directives can be added, incrementing the number each time, for example: Source1, Source2, Source3, and so on.</td>
+<td>远端源代码的压缩存档的路径或 URL(未修补,修补程序在其他地方处理)。这应该指向存档的可访问和可靠的存储，例如上游页面，而不是打包的程序的本地存储。Path or URL to the compressed archive of the upstream source code (unpatched, patches are handled elsewhere). This should point to an accessible and reliable storage of the archive, for example, the upstream page and not the packager’s local storage. If needed, more SourceX directives can be added, incrementing the number each time, for example: Source1, Source2, Source3, and so on.</td>
 </tr>
 <tr>
 <td><code>Patch0</code></td>
-<td>应用到源码的第一个补丁。 If needed, more PatchX directives can be added, incrementing the number each time, for example: Patch1, Patch2, Patch3, and so on.</td>
+<td>应用到源码的第一个补丁。 If needed, more PatchX directives can be added, incrementing the number each time, for example: Patch1, Patch2, Patch3, and so on. 使用方法举例：<code>%patch0 -p1</code></td>
 </tr>
 <tr>
 <td><code>BuildArch</code></td>
@@ -3954,7 +3978,7 @@ $ tree ~/rpmbuild/
 </tr>
 <tr>
 <td><code>%prep</code></td>
-<td>用于准备要构建的软件的命令或一系列命令，例如，在Source0中解压缩归档文件。该指令可以包含shell脚本。</td>
+<td>用于准备要构建的软件的命令或一系列命令，例如，在Source0中解压缩归档文件。该指令可以包含shell脚本。主要动作（参考《鸟哥的linux私房菜》）：<br/>1. 进行软件的补丁 (patch) 等相关工作；<br/>2. 寻找软件所需要的目录是否已经存在？<br/>3. 事先建立你的软件所需要的目录，或者事先需要进行的任务；<br/>4. 如果待安装的 Linux 系统内已经有安装的时候可能会被覆盖掉的文件时，那么就必需要进行备份(backup)的工作。</td>
 </tr>
 <tr>
 <td><code>%build</code></td>

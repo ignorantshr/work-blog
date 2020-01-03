@@ -12,7 +12,7 @@
       
       
       
-        <meta name="author" content="shihr">
+        <meta name="author" content="ignorantshr">
       
       
         <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -147,7 +147,7 @@
 
   
 
-<a href="https://github.com/shihr/question/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/ignorantshr/question/" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -194,7 +194,7 @@
 
   
 
-<a href="https://github.com/shihr/question/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/ignorantshr/question/" title="Go to repository" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -907,6 +907,30 @@
   <li class="md-nav__item">
     <a href="../30 库文件的管理与文件正确性检查/" title="30 库文件的管理与文件正确性检查" class="md-nav__link">
       30 库文件的管理与文件正确性检查
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../31 RPM 与 YUM/" title="31 RPM 与 YUM" class="md-nav__link">
+      31 RPM 与 YUM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../32 内核编译/" title="32 内核编译" class="md-nav__link">
+      32 内核编译
     </a>
   </li>
 
@@ -3583,7 +3607,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/shihr/question/edit/master/docs/鸟哥的linux私房菜/29 Tarball 的管理与建议.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/ignorantshr/question/edit/master/docs/鸟哥的linux私房菜/29 Tarball 的管理与建议.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                   <h1>29 Tarball 的管理与建议</h1>
@@ -3592,7 +3616,7 @@
 <ol>
 <li>取得原始档：将 tarball 文件在 /usr/local/src 目录下解压缩；</li>
 <li>取得步骤流程：进入新建立的目录底下，去查阅 INSTALL 与 README 等相关文件内容 (很重要的步骤！ )；</li>
-<li>相依属性软件安装：根据 INSTALL/README 的内容察看并安装好一些依赖的软件 (非必要)；</li>
+<li>依赖软件安装：根据 INSTALL/README 的内容察看并安装好一些依赖的软件 (非必要)；</li>
 <li>建立 makefile：以自动检测程序 (configure 或 config) 检测作业环境，并建立 Makefile 文件；</li>
 <li>编译：以 make 这个程序并使用该目录下的 Makefile 做为他的参数配置文件，来进行 make (编译或其他)的动作；</li>
 <li>安装：以 make 这个程序，并以 Makefile 这个参数配置文件，依据 install 这个目标 (target) 的指定来安装到正确的路径！</li>
@@ -3605,12 +3629,12 @@
 <p>安装时，最好安装到 <code>/usr/local</code> 这个默认路径下；</p>
 </li>
 <li>
-<p>考虑未来的反安装步骤，最好可以将每个软件单独的安装在 <code>/usr/local/&lt;software&gt;</code> 底下。例如<code>/usr/local/wine/</code>，通过定义安装路径来实现：<code>./configure --prefix=/usr/local/ntp</code>；</p>
+<p>考虑未来的卸载步骤，最好可以将每个软件单独的安装在 <code>/usr/local/&lt;software&gt;</code> 底下。例如<code>/usr/local/wine/</code>，通过定义安装路径来实现：<code>./configure --prefix=/usr/local/ntp</code>；</p>
 </li>
 <li>
 <p>为安装到单独目录的软件之 man page 加入 man path 搜寻：
-  如果你安装的软件放置到 <code>/usr/local/&lt;software&gt;/</code> ，那么 man page 搜寻的设定中，可能就得要在 <code>/etc/man_db.conf</code> 内的 40~50 行左右处，写入如下的一行：
-  <code>MANPATH_MAP /usr/local/software/bin /usr/local/software/man</code></p>
+    如果你安装的软件放置到 <code>/usr/local/&lt;software&gt;/</code> ，那么 man page 搜寻的设定中，可能就得要在 <code>/etc/man_db.conf</code> 内的 40~50 行左右处，写入如下的一行：
+    <code>MANPATH_MAP /usr/local/software/bin /usr/local/software/man</code></p>
 </li>
 </ol>
 <p>这样才可以使用 man 来查询该软件的在线文件！</p>
