@@ -252,7 +252,7 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 
 ## 新建 initramfs 文件
 
-一般来说,需要 initramfs 的时刻为:
+一般来说，需要 initramfs 的时刻为:
 
 - 根目录所在磁盘为 SATA、USB 或 SCSI 等连接接口；
 - 根目录所在文件系统为 LVM, RAID 等特殊格式；
