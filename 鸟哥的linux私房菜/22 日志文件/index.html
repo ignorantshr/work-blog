@@ -1,0 +1,4477 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="ignorantshr">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>22 日志文件 - Person Sink</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#1-centos-7" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Person Sink" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Person Sink
+            </span>
+            <span class="md-header-nav__topic">
+              
+                22 日志文件
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/ignorantshr/question/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Person Sink" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Person Sink
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/ignorantshr/question/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Linux
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Linux
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/epel源/" title="epel源" class="md-nav__link">
+      epel源
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/主机不能连接mariadb/" title="主机不能连接mariadb" class="md-nav__link">
+      主机不能连接mariadb
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/修改centos7语言/" title="修改centos7语言" class="md-nav__link">
+      修改centos7语言
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/修改mariadb编码类型/" title="修改mariadb编码类型" class="md-nav__link">
+      修改mariadb编码类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/关闭selinux/" title="关闭selinux" class="md-nav__link">
+      关闭selinux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/开启图形界面/" title="开启图形界面" class="md-nav__link">
+      开启图形界面
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/文本安装时磁盘可选/" title="文本安装时磁盘可选" class="md-nav__link">
+      文本安装时磁盘可选
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/改变系统时区/" title="改变系统时区" class="md-nav__link">
+      改变系统时区
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/磁盘容量扩充/" title="磁盘容量扩充" class="md-nav__link">
+      磁盘容量扩充
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/网卡不存在/" title="网卡不存在" class="md-nav__link">
+      网卡不存在
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/删除网桥/" title="删除网桥" class="md-nav__link">
+      删除网桥
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/Linux逻辑卷划分示意图/" title="Linux逻辑卷划分示意图" class="md-nav__link">
+      Linux逻辑卷划分示意图
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/软链接与硬链接/" title="软链接与硬链接" class="md-nav__link">
+      软链接与硬链接
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/Linux下查看文件类型/" title="Linux下查看文件类型" class="md-nav__link">
+      Linux下查看文件类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/Linux文件系统层次结构标准FHS/" title="Linux文件系统层次结构标准FHS" class="md-nav__link">
+      Linux文件系统层次结构标准FHS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/centos重启卡死/" title="Centos重启卡死" class="md-nav__link">
+      Centos重启卡死
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/Windows、Mac与Unix的换行符与编码转换/" title="Windows、Mac与Unix的换行符与编码转换" class="md-nav__link">
+      Windows、Mac与Unix的换行符与编码转换
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/sanlock/" title="Sanlock" class="md-nav__link">
+      Sanlock
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux/查看端口占用情况/" title="查看端口占用情况" class="md-nav__link">
+      查看端口占用情况
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      鸟哥的linux私房菜
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        鸟哥的linux私房菜
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../00 linux帮助文档/" title="00 linux帮助文档" class="md-nav__link">
+      00 linux帮助文档
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../01 正确的关机方法/" title="01 正确的关机方法" class="md-nav__link">
+      01 正确的关机方法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../03 文件类型与目录权限/" title="03 文件类型与目录权限" class="md-nav__link">
+      03 文件类型与目录权限
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../04 文件内容查阅与文件属性/" title="04 文件内容查阅与文件属性" class="md-nav__link">
+      04 文件内容查阅与文件属性
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../05 文件系统/" title="05 文件系统" class="md-nav__link">
+      05 文件系统
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../06 磁盘/" title="06 磁盘" class="md-nav__link">
+      06 磁盘
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../07 打包、压缩与备份/" title="07 打包、压缩与备份" class="md-nav__link">
+      07 打包、压缩与备份
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../08 bash/" title="08 bash" class="md-nav__link">
+      08 bash
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../09 shell脚本/" title="09 shell脚本" class="md-nav__link">
+      09 shell脚本
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../10 linux账号与群组/" title="10 linux账号与群组" class="md-nav__link">
+      10 linux账号与群组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../11 ACL/" title="11 ACL" class="md-nav__link">
+      11 ACL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../12 身份切换/" title="12 身份切换" class="md-nav__link">
+      12 身份切换
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../13 批量创建账号/" title="13 批量创建账号" class="md-nav__link">
+      13 批量创建账号
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../14 quota/" title="14 quota" class="md-nav__link">
+      14 quota
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../15 磁盘阵列/" title="15 磁盘阵列" class="md-nav__link">
+      15 磁盘阵列
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../16 LVM/" title="16 LVM" class="md-nav__link">
+      16 LVM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../17 crontab/" title="17 crontab" class="md-nav__link">
+      17 crontab
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../18 进程/" title="18 进程" class="md-nav__link">
+      18 进程
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../19 查看系统资源/" title="19 查看系统资源" class="md-nav__link">
+      19 查看系统资源
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../20 SELinux/" title="20 SELinux" class="md-nav__link">
+      20 SELinux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../21 系统服务/" title="21 系统服务" class="md-nav__link">
+      21 系统服务
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        22 日志文件
+      </label>
+    
+    <a href="./" title="22 日志文件" class="md-nav__link md-nav__link--active">
+      22 日志文件
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-centos-7" title="1. CentOS 7 日志文件" class="md-nav__link">
+    1. CentOS 7 日志文件
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" title="1.1 常见的日志文件" class="md-nav__link">
+    1.1 常见的日志文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-daemon" title="1.2 日志文件所需相关服务 (daemon) 与程序" class="md-nav__link">
+    1.2 日志文件所需相关服务 (daemon) 与程序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-rsyslogservice" title="2. rsyslog.service 的配置文件" class="md-nav__link">
+    2. rsyslog.service 的配置文件
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" title="2.1 服务名称" class="md-nav__link">
+    2.1 服务名称
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" title="2.2 信息等级" class="md-nav__link">
+    2.2 信息等级
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" title="2.3 信息记录的文件名或装置或主机" class="md-nav__link">
+    2.3 信息记录的文件名或装置或主机
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" title="2.4 防止日志文件被不小心修改" class="md-nav__link">
+    2.4 防止日志文件被不小心修改
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" title="2.5 设置登录服务器" class="md-nav__link">
+    2.5 设置登录服务器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-logrotate" title="3. 日志分割（logrotate）" class="md-nav__link">
+    3. 日志分割（logrotate）
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-logrotate" title="3.1 logrotate 的配置文件" class="md-nav__link">
+    3.1 logrotate 的配置文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" title="3.2 手动执行日志分割" class="md-nav__link">
+    3.2 手动执行日志分割
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-systemd-journaldservice" title="4. systemd-journald.service" class="md-nav__link">
+    4. systemd-journald.service
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-journalctl" title="4.1 使用 journalctl 观察登录信息" class="md-nav__link">
+    4.1 使用 journalctl 观察登录信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-logger" title="4.2 使用 logger 记录到日志文件" class="md-nav__link">
+    4.2 使用 logger 记录到日志文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-journal" title="4.3 保存 journal 的方式" class="md-nav__link">
+    4.3 保存 journal 的方式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" title="5. 分析日志文件" class="md-nav__link">
+    5. 分析日志文件
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-centos-logwatch" title="5.1 CentOS 预设提供的 logwatch" class="md-nav__link">
+    5.1 CentOS 预设提供的 logwatch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" title="5.2 鸟哥的日志文件分析工具" class="md-nav__link">
+    5.2 鸟哥的日志文件分析工具
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../23 开机流程/" title="23 开机流程" class="md-nav__link">
+      23 开机流程
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../24 grub2/" title="24 grub2" class="md-nav__link">
+      24 grub2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../25 开机过程的问题解决/" title="25 开机过程的问题解决" class="md-nav__link">
+      25 开机过程的问题解决
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../26 系统基本设定/" title="26 系统基本设定" class="md-nav__link">
+      26 系统基本设定
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../27 硬件数据的收集/" title="27 硬件数据的收集" class="md-nav__link">
+      27 硬件数据的收集
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../28 备份/" title="28 备份" class="md-nav__link">
+      28 备份
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../29 Tarball 的管理与建议/" title="29 Tarball 的管理与建议" class="md-nav__link">
+      29 Tarball 的管理与建议
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../30 库文件的管理与文件正确性检查/" title="30 库文件的管理与文件正确性检查" class="md-nav__link">
+      30 库文件的管理与文件正确性检查
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../31 RPM 与 YUM/" title="31 RPM 与 YUM" class="md-nav__link">
+      31 RPM 与 YUM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../32 内核编译/" title="32 内核编译" class="md-nav__link">
+      32 内核编译
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      命令
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        命令
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/linux挂载windows共享文件夹/" title="linux挂载windows共享文件夹" class="md-nav__link">
+      linux挂载windows共享文件夹
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/sed/" title="sed" class="md-nav__link">
+      sed
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/awk/" title="Awk" class="md-nav__link">
+      Awk
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/ssh免密登录/" title="ssh免密登录" class="md-nav__link">
+      ssh免密登录
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/创建文件自动添加执行权限/" title="创建文件自动添加执行权限" class="md-nav__link">
+      创建文件自动添加执行权限
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/tar命令打包去掉路径前缀/" title="tar命令打包去掉路径前缀" class="md-nav__link">
+      tar命令打包去掉路径前缀
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/wget用法/" title="wget用法" class="md-nav__link">
+      wget用法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/显示文件夹大小/" title="显示文件夹大小" class="md-nav__link">
+      显示文件夹大小
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/更新、禁用yum仓库、只下载rpm/" title="更新、禁用yum仓库、只下载rpm" class="md-nav__link">
+      更新、禁用yum仓库、只下载rpm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/添加公钥/" title="添加公钥" class="md-nav__link">
+      添加公钥
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/locate初始化/" title="Locate初始化" class="md-nav__link">
+      Locate初始化
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/rsync/" title="Rsync" class="md-nav__link">
+      Rsync
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/echo的颜色输出与光标定位/" title="Echo的颜色输出与光标定位" class="md-nav__link">
+      Echo的颜色输出与光标定位
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/xargs与管道/" title="Xargs与管道" class="md-nav__link">
+      Xargs与管道
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/trap/" title="Trap" class="md-nav__link">
+      Trap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/字符转换命令/" title="字符转换命令" class="md-nav__link">
+      字符转换命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/split/" title="Split" class="md-nav__link">
+      Split
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/文件对比/" title="文件对比" class="md-nav__link">
+      文件对比
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../命令/gpg/" title="Gpg" class="md-nav__link">
+      Gpg
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Shell
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Shell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../shell/shell脚本自动输入/" title="Shell脚本自动输入" class="md-nav__link">
+      Shell脚本自动输入
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../shell/命令行编写循环体/" title="命令行编写循环体" class="md-nav__link">
+      命令行编写循环体
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../shell/在后台执行命令/" title="在后台执行命令" class="md-nav__link">
+      在后台执行命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../shell/通过shell命令写文件/" title="通过shell命令写文件" class="md-nav__link">
+      通过shell命令写文件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../shell/变量的截取与替换/" title="变量的截取与替换" class="md-nav__link">
+      变量的截取与替换
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Python
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/event线程/" title="event线程" class="md-nav__link">
+      event线程
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/json格式处理/" title="json格式处理" class="md-nav__link">
+      json格式处理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/执行shell命令/" title="执行shell命令" class="md-nav__link">
+      执行shell命令
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/超时装饰器/" title="超时装饰器" class="md-nav__link">
+      超时装饰器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/@Property/" title="@Property" class="md-nav__link">
+      @Property
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/类属性和实例属性/" title="类属性和实例属性" class="md-nav__link">
+      类属性和实例属性
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/高阶函数/" title="高阶函数" class="md-nav__link">
+      高阶函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/获取命令行参数/" title="获取命令行参数" class="md-nav__link">
+      获取命令行参数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/asyncore模块/" title="Asyncore模块" class="md-nav__link">
+      Asyncore模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/select模块/" title="Select模块" class="md-nav__link">
+      Select模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/subprocess模块/" title="Subprocess模块" class="md-nav__link">
+      Subprocess模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/mkdown2reStructuredText/" title="mkdown2reStructuredText" class="md-nav__link">
+      mkdown2reStructuredText
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/上下文管理器/" title="上下文管理器" class="md-nav__link">
+      上下文管理器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/网络编程/" title="网络编程" class="md-nav__link">
+      网络编程
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      其它
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        其它
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../其它/CSDN语法/" title="CSDN语法" class="md-nav__link">
+      CSDN语法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../其它/h5ai美化目录/" title="h5ai美化目录" class="md-nav__link">
+      h5ai美化目录
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../其它/vdsm启动失败/" title="vdsm启动失败" class="md-nav__link">
+      vdsm启动失败
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../其它/制作iso镜像/" title="制作iso镜像" class="md-nav__link">
+      制作iso镜像
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../其它/没有打印日志/" title="没有打印日志" class="md-nav__link">
+      没有打印日志
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../其它/编译安装vdsm之后主机安装失败/" title="编译安装vdsm之后主机安装失败" class="md-nav__link">
+      编译安装vdsm之后主机安装失败
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../其它/Stomp协议/" title="Stomp协议" class="md-nav__link">
+      Stomp协议
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../其它/Windows格式化磁盘/" title="Windows格式化磁盘" class="md-nav__link">
+      Windows格式化磁盘
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Ansible
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Ansible
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ansible/01. 简介/" title="01. 简介" class="md-nav__link">
+      01. 简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ansible/02. Inventory文件/" title="02. Inventory文件" class="md-nav__link">
+      02. Inventory文件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ansible/03. playbooks-roles/" title="03. playbooks roles" class="md-nav__link">
+      03. playbooks roles
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      RPM
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        RPM
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../rpm/00 示例/" title="00 示例" class="md-nav__link">
+      00 示例
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../rpm/01 打包前的准备工作/" title="01 打包前的准备工作" class="md-nav__link">
+      01 打包前的准备工作
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../rpm/02 打包软件/" title="02 打包软件" class="md-nav__link">
+      02 打包软件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../rpm/03 高级话题/" title="03 高级话题" class="md-nav__link">
+      03 高级话题
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      Java
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        Java
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../java/IO/" title="IO" class="md-nav__link">
+      IO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../java/作用范围级别/" title="作用范围级别" class="md-nav__link">
+      作用范围级别
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../java/synchronized关键字/" title="synchronized关键字" class="md-nav__link">
+      synchronized关键字
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+    
+    <label class="md-nav__link" for="nav-11">
+      servlet
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-11">
+        servlet
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/1.简介/" title="1.简介" class="md-nav__link">
+      1.简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/2.生命周期/" title="2.生命周期" class="md-nav__link">
+      2.生命周期
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/3.示例/" title="3.示例" class="md-nav__link">
+      3.示例
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/4.过滤器/" title="4.过滤器" class="md-nav__link">
+      4.过滤器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/5.异常处理/" title="5.异常处理" class="md-nav__link">
+      5.异常处理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/6.Cookie/" title="6.Cookie" class="md-nav__link">
+      6.Cookie
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/7.Session 跟踪/" title="7.Session 跟踪" class="md-nav__link">
+      7.Session 跟踪
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/8.文件上传/" title="8.文件上传" class="md-nav__link">
+      8.文件上传
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/8.1文件下载/" title="8.1文件下载" class="md-nav__link">
+      8.1文件下载
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/9.重定向/" title="9.重定向" class="md-nav__link">
+      9.重定向
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/10.作用域/" title="10.作用域" class="md-nav__link">
+      10.作用域
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../servlet/11.监听器/" title="11.监听器" class="md-nav__link">
+      11.监听器
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+    
+    <label class="md-nav__link" for="nav-12">
+      Spring
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
+        Spring
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../spring/文件上传/" title="文件上传" class="md-nav__link">
+      文件上传
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../spring/文件下载/" title="文件下载" class="md-nav__link">
+      文件下载
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+    
+    <label class="md-nav__link" for="nav-13">
+      Spring Boot
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-13">
+        Spring Boot
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../springboot/1.说明/" title="1.说明" class="md-nav__link">
+      1.说明
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../springboot/2.Maven/" title="2.Maven" class="md-nav__link">
+      2.Maven
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../springboot/24.Application 属性文件/" title="24.Application 属性文件" class="md-nav__link">
+      24.Application 属性文件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../springboot/25.Profiles/" title="25.Profiles" class="md-nav__link">
+      25.Profiles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../springboot/26.日志/" title="26.日志" class="md-nav__link">
+      26.日志
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../springboot/29.开发web应用/" title="29.开发web应用" class="md-nav__link">
+      29.开发web应用
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+    
+    <label class="md-nav__link" for="nav-14">
+      设计模式
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-14">
+        设计模式
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/设计原则/" title="设计原则" class="md-nav__link">
+      设计原则
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../设计模式/模式/" title="模式" class="md-nav__link">
+      模式
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+    
+    <label class="md-nav__link" for="nav-15">
+      MySQL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-15">
+        MySQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/1. 简介/" title="1. 简介" class="md-nav__link">
+      1. 简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/2. 关系模型/" title="2. 关系模型" class="md-nav__link">
+      2. 关系模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/3. 管理数据库/" title="3. 管理数据库" class="md-nav__link">
+      3. 管理数据库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/4. 查询数据/" title="4. 查询数据" class="md-nav__link">
+      4. 查询数据
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/5. 修改数据/" title="5. 修改数据" class="md-nav__link">
+      5. 修改数据
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/6. 事务/" title="6. 事务" class="md-nav__link">
+      6. 事务
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/7. 实用SQL语句/" title="7. 实用SQL语句" class="md-nav__link">
+      7. 实用SQL语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/8. MySQL数据类型/" title="8. MySQL数据类型" class="md-nav__link">
+      8. MySQL数据类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/9. MySQL的运算符/" title="9. MySQL的运算符" class="md-nav__link">
+      9. MySQL的运算符
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/10. MySQL常用函数/" title="10. MySQL常用函数" class="md-nav__link">
+      10. MySQL常用函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/11. MySQL存储引擎/" title="11. MySQL存储引擎" class="md-nav__link">
+      11. MySQL存储引擎
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/12. MySQL数据类型的选择/" title="12. MySQL数据类型的选择" class="md-nav__link">
+      12. MySQL数据类型的选择
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/13. MySQL字符集/" title="13. MySQL字符集" class="md-nav__link">
+      13. MySQL字符集
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/14. MySQL索引的设计和使用/" title="14. MySQL索引的设计和使用" class="md-nav__link">
+      14. MySQL索引的设计和使用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/15. MySQL视图/" title="15. MySQL视图" class="md-nav__link">
+      15. MySQL视图
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/16. MySQL存储过程和函数/" title="16. MySQL存储过程和函数" class="md-nav__link">
+      16. MySQL存储过程和函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/17.0 MySQL复合语句/" title="17.0 MySQL复合语句" class="md-nav__link">
+      17.0 MySQL复合语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/17.1 BEGIN...END复合语句/" title="17.1 BEGIN...END复合语句" class="md-nav__link">
+      17.1 BEGIN...END复合语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/17.2 语句标签/" title="17.2 语句标签" class="md-nav__link">
+      17.2 语句标签
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/17.3 声明语法/" title="17.3 声明语法" class="md-nav__link">
+      17.3 声明语法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/17.4 变量/" title="17.4 变量" class="md-nav__link">
+      17.4 变量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/17.5 流程控制/" title="17.5 流程控制" class="md-nav__link">
+      17.5 流程控制
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/17.6 游标/" title="17.6 游标" class="md-nav__link">
+      17.6 游标
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/17.7 错误状况及处理/" title="17.7 错误状况及处理" class="md-nav__link">
+      17.7 错误状况及处理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/17.8 SIGNAL/" title="17.8 SIGNAL" class="md-nav__link">
+      17.8 SIGNAL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/17.9 RESIGNAL/" title="17.9 RESIGNAL" class="md-nav__link">
+      17.9 RESIGNAL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/18. MySQL触发器/" title="18. MySQL触发器" class="md-nav__link">
+      18. MySQL触发器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/19. MySQL事务与锁定语句/" title="19. MySQL事务与锁定语句" class="md-nav__link">
+      19. MySQL事务与锁定语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/20. SQL中的安全问题/" title="20. SQL中的安全问题" class="md-nav__link">
+      20. SQL中的安全问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/21. SQL Mode/" title="21. SQL Mode" class="md-nav__link">
+      21. SQL Mode
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/22. 常用 SQL 技巧和常见问题/" title="22. 常用 SQL 技巧和常见问题" class="md-nav__link">
+      22. 常用 SQL 技巧和常见问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/23. MySQL分区/" title="23. MySQL分区" class="md-nav__link">
+      23. MySQL分区
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/24. MySQL分区限制/" title="24. MySQL分区限制" class="md-nav__link">
+      24. MySQL分区限制
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/25. SQL优化/" title="25. SQL优化" class="md-nav__link">
+      25. SQL优化
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/26. 优化数据库对象/" title="26. 优化数据库对象" class="md-nav__link">
+      26. 优化数据库对象
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/27. 锁/" title="27. 锁" class="md-nav__link">
+      27. 锁
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/28. MySQL Server的优化/" title="28. MySQL Server的优化" class="md-nav__link">
+      28. MySQL Server的优化
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/29. MySQL磁盘 IO 问题/" title="29. MySQL磁盘 IO 问题" class="md-nav__link">
+      29. MySQL磁盘 IO 问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/30. MySQL 常用工具/" title="30. MySQL 常用工具" class="md-nav__link">
+      30. MySQL 常用工具
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/31. MySQL 日志/" title="31. MySQL 日志" class="md-nav__link">
+      31. MySQL 日志
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/32. MySQL备份与恢复/" title="32. MySQL备份与恢复" class="md-nav__link">
+      32. MySQL备份与恢复
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/33. MySQL 权限与安全/" title="33. MySQL 权限与安全" class="md-nav__link">
+      33. MySQL 权限与安全
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/34. MySQL 监控/" title="34. MySQL 监控" class="md-nav__link">
+      34. MySQL 监控
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/35. MySQL 常见问题和应用技巧/" title="35. MySQL 常见问题和应用技巧" class="md-nav__link">
+      35. MySQL 常见问题和应用技巧
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/36. MySQL 复制/" title="36. MySQL 复制" class="md-nav__link">
+      36. MySQL 复制
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/37. MySQL Cluster/" title="37. MySQL Cluster" class="md-nav__link">
+      37. MySQL Cluster
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/38. 高可用架构/" title="38. 高可用架构" class="md-nav__link">
+      38. 高可用架构
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
+    
+    <label class="md-nav__link" for="nav-16">
+      MyBatis
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-16">
+        MyBatis
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mybatis/简介/" title="简介.md" class="md-nav__link">
+      简介.md
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mybatis/XML配置/" title="XML配置.md" class="md-nav__link">
+      XML配置.md
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mybatis/注意事项/" title="注意事项.md" class="md-nav__link">
+      注意事项.md
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+    
+    <label class="md-nav__link" for="nav-17">
+      HTTP协议
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-17">
+        HTTP协议
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../http协议/简介/" title="简介.md" class="md-nav__link">
+      简介.md
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../http协议/HTTP 报文内的 HTTP 信息/" title="HTTP 报文内的 HTTP 信息.md" class="md-nav__link">
+      HTTP 报文内的 HTTP 信息.md
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../http协议/返回结果的 HTTP 状态码/" title="返回结果的 HTTP 状态码.md" class="md-nav__link">
+      返回结果的 HTTP 状态码.md
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../http协议/与 HTTP 协作的 Web 服务器/" title="与 HTTP 协作的 Web 服务器.md" class="md-nav__link">
+      与 HTTP 协作的 Web 服务器.md
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../http协议/HTTP 首部/" title="HTTP 首部.md" class="md-nav__link">
+      HTTP 首部.md
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../http协议/HTTPS/" title="HTTPS.md" class="md-nav__link">
+      HTTPS.md
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-18" type="checkbox" id="nav-18">
+    
+    <label class="md-nav__link" for="nav-18">
+      CS50
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-18">
+        CS50
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../CS50/1. 简介/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../CS50/2. 编译器/" title="编译器" class="md-nav__link">
+      编译器
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-19" type="checkbox" id="nav-19">
+    
+    <label class="md-nav__link" for="nav-19">
+      Linux网络编程
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-19">
+        Linux网络编程
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux网络编程/函数/" title="函数" class="md-nav__link">
+      函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux网络编程/socket通信流程/" title="socket通信流程" class="md-nav__link">
+      socket通信流程
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux网络编程/简单tcp通信实现/" title="简单tcp通信实现" class="md-nav__link">
+      简单tcp通信实现
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-20" type="checkbox" id="nav-20">
+    
+    <label class="md-nav__link" for="nav-20">
+      Gluster
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-20">
+        Gluster
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../gluster/gluster安装/" title="gluster安装" class="md-nav__link">
+      gluster安装
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../gluster/ovirt的gluster数据恢复bug/" title="ovirt的gluster数据恢复bug" class="md-nav__link">
+      ovirt的gluster数据恢复bug
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../gluster/清理不可用的brick/" title="清理不可用的brick" class="md-nav__link">
+      清理不可用的brick
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../gluster/结点故障/" title="结点故障" class="md-nav__link">
+      结点故障
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-21" type="checkbox" id="nav-21">
+    
+    <label class="md-nav__link" for="nav-21">
+      Docker
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-21">
+        Docker
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/01. 入门-安装/" title="01. 入门 安装" class="md-nav__link">
+      01. 入门 安装
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/02. 入门-容器/" title="02. 入门 容器" class="md-nav__link">
+      02. 入门 容器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/03. 入门-服务/" title="03. 入门 服务" class="md-nav__link">
+      03. 入门 服务
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/04. 入门-集群/" title="04. 入门 集群" class="md-nav__link">
+      04. 入门 集群
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/05. 入门-栈/" title="05. 入门 栈" class="md-nav__link">
+      05. 入门 栈
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/06. 使用docker镜像/" title="06. 使用docker镜像" class="md-nav__link">
+      06. 使用docker镜像
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/07. 容器操作/" title="07. 容器操作" class="md-nav__link">
+      07. 容器操作
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/08. docker仓库/" title="08. docker仓库" class="md-nav__link">
+      08. docker仓库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/09. Docker数据管理/" title="09. Docker数据管理" class="md-nav__link">
+      09. Docker数据管理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/10 端口映射与容器互联/" title="10 端口映射与容器互联" class="md-nav__link">
+      10 端口映射与容器互联
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docker/11. Dockerfile/" title="11. Dockerfile" class="md-nav__link">
+      11. Dockerfile
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-22" type="checkbox" id="nav-22">
+    
+    <label class="md-nav__link" for="nav-22">
+      Git
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-22">
+        Git
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../git/拉取与推送/" title="拉取与推送" class="md-nav__link">
+      拉取与推送
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../git/git rebase(修改历史提交)/" title="git rebase(修改历史提交)" class="md-nav__link">
+      git rebase(修改历史提交)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../git/windows无法使用git克隆/" title="windows无法使用git克隆" class="md-nav__link">
+      windows无法使用git克隆
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../git/修改历史/" title="修改历史" class="md-nav__link">
+      修改历史
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../git/回滚/" title="回滚" class="md-nav__link">
+      回滚
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../git/远程相关/" title="远程相关" class="md-nav__link">
+      远程相关
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-23" type="checkbox" id="nav-23">
+    
+    <label class="md-nav__link" for="nav-23">
+      Gerrit
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-23">
+        Gerrit
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../gerrit/Apache代理添加新用户/" title="Apache代理添加新用户" class="md-nav__link">
+      Apache代理添加新用户
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../gerrit/Gerrit submit change after abandoning its parent/" title="Gerrit submit change after abandoning its parent" class="md-nav__link">
+      Gerrit submit change after abandoning its parent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../gerrit/使用Apache代理路径错误/" title="使用Apache代理路径错误" class="md-nav__link">
+      使用Apache代理路径错误
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../gerrit/刷新gerrit项目列表/" title="刷新gerrit项目列表" class="md-nav__link">
+      刷新gerrit项目列表
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-24" type="checkbox" id="nav-24">
+    
+    <label class="md-nav__link" for="nav-24">
+      小玩具
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-24">
+        小玩具
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../little toys/摩斯转换/" title="摩斯转换" class="md-nav__link">
+      摩斯转换
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-25" type="checkbox" id="nav-25">
+    
+    <label class="md-nav__link" for="nav-25">
+      Datastruct
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-25">
+        Datastruct
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../datastruct/二叉树/" title="二叉树" class="md-nav__link">
+      二叉树
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../datastruct/散列表/" title="散列表" class="md-nav__link">
+      散列表
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../datastruct/红黑树/" title="红黑树" class="md-nav__link">
+      红黑树
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-26" type="checkbox" id="nav-26">
+    
+    <label class="md-nav__link" for="nav-26">
+      C
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-26">
+        C
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../c/动态编译/" title="动态编译" class="md-nav__link">
+      动态编译
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../c/程序运行时间/" title="程序运行时间" class="md-nav__link">
+      程序运行时间
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../c/结构体中的函数指针/" title="结构体中的函数指针" class="md-nav__link">
+      结构体中的函数指针
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../c/mutiple definition of xxx/" title="Mutiple definition of xxx" class="md-nav__link">
+      Mutiple definition of xxx
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-27" type="checkbox" id="nav-27">
+    
+    <label class="md-nav__link" for="nav-27">
+      Algorithm
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-27">
+        Algorithm
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../algorithm/复杂度分析/" title="复杂度分析" class="md-nav__link">
+      复杂度分析
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../algorithm/选择排序/" title="选择排序" class="md-nav__link">
+      选择排序
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-28" type="checkbox" id="nav-28">
+    
+    <label class="md-nav__link" for="nav-28">
+      奇技淫巧
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-28">
+        奇技淫巧
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../奇技淫巧/位运算/" title="位运算" class="md-nav__link">
+      位运算
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-centos-7" title="1. CentOS 7 日志文件" class="md-nav__link">
+    1. CentOS 7 日志文件
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" title="1.1 常见的日志文件" class="md-nav__link">
+    1.1 常见的日志文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-daemon" title="1.2 日志文件所需相关服务 (daemon) 与程序" class="md-nav__link">
+    1.2 日志文件所需相关服务 (daemon) 与程序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-rsyslogservice" title="2. rsyslog.service 的配置文件" class="md-nav__link">
+    2. rsyslog.service 的配置文件
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" title="2.1 服务名称" class="md-nav__link">
+    2.1 服务名称
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" title="2.2 信息等级" class="md-nav__link">
+    2.2 信息等级
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" title="2.3 信息记录的文件名或装置或主机" class="md-nav__link">
+    2.3 信息记录的文件名或装置或主机
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" title="2.4 防止日志文件被不小心修改" class="md-nav__link">
+    2.4 防止日志文件被不小心修改
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" title="2.5 设置登录服务器" class="md-nav__link">
+    2.5 设置登录服务器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-logrotate" title="3. 日志分割（logrotate）" class="md-nav__link">
+    3. 日志分割（logrotate）
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-logrotate" title="3.1 logrotate 的配置文件" class="md-nav__link">
+    3.1 logrotate 的配置文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" title="3.2 手动执行日志分割" class="md-nav__link">
+    3.2 手动执行日志分割
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-systemd-journaldservice" title="4. systemd-journald.service" class="md-nav__link">
+    4. systemd-journald.service
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-journalctl" title="4.1 使用 journalctl 观察登录信息" class="md-nav__link">
+    4.1 使用 journalctl 观察登录信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-logger" title="4.2 使用 logger 记录到日志文件" class="md-nav__link">
+    4.2 使用 logger 记录到日志文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-journal" title="4.3 保存 journal 的方式" class="md-nav__link">
+    4.3 保存 journal 的方式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" title="5. 分析日志文件" class="md-nav__link">
+    5. 分析日志文件
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-centos-logwatch" title="5.1 CentOS 预设提供的 logwatch" class="md-nav__link">
+    5.1 CentOS 预设提供的 logwatch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" title="5.2 鸟哥的日志文件分析工具" class="md-nav__link">
+    5.2 鸟哥的日志文件分析工具
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/ignorantshr/question/edit/master/docs/鸟哥的linux私房菜/22 日志文件.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>22 日志文件</h1>
+                
+                <p>日志文件的作用：记录系统在什么时候由哪个程序有什么样的行为，发生了什么事等等。</p>
+<h2 id="1-centos-7">1. CentOS 7 日志文件<a class="headerlink" href="#1-centos-7" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 常见的日志文件<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>/var/log/boot.log</code></li>
+</ul>
+<p>记录<strong>本次开机启动</strong>的信息。</p>
+<ul>
+<li><code>/var/log/cron</code></li>
+</ul>
+<p>记录与 crontab 相关的信息。</p>
+<ul>
+<li><code>/var/log/dmesg</code></li>
+</ul>
+<p>记录系统在<strong>开机的时候</strong>内核所产生的各项信息。由于 CentOS 默认将开机时内核的硬件侦测过程取消显示， 因此额外将数据记录一份在这个文件中。</p>
+<ul>
+<li><code>/var/log/lastlog</code></li>
+</ul>
+<p>记录系统上面所有的账号最近一次登入系统时的相关信息。<code>lastlog</code>指令就是读取该文件的。</p>
+<ul>
+<li><code>/var/log/maillog 或 /var/log/mail/*</code></li>
+</ul>
+<p>记录邮件的往来信息，其实主要是记录 postfix (SMTP 协议提供者，发送) 与 dovecot (POP3 协议提供者，接收) 所产生的信息。</p>
+<ul>
+<li><code>/var/log/messages</code></li>
+</ul>
+<p>几乎系统发生的错误信息 (或者是重要的信息) 都会记录在这个文件中。<strong>很重要</strong>！！！</p>
+<ul>
+<li><code>/var/log/secure</code></li>
+</ul>
+<p>基本上，只要牵涉到<strong>需要输入账号密码</strong>的软件，那么当登入时 (不管登入正确或错误) 都会被记录在此文件中。</p>
+<ul>
+<li><code>/var/log/wtmp， /var/log/faillog</code></li>
+</ul>
+<p>记录正确登入系统者的帐户信息 (wtmp) 与错误登入时所使用的帐户信息 (faillog)。<code>last</code>指令就是读取 wtmp 的。</p>
+<ul>
+<li><code>/var/log/httpd/*， /var/log/samba/*</code></li>
+</ul>
+<p>http 服务和 samba 服务日志。其他的网络服务日志也会使用各自的日志文件来存储信息。</p>
+<h3 id="12-daemon">1.2 日志文件所需相关服务 (daemon) 与程序<a class="headerlink" href="#12-daemon" title="Permanent link">&para;</a></h3>
+<p>日志文件是怎么产生的呢？基本上有两种方式：</p>
+<ol>
+<li>由软件开发商自行定义如何写入日志文件。</li>
+<li>由 Linux distribution 提供的日志文件管理服务来统一管理。你只要将信息丢给这个服务后，他就会自己分门别类的将各种信息放置到相关的日志文件去！CentOS 提供 <code>rsyslog.service</code> 这个服务来统一管理日志文件。</li>
+</ol>
+<p>CentOS 7 除了保有既有的 rsyslog.service 之外，其实最上游还使用了 systemd 自己的日志文件日志管理功能。他使用的是 <code>systemd-journald.service</code> 这个服务来支持的。所有经由 systemd 启动的服务，其产生的信息都会由 systemd-journald.service 以二进制的方式记录下来，之后再将这个信息发送给 rsyslog.service 作进一步的记录。</p>
+<p>文件如果越来越大怎么办？那就使用 <code>logrotate</code> 来自动化处理日志文件容量与更新的问题吧。</p>
+<p>综上所述，由系统管理的日志文件所需要的 daemon 有：</p>
+<ul>
+<li>systemd-journald.service：最主要的信息收受者，由 systemd 提供的；</li>
+<li>rsyslog.service：主要记录登录系统与网络等服务的信息；</li>
+<li>logrotate：主要进行日志文件的轮替功能。</li>
+</ul>
+<h2 id="2-rsyslogservice">2. rsyslog.service 的配置文件<a class="headerlink" href="#2-rsyslogservice" title="Permanent link">&para;</a></h2>
+<p><code>/etc/rsyslog.conf</code>主要定义了：<strong>(1)什么服务 (2)的什么等级信息 (3)需要被记录在哪里(装置或文件)</strong>。</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># vi /etc/rsyslog.conf</span>
+……
+<span class="c1">#### RULES ####</span>
+<span class="c1"># 服务名称[.=!]信息等级                                   信息记录的文件名或装置或主机</span>
+<span class="c1"># Log all kernel messages to the console.</span>
+<span class="c1"># Logging much else clutters up the screen.</span>
+<span class="c1">#kern.*                                                 /dev/console</span>
+
+<span class="c1"># Log anything (except mail) of level info or higher.</span>
+<span class="c1"># Don&#39;t log private authentication messages!</span>
+*.info<span class="p">;</span>mail.none<span class="p">;</span>authpriv.none<span class="p">;</span>cron.none                /var/log/messages
+
+<span class="c1"># The authpriv file has restricted access.</span>
+authpriv.*                                              /var/log/secure
+
+<span class="c1"># Log all the mail messages in one place.</span>
+mail.*                                                  -/var/log/maillog
+
+<span class="c1"># Everybody gets emergency messages，发送给所有人</span>
+*.emerg                                                 :omusrmsg:*
+……
+</pre></div>
+
+
+<p><strong>注意</strong>：修改完配置文件之后需要重启服务：<code>systemctl restart rsyslog.service</code></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>rsyslogd 的登录档只要被编辑过就无法继续记录！！！此时需要重新启动 rsyslog.service 服务才行。</p>
+</div>
+<h3 id="21">2.1 服务名称<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p><code>rsyslogd</code> 主要还是透过 Linux 内核提供的 <code>syslog</code> 相关规范来设定数据的分类的，Linux 的 syslog 本身有规范一些服务信息， 你可以透过这些服务来储存系统的信息。</p>
+<p>Linux 内核的 syslog 认识的服务类型（man 3 syslog）主要有：</p>
+<p><img alt="syslog识别的服务类型" src="../img/syslog识别的服务类型.png" /></p>
+<p><img alt="syslog制定的服务名称与软件呼叫方式" src="../img/syslog制定的服务名称与软件呼叫方式.png" /></p>
+<h3 id="22">2.2 信息等级<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>syslog 将信息等级分为七级：</p>
+<p><img alt="syslog信息等级" src="../img/syslog信息等级.png" /></p>
+<p>除了 0 到 6 之外还有两个比较特殊的等级， 那就是 <strong>debug</strong>(错误侦测等级) 与 <strong>none</strong> (不需登录等级) 两个，适用于想要作一些错误侦测，或者是忽略掉某些服务的信息时的情况。</p>
+<ul>
+<li><code>.</code>  ：代表比后面还要严重的等级 (含该等级) 都被记录下来的意思。</li>
+<li><code>.=</code>：代表所需要的等级就是后面接的等级而已， 其他的不要!</li>
+<li><code>.!</code>：代表不等于， 亦即是除了该等级外的其他等级都记录。</li>
+</ul>
+<h3 id="23">2.3 信息记录的文件名或装置或主机<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>文件的绝对路径：通常就是放在 <code>/var/log</code> 里头的文件啦!</p>
+</li>
+<li>
+<p>打印机或其他：例如 <code>/dev/lp0</code> 这个打印机装置</p>
+</li>
+<li>
+<p>使用者名称：显示给用户</p>
+</li>
+<li>
+<p>远程主机：例如 @test.com，当然啦，要对方主机也能支持才行!</p>
+</li>
+<li>
+<p>*：代表<code>目前在在线的所有人</code>，类似 <code>wall</code> 这个指令</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>使用<em>逗号</em>分隔时，那么等级只要接在最后一个即可，如果是以<em>分号</em>来分的话， 那么就需要将服务与等级都写上去。例如下面的这两种写法是一样的：</p>
+</div>
+<div class="codehilite"><pre><span></span><span class="c"># 记录除 news，cron，mail 之外的任何程序的信息</span>
+<span class="err">*.*;news,cron,mail.none</span>             <span class="err">/var/log/messages</span>
+<span class="err">*.*;news.none;cron.none;mail.none</span>   <span class="err">/var/log/messages</span>
+</pre></div>
+
+
+<h3 id="24">2.4 防止日志文件被不小心修改<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<p>前面说到，当你编辑了rsyslogd的日志文件之后，就无法继续记录了。此时可以设置一下隐藏属性：</p>
+<div class="codehilite"><pre><span></span><span class="c1"># a 属性会让文件变为只能追加的状态，不可被修改、移动及删除</span>
+<span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># chattr +a /var/log/messages</span>
+<span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># lsattr /var/log/messages</span>
+-----a---------- /var/log/messages
+
+<span class="c1"># 看吧，不能修改哦</span>
+<span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># vi /var/log/messages</span>
+hahahahahahahaha
+~                                                                                                                                                                                                             
+<span class="s2">&quot;/var/log/messages&quot;</span>
+<span class="s2">&quot;/var/log/messages&quot;</span> E212: Can<span class="err">&#39;</span>t open file <span class="k">for</span> writing
+</pre></div>
+
+
+<p>但这样也会造成 logrotate 不能正常执行，解决之道请看下文。</p>
+<h3 id="25">2.5 设置登录服务器<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
+<p>对于大规模linux集群，设置一个专门的主机用来记录所有服务器的日志文件，就可以很方便的查看喽。</p>
+<p><img alt="日志文件服务器架构" src="../img/日志文件服务器架构.png" /></p>
+<p>如上图所示，服务器会启动监听的端口，客户端则将日志文件再转出一份送到服务器去。</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 1.服务端配置</span>
+<span class="o">[</span>root@centos-1810 ~<span class="o">]</span><span class="c1"># vi /etc/rsyslog.conf</span>
+<span class="c1"># 网络稳定就用UDP</span>
+<span class="c1"># Provides UDP syslog reception</span>
+<span class="c1">#$ModLoad imudp</span>
+<span class="c1">#$UDPServerRun 514</span>
+
+<span class="c1"># 想要数据稳定传输就用TCP</span>
+<span class="c1"># Provides TCP syslog reception</span>
+<span class="c1">#$ModLoad imtcp</span>
+<span class="c1">#$InputTCPServerRun 514</span>
+<span class="nv">$ModLoad</span> imtcp
+<span class="nv">$InputTCPServerRun</span> <span class="m">514</span>
+<span class="c1"># 重启服务</span>
+<span class="o">[</span>root@centos-1810 ~<span class="o">]</span><span class="c1"># systemctl restart rsyslog.service</span>
+<span class="o">[</span>root@centos-1810 ~<span class="o">]</span><span class="c1"># lsof -i -n -P | grep syslog</span>
+rsyslogd  <span class="m">30805</span>    root    3u  IPv4 <span class="m">114368696</span>      0t0  TCP *:514 <span class="o">(</span>LISTEN<span class="o">)</span>
+rsyslogd  <span class="m">30805</span>    root    4u  IPv6 <span class="m">114368697</span>      0t0  TCP *:514 <span class="o">(</span>LISTEN<span class="o">)</span>
+
+<span class="c1"># 2.客户端配置</span>
+<span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># vi /etc/rsyslog.conf</span>
+<span class="c1"># send log to server --shihr</span>
+<span class="c1"># TCP 设置</span>
+*.*                                                     @@172.16.7.54
+<span class="c1"># UDP 设置</span>
+<span class="c1">#*.*                                                    @172.16.7.54</span>
+<span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># systemctl restart rsyslog.service</span>
+</pre></div>
+
+
+<h2 id="3-logrotate">3. 日志分割（logrotate）<a class="headerlink" href="#3-logrotate" title="Permanent link">&para;</a></h2>
+<p><code>logrotate</code>是在规定的时间到了之后才来进行日志的分割。日志分割是配置在 <code>anacron</code> 里面的：<code>/etc/cron.daily/logrotate</code>。</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># cat /etc/cron.daily/logrotate </span>
+<span class="c1">#!/bin/sh</span>
+
+/usr/sbin/logrotate -s /var/lib/logrotate/logrotate.status /etc/logrotate.conf
+<span class="nv">EXITVALUE</span><span class="o">=</span><span class="nv">$?</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$EXITVALUE</span> !<span class="o">=</span> <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    /usr/bin/logger -t logrotate <span class="s2">&quot;ALERT exited abnormally with [</span><span class="nv">$EXITVALUE</span><span class="s2">]&quot;</span>
+<span class="k">fi</span>
+<span class="nb">exit</span> <span class="m">0</span>
+</pre></div>
+
+
+<h3 id="31-logrotate">3.1 logrotate 的配置文件<a class="headerlink" href="#31-logrotate" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>/etc/logrotate.conf</code></li>
+<li><code>/etc/logrotate.d</code>：该目录里面的所有文件都会被主动的读入 /etc/logrotate.conf 当中来进行</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># cat /etc/logrotate.conf </span>
+<span class="c1"># see &quot;man logrotate&quot; for details</span>
+<span class="c1"># 上面这些是默认参数，在下面的规则没有配置时就使用这些值</span>
+<span class="c1"># rotate log files weekly</span>
+weekly
+
+<span class="c1"># keep 4 weeks worth of backlogs</span>
+rotate <span class="m">4</span>
+
+<span class="c1"># create new (empty) log files after rotating old ones</span>
+create
+
+<span class="c1"># use date as a suffix of the rotated file</span>
+dateext
+
+<span class="c1"># uncomment this if you want your log files compressed</span>
+<span class="c1">#compress</span>
+
+<span class="c1"># 定制日志的切割规则</span>
+<span class="c1"># RPM packages drop log rotation information into this directory</span>
+include /etc/logrotate.d
+
+<span class="c1"># no packages own wtmp and btmp -- we&#39;ll rotate them here</span>
+/var/log/wtmp <span class="o">{</span>
+    monthly
+    create <span class="m">0664</span> root utmp
+    minsize 1M  <span class="c1"># 至少达到1M的大小才进行切割，高于时间参数的设置</span>
+    rotate <span class="m">1</span>
+<span class="o">}</span>
+
+/var/log/btmp <span class="o">{</span>
+    missingok
+    monthly
+    create <span class="m">0600</span> root utmp
+    rotate <span class="m">1</span>
+<span class="o">}</span>
+
+<span class="c1"># system-specific logs may be also be configured here.</span>
+
+<span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># cat /etc/logrotate.d/syslog </span>
+/var/log/cron
+/var/log/maillog
+/var/log/messages
+/var/log/secure
+/var/log/spooler
+<span class="o">{</span>
+    missingok
+    sharedscripts
+    postrotate
+    /bin/kill -HUP <span class="sb">`</span>cat /var/run/syslogd.pid <span class="m">2</span>&gt; /dev/null<span class="sb">`</span> <span class="m">2</span>&gt; /dev/null <span class="o">||</span> <span class="nb">true</span>
+    endscript
+<span class="o">}</span>
+</pre></div>
+
+
+<p>logrotate配置文件的语法（<code>man logrotate</code>）：</p>
+<ul>
+<li>日志文件的绝对路径。可以使用空格分隔多个日志文件。</li>
+<li>参数。定义了何时执行等问题</li>
+<li>执行脚本。可以调用外部的命令，使用<code>sharedscript......endscript</code>包围。调用的时期有两种：</li>
+<li>prerotate：在启动 logrotate 之前进行的指令，例如修改日志文件的属性等动作;</li>
+<li>postrotate：在做完 logrotate 之后启动的指令，例如重新启动 (kill -HUP) 某个服务!</li>
+<li>prerotate 与 postrotate 对于已加上特殊属性的文件处理上面，是相当重要的执行程序!</li>
+</ul>
+<p>让前文设置的隐藏属性在进行日志切割的时候暂时失效：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># vim /etc/logrotate.d/syslog</span>
+/var/log/cron
+/var/log/maillog
+/var/log/messages
+/var/log/secure
+/var/log/spooler
+<span class="o">{</span>
+    missingok
+    sharedscripts
+    presrotate
+        /usr/bin/chattr -a /var/log/messages
+    endscript
+    sharedscripts
+    postrotate
+        /bin/kill -HUP <span class="sb">`</span>cat /var/run/syslogd.pid <span class="m">2</span>&gt; /dev/null<span class="sb">`</span> <span class="m">2</span>&gt; /dev/null <span class="o">||</span> <span class="nb">true</span>
+        /usr/bin/chattr +a /var/log/messages
+    endscript
+<span class="o">}</span>
+</pre></div>
+
+
+<h3 id="32">3.2 手动执行日志分割<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="k">logrotate</span> [<span class="o">-</span><span class="nv">dv</span>] [<span class="o">-</span><span class="nv">f</span><span class="o">|--</span><span class="nv">force</span>] [<span class="o">-</span><span class="nv">s</span><span class="o">|--</span><span class="nv">state</span> <span class="nv">file</span>] <span class="nv">config_file</span> ..
+
+<span class="o">-</span><span class="nv">d</span>, <span class="o">--</span><span class="nv">debug</span>
+              <span class="nv">Turns</span> <span class="nv">on</span> <span class="nv">debug</span> <span class="nv">mode</span> <span class="nv">and</span> <span class="nv">implies</span> <span class="o">-</span><span class="nv">v</span>.  <span class="nv">In</span> <span class="nv">debug</span> <span class="nv">mode</span>, <span class="nv">no</span> <span class="nv">changes</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">made</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">logs</span> <span class="nv">or</span> <span class="nv">to</span> <span class="nv">the</span> <span class="k">logrotate</span> <span class="nv">state</span> <span class="nv">file</span>.
+
+<span class="o">+-</span><span class="nv">v</span>, <span class="o">--</span><span class="nv">verbose</span>
+              <span class="nv">Turns</span> <span class="nv">on</span> <span class="nv">verbose</span> <span class="nv">mode</span>, <span class="nv">ie</span>. <span class="nv">display</span> <span class="nv">messages</span> <span class="nv">during</span> <span class="nv">rotation</span>.
+
+<span class="o">-</span><span class="nv">f</span>, <span class="o">--</span><span class="nv">force</span>
+              <span class="nv">Tells</span> <span class="k">logrotate</span> <span class="nv">to</span> <span class="nv">force</span> <span class="nv">the</span> <span class="nv">rotation</span>, <span class="nv">even</span> <span class="k">if</span> <span class="nv">it</span> <span class="nv">doesn</span><span class="s1">&#39;</span><span class="s">t think this is necessary.  Sometimes this is useful after adding new entries to a logrotate config file, or if old log files have been removed by hand, as the new files will be created, and logging will continue correctly.</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># logrotate -v -f /etc/logrotate.conf</span>
+reading config file /etc/logrotate.conf
+including /etc/logrotate.d
+reading config file bootlog
+……
+</pre></div>
+
+
+<h2 id="4-systemd-journaldservice">4. systemd-journald.service<a class="headerlink" href="#4-systemd-journaldservice" title="Permanent link">&para;</a></h2>
+<p>内核唤醒第一个程序<code>systemd</code>之后，他会主动呼叫<code>systemd-journald.service</code>来记录日志文件，因此在开机过程中的所有信息，包括启动服务与服务若启动失败的情况等等，都可以直接被记录到 systemd-journald 里。不过 systemd-journald 由于是使用于内存的日志文件记录方式，所以只会记录本次开机信息，而 rsyslogd 可以用来记录以前及现在的所以数据到磁盘文件中，方便未来进行查询，所以就需要两者协作啦。</p>
+<h3 id="41-journalctl">4.1 使用 journalctl 观察登录信息<a class="headerlink" href="#41-journalctl" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="nv">journalctl</span> [<span class="nv">OPTIONS</span>...] [<span class="nv">MATCHES</span>...]
+
+不添加任何参数时，会从最老的日志开始显示完整的系统日志
+<span class="nv">MATCHES</span>：格式为<span class="s2">&quot;</span><span class="s">FIELD=VALUE</span><span class="s2">&quot;</span>，可输入多个。全部的可用值查询： <span class="nv">man</span> <span class="nv">systemd</span>.<span class="nv">journal</span><span class="o">-</span><span class="nv">fields</span>
+    <span class="nv">_SYSTEMD_UNIT</span><span class="o">=</span><span class="nv">unit</span>.<span class="nv">service</span>      只输出 <span class="nv">unit</span>.<span class="nv">service</span> 的信息
+    <span class="nv">_COMM</span><span class="o">=</span><span class="nv">bash</span>                      只输出与 <span class="nv">bash</span> 有关的信息
+    <span class="nv">_PID</span><span class="o">=</span><span class="nv">pid</span>                        只输出与 <span class="nv">PID</span> 号码有关的信息
+    <span class="nv">_UID</span><span class="o">=</span><span class="nv">uid</span>                        只输出 <span class="nv">UID</span> 为 <span class="nv">uid</span> 的信息
+    <span class="nv">SYSLOG_FACILITY</span><span class="o">=</span>[<span class="mi">0</span><span class="o">-</span><span class="mi">23</span>]          使用 <span class="nv">syslog</span>.<span class="nv">h</span> 规范的服务相对序号来呼叫出正确的数据
+<span class="nv">OPTIONS</span>
+    <span class="o">-</span><span class="nv">f</span>, <span class="o">--</span><span class="nv">follow</span>                    持续输出，类似于 <span class="nv">tailf</span> 的功能
+    <span class="o">-</span><span class="nv">r</span>, <span class="o">--</span><span class="nv">reverse</span>                   从最新的开始显示
+    <span class="o">-</span><span class="nv">n</span>, <span class="o">--</span><span class="nv">lines</span><span class="o">=</span>                    显示最近的 <span class="nv">N</span> 行
+    <span class="o">-</span><span class="nv">p</span>, <span class="o">--</span><span class="nv">priority</span><span class="o">=</span>                 根据优先级（小于等于）进行过滤。<span class="s2">&quot;</span><span class="s">emerg</span><span class="s2">&quot;</span> <span class="ss">(</span><span class="mi">0</span><span class="ss">)</span>, <span class="s2">&quot;</span><span class="s">alert</span><span class="s2">&quot;</span> <span class="ss">(</span><span class="mi">1</span><span class="ss">)</span>, <span class="s2">&quot;</span><span class="s">crit</span><span class="s2">&quot;</span> <span class="ss">(</span><span class="mi">2</span><span class="ss">)</span>, <span class="s2">&quot;</span><span class="s">err</span><span class="s2">&quot;</span> <span class="ss">(</span><span class="mi">3</span><span class="ss">)</span>, <span class="s2">&quot;</span><span class="s">warning</span><span class="s2">&quot;</span> <span class="ss">(</span><span class="mi">4</span><span class="ss">)</span>, <span class="s2">&quot;</span><span class="s">notice</span><span class="s2">&quot;</span> <span class="ss">(</span><span class="mi">5</span><span class="ss">)</span>, <span class="s2">&quot;</span><span class="s">info</span><span class="s2">&quot;</span> <span class="ss">(</span><span class="mi">6</span><span class="ss">)</span>, <span class="s2">&quot;</span><span class="s">debug</span><span class="s2">&quot;</span> <span class="ss">(</span><span class="mi">7</span><span class="ss">)</span>
+    <span class="o">-</span><span class="nv">S</span>, <span class="o">--</span><span class="nv">since</span><span class="o">=</span>, <span class="o">-</span><span class="nv">U</span>, <span class="o">--</span><span class="k">until</span><span class="o">=</span>      格式：<span class="s2">&quot;</span><span class="s">2012-10-30 18:17:16</span><span class="s2">&quot;</span>
+    <span class="o">-</span><span class="nv">x</span>, <span class="o">--</span><span class="nv">catalog</span>                   添加消息说明（如果可用）
+    <span class="o">-</span><span class="nv">e</span>, <span class="o">--</span><span class="nv">pager</span><span class="o">-</span><span class="k">end</span>                 跳到显示的末尾
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># journalctl -S &quot;2019-11-28&quot;</span>
+-- Logs begin at Mon <span class="m">2019</span>-11-25 <span class="m">08</span>:29:16 CST, end at Fri <span class="m">2019</span>-11-29 <span class="m">10</span>:40:01 CST. --
+Nov <span class="m">28</span> <span class="m">00</span>:00:01 dev systemd<span class="o">[</span><span class="m">1</span><span class="o">]</span>: Started Session <span class="m">462</span> of user root.
+Nov <span class="m">28</span> <span class="m">00</span>:00:01 dev CROND<span class="o">[</span><span class="m">32262</span><span class="o">]</span>: <span class="o">(</span>root<span class="o">)</span> CMD <span class="o">(</span>/usr/lib64/sa/sa1 <span class="m">1</span> <span class="m">1</span><span class="o">)</span>
+Nov <span class="m">28</span> <span class="m">00</span>:01:01 dev systemd<span class="o">[</span><span class="m">1</span><span class="o">]</span>: Started Session <span class="m">463</span> of user root.
+Nov <span class="m">28</span> <span class="m">00</span>:01:01 dev CROND<span class="o">[</span><span class="m">32270</span><span class="o">]</span>: <span class="o">(</span>root<span class="o">)</span> CMD <span class="o">(</span>run-parts /etc/cron.hourly<span class="o">)</span>
+Nov <span class="m">28</span> <span class="m">00</span>:01:01 dev run-parts<span class="o">(</span>/etc/cron.hourly<span class="o">)[</span><span class="m">32273</span><span class="o">]</span>: starting 0anacron
+Nov <span class="m">28</span> <span class="m">00</span>:01:01 dev anacron<span class="o">[</span><span class="m">32280</span><span class="o">]</span>: Anacron started on <span class="m">2019</span>-11-28
+Nov <span class="m">28</span> <span class="m">00</span>:01:01 dev anacron<span class="o">[</span><span class="m">32280</span><span class="o">]</span>: Normal <span class="nb">exit</span> <span class="o">(</span><span class="m">0</span> <span class="nb">jobs</span> run<span class="o">)</span>
+</pre></div>
+
+
+<h3 id="42-logger">4.2 使用 logger 记录到日志文件<a class="headerlink" href="#42-logger" title="Permanent link">&para;</a></h3>
+<p>把数据储存到日志文件。</p>
+<div class="codehilite"><pre><span></span><span class="n">logger</span><span class="w"> </span><span class="o">[</span><span class="n">options</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">message</span><span class="o">]</span><span class="w"></span>
+
+<span class="n">OPTIONS</span><span class="w"></span>
+<span class="w">    </span><span class="o">-</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="c1">--file file         Log the contents of the specified file.</span>
+<span class="w">    </span><span class="o">-</span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="c1">--size size         Sets  the  maximum permitted message size.</span>
+<span class="w">    </span><span class="o">-</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="c1">--priority priority Enter the message into the log with the specified priority.格式是 facility.level，默认 user.notice。具体查阅 FACILITIES AND LEVELS 章节</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># logger -p user.debug &quot;test log to systemd with logger&quot;</span>
+<span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># journalctl -n 1</span>
+-- Logs begin at Mon <span class="m">2019</span>-11-25 <span class="m">08</span>:29:16 CST, end at Fri <span class="m">2019</span>-11-29 <span class="m">10</span>:59:12 CST. --
+Nov <span class="m">29</span> <span class="m">10</span>:59:12 dev root<span class="o">[</span><span class="m">45214</span><span class="o">]</span>: <span class="nb">test</span> log to systemd with logger
+</pre></div>
+
+
+<h3 id="43-journal">4.3 保存 journal 的方式<a class="headerlink" href="#43-journal" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># mkdir /var/log/journal</span>
+<span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># chown root:systemd-journal /var/log/journal/</span>
+<span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># chmod 2755 /var/log/journal/</span>
+<span class="c1"># 鸟哥说要重启服务才会保存，不过我这里不需要（CentOS Linux release 7.7.1908 (Core)）：systemctl restart systemd-journald.service</span>
+<span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># tree /var/log/journal/</span>
+/var/log/journal/
+└── 0242c388ca104d46b8d6d9a4b951ff3f
+    └── system.journal
+</pre></div>
+
+
+<p>不过鸟哥说没必要再额外存储一份。</p>
+<h2 id="5">5. 分析日志文件<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p><code>last, lastlog, dmesg</code>等指令提供的数据比较分散。了解系统的状态，还是得要分析整个日志文件才行。</p>
+<h3 id="51-centos-logwatch">5.1 CentOS 预设提供的 logwatch<a class="headerlink" href="#51-centos-logwatch" title="Permanent link">&para;</a></h3>
+<p>每天分析一次日志文件，并且将数据以 email 的格式寄送给 root。</p>
+<p>先安装喽：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># yum install logwatch</span>
+<span class="c1"># 安装完毕之后，日程下面就有文件了</span>
+<span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># ll /etc/cron.daily/0logwatch</span>
+-rwxr-xr-x. <span class="m">1</span> root root <span class="m">434</span> Aug <span class="m">16</span>  <span class="m">2018</span> /etc/cron.daily/0logwatch
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># /etc/cron.daily/0logwatch</span>
+<span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># mail</span>
+……
+<span class="c1">################### Logwatch 7.4.0 (03/01/11) #################### </span>
+        Processing Initiated: Fri Nov <span class="m">29</span> <span class="m">15</span>:18:29 <span class="m">2019</span>
+        Date Range Processed: yesterday
+                              <span class="o">(</span> <span class="m">2019</span>-Nov-28 <span class="o">)</span>
+                              Period is day.
+        Detail Level of Output: <span class="m">0</span>
+        Type of Output/Format: mail / text
+        Logfiles <span class="k">for</span> Host: dev
+ <span class="c1">################################################################## </span>
+
+ --------------------- pam_unix Begin ------------------------ 
+
+ su-l:
+    Sessions Opened:
+       root -&gt; sink: <span class="m">1</span> Time<span class="o">(</span>s<span class="o">)</span>
+
+ sudo:
+    Sessions Opened:
+       root -&gt; root: <span class="m">1</span> Time<span class="o">(</span>s<span class="o">)</span>
+
+
+ ---------------------- pam_unix End ------------------------- 
+
+
+ --------------------- Connections <span class="o">(</span>secure-log<span class="o">)</span> Begin ------------------------ 
+
+
+ **Unmatched Entries**
+--More--
+</pre></div>
+
+
+<h3 id="52">5.2 鸟哥的日志文件分析工具<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
+<p>下载：</p>
+<p><a href="http://linux.vbird.org//linux_basic/0570syslog//logfile_centos7.tar.gz">鸟哥的下载地址</a></p>
+<p><a href="../files/logfile_centos7.tar.gz">简体中文版地址</a></p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev ~<span class="o">]</span><span class="c1"># tar -zxf logfile_centos7.tar.gz -C /</span>
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../21 系统服务/" title="21 系统服务" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                21 系统服务
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../23 开机流程/" title="23 开机流程" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                23 开机流程
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
