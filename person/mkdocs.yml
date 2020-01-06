@@ -22,6 +22,7 @@ nav:
         - linux/centos重启卡死.md
         - linux/Windows、Mac与Unix的换行符与编码转换.md
         - linux/sanlock.md
+        - linux/查看端口占用情况.md
     - 鸟哥的linux私房菜:
         - 鸟哥的linux私房菜/00 linux帮助文档.md
         - 鸟哥的linux私房菜/01 正确的关机方法.md
@@ -183,6 +184,15 @@ nav:
         - mysql/27. 锁.md
         - mysql/28. MySQL Server的优化.md
         - mysql/29. MySQL磁盘 IO 问题.md
+        - mysql/30. MySQL 常用工具.md
+        - mysql/31. MySQL 日志.md
+        - mysql/32. MySQL备份与恢复.md
+        - mysql/33. MySQL 权限与安全.md
+        - mysql/34. MySQL 监控.md
+        - mysql/35. MySQL 常见问题和应用技巧.md
+        - mysql/36. MySQL 复制.md
+        - mysql/37. MySQL Cluster.md
+        - mysql/38. 高可用架构.md
     - MyBatis:
         - 简介.md: mybatis/简介.md
         - XML配置.md: mybatis/XML配置.md
