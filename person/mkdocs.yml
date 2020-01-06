@@ -1,6 +1,6 @@
 site_name: Person Sink
-site_author: shihr
-repo_url: https://github.com/shihr/question
+site_author: ignorantshr
+repo_url: https://github.com/ignorantshr/question
 nav:
     - Home: index.md
     - Linux:
@@ -44,7 +44,7 @@ nav:
         - 鸟哥的linux私房菜/19 查看系统资源.md
         - 鸟哥的linux私房菜/20 SELinux.md
         - 鸟哥的linux私房菜/21 系统服务.md
-        - 鸟哥的linux私房菜/22 登录文件.md
+        - 鸟哥的linux私房菜/22 日志文件.md
         - 鸟哥的linux私房菜/23 开机流程.md
         - 鸟哥的linux私房菜/24 grub2.md
         - 鸟哥的linux私房菜/25 开机过程的问题解决.md
