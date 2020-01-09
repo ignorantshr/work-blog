@@ -24,7 +24,7 @@ XFS 的主要限制项：
 
 4. 宽限时间
 
-## 实验
+## 实验(XFS)
 
 ### 搭建实验环境
 
@@ -344,6 +344,57 @@ Project quota state on /tmp/disk-sdb (/dev/sdb)
 [root@dev tmp]# xfs_quota -x -c 'remove -p' /tmp/disk-sdb
 XFS_QUOTARM: Invalid argument
 ```
+
+## 实验(EXT4)
+
+大致流程
+
+```bash
+# 使用前文的批量创建账户脚本创建用户
+[root@centos-server-1 users]# groupadd friends
+[root@centos-server-1 users]# cat accounts
+friend1
+friend2
+friend3
+[root@centos-server-1 users]# sh users.sh create friends
+# 编辑配置文件
+[root@centos-server-1 users]# cat /etc/fstab | grep home
+# 注意，ext4 不支持uquota等简写
+/dev/mapper/cl_server-myhome /home                   ext4    defaults,usrquota,grpquota        1 2
+# 重新挂载
+[root@centos-server-1 users]# umount /home/ ; mount -a
+[root@centos-server-1 users]# mount | grep home
+/dev/mapper/cl_server-myhome on /home type ext4 (rw,relatime,seclabel,quota,usrquota,grpquota,data=ordered)
+# 制作 Quota 数据文件,并启动 Quota 支持
+[root@centos-server-1 ~]# quotacheck -v -a -ug
+# 输出只要有这一行就OK了
+quotacheck: Scanning /dev/mapper/cl_server-myhome [/home] done
+[root@centos-server-1 users]# quotaon -avug
+/dev/mapper/cl_server-myhome [/home]: group quotas turned on
+/dev/mapper/cl_server-myhome [/home]: user quotas turned on
+# 设置限额，单位是KB
+[root@centos-server-1 users]# edquota -u friend1
+Disk quotas for user friend1 (uid 1000):
+# soft 1.8 GB，hard 2 GB
+  Filesystem                   blocks       soft       hard     inodes     soft     hard
+  /dev/mapper/cl_server-myhome         16          1800000          200000          4        0        0
+# 复制
+[root@centos-server-1 users]# edquota -p friend1 friend2
+[root@centos-server-1 users]# edquota -p friend1 friend3
+# 查看
+[root@centos-server-1 users]# repquota -a
+*** Report for user quotas on device /dev/mapper/cl_server-myhome
+Block grace time: 7days; Inode grace time: 7days
+                        Block limits                File limits
+User            used    soft    hard  grace    used  soft  hard  grace
+----------------------------------------------------------------------
+root      --      24       0       0              3     0     0
+friend1   --      16 1800000  200000              4     0     0
+friend2   --      16 1800000  200000              4     0     0
+friend3   --      16 1800000  200000              4     0     0
+```
+
+
 
 ## XFS与EXT对比
 
