@@ -60,6 +60,7 @@ nav:
         - 鸟哥的linux私房菜-服务器篇/00 搭建服务器考虑事项.md
         - 鸟哥的linux私房菜-服务器篇/01 基础网络概念.md
         - 鸟哥的linux私房菜-服务器篇/02 局域网架构简介.md
+        - 鸟哥的linux私房菜-服务器篇/03 连接 Internet.md
     - 命令:
         - linux挂载windows共享文件夹: 命令/linux挂载windows共享文件夹.md
         - sed: 命令/sed.md
