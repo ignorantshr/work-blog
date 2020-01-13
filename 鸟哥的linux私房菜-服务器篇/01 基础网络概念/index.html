@@ -1015,6 +1015,30 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../02 局域网架构简介/" title="02 局域网架构简介" class="md-nav__link">
+      02 局域网架构简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../03 连接 Internet/" title="03 连接 Internet" class="md-nav__link">
+      03 连接 Internet
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -3898,10 +3922,12 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 <ul>
 <li>Gateway：<code>0.0.0.0</code> 表示不需要额外的ip</li>
 <li>Genmask：即Netmask</li>
-<li>Flags：</li>
+<li>Flags：<ul>
 <li>U：代表该路由可用</li>
 <li>G：代表该网域需要经由 Gateway 来帮忙转递</li>
 <li>H：代表该行路由为一部主机，而非一整个网域</li>
+</ul>
+</li>
 <li>Use Iface：使用的网络接口。如果我们要传送的包在路由规则里面的 Gateway 为0.0.0.0 的话，就会直接以后面的网络接口来传送出去，无需网关转发喽。</li>
 </ul>
 <p>若要传送的包目的地 IP 不在路由规则里面，那么就会将包传送到<code>default</code>（即Destination 为 0.0.0.0）所在的那个路由规则去。</p>
@@ -3963,13 +3989,13 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
           </a>
         
         
-          <a href="../../命令/linux挂载windows共享文件夹/" title="linux挂载windows共享文件夹" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../02 局域网架构简介/" title="02 局域网架构简介" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                linux挂载windows共享文件夹
+                02 局域网架构简介
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
