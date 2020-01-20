@@ -643,8 +643,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../鸟哥的linux私房菜/13 批量创建账号/" title="13 批量创建账号" class="md-nav__link">
-      13 批量创建账号
+    <a href="../../鸟哥的linux私房菜/13 密码检查更新与批量创建账号/" title="13 密码检查更新与批量创建账号" class="md-nav__link">
+      13 密码检查更新与批量创建账号
     </a>
   </li>
 
@@ -1035,6 +1035,18 @@
   <li class="md-nav__item">
     <a href="../03 连接 Internet/" title="03 连接 Internet" class="md-nav__link">
       03 连接 Internet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../04 常用网络命令/" title="04 常用网络命令" class="md-nav__link">
+      04 常用网络命令
     </a>
   </li>
 
@@ -3923,9 +3935,13 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 <li>Gateway：<code>0.0.0.0</code> 表示不需要额外的ip</li>
 <li>Genmask：即Netmask</li>
 <li>Flags：<ul>
-<li>U：代表该路由可用</li>
-<li>G：代表该网域需要经由 Gateway 来帮忙转递</li>
-<li>H：代表该行路由为一部主机，而非一整个网域</li>
+<li>U (route is up)：该路由是启动的</li>
+<li>H (target is a host)：目标是一部主机 (IP) 而非网域</li>
+<li>G (use gateway)：需要透过外部的主机 (gateway) 来转递封包</li>
+<li>R (reinstate route for dynamic routing)：使用动态路由时，恢复路由信息的旗标</li>
+<li>D (dynamically installed by daemon or redirect)：已经由服务或转 port 功能设定为动态路由</li>
+<li>M (modified from routing daemon or redirect)：路由已经被修改了</li>
+<li>! (reject route)：这个路由将不会被接受(用来抵挡不安全的网域! )</li>
 </ul>
 </li>
 <li>Use Iface：使用的网络接口。如果我们要传送的包在路由规则里面的 Gateway 为0.0.0.0 的话，就会直接以后面的网络接口来传送出去，无需网关转发喽。</li>

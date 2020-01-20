@@ -38,7 +38,7 @@
     
     
       
-        <title>13 批量创建账号 - Person Sink</title>
+        <title>13 密码检查更新与批量创建账号 - Person Sink</title>
       
     
     
@@ -105,7 +105,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                13 批量创建账号
+                13 密码检查更新与批量创建账号
               
             </span>
           
@@ -652,11 +652,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        13 批量创建账号
+        13 密码检查更新与批量创建账号
       </label>
     
-    <a href="./" title="13 批量创建账号" class="md-nav__link md-nav__link--active">
-      13 批量创建账号
+    <a href="./" title="13 密码检查更新与批量创建账号" class="md-nav__link md-nav__link--active">
+      13 密码检查更新与批量创建账号
     </a>
     
       
@@ -1015,6 +1015,18 @@
   <li class="md-nav__item">
     <a href="../../鸟哥的linux私房菜-服务器篇/03 连接 Internet/" title="03 连接 Internet" class="md-nav__link">
       03 连接 Internet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../鸟哥的linux私房菜-服务器篇/04 常用网络命令/" title="04 常用网络命令" class="md-nav__link">
+      04 常用网络命令
     </a>
   </li>
 
@@ -3799,10 +3811,10 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ignorantshr/question/edit/master/docs/鸟哥的linux私房菜/13 批量创建账号.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/ignorantshr/question/edit/master/docs/鸟哥的linux私房菜/13 密码检查更新与批量创建账号.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>13 批量创建账号</h1>
+                  <h1>13 密码检查更新与批量创建账号</h1>
                 
                 <h2 id="1">1. 账号检查工具<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <h3 id="11-pwck">1.1 pwck<a class="headerlink" href="#11-pwck" title="Permanent link">&para;</a></h3>
@@ -3860,6 +3872,7 @@ chpasswd: error detected, changes ignored
 
 
 <h2 id="2">2. 创建大量账号<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>可以使用 <code>newusers</code> 或下面的脚本：</p>
 <div class="codehilite"><pre><span></span><span class="o">[</span>sink@dev study<span class="o">]</span>$ cat create-accounts.sh
 <span class="c1">#!/bin/sh</span>
 
