@@ -444,7 +444,7 @@ drwxr-xr-x. root root unconfined_u:object_r:shadow_t:s0 /my-selinux/
 
 这个服务会将关于 SELinux 的错误讯息与解决方法记录到 `/var/log/messages` 与 `/var/log/setroubleshoot/*` 里头。
 
-原本的 SELinux 信息本来是以两个服务来记录的，分别是 auditd 与 setroubleshootd。既然是同样的信息,因此 CentOS 6.x (含 7.x) 以后将两者整合在 auditd 当中啦！所以,并没有setroubleshootd 的服务存在了。
+原本的 SELinux 信息本来是以两个服务来记录的，分别是 auditd 与 setroubleshootd。既然是同样的信息，因此 CentOS 6.x (含 7.x) 以后将两者整合在 auditd 当中啦！所以，并没有setroubleshootd 的服务存在了。
 
 先检查一下是否安装了以下rpm包：
 
@@ -657,5 +657,24 @@ tcp6       0      0 :::555                  :::*                    LISTEN      
 [root@dev ~]# curl ftp://localhost:555/pub/
 -rw-r--r--    1 0        0             221 Oct 30  2018 securetty
 -rw-r--r--    1 0        0             449 Aug 08 23:52 sysctl.conf
+```
+
+### 设置报错提醒
+
+虽然`setroubleshoot`会将错误信息写入到`/var/log/messages`里面，但每次去查找就显得有点麻烦！我们可以设置一个邮件提醒：
+
+修改`/etc/setroubleshoot/setroubleshoot.cfg`文件，添加或修改：
+
+```
+recipients_filepath = /var/lib/setroubleshoot/email_alert_recipients
+```
+
+然后添加邮件列表：
+
+```bash
+$> vim /var/lib/setroubleshoot/email_alert_recipients
+root@localhost
+your@email.address
+$> systemctl restart auditd
 ```
 

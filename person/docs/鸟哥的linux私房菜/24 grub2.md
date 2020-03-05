@@ -358,10 +358,6 @@ drwxr-xr-x. 2 root root 4096 Dec 11 17:27 locale
 
 上面这样就将 grub2 的主程序安装到 `/dev/sda4` 以及重新安装到 `MBR` 里面去了。
 
-!!! warning
-	如果你当前的操作系统不在那块磁盘上，那么你是不能操作成功的！！！比如你现在进入的是位于 `/dev/sda` 的OS，你是无法为 `/dev/sdb` 安装 grub2 的！
-
-
 
 ### 鸟哥举例
 
