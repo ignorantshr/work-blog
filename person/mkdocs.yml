@@ -4,16 +4,16 @@ repo_url: https://github.com/ignorantshr/question
 nav:
     - Home: index.md
     - Linux:
-        - epel源: linux/epel源.md
-        - 主机不能连接mariadb: linux/主机不能连接mariadb.md
-        - 修改centos7语言: linux/修改centos7语言.md
-        - 修改mariadb编码类型: linux/修改mariadb编码类型.md
-        - 关闭selinux: linux/关闭selinux.md
-        - 开启图形界面: linux/开启图形界面.md
-        - 文本安装时磁盘可选: linux/文本安装时磁盘可选.md
-        - 改变系统时区: linux/改变系统时区.md
-        - 磁盘容量扩充: linux/磁盘容量扩充.md
-        - 网卡不存在: linux/网卡不存在.md
+        - linux/epel源.md
+        - linux/主机不能连接mariadb.md
+        - linux/修改centos7语言.md
+        - linux/修改mariadb编码类型.md
+        - linux/关闭selinux.md
+        - linux/开启图形界面.md
+        - linux/文本安装时磁盘可选.md
+        - linux/改变系统时区.md
+        - linux/磁盘容量扩充.md
+        - linux/网卡不存在.md
         - linux/删除网桥.md
         - linux/Linux逻辑卷划分示意图.md
         - linux/软链接与硬链接.md
@@ -67,16 +67,16 @@ nav:
         - 鸟哥的linux私房菜-服务器篇/07 路由与路由器.md 
         - 鸟哥的linux私房菜-服务器篇/08 防火墙与 NAT 服务器.md
     - 命令:
-        - linux挂载windows共享文件夹: 命令/linux挂载windows共享文件夹.md
-        - sed: 命令/sed.md
-        - 命令/awk.md
-        - ssh免密登录: 命令/ssh免密登录.md
-        - 创建文件自动添加执行权限: 命令/创建文件自动添加执行权限.md
-        - tar命令打包去掉路径前缀: 命令/tar命令打包去掉路径前缀.md
-        - wget用法: 命令/wget用法.md
-        - 显示文件夹大小: 命令/显示文件夹大小.md
-        - 更新、禁用yum仓库、只下载rpm: 命令/更新、禁用yum仓库、只下载rpm.md
-        - 添加公钥: 命令/添加公钥.md
+        - 命令/linux挂载windows共享文件夹.md
+        - 命令/sed.md
+        - 命令/gawk.md
+        - 命令/ssh免密登录.md
+        - 命令/创建文件自动添加执行权限.md
+        - 命令/tar命令打包去掉路径前缀.md
+        - 命令/wget用法.md
+        - 命令/显示文件夹大小.md
+        - 命令/更新、禁用yum仓库、只下载rpm.md
+        - 命令/添加公钥.md
         - 命令/locate初始化.md
         - 命令/rsync.md
         - 命令/echo的颜色输出与光标定位.md

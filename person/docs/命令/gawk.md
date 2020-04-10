@@ -2,8 +2,12 @@
 gawk [ POSIX or GNU style options ] -f program-file [ -- ] file ...
 gawk [ POSIX or GNU style options ] [ -- ] program-text file ...
 
+program-text 使用单引号包围
 OPTIONS
 	-F fs  --field-separator fs		指定分隔符
+	-v var=value					定义程序中的变量及默认值，引用变量时无需$符号
+	-mf	N							指定处理的最大字段数
+	-mr	N							指定文件最大行数
 
 program
 Built-in Variables
@@ -13,6 +17,9 @@ Built-in Variables
 	ORS         The output record separator, by default a newline.
 	NF          The number of fields in the current input record.
 	NR          The total number of input records seen so far.
+	
+	$0			代表一整行
+	$n			代表该行的第n个字段
 
 Patterns
 	BEGIN
@@ -46,6 +53,24 @@ Control Statements
     [ default: statement ]
     }
 ```
+
+脚本中的语法一样，但是不需要分号分隔多个命令：
+
+```
+[root@centos7 ~]# cat script.gawk
+{
+text = "Tom"
+print text " is a superman."
+}
+[root@centos7 ~]# gawk -f script.gawk test1.txt
+Tom is a superman.
+Tom is a superman.
+Tom is a superman.
+Tom is a superman.
+Tom is a superman.
+```
+
+使用条件语句：
 
 ```shell
 [root@dev vitest]# cat -n /etc/passwd | awk -F: 'NR==1 {printf "%12s%12s\n", "name", "bash"}; $3 < 5 {print $1"\t"$7}'

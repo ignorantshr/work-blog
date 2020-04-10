@@ -8,7 +8,7 @@
 2. 相对路径
 3. 放在变量PATH中
 4. 以bash程序来执行。 "bash test.sh"，按照[指令搜寻顺序](./08 bash.md)来执行。
-5. 以source程序来执行。"bash test.sh"。source指令与上述4种方式不同的是，它不会以新的shell来执行，而是在当前shell环境下执行脚本，故可以用来重新加载环境变量："source ~/.bashrc"。
+5. 以source程序来执行。source指令与上述4种方式不同的是，它不会以新的shell来执行，而是在当前shell环境下执行脚本，故可以用来重新加载环境变量："source ~/.bashrc"。
 
 ## 脚本的debug
 
