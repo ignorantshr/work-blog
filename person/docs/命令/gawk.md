@@ -1,3 +1,5 @@
+## 使用说明
+
 ```
 gawk [ POSIX or GNU style options ] -f program-file [ -- ] file ...
 gawk [ POSIX or GNU style options ] [ -- ] program-text file ...
@@ -36,10 +38,11 @@ Patterns
     pattern1, pattern2
 
 Control Statements
-	if (condition) statement [ else statement ]
+"statement" 可以用花括号包围起来
+	if (condition) statement [ else statement ]	单行使用else语句时要添加分号。if (...) ... ; else ...
     while (condition) statement
     do statement while (condition)
-    for (expr1; expr2; expr3) statement
+    for (expr1; expr2; expr3) statement	 C风格的for循环，只不过定义变量时无需指定类型
     for (var in array) statement
     break
     continue
@@ -70,6 +73,239 @@ Tom is a superman.
 Tom is a superman.
 ```
 
+样本文件：
+
+```bash
+[user1@centos7 ~]$ cat data1
+data11,data12,data13,data14,data15
+data21,data22,data23,data24,data25
+data31,data32,data33,data34,data35
+```
+
+## 变量
+
+### 内置变量
+
+```
+FIELDWIDTHS	定义每个字段的固定宽度，以长度来划分字段
+FS			输入字段分隔符，默认为一个空白字符，即空格符或制表符
+OFS			输出字段分隔符，默认为一个空白字符
+RS			输入记录分隔符，默认为一个空白字符
+ORS			输出记录分隔符，默认为一个空白字符
+```
+
+设置了 FIELDWIDTHS 后，就会忽略 FS 变量了，并且一旦设定就不能再改变了。
+
+```bash
+[user1@centos7 ~]$ gawk 'BEGIN{FIELDWIDTHS="2 5"}{print $1,$2}' data1
+da ta11,
+da ta21,
+da ta31,
+```
+
+对于需要将多行当作一行读取的可以这样设置 FS、RS：
+
+```bash
+[user1@centos7 ~]$ cat data2
+aaa
+1990
+111111111
+beijng
+
+bbb
+2000
+222233
+dongjing
+[user1@centos7 ~]$ gawk 'BEGIN{FS="\n";RS=""}{print $1,$4}' data2
+aaa beijng
+bbb dongjing
+```
+
+### 数据变量
+
+和数据有关的内置变量：
+
+```
+ARGC	当前命令行参数的个数，不计算脚本
+ARGV	包含命令行参数的数组，不计算脚本，索引从0开始
+ENVIRON	当前shell环境变量组成的数组，索引是shell环境变量名，例如 HOME、PATH
+FILENAME	作为数据输入的文件名，在BEGIN中无法使用
+FNR		当前数据文件中的处理数据行数
+NR		处理的行数
+NF		当前行的字段数
+```
+
+参数相关变量：
+
+```bash
+[user1@centos7 ~]$ gawk 'BEGIN{print ARGC;for (i in ARGV) print ARGV[i]}' data1
+2
+gawk
+data1
+```
+
+shell环境变量：
+
+```bash
+[user1@centos7 ~]$ gawk 'BEGIN{FS=",";print "data","FNR","NR"}{print $1,FNR,NR}' data1 data1
+data FNR NR
+data11 1 1
+data21 2 2
+data31 3 3
+data11 1 4
+data21 2 5
+data31 3 6
+```
+
+### 自定义变量
+
+变量名可以是 数字、字母及下划线 的组合，但不能以数字开头，并且区分大小写。
+
+#### 在脚本中给变量赋值
+
+```bash
+[user1@centos7 ~]$ gawk 'BEGIN{num=3; print num}' data1
+3
+```
+
+赋值语句还可以是算式：
+
+```bash
+[user1@centos7 ~]$ gawk 'BEGIN{num=3; num=num*num^2; print num}' data1
+27
+```
+
+#### 在命令行上给变量赋值
+
+```bash
+[user1@centos7 ~]$ gawk -v num=3 'BEGIN{num=num*num^2; print num}' data1
+27
+```
+
+若使用`-v`选项来定义变量，那么该参数必须放在脚本之前；若不使用`-v`选项，那么在`BEGIN`块中不可用：
+
+```bash
+[user1@centos7 ~]$ gawk 'BEGIN{num=2; num=num*num^2; print num}{print num}' num=3 data1
+8
+3
+3
+3
+```
+
+### 数组变量
+
+#### 定义与遍历数组
+
+gawk 使用关联数组提供数组功能。数组的索引及值都可以既是*字符串*又可以是*数字*。
+
+```
+var[index] = value
+```
+
+```bash
+[user1@centos7 ~]$ cat array_test.gawk
+BEGIN{
+a["a"] = 1
+a["c"] = "helk"
+a["b"] = 0
+a[2] = "gfdhj"
+}
+{
+for (e in a)
+{
+    print "a["e"] =",a[e]
+}
+}
+[user1@centos7 ~]$ gawk -f array_test.gawk -
+
+a[a] = 1
+a[b] = 0
+a[c] = helk
+a[2] = gfdhj
+```
+
+注意：索引值不会按照任何特定顺序返回。
+
+#### 删除数组
+
+删除某个元素：
+
+```
+delete array[index]
+```
+
+删除整个数组：
+
+```
+delete array
+```
+
+## 匹配模式
+
+gawk 支持多种匹配模式来过数据记录。
+
+### 正则表达式
+
+gawk 支持基础正则表达式（BRE）和扩展正则表达式（ERE）来进行模式匹配。在使用时，正则表达式必须位于花括号前：
+
+```bash
+[user1@centos7 ~]$ gawk -F ',' '/,d/{print $1}' data1
+data11
+data21
+data31
+```
+
+gawk 会对**记录**进行匹配。
+
+### 匹配操作符
+
+匹配操作符（matching operator）允许将正则表达式*限定在指定的字段*。
+
+```
+$N [!]~ /re/
+```
+
+若使用了`!`则表示排除匹配。
+
+```bash
+[user1@centos7 ~]$ gawk -F ',' '$1 ~ /data21/{print $1}' data1
+data21
+```
+
+### 数学表达式
+
+在匹配模式中还可以使用数学表达式，用于比较数字。
+
+操作符有：
+
+- ==
+- <=
+- <
+- \>=
+- \>
+
+找出所有用户组ID为 0 的用户：
+
+```bash
+[user1@centos7 ~]$ gawk -F ':' '$4 == 0{print $1}' /etc/passwd
+root
+sync
+shutdown
+halt
+operator
+```
+
+若对文本数据使用数学表达式则必须完全匹配：
+
+```
+[user1@centos7 ~]$ gawk -F ':' '$1 == "root"{print $1}' /etc/passwd
+root
+```
+
+## 流程控制语句
+
+参考使用说明中的控制语句语法。
+
 使用条件语句：
 
 ```shell
@@ -93,5 +329,28 @@ cat pay. txt | \
 > awk ' {if(NR==1) printf "%10s %10s %10s %10s %10s\n", $1, $2, $3, $4, "Total"}
 > NR>=2{total = $2 + $3 + $4
 > printf "%10s %10d %10d %10d %10.2f\n", $1, $2, $3, $4, total}'
+```
+
+## 格式化打印
+
+```
+printf "format string", var1, var2, ...
+```
+
+和C语言一样。
+
+```
+e	使用科学计数法表示
+o	按照八进制显示
+x	按照十六进制显示
+X	按照十六进制显示，但使用大写字母
+```
+
+另外三种修饰符：
+
+```
+width	指定输出字段最小宽度。若短于此值，则右对齐，否则按照实际长度输出
+.prec	指定浮点数的小数位数，或字符串的最大字符数
+- 		使用左对齐
 ```
 
