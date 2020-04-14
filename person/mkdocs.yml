@@ -85,6 +85,7 @@ nav:
         - 命令/split.md
         - 命令/文件对比.md
         - 命令/gpg.md
+        - 命令/解析命令行的选项和参数.md
     - Shell:
         - shell/shell脚本自动输入.md
         - shell/命令行编写循环体.md
