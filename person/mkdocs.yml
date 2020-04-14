@@ -104,7 +104,6 @@ nav:
         - python/asyncore模块.md
         - python/select模块.md
         - python/subprocess模块.md
-        - python/mkdown2reStructuredText.md
         - python/上下文管理器.md
         - python/网络编程.md
     - 其它:
