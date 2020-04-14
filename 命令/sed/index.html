@@ -34,15 +34,15 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
     
     
       
-        <title>sed - Person Sink</title>
+        <title>Sed - Person Sink</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
       
       
     
@@ -79,7 +79,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#1" tabindex="1" class="md-skip">
+      <a href="#1-sed" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -105,7 +105,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                sed
+                Sed
               
             </span>
           
@@ -171,7 +171,7 @@
         
       
       
-      <main class="md-main">
+      <main class="md-main" role="main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
             
@@ -247,8 +247,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../linux/epel源/" title="epel源" class="md-nav__link">
-      epel源
+    <a href="../../linux/epel源/" title="Epel源" class="md-nav__link">
+      Epel源
     </a>
   </li>
 
@@ -1041,8 +1041,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../linux挂载windows共享文件夹/" title="linux挂载windows共享文件夹" class="md-nav__link">
-      linux挂载windows共享文件夹
+    <a href="../linux挂载windows共享文件夹/" title="Linux挂载windows共享文件夹" class="md-nav__link">
+      Linux挂载windows共享文件夹
     </a>
   </li>
 
@@ -1060,11 +1060,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        sed
+        Sed
       </label>
     
-    <a href="./" title="sed" class="md-nav__link md-nav__link--active">
-      sed
+    <a href="./" title="Sed" class="md-nav__link md-nav__link--active">
+      Sed
     </a>
     
       
@@ -1076,37 +1076,287 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" title="1. 替换文件中的内容" class="md-nav__link">
-    1. 替换文件中的内容
+  <a href="#1-sed" class="md-nav__link">
+    1. sed 基础
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 使用地址
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 替换文件中的内容
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    1.2.1 替换标记
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122" class="md-nav__link">
+    1.2.2 替换字符
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3 转换字符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    1.4 插入多行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    1.5 取代行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    1.6 打印行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    1.7 读写文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" title="2. 删除指定行" class="md-nav__link">
-    2. 删除指定行
+  <a href="#2-sed" class="md-nav__link">
+    2. sed 进阶
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 多行命令
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211-next" class="md-nav__link">
+    2.1.1 next 命令
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2111-next" class="md-nav__link">
+    2.1.1.1 单行的 next 命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2112-next" class="md-nav__link">
+    2.1.1.2 多行的 next 命令
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212" class="md-nav__link">
+    2.1.2 多行删除命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#213" class="md-nav__link">
+    2.1.3 多行打印命令
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 模式空间与保持空间
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 改变执行流程
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    2.3.1 分支
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232" class="md-nav__link">
+    2.3.2 测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4 模式替代
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241" class="md-nav__link">
+    2.4.1 &amp;符号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242" class="md-nav__link">
+    2.4.2 子模式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3" title="3. 插入多行" class="md-nav__link">
-    3. 插入多行
+  <a href="#3-sed" class="md-nav__link">
+    3. 创建 sed 实用工具
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 加倍行间距
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#4" title="4. 取代行" class="md-nav__link">
-    4. 取代行
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 给文件中的行编号
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#5" title="5. 打印行" class="md-nav__link">
-    5. 打印行
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 打印末尾几行
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    3.4 删除空白行
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341" class="md-nav__link">
+    3.4.1 删除连续的空白行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342" class="md-nav__link">
+    3.4.2 删除开头的空白行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#343" class="md-nav__link">
+    3.4.3 删除结尾的空白行
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-html" class="md-nav__link">
+    3.5 删除HTML标签
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1127,8 +1377,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../awk/" title="Awk" class="md-nav__link">
-      Awk
+    <a href="../gawk/" title="Gawk" class="md-nav__link">
+      Gawk
     </a>
   </li>
 
@@ -1139,8 +1389,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../ssh免密登录/" title="ssh免密登录" class="md-nav__link">
-      ssh免密登录
+    <a href="../ssh免密登录/" title="Ssh免密登录" class="md-nav__link">
+      Ssh免密登录
     </a>
   </li>
 
@@ -1163,8 +1413,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../tar命令打包去掉路径前缀/" title="tar命令打包去掉路径前缀" class="md-nav__link">
-      tar命令打包去掉路径前缀
+    <a href="../tar命令打包去掉路径前缀/" title="Tar命令打包去掉路径前缀" class="md-nav__link">
+      Tar命令打包去掉路径前缀
     </a>
   </li>
 
@@ -1175,8 +1425,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../wget用法/" title="wget用法" class="md-nav__link">
-      wget用法
+    <a href="../wget用法/" title="Wget用法" class="md-nav__link">
+      Wget用法
     </a>
   </li>
 
@@ -1201,18 +1451,6 @@
   <li class="md-nav__item">
     <a href="../更新、禁用yum仓库、只下载rpm/" title="更新、禁用yum仓库、只下载rpm" class="md-nav__link">
       更新、禁用yum仓库、只下载rpm
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../添加公钥/" title="添加公钥" class="md-nav__link">
-      添加公钥
     </a>
   </li>
 
@@ -1321,6 +1559,18 @@
   <li class="md-nav__item">
     <a href="../gpg/" title="Gpg" class="md-nav__link">
       Gpg
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../解析命令行的选项和参数/" title="解析命令行的选项和参数" class="md-nav__link">
+      解析命令行的选项和参数
     </a>
   </li>
 
@@ -1868,10 +2118,46 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
     
     <label class="md-nav__link" for="nav-11">
-      Java
+      Nginx
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-11">
+        Nginx
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../nginx/01 简介/" title="01 简介" class="md-nav__link">
+      01 简介
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+    
+    <label class="md-nav__link" for="nav-12">
+      Java
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
         Java
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1925,13 +2211,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
     
-    <label class="md-nav__link" for="nav-12">
+    <label class="md-nav__link" for="nav-13">
       servlet
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-12">
+      <label class="md-nav__title" for="nav-13">
         servlet
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2093,13 +2379,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
     
-    <label class="md-nav__link" for="nav-13">
+    <label class="md-nav__link" for="nav-14">
       Spring
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-13">
+      <label class="md-nav__title" for="nav-14">
         Spring
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2141,13 +2427,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
     
-    <label class="md-nav__link" for="nav-14">
+    <label class="md-nav__link" for="nav-15">
       Spring Boot
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-14">
+      <label class="md-nav__title" for="nav-15">
         Spring Boot
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2237,13 +2523,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
     
-    <label class="md-nav__link" for="nav-15">
+    <label class="md-nav__link" for="nav-16">
       设计模式
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-15">
+      <label class="md-nav__title" for="nav-16">
         设计模式
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2285,13 +2571,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
     
-    <label class="md-nav__link" for="nav-16">
+    <label class="md-nav__link" for="nav-17">
       MySQL
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-16">
+      <label class="md-nav__title" for="nav-17">
         MySQL
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2873,13 +3159,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-18" type="checkbox" id="nav-18">
     
-    <label class="md-nav__link" for="nav-17">
+    <label class="md-nav__link" for="nav-18">
       MyBatis
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-17">
+      <label class="md-nav__title" for="nav-18">
         MyBatis
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2933,13 +3219,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-18" type="checkbox" id="nav-18">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-19" type="checkbox" id="nav-19">
     
-    <label class="md-nav__link" for="nav-18">
+    <label class="md-nav__link" for="nav-19">
       HTTP协议
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-18">
+      <label class="md-nav__title" for="nav-19">
         HTTP协议
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3029,13 +3315,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-19" type="checkbox" id="nav-19">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-20" type="checkbox" id="nav-20">
     
-    <label class="md-nav__link" for="nav-19">
+    <label class="md-nav__link" for="nav-20">
       CS50
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-19">
+      <label class="md-nav__title" for="nav-20">
         CS50
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3077,13 +3363,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-20" type="checkbox" id="nav-20">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-21" type="checkbox" id="nav-21">
     
-    <label class="md-nav__link" for="nav-20">
+    <label class="md-nav__link" for="nav-21">
       Linux网络编程
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-20">
+      <label class="md-nav__title" for="nav-21">
         Linux网络编程
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3137,14 +3423,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-21" type="checkbox" id="nav-21">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-22" type="checkbox" id="nav-22">
     
-    <label class="md-nav__link" for="nav-21">
-      Gluster
+    <label class="md-nav__link" for="nav-22">
+      GlusterFS
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-21">
-        Gluster
+      <label class="md-nav__title" for="nav-22">
+        GlusterFS
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -3209,13 +3495,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-22" type="checkbox" id="nav-22">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-23" type="checkbox" id="nav-23">
     
-    <label class="md-nav__link" for="nav-22">
+    <label class="md-nav__link" for="nav-23">
       Docker
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-22">
+      <label class="md-nav__title" for="nav-23">
         Docker
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3365,13 +3651,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-23" type="checkbox" id="nav-23">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-24" type="checkbox" id="nav-24">
     
-    <label class="md-nav__link" for="nav-23">
+    <label class="md-nav__link" for="nav-24">
       Git
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-23">
+      <label class="md-nav__title" for="nav-24">
         Git
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3461,13 +3747,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-24" type="checkbox" id="nav-24">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-25" type="checkbox" id="nav-25">
     
-    <label class="md-nav__link" for="nav-24">
+    <label class="md-nav__link" for="nav-25">
       Gerrit
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-24">
+      <label class="md-nav__title" for="nav-25">
         Gerrit
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3533,13 +3819,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-25" type="checkbox" id="nav-25">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-26" type="checkbox" id="nav-26">
     
-    <label class="md-nav__link" for="nav-25">
+    <label class="md-nav__link" for="nav-26">
       小玩具
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-25">
+      <label class="md-nav__title" for="nav-26">
         小玩具
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3569,13 +3855,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-26" type="checkbox" id="nav-26">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-27" type="checkbox" id="nav-27">
     
-    <label class="md-nav__link" for="nav-26">
+    <label class="md-nav__link" for="nav-27">
       Datastruct
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-26">
+      <label class="md-nav__title" for="nav-27">
         Datastruct
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3629,13 +3915,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-27" type="checkbox" id="nav-27">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-28" type="checkbox" id="nav-28">
     
-    <label class="md-nav__link" for="nav-27">
+    <label class="md-nav__link" for="nav-28">
       C
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-27">
+      <label class="md-nav__title" for="nav-28">
         C
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3701,13 +3987,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-28" type="checkbox" id="nav-28">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-29" type="checkbox" id="nav-29">
     
-    <label class="md-nav__link" for="nav-28">
+    <label class="md-nav__link" for="nav-29">
       Algorithm
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-28">
+      <label class="md-nav__title" for="nav-29">
         Algorithm
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3749,13 +4035,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-29" type="checkbox" id="nav-29">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-30" type="checkbox" id="nav-30">
     
-    <label class="md-nav__link" for="nav-29">
+    <label class="md-nav__link" for="nav-30">
       奇技淫巧
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-29">
+      <label class="md-nav__title" for="nav-30">
         奇技淫巧
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3797,37 +4083,287 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" title="1. 替换文件中的内容" class="md-nav__link">
-    1. 替换文件中的内容
+  <a href="#1-sed" class="md-nav__link">
+    1. sed 基础
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 使用地址
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 替换文件中的内容
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    1.2.1 替换标记
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122" class="md-nav__link">
+    1.2.2 替换字符
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3 转换字符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    1.4 插入多行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    1.5 取代行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    1.6 打印行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    1.7 读写文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" title="2. 删除指定行" class="md-nav__link">
-    2. 删除指定行
+  <a href="#2-sed" class="md-nav__link">
+    2. sed 进阶
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 多行命令
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211-next" class="md-nav__link">
+    2.1.1 next 命令
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2111-next" class="md-nav__link">
+    2.1.1.1 单行的 next 命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2112-next" class="md-nav__link">
+    2.1.1.2 多行的 next 命令
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212" class="md-nav__link">
+    2.1.2 多行删除命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#213" class="md-nav__link">
+    2.1.3 多行打印命令
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 模式空间与保持空间
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 改变执行流程
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    2.3.1 分支
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232" class="md-nav__link">
+    2.3.2 测试
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4 模式替代
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241" class="md-nav__link">
+    2.4.1 &amp;符号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242" class="md-nav__link">
+    2.4.2 子模式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3" title="3. 插入多行" class="md-nav__link">
-    3. 插入多行
+  <a href="#3-sed" class="md-nav__link">
+    3. 创建 sed 实用工具
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 加倍行间距
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#4" title="4. 取代行" class="md-nav__link">
-    4. 取代行
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 给文件中的行编号
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#5" title="5. 打印行" class="md-nav__link">
-    5. 打印行
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 打印末尾几行
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    3.4 删除空白行
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341" class="md-nav__link">
+    3.4.1 删除连续的空白行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342" class="md-nav__link">
+    3.4.2 删除开头的空白行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#343" class="md-nav__link">
+    3.4.3 删除结尾的空白行
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-html" class="md-nav__link">
+    3.5 删除HTML标签
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3850,54 +4386,138 @@
                   <a href="https://github.com/ignorantshr/question/edit/master/docs/命令/sed.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>sed</h1>
+                  <h1>Sed</h1>
                 
                 <div class="codehilite"><pre><span></span><span class="nv">sed</span> [<span class="nv">OPTION</span>]... {<span class="nv">script</span><span class="o">-</span><span class="nv">only</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="nv">no</span><span class="o">-</span><span class="nv">other</span><span class="o">-</span><span class="nv">script</span>} [<span class="nv">input</span><span class="o">-</span><span class="nv">file</span>]...
 
 <span class="nv">OPTION</span>
-    <span class="o">-</span><span class="nv">n</span>, <span class="o">--</span><span class="nv">quiet</span>, <span class="o">--</span><span class="nv">silent</span>                   不输出没有变动的行
+    <span class="o">-</span><span class="nv">n</span>, <span class="o">--</span><span class="nv">quiet</span>, <span class="o">--</span><span class="nv">silent</span>                   
     <span class="o">-</span><span class="nv">f</span> <span class="nv">script</span><span class="o">-</span><span class="nv">file</span>, <span class="o">--</span><span class="nv">file</span><span class="o">=</span><span class="nv">script</span><span class="o">-</span><span class="nv">file</span>      从含有脚本的文件中执行动作
     <span class="o">-</span><span class="nv">i</span>[<span class="nv">SUFFIX</span>], <span class="o">--</span><span class="nv">in</span><span class="o">-</span><span class="nv">place</span>[<span class="o">=</span><span class="nv">SUFFIX</span>]         直接修改文件，如果提供 <span class="nv">SUFFIX</span>，则进行备份
     <span class="o">-</span><span class="nv">r</span>, <span class="o">--</span><span class="nv">regexp</span><span class="o">-</span><span class="nv">extended</span>                   使用扩展的正则表达式
 
-{<span class="nv">script</span><span class="o">-</span><span class="nv">only</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="nv">no</span><span class="o">-</span><span class="nv">other</span><span class="o">-</span><span class="nv">script</span>}：<span class="s1">&#39;</span><span class="s">[n1[,n2]]动作</span><span class="s1">&#39;</span>
-常用动作
-    <span class="nv">a</span>       后接字符串，在匹配行的下一行新增字符串
-    <span class="nv">i</span>       后接字符串，在匹配行的上一行新增字符串
-    <span class="nv">c</span>       后接字符串，替换掉 <span class="nv">n1</span><span class="o">-</span><span class="nv">n2</span> 之间的行
+{<span class="nv">script</span><span class="o">-</span><span class="nv">only</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="nv">no</span><span class="o">-</span><span class="nv">other</span><span class="o">-</span><span class="nv">script</span>}：<span class="s1">&#39;</span><span class="s">[n1[,n2]]命令</span><span class="s1">&#39;</span>
+常用命令
+    <span class="nv">a</span> <span class="nv">Text</span>  后接字符串，在匹配行的下一行新增字符串
+    <span class="nv">i</span> <span class="nv">Text</span>  后接字符串，在匹配行的上一行新增字符串
+    <span class="nv">c</span> <span class="nv">Text</span>  后接字符串，替换掉 <span class="nv">n1</span><span class="o">-</span><span class="nv">n2</span> 之间的行
+    <span class="nv">y</span><span class="o">/</span><span class="nv">inchars</span><span class="o">/</span><span class="nv">outchars</span><span class="o">/</span>     按照一一对应的关系进行字符转换
+    <span class="nv">s</span><span class="o">/</span><span class="nv">pattern</span><span class="o">/</span><span class="nv">replacement</span><span class="o">/</span>[<span class="nv">flags</span>]       替换字符串
     <span class="nv">d</span>       删除行
     <span class="nv">p</span>       打印行
-    <span class="nv">s</span>       替换字符串
+    <span class="o">=</span>       打印行号
+    <span class="nv">l</span>       打印出所有字符
+    <span class="nv">w</span> <span class="nv">filename</span>  将匹配的写入文件
+    <span class="nv">r</span> <span class="nv">filename</span>  从文件中读取数据
 </pre></div>
 
 
-<h2 id="1">1. 替换文件中的内容<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>还有一个特殊的排除命令<code>!</code>，当它加到常用命令的前面时表示对于匹配的行不执行该命令。</p>
+<h2 id="1-sed">1. sed 基础<a class="headerlink" href="#1-sed" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 使用地址<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>若要指定某些行，则要使用<code>行寻址</code>，sed 中有两种行寻址：</p>
+<ul>
+<li>以数字形式表示行区间</li>
+<li>以文本模式匹配行</li>
+</ul>
+<p>语法：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">address</span><span class="o">]</span><span class="n">command</span><span class="w"></span>
+
+<span class="n">address</span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">command1</span><span class="w"></span>
+<span class="w">    </span><span class="n">command2</span><span class="w"></span>
+<span class="err">}</span><span class="w"></span>
+</pre></div>
+
+
+<p>数字行寻址，左闭右闭原则：</p>
+<div class="codehilite"><pre><span></span>sed -e <span class="s1">&#39;2,$d&#39;</span> rpms.list
+</pre></div>
+
+
+<p>文本行寻址：</p>
+<div class="codehilite"><pre><span></span>sed -e <span class="s1">&#39;/class/d&#39;</span> setup.py
+</pre></div>
+
+
+<p>文本行寻址使用正则表达式来匹配。</p>
+<p>两种寻址方式可以混用：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="s1">&#39;/2/,$d&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+
+
+<h3 id="12">1.2 替换文件中的内容<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<h4 id="121">1.2.1 替换标记<a class="headerlink" href="#121" title="Permanent link">&para;</a></h4>
+<p>替换的语法：</p>
+<div class="codehilite"><pre><span></span><span class="n">s</span><span class="o">/</span><span class="n">pattern</span><span class="o">/</span><span class="n">replacement</span><span class="o">/[</span><span class="n">flags</span><span class="o">]</span><span class="w"></span>
+</pre></div>
+
+
+<p>其中flags有以下几种：</p>
+<ul>
+<li>数字：替换第几处的匹配文本</li>
+<li>g：替换所有的匹配文本</li>
+<li>p：打印匹配的行，经常与<code>-n</code>选项联用来只打印匹配的行</li>
+<li>w file：把替换结果写入文件</li>
+</ul>
+<p>没有标记则替换第一处匹配文本：</p>
 <div class="codehilite"><pre><span></span>sed -i <span class="s1">&#39;s/refa/hyxz/&#39;</span> rpms.list
 </pre></div>
 
 
-<p>选项含意：</p>
-<ul>
-<li>-i：写入到文件中</li>
-<li>-e：指定执行的命令，在控制台输出</li>
-</ul>
+<p>p 标记：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+
+<span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="s1">&#39;s/1/that/p&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">that</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">that</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+</pre></div>
+
+
+<p>w 标记：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="s1">&#39;s/1/that/w test1-copy.txt&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">that</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+
+<span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">test1</span><span class="o">-</span><span class="n">copy</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">that</span><span class="w"></span>
+</pre></div>
+
+
+<h4 id="122">1.2.2 替换字符<a class="headerlink" href="#122" title="Permanent link">&para;</a></h4>
 <p>如果内容包含<code>/</code>，需要加上前缀进行转义：</p>
 <div class="codehilite"><pre><span></span>sed -e <span class="s1">&#39;s/virt-v2v/\/home\/tmp\/usr\/local\/bin\/virt-v2v/g&#39;</span> convert.sh
 </pre></div>
 
 
-<h2 id="2">2. 删除指定行<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<p>根据行号删除：</p>
-<div class="codehilite"><pre><span></span>sed -e <span class="s1">&#39;2,$d&#39;</span> rpms.list
+<p>或者使用<code>!</code>来方便书写，多个命令使用分号隔开：</p>
+<div class="codehilite"><pre><span></span>sed <span class="s1">&#39;s!this!that!; s/is/it/&#39;</span> test1.txt
 </pre></div>
 
 
-<p>根据匹配的字符串删除：</p>
-<div class="codehilite"><pre><span></span>sed -e <span class="s1">&#39;/class/d&#39;</span> setup.py
+<p>注意：当使用<code>!</code>时必须使用单引号包围命令。</p>
+<h3 id="13">1.3 转换字符<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<p>自动找到所有的字符进行替换，inchars与outchars的长度必须相同：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">rm</span><span class="w"> </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="n">test1</span><span class="o">-</span><span class="n">copy</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="s1">&#39;y/hijk/lmns/&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">tlms</span><span class="w"> </span><span class="n">ms</span><span class="w"> </span><span class="n">lmne</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">tlms</span><span class="w"> </span><span class="n">ms</span><span class="w"> </span><span class="n">lmne</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">tlms</span><span class="w"> </span><span class="n">ms</span><span class="w"> </span><span class="n">lmne</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="n">tlms</span><span class="w"> </span><span class="n">ms</span><span class="w"> </span><span class="n">lmne</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
 </pre></div>
 
 
-<h2 id="3">3. 插入多行<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="14">1.4 插入多行<a class="headerlink" href="#14" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="o">[</span>root@dev vitest<span class="o">]</span><span class="c1"># nl /etc/passwd | sed &#39;2i first line\</span>
 &gt; second line<span class="err">&#39;</span>
      <span class="m">1</span>  root:x:0:0:root:/root:/bin/bash
@@ -3907,18 +4527,307 @@ second line
 </pre></div>
 
 
-<h2 id="4">4. 取代行<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="15">1.5 取代行<a class="headerlink" href="#15" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="o">[</span>root@dev vitest<span class="o">]</span><span class="c1"># nl /etc/passwd | sed &#39;1,4c No lines.&#39;</span>
 No lines.
      <span class="m">5</span>  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
 </pre></div>
 
 
-<h2 id="5">5. 打印行<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<h3 id="16">1.6 打印行<a class="headerlink" href="#16" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="o">[</span>root@dev vitest<span class="o">]</span><span class="c1"># nl /etc/passwd | sed -n &#39;1,3p&#39;</span>
      <span class="m">1</span>  root:x:0:0:root:/root:/bin/bash
      <span class="m">2</span>  bin:x:1:1:bin:/bin:/sbin/nologin
      <span class="m">3</span>  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+</pre></div>
+
+
+<p>打印出不可打印的字符</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="s1">&#39;l&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">1</span><span class="err">$</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="err">$</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+</pre></div>
+
+
+<h3 id="17">1.7 读写文件<a class="headerlink" href="#17" title="Permanent link">&para;</a></h3>
+<p>读取文件并插入：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">test2</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">added</span><span class="w"> </span><span class="n">line</span><span class="p">.</span><span class="w"></span>
+<span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="s1">&#39;/1/r test2.txt&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">added</span><span class="w"> </span><span class="n">line</span><span class="p">.</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+</pre></div>
+
+
+<h2 id="2-sed">2. sed 进阶<a class="headerlink" href="#2-sed" title="Permanent link">&para;</a></h2>
+<p>样本文件：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+</pre></div>
+
+
+<h3 id="21">2.1 多行命令<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>sed 默认一次之处理一行数据，若想处理多行，则需要使用 多行命令，有以下三种：</p>
+<ul>
+<li><code>N</code>：将数据流中的下一行加进来创建一个<code>多行组</code>（multiline group）进行处理</li>
+<li><code>D</code>：删除多行的第一行</li>
+<li><code>P</code>：打印多行的第一行</li>
+</ul>
+<h4 id="211-next">2.1.1 next 命令<a class="headerlink" href="#211-next" title="Permanent link">&para;</a></h4>
+<h5 id="2111-next">2.1.1.1 单行的 next 命令<a class="headerlink" href="#2111-next" title="Permanent link">&para;</a></h5>
+<p><code>n</code>命令会让 sed 将下一行加载到模式空间（工作空间）进行处理。</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="s1">&#39;/1/{n ;d}&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+</pre></div>
+
+
+<h5 id="2112-next">2.1.1.2 多行的 next 命令<a class="headerlink" href="#2112-next" title="Permanent link">&para;</a></h5>
+<p><code>N</code>命令会让 sed 将下一行添加到模式空间已有的文本之后再进行处理。</p>
+<div class="codehilite"><pre><span></span><span class="err">#</span><span class="w"> </span><span class="n">只会替换第一行的数据</span><span class="w"></span>
+<span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="s1">&#39;N; s/number/num/&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+<span class="err">#</span><span class="w"> </span><span class="n">也可以跨行替换</span><span class="w"></span>
+<span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="s1">&#39;/1/{N ; s/\n/  $$$$ /}&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="err">$$$$</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+</pre></div>
+
+
+<p>注意，如果恰好读到最后一行，那么就没有数据给 sed 去添加了，sed 会停止工作：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="s1">&#39;/4/{N ; s/4/5/}&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+</pre></div>
+
+
+<p>解决这个问题的方法是将单行命令放在 N 前面（前提条件是该文件是奇数行）：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="s1">&#39;/^$/d&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="s1">&#39;s/3/5/; N; s/number/num/&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
+</pre></div>
+
+
+<h4 id="212">2.1.2 多行删除命令<a class="headerlink" href="#212" title="Permanent link">&para;</a></h4>
+<p><code>D</code>只删除多行中的第一行：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="s1">&#39;N ; /1/d&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="s1">&#39;N ; /1/D&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+</pre></div>
+
+
+<p>删除header所在行的上一行空白行：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="s1">&#39;/^$/{N ; /header/D}&#39;</span><span class="w"> </span><span class="n">blank</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+</pre></div>
+
+
+<p><code>D</code>的独特之处在于强制 sed 返回到脚本的起始处：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="s1">&#39;$a this is line number 4&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+<span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="s1">&#39;N ; D ; P&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+<span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="s1">&#39;N ; P ; D&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+</pre></div>
+
+
+<h4 id="213">2.1.3 多行打印命令<a class="headerlink" href="#213" title="Permanent link">&para;</a></h4>
+<p><code>P</code>只打印多行中的第一行。</p>
+<h3 id="22">2.2 模式空间与保持空间<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>sed 有一块<code>模式空间</code>（pattern space）用于存储待编辑的文本；还有一块<code>保持空间</code>（hold space）用于保存一些临时的文本。</p>
+<p>下面是一些操作命令：</p>
+<div class="codehilite"><pre><span></span><span class="n">h</span>   <span class="err">将模式空间复制到保持空间</span>
+<span class="n">H</span>   <span class="err">将模式空间附加到保持空间</span>
+<span class="k">g</span>   <span class="err">将保持空间复制到模式空间</span>
+<span class="k">G</span>   <span class="err">将保持空间附加到模式空间</span>
+<span class="n">x</span>   <span class="err">交换两个空间的内容</span>
+</pre></div>
+
+
+<p>反转两行：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="s1">&#39;/2/{ h; n; p; g; p }&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+</pre></div>
+
+
+<p>反转整个文件内容：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="s1">&#39;{1!G; h; $p}&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+
+
+<p>解析：G 将保持空间附加到模式空间（此时只有读取到的一行）的后面，然后再将附加完成的模式空间复制到保持空间，这样就完成了类似于栈的数据结构，当作用到最后一行的时候，此时模式空间就已经完成了文本反转，打印出来即可。</p>
+<h3 id="23">2.3 改变执行流程<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<h4 id="231">2.3.1 分支<a class="headerlink" href="#231" title="Permanent link">&para;</a></h4>
+<p>触发条件之后进行命令跳转：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">address</span><span class="o">]</span><span class="n">b</span><span class="w"> </span><span class="o">[</span><span class="n">label</span><span class="o">]</span><span class="w"></span>
+</pre></div>
+
+
+<p><em>label</em>定义了要跳转的位置，如果不指定的话则跳转到脚本的结尾处，即<em>不执行后续的任何命令</em>。</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="s1">&#39;1,2b ; s/this/that/ ; s/number/num/&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">that</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="n">that</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+</pre></div>
+
+
+<p>定义标签的情况下，<em>匹配的行会执行标签后续的所有命令，不匹配的行则执行除 b 命令之外的全部命令</em>。</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="s1">&#39;1,2b simple; s/this/that/ ; :simple ; s/number/num/&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">that</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="n">that</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+</pre></div>
+
+
+<p>标签的最大长度是7。</p>
+<p>标签也可以位于 b 命令的前方，达到循环效果：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="s1">&#39;:start ; s/s/N/p ; /s/b start&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">thiN</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">thiN</span><span class="w"> </span><span class="ow">iN</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">thiN</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">thiN</span><span class="w"> </span><span class="ow">iN</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">thiN</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="n">thiN</span><span class="w"> </span><span class="ow">iN</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="n">thiN</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+<span class="n">thiN</span><span class="w"> </span><span class="ow">iN</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+</pre></div>
+
+
+<p>注意不要搞成无现循环了哦：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="s1">&#39;:start ; s/[0-9]/N/p ; /s/b start&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="o">^</span><span class="n">C</span><span class="w"></span>
+</pre></div>
+
+
+<h4 id="232">2.3.2 测试<a class="headerlink" href="#232" title="Permanent link">&para;</a></h4>
+<p>测试命令会根据替换命令的成功与否来进行跳转。</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">subsitution-command</span><span class="o">]</span><span class="n">t</span><span class="w"> </span><span class="o">[</span><span class="n">label</span><span class="o">]</span><span class="w"></span>
+</pre></div>
+
+
+<p>用法与分支命令类似，但测试命令不会造成无限循环：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="s1">&#39;:start ; s/is/N/p ; t start&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">thN</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">thN</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">thN</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">thN</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">thN</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="n">thN</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="n">thN</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+<span class="n">thN</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+</pre></div>
+
+
+<h3 id="24">2.4 模式替代<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<h4 id="241">2.4.1 &amp;符号<a class="headerlink" href="#241" title="Permanent link">&para;</a></h4>
+<p><code>&amp;</code>符号可以用于表示匹配到的字符串。</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="s1">&#39;s!this!&amp; is!p&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+</pre></div>
+
+
+<h4 id="242">2.4.2 子模式<a class="headerlink" href="#242" title="Permanent link">&para;</a></h4>
+<p>使用小括号来定义替换模式中的子模式，然后在替代字段中使用<code>\数字</code>的方式引用子模式。</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="s1">&#39;s!th\(.s\)!\1!p&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="k">is</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="k">is</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="k">is</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="k">is</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+</pre></div>
+
+
+<h2 id="3-sed">3. 创建 sed 实用工具<a class="headerlink" href="#3-sed" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 加倍行间距<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="s1">&#39;$!G&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+</pre></div>
+
+
+<p>若本来就有空白行，它会把空白行也加倍。解决办法是先把空白行删除，再插入新的空白行:</p>
+<div class="codehilite"><pre><span></span>sed <span class="s1">&#39;/^$/d ; $!G&#39;</span> test1.txt
+</pre></div>
+
+
+<h3 id="32">3.2 给文件中的行编号<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="s1">&#39;=&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="s1">&#39;N ; s/\n/ /&#39;</span><span class="w"></span>
+<span class="mi">1</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="mi">2</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="mi">3</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="mi">4</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+</pre></div>
+
+
+<h3 id="33">3.3 打印末尾几行<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<p>打印最后2行：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">sed</span><span class="w"> </span><span class="s1">&#39;:start ; {$q ; N ; 3,$D ; b start}&#39;</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+</pre></div>
+
+
+<p>解析：用 N 将前面的行一直连接起来，等读到第3行时，开始从第一行删除，删除的行的数量是 $ - N 行，故要从 N + 1 行开始算起（假设开始计算的行数为x，那么需要满足 $ - x + 1 = $ - N），剩下的就是未被删除的行，等读到末行时再终止循环，打印出结果。</p>
+<h3 id="34">3.4 删除空白行<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
+<h4 id="341">3.4.1 删除连续的空白行<a class="headerlink" href="#341" title="Permanent link">&para;</a></h4>
+<p>关键在于创建<em>包含一个非空白行和一个空白行</em>的地址区间。</p>
+<div class="codehilite"><pre><span></span>sed <span class="s1">&#39;/./,/^$/!d&#39;</span> file.txt
+</pre></div>
+
+
+<h4 id="342">3.4.2 删除开头的空白行<a class="headerlink" href="#342" title="Permanent link">&para;</a></h4>
+<p>思路就是反向匹配</p>
+<div class="codehilite"><pre><span></span>sed <span class="s1">&#39;/./,$!d&#39;</span> file.txt
+</pre></div>
+
+
+<h4 id="343">3.4.3 删除结尾的空白行<a class="headerlink" href="#343" title="Permanent link">&para;</a></h4>
+<p>将末尾的空白行连接起来，然后删除。</p>
+<div class="codehilite"><pre><span></span><span class="x">sed &#39;:start ; /^\n*$/</span><span class="cp">{</span><span class="nv">$d</span> <span class="o">;</span> <span class="na">N</span> <span class="o">;</span> <span class="na">b</span> <span class="na">start</span><span class="cp">}</span><span class="x">&#39; file.txt</span>
+</pre></div>
+
+
+<h3 id="35-html">3.5 删除HTML标签<a class="headerlink" href="#35-html" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="n">sed</span> <span class="s1">&#39;s/&lt;[^&gt;]*&gt;//g&#39;</span> <span class="n">file</span><span class="p">.</span><span class="n">txt</span>
 </pre></div>
                 
                   
@@ -3940,7 +4849,7 @@ No lines.
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../linux挂载windows共享文件夹/" title="linux挂载windows共享文件夹" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../linux挂载windows共享文件夹/" title="Linux挂载windows共享文件夹" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -3949,19 +4858,19 @@ No lines.
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                linux挂载windows共享文件夹
+                Linux挂载windows共享文件夹
               </span>
             </div>
           </a>
         
         
-          <a href="../awk/" title="Awk" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../gawk/" title="Gawk" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Awk
+                Gawk
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -3989,7 +4898,7 @@ No lines.
       
     </div>
     
-      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      <script src="../../assets/javascripts/application.ac79c3b0.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       

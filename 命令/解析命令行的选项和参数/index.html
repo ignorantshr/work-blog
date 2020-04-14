@@ -34,15 +34,15 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
     
     
       
-        <title>Awk - Person Sink</title>
+        <title>解析命令行的选项和参数 - Person Sink</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
       
       
     
@@ -79,6 +79,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#1-shift" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -101,7 +105,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Awk
+                解析命令行的选项和参数
               
             </span>
           
@@ -167,7 +171,7 @@
         
       
       
-      <main class="md-main">
+      <main class="md-main" role="main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
             
@@ -243,8 +247,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../linux/epel源/" title="epel源" class="md-nav__link">
-      epel源
+    <a href="../../linux/epel源/" title="Epel源" class="md-nav__link">
+      Epel源
     </a>
   </li>
 
@@ -1037,8 +1041,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../linux挂载windows共享文件夹/" title="linux挂载windows共享文件夹" class="md-nav__link">
-      linux挂载windows共享文件夹
+    <a href="../linux挂载windows共享文件夹/" title="Linux挂载windows共享文件夹" class="md-nav__link">
+      Linux挂载windows共享文件夹
     </a>
   </li>
 
@@ -1049,28 +1053,9 @@
 
 
   <li class="md-nav__item">
-    <a href="../sed/" title="sed" class="md-nav__link">
-      sed
+    <a href="../sed/" title="Sed" class="md-nav__link">
+      Sed
     </a>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" title="Awk" class="md-nav__link md-nav__link--active">
-      Awk
-    </a>
-    
   </li>
 
         
@@ -1080,8 +1065,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../ssh免密登录/" title="ssh免密登录" class="md-nav__link">
-      ssh免密登录
+    <a href="../gawk/" title="Gawk" class="md-nav__link">
+      Gawk
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ssh免密登录/" title="Ssh免密登录" class="md-nav__link">
+      Ssh免密登录
     </a>
   </li>
 
@@ -1104,8 +1101,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../tar命令打包去掉路径前缀/" title="tar命令打包去掉路径前缀" class="md-nav__link">
-      tar命令打包去掉路径前缀
+    <a href="../tar命令打包去掉路径前缀/" title="Tar命令打包去掉路径前缀" class="md-nav__link">
+      Tar命令打包去掉路径前缀
     </a>
   </li>
 
@@ -1116,8 +1113,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../wget用法/" title="wget用法" class="md-nav__link">
-      wget用法
+    <a href="../wget用法/" title="Wget用法" class="md-nav__link">
+      Wget用法
     </a>
   </li>
 
@@ -1142,18 +1139,6 @@
   <li class="md-nav__item">
     <a href="../更新、禁用yum仓库、只下载rpm/" title="更新、禁用yum仓库、只下载rpm" class="md-nav__link">
       更新、禁用yum仓库、只下载rpm
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../添加公钥/" title="添加公钥" class="md-nav__link">
-      添加公钥
     </a>
   </li>
 
@@ -1263,6 +1248,73 @@
     <a href="../gpg/" title="Gpg" class="md-nav__link">
       Gpg
     </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        解析命令行的选项和参数
+      </label>
+    
+    <a href="./" title="解析命令行的选项和参数" class="md-nav__link md-nav__link--active">
+      解析命令行的选项和参数
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-shift" class="md-nav__link">
+    1. shift
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-getopts" class="md-nav__link">
+    2. getopts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-getopt" class="md-nav__link">
+    3. getopt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 总结
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1809,10 +1861,46 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
     
     <label class="md-nav__link" for="nav-11">
-      Java
+      Nginx
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-11">
+        Nginx
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../nginx/01 简介/" title="01 简介" class="md-nav__link">
+      01 简介
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+    
+    <label class="md-nav__link" for="nav-12">
+      Java
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
         Java
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1866,13 +1954,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
     
-    <label class="md-nav__link" for="nav-12">
+    <label class="md-nav__link" for="nav-13">
       servlet
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-12">
+      <label class="md-nav__title" for="nav-13">
         servlet
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2034,13 +2122,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
     
-    <label class="md-nav__link" for="nav-13">
+    <label class="md-nav__link" for="nav-14">
       Spring
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-13">
+      <label class="md-nav__title" for="nav-14">
         Spring
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2082,13 +2170,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
     
-    <label class="md-nav__link" for="nav-14">
+    <label class="md-nav__link" for="nav-15">
       Spring Boot
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-14">
+      <label class="md-nav__title" for="nav-15">
         Spring Boot
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2178,13 +2266,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
     
-    <label class="md-nav__link" for="nav-15">
+    <label class="md-nav__link" for="nav-16">
       设计模式
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-15">
+      <label class="md-nav__title" for="nav-16">
         设计模式
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2226,13 +2314,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
     
-    <label class="md-nav__link" for="nav-16">
+    <label class="md-nav__link" for="nav-17">
       MySQL
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-16">
+      <label class="md-nav__title" for="nav-17">
         MySQL
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2814,13 +2902,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-18" type="checkbox" id="nav-18">
     
-    <label class="md-nav__link" for="nav-17">
+    <label class="md-nav__link" for="nav-18">
       MyBatis
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-17">
+      <label class="md-nav__title" for="nav-18">
         MyBatis
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2874,13 +2962,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-18" type="checkbox" id="nav-18">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-19" type="checkbox" id="nav-19">
     
-    <label class="md-nav__link" for="nav-18">
+    <label class="md-nav__link" for="nav-19">
       HTTP协议
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-18">
+      <label class="md-nav__title" for="nav-19">
         HTTP协议
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2970,13 +3058,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-19" type="checkbox" id="nav-19">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-20" type="checkbox" id="nav-20">
     
-    <label class="md-nav__link" for="nav-19">
+    <label class="md-nav__link" for="nav-20">
       CS50
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-19">
+      <label class="md-nav__title" for="nav-20">
         CS50
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3018,13 +3106,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-20" type="checkbox" id="nav-20">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-21" type="checkbox" id="nav-21">
     
-    <label class="md-nav__link" for="nav-20">
+    <label class="md-nav__link" for="nav-21">
       Linux网络编程
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-20">
+      <label class="md-nav__title" for="nav-21">
         Linux网络编程
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3078,14 +3166,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-21" type="checkbox" id="nav-21">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-22" type="checkbox" id="nav-22">
     
-    <label class="md-nav__link" for="nav-21">
-      Gluster
+    <label class="md-nav__link" for="nav-22">
+      GlusterFS
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-21">
-        Gluster
+      <label class="md-nav__title" for="nav-22">
+        GlusterFS
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -3150,13 +3238,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-22" type="checkbox" id="nav-22">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-23" type="checkbox" id="nav-23">
     
-    <label class="md-nav__link" for="nav-22">
+    <label class="md-nav__link" for="nav-23">
       Docker
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-22">
+      <label class="md-nav__title" for="nav-23">
         Docker
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3306,13 +3394,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-23" type="checkbox" id="nav-23">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-24" type="checkbox" id="nav-24">
     
-    <label class="md-nav__link" for="nav-23">
+    <label class="md-nav__link" for="nav-24">
       Git
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-23">
+      <label class="md-nav__title" for="nav-24">
         Git
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3402,13 +3490,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-24" type="checkbox" id="nav-24">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-25" type="checkbox" id="nav-25">
     
-    <label class="md-nav__link" for="nav-24">
+    <label class="md-nav__link" for="nav-25">
       Gerrit
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-24">
+      <label class="md-nav__title" for="nav-25">
         Gerrit
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3474,13 +3562,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-25" type="checkbox" id="nav-25">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-26" type="checkbox" id="nav-26">
     
-    <label class="md-nav__link" for="nav-25">
+    <label class="md-nav__link" for="nav-26">
       小玩具
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-25">
+      <label class="md-nav__title" for="nav-26">
         小玩具
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3510,13 +3598,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-26" type="checkbox" id="nav-26">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-27" type="checkbox" id="nav-27">
     
-    <label class="md-nav__link" for="nav-26">
+    <label class="md-nav__link" for="nav-27">
       Datastruct
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-26">
+      <label class="md-nav__title" for="nav-27">
         Datastruct
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3570,13 +3658,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-27" type="checkbox" id="nav-27">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-28" type="checkbox" id="nav-28">
     
-    <label class="md-nav__link" for="nav-27">
+    <label class="md-nav__link" for="nav-28">
       C
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-27">
+      <label class="md-nav__title" for="nav-28">
         C
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3642,13 +3730,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-28" type="checkbox" id="nav-28">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-29" type="checkbox" id="nav-29">
     
-    <label class="md-nav__link" for="nav-28">
+    <label class="md-nav__link" for="nav-29">
       Algorithm
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-28">
+      <label class="md-nav__title" for="nav-29">
         Algorithm
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3690,13 +3778,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-29" type="checkbox" id="nav-29">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-30" type="checkbox" id="nav-30">
     
-    <label class="md-nav__link" for="nav-29">
+    <label class="md-nav__link" for="nav-30">
       奇技淫巧
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-29">
+      <label class="md-nav__title" for="nav-30">
         奇技淫巧
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3726,85 +3814,315 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-shift" class="md-nav__link">
+    1. shift
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-getopts" class="md-nav__link">
+    2. getopts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-getopt" class="md-nav__link">
+    3. getopt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 总结
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ignorantshr/question/edit/master/docs/命令/awk.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/ignorantshr/question/edit/master/docs/命令/解析命令行的选项和参数.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Awk</h1>
+                  <h1>解析命令行的选项和参数</h1>
                 
-                <div class="codehilite"><pre><span></span><span class="n">gawk</span> <span class="p">[</span> <span class="n">POSIX</span> <span class="n">or</span> <span class="n">GNU</span> <span class="n">style</span> <span class="n">options</span> <span class="p">]</span> <span class="o">-</span><span class="n">f</span> <span class="n">program</span><span class="o">-</span><span class="n">file</span> <span class="p">[</span> <span class="o">--</span> <span class="p">]</span> <span class="n">file</span> <span class="p">...</span>
-<span class="n">gawk</span> <span class="p">[</span> <span class="n">POSIX</span> <span class="n">or</span> <span class="n">GNU</span> <span class="n">style</span> <span class="n">options</span> <span class="p">]</span> <span class="p">[</span> <span class="o">--</span> <span class="p">]</span> <span class="n">program</span><span class="o">-</span><span class="n">text</span> <span class="n">file</span> <span class="p">...</span>
-
-<span class="n">OPTIONS</span>
-    <span class="o">-</span><span class="n">F</span> <span class="n">fs</span>  <span class="o">--</span><span class="n">field</span><span class="o">-</span><span class="n">separator</span> <span class="n">fs</span>     <span class="err">指定分隔符</span>
-
-<span class="n">program</span>
-<span class="n">Built</span><span class="o">-</span><span class="k">in</span> <span class="n">Variables</span>
-    <span class="n">FS</span>          <span class="n">The</span> <span class="n">input</span> <span class="n">field</span> <span class="n">separator</span><span class="p">,</span> <span class="n">a</span> <span class="n">space</span> <span class="n">by</span> <span class="k">default</span><span class="p">.</span>
-    <span class="n">OFS</span>         <span class="n">The</span> <span class="n">output</span> <span class="n">field</span> <span class="n">separator</span><span class="p">,</span> <span class="n">a</span> <span class="n">space</span> <span class="n">by</span> <span class="k">default</span><span class="p">.</span>
-    <span class="n">RS</span>          <span class="n">The</span> <span class="n">input</span> <span class="n">record</span> <span class="n">separator</span><span class="p">,</span> <span class="n">by</span> <span class="k">default</span> <span class="n">a</span> <span class="n">newline</span><span class="p">.</span>
-    <span class="n">ORS</span>         <span class="n">The</span> <span class="n">output</span> <span class="n">record</span> <span class="n">separator</span><span class="p">,</span> <span class="n">by</span> <span class="k">default</span> <span class="n">a</span> <span class="n">newline</span><span class="p">.</span>
-    <span class="n">NF</span>          <span class="n">The</span> <span class="n">number</span> <span class="n">of</span> <span class="n">fields</span> <span class="k">in</span> <span class="n">the</span> <span class="n">current</span> <span class="n">input</span> <span class="n">record</span><span class="p">.</span>
-    <span class="n">NR</span>          <span class="n">The</span> <span class="n">total</span> <span class="n">number</span> <span class="n">of</span> <span class="n">input</span> <span class="n">records</span> <span class="n">seen</span> <span class="n">so</span> <span class="n">far</span><span class="p">.</span>
-
-<span class="n">Patterns</span>
-    <span class="n">BEGIN</span>
-    <span class="n">END</span>
-    <span class="n">BEGINFILE</span>
-    <span class="n">ENDFILE</span>
-    <span class="o">/</span><span class="n">regular</span> <span class="n">expression</span><span class="o">/</span>
-    <span class="n">relational</span> <span class="n">expression</span>
-    <span class="n">pattern</span> <span class="o">&amp;&amp;</span> <span class="n">pattern</span>
-    <span class="n">pattern</span> <span class="o">||</span> <span class="n">pattern</span>
-    <span class="n">pattern</span> <span class="o">?</span> <span class="nl">pattern</span> <span class="p">:</span> <span class="n">pattern</span>
-    <span class="p">(</span><span class="n">pattern</span><span class="p">)</span>
-    <span class="o">!</span> <span class="n">pattern</span>
-    <span class="n">pattern1</span><span class="p">,</span> <span class="n">pattern2</span>
-
-<span class="n">Control</span> <span class="n">Statements</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="n">statement</span> <span class="p">[</span> <span class="k">else</span> <span class="n">statement</span> <span class="p">]</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="n">statement</span>
-    <span class="k">do</span> <span class="n">statement</span> <span class="k">while</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">expr1</span><span class="p">;</span> <span class="n">expr2</span><span class="p">;</span> <span class="n">expr3</span><span class="p">)</span> <span class="n">statement</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">var</span> <span class="k">in</span> <span class="n">array</span><span class="p">)</span> <span class="n">statement</span>
-    <span class="k">break</span>
-    <span class="k">continue</span>
-    <span class="n">delete</span> <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-    <span class="n">delete</span> <span class="n">array</span>
-    <span class="n">exit</span> <span class="p">[</span> <span class="n">expression</span> <span class="p">]</span>
-    <span class="p">{</span> <span class="n">statements</span> <span class="p">}</span>
-    <span class="k">switch</span> <span class="p">(</span><span class="n">expression</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="n">value</span><span class="o">|</span><span class="nl">regex</span> <span class="p">:</span> <span class="n">statement</span>
-    <span class="p">...</span>
-    <span class="p">[</span> <span class="k">default</span><span class="o">:</span> <span class="n">statement</span> <span class="p">]</span>
-    <span class="p">}</span>
+                <p><code>$1 $2 ...</code>被称作位置参数（posotional parameters）。</p>
+<h2 id="1-shift">1. shift<a class="headerlink" href="#1-shift" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">shift</span><span class="w"> </span><span class="o">[</span><span class="n">n</span><span class="o">]</span><span class="w"></span>
+<span class="w">    </span><span class="n">把从</span><span class="w"> </span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">的位置参数重命名为</span><span class="w"> </span><span class="err">$</span><span class="mi">1</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
+<span class="w">    </span><span class="n">The</span><span class="w">  </span><span class="n">positional</span><span class="w">  </span><span class="k">parameters</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="n">renamed</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="err">$</span><span class="mi">1</span><span class="w"> </span><span class="p">....</span><span class="w"></span>
+<span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="n">默认是</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev vitest<span class="o">]</span><span class="c1"># cat -n /etc/passwd | awk -F: &#39;NR==1 {printf &quot;%12s%12s\n&quot;, &quot;name&quot;, &quot;bash&quot;}; $3 &lt; 5 {print $1&quot;\t&quot;$7}&#39;</span>
-        name        bash
-     <span class="m">1</span>  root    /bin/bash
-     <span class="m">2</span>  bin     /sbin/nologin
-     <span class="m">3</span>  daemon  /sbin/nologin
-     <span class="m">4</span>  adm     /sbin/nologin
-     <span class="m">5</span>  lp      /sbin/nologin
-<span class="c1"># 分隔符也可以在脚本里面定义，效果同上</span>
-<span class="o">[</span>root@dev vitest<span class="o">]</span><span class="c1"># cat -n /etc/passwd | awk &#39;BEGIN {FS=&quot;:&quot;}; NR==1 {printf &quot;%12s%12s\n&quot;, &quot;name&quot;, &quot;bash&quot;}; $3 &lt; 5 {print $1&quot;\t&quot;$7}&#39;</span>
-<span class="c1"># 脚本中定义的变量可以直接使用，无需$符号</span>
-<span class="o">[</span>root@dev vitest<span class="o">]</span><span class="c1"># cat -n /etc/passwd | awk &#39;BEGIN {FS=&quot;:&quot;; head1=&quot;name&quot;}; NR==1 {head2=&quot;bash&quot;; printf &quot;%12s%12s\n&quot;, head1, head2}; $3 &lt; 5 {print $1&quot;\t&quot;$7}&#39;</span>
+<p>该指令是用于修改位置参数的指向，比如执行一次<code>shift 2</code>就相当于把向后数2个的那个参数变成被<code>$1</code>引用：</p>
+<p>这是一个普通的命令：</p>
+<div class="codehilite"><pre><span></span><span class="err">$</span><span class="mi">0</span>  <span class="err">$</span><span class="mi">1</span>   <span class="err">$</span><span class="mi">2</span>     <span class="err">$</span><span class="mi">3</span>
+<span class="o">|</span>   <span class="o">|</span>    <span class="o">|</span>      <span class="o">|</span>
+<span class="n">v</span>   <span class="n">v</span>    <span class="n">v</span>      <span class="n">v</span>
+<span class="n">ls</span>  <span class="o">-</span><span class="n">l</span>  <span class="o">/</span><span class="n">root</span>  <span class="o">/</span><span class="n">etc</span>
 </pre></div>
 
 
-<p>awk还支持运算：</p>
-<div class="codehilite"><pre><span></span>cat pay. txt <span class="p">|</span> <span class="se">\</span>
-&gt; awk <span class="s1">&#39; {if(NR==1) printf &quot;%10s %10s %10s %10s %10s\n&quot;, $1, $2, $3, $4, &quot;Total&quot;}</span>
-<span class="s1">&gt; NR&gt;=2{total = $2 + $3 + $4</span>
-<span class="s1">&gt; printf &quot;%10s %10d %10d %10d %10.2f\n&quot;, $1, $2, $3, $4, total}&#39;</span>
+<p>执行 shift 2 之后就变成了</p>
+<div class="codehilite"><pre><span></span><span class="err">$</span><span class="mi">0</span>              <span class="err">$</span><span class="mi">1</span>
+<span class="o">|</span>               <span class="o">|</span>
+<span class="n">v</span>               <span class="n">v</span>
+<span class="n">ls</span>  <span class="o">-</span><span class="n">l</span>  <span class="o">/</span><span class="n">root</span>  <span class="o">/</span><span class="n">etc</span>
 </pre></div>
+
+
+<h2 id="2-getopts">2. getopts<a class="headerlink" href="#2-getopts" title="Permanent link">&para;</a></h2>
+<p>这是 bash 内置的命令，用于解析输入的选项与参数，主要用于处理小的脚本。</p>
+<div class="codehilite"><pre><span></span><span class="n">getopts</span><span class="w"> </span><span class="n">optstring</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">[</span><span class="n">args</span><span class="o">]</span><span class="w"></span>
+</pre></div>
+
+
+<ul>
+<li>
+<p>optstring：定义了要解析的选项及有无参数，只能解析短选项。带有参数的选项后面要有一个冒号，在输入选项和参数时要使用空格隔开</p>
+</li>
+<li>
+<p>name：则是一个自定义变量，每次调用时都会把下一个选项放进该变量，并把下一个参数的索引放到环境变量 <code>OPTIND</code> 中，若选项有要求参数，会把参数放到 <code>OPTARG</code> 环境变量中。</p>
+</li>
+<li>
+<p>args：getopts 通常分析位置参数，但如果 args 中提供了参数，getopts 会分析这些参数，而不再去管命令行传入的参数了。意思就是可以在这里写 optstring 中定义的选项直接传递给 getopts 去解析。</p>
+</li>
+</ul>
+<p>getopts 测试脚本<code>getopts-test.sh</code> ：</p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="c1"># 测试 getops 的使用</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;original parameters: (</span><span class="nv">$@</span><span class="s2">)&quot;</span>
+
+<span class="k">while</span> <span class="nb">getopts</span> <span class="s1">&#39;abc:&#39;</span> opt
+<span class="k">do</span>
+    <span class="nb">echo</span> <span class="s2">&quot;process option </span><span class="nv">$opt</span><span class="s2">&quot;</span>
+    <span class="k">case</span> <span class="nv">$opt</span> in
+        a<span class="o">)</span>
+            <span class="nb">echo</span> <span class="s2">&quot;get a, OPRIND=</span><span class="nv">$OPTIND</span><span class="s2">, OPTARG=</span><span class="nv">$OPTARG</span><span class="s2">&quot;</span>
+            <span class="p">;;</span>
+        b<span class="o">)</span>
+            <span class="nb">echo</span> <span class="s2">&quot;get b, OPRIND=</span><span class="nv">$OPTIND</span><span class="s2">, OPTARG=</span><span class="nv">$OPTARG</span><span class="s2">&quot;</span>
+            <span class="p">;;</span>
+        c<span class="o">)</span>
+            <span class="nb">echo</span> <span class="s2">&quot;get c, OPRIND=</span><span class="nv">$OPTIND</span><span class="s2">, OPTARG=</span><span class="nv">$OPTARG</span><span class="s2">&quot;</span>
+            <span class="p">;;</span>
+        *<span class="o">)</span>
+            <span class="nb">echo</span> <span class="s2">&quot;error option </span><span class="nv">$opt</span><span class="s2">, , OPRIND=</span><span class="nv">$OPTIND</span><span class="s2">, OPTARG=</span><span class="nv">$OPTARG</span><span class="s2">&quot;</span>
+            <span class="nb">exit</span> <span class="m">1</span>
+    <span class="k">esac</span>
+<span class="k">done</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;now OPTIND=</span><span class="nv">$OPTIND</span><span class="s2">&quot;</span>
+<span class="nb">shift</span> <span class="k">$(</span>expr <span class="nv">$OPTIND</span> - <span class="m">1</span><span class="k">)</span>
+<span class="nb">echo</span> <span class="s2">&quot;remain parameters: (</span><span class="nv">$@</span><span class="s2">)&quot;</span>
+</pre></div>
+
+
+<p>执行结果：</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 正常执行</span>
+<span class="o">[</span>sink@dev ~<span class="o">]</span>$ ./getopts-test.sh -a -b -c <span class="m">23</span> opq
+original parameters: <span class="o">(</span>-a -b -c <span class="m">23</span> opq<span class="o">)</span>
+process option a
+get a, <span class="nv">OPRIND</span><span class="o">=</span><span class="m">2</span>, <span class="nv">OPTARG</span><span class="o">=</span>
+process option b
+get b, <span class="nv">OPRIND</span><span class="o">=</span><span class="m">3</span>, <span class="nv">OPTARG</span><span class="o">=</span>
+process option c
+get c, <span class="nv">OPRIND</span><span class="o">=</span><span class="m">5</span>, <span class="nv">OPTARG</span><span class="o">=</span><span class="m">23</span>
+now <span class="nv">OPTIND</span><span class="o">=</span><span class="m">5</span>
+remain parameters: <span class="o">(</span>opq<span class="o">)</span>
+
+<span class="c1"># 缺少参数</span>
+<span class="o">[</span>sink@dev ~<span class="o">]</span>$ ./getopts-test.sh -c
+original parameters: <span class="o">(</span>-c<span class="o">)</span>
+./getopts-test.sh: option requires an argument -- c
+process option ?
+error option ?, , <span class="nv">OPRIND</span><span class="o">=</span><span class="m">2</span>, <span class="nv">OPTARG</span><span class="o">=</span>
+
+<span class="c1"># 未知选项</span>
+<span class="o">[</span>sink@dev ~<span class="o">]</span>$ ./getopts-test.sh -d
+original parameters: <span class="o">(</span>-d<span class="o">)</span>
+./getopts-test.sh: illegal option -- d
+process option ?
+error option ?, , <span class="nv">OPRIND</span><span class="o">=</span><span class="m">2</span>, <span class="nv">OPTARG</span><span class="o">=</span>
+</pre></div>
+
+
+<p>带有args的<code>getopts-test.sh</code>版本：</p>
+<div class="codehilite"><pre><span></span>……
+<span class="k">while</span> <span class="nb">getopts</span> <span class="s1">&#39;abc:&#39;</span> opt -b
+……
+</pre></div>
+
+
+<p>执行结果：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>sink@dev ~<span class="o">]</span>$ ./getopts-test.sh -a -c <span class="m">2</span> dsf
+original parameters: <span class="o">(</span>-a -c <span class="m">2</span> dsf<span class="o">)</span>
+process option b
+get b, <span class="nv">OPRIND</span><span class="o">=</span><span class="m">2</span>, <span class="nv">OPTARG</span><span class="o">=</span>
+now <span class="nv">OPTIND</span><span class="o">=</span><span class="m">2</span>
+remain parameters: <span class="o">(</span>-c <span class="m">2</span> dsf<span class="o">)</span>
+<span class="c1"># 不论传入的参数为何，都不再解析这些参数</span>
+<span class="o">[</span>sink@dev ~<span class="o">]</span>$ ./getopts-test.sh -d dsf
+original parameters: <span class="o">(</span>-d dsf<span class="o">)</span>
+process option b
+get b, <span class="nv">OPRIND</span><span class="o">=</span><span class="m">2</span>, <span class="nv">OPTARG</span><span class="o">=</span>
+now <span class="nv">OPTIND</span><span class="o">=</span><span class="m">2</span>
+remain parameters: <span class="o">(</span>dsf<span class="o">)</span>
+</pre></div>
+
+
+<h2 id="3-getopt">3. getopt<a class="headerlink" href="#3-getopt" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">getopt</span><span class="w"> </span><span class="n">optstring</span><span class="w"> </span><span class="k">parameters</span><span class="w"></span>
+<span class="n">getopt</span><span class="w"> </span><span class="o">[</span><span class="n">options</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">--</span><span class="o">]</span><span class="w"> </span><span class="n">optstring</span><span class="w"> </span><span class="k">parameters</span><span class="w"></span>
+<span class="n">getopt</span><span class="w"> </span><span class="o">[</span><span class="n">options</span><span class="o">]</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="o">|</span><span class="c1">--options optstring [options] [--] parameters</span>
+
+<span class="n">OPTIONS</span><span class="w"></span>
+<span class="w">    </span><span class="o">-</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="c1">--alternative   允许长选项使用单个 &#39;-&#39; 开头.</span>
+<span class="w">    </span><span class="o">-</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="c1">--longoptions longopts  longopts 的格式为&quot;abcd,efg:,hijk::&quot;，后跟一个冒号表示需要参数，</span>
+<span class="w">                                </span><span class="n">后跟两个冒号表示参数可选</span><span class="w"></span>
+<span class="w">    </span><span class="o">-</span><span class="n">o</span><span class="p">,</span><span class="w"> </span><span class="c1">--options shortopts     shortopts 的格式为&quot;ab:c::&quot;，后跟一个冒号表示需要参数，</span>
+<span class="w">                                </span><span class="n">后跟两个冒号表示参数可选</span><span class="w"></span>
+<span class="w">    </span><span class="o">-</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="c1">--name progname 报告错误时所用的程序名</span>
+</pre></div>
+
+
+<p>短选项：</p>
+<ul>
+<li>若该选项需要参数，那么既可以直接跟在选项后面，也可以使用空格分隔；</li>
+<li>若该选项的参数可选，那么参数就必须直接跟在选项后面；</li>
+<li>还可以在单个<code>-</code>后面直接写好几个不能传参的选项。</li>
+</ul>
+<p>长选项：</p>
+<ul>
+<li>若该选项需要参数，那么既可以使用<code>=</code>分隔，也可以使用空格分隔；</li>
+<li>若该选项的参数可选，那么参数就必须使用<code>=</code>分隔；</li>
+<li>长选项还可以缩写，只要缩写是明确的。</li>
+</ul>
+<p>命令的输出：</p>
+<ul>
+<li>如果可选参数的选项没有传参，那么会其参数变成空字符串<code>""</code>；</li>
+<li>返回的字符串会按照<code>选项 参数 -- 非选项参数</code>的格式。非选项带有的参数会在<code>--</code>后面出现；</li>
+<li>好像<strong>不能正确解析带有空格的字符串，会将字符串进行拆分</strong>。</li>
+</ul>
+<p><code>getopt-test.sh</code>：</p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="c1"># 测试 getopt 命令</span>
+
+<span class="nv">args</span><span class="o">=</span><span class="k">$(</span>getopt -n <span class="nv">$0</span> -l <span class="s2">&quot;int,char:,string::&quot;</span> -o <span class="s2">&quot;ab:c::&quot;</span> -- <span class="nv">$@</span><span class="k">)</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> !<span class="o">=</span> <span class="m">0</span> <span class="o">]</span>
+<span class="k">then</span>
+    <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;args=(</span><span class="nv">$args</span><span class="s2">)&quot;</span>
+
+<span class="c1"># 重新设定位置参数</span>
+<span class="nb">set</span> -- <span class="nv">$args</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;\$#=</span><span class="nv">$#</span><span class="s2">, \$@=(</span><span class="nv">$@</span><span class="s2">)&quot;</span>
+
+<span class="k">while</span> <span class="nb">true</span>
+<span class="k">do</span>
+    <span class="k">case</span> <span class="nv">$1</span> in
+        --int<span class="p">|</span>-a<span class="o">)</span>
+            <span class="nb">echo</span> <span class="s2">&quot;get </span><span class="nv">$1</span><span class="s2">&quot;</span>
+            <span class="nb">shift</span>
+            <span class="p">;;</span>
+        --char<span class="p">|</span>-b<span class="o">)</span>
+            <span class="nb">echo</span> <span class="s2">&quot;get </span><span class="nv">$1</span><span class="s2">, value=</span><span class="nv">$2</span><span class="s2">&quot;</span>
+            <span class="nb">shift</span> <span class="m">2</span>
+            <span class="p">;;</span>
+        --string<span class="p">|</span>-c<span class="o">)</span>
+            <span class="nb">echo</span> <span class="s2">&quot;get </span><span class="nv">$1</span><span class="s2">, value=\&quot;</span><span class="nv">$2</span><span class="s2">\&quot;&quot;</span>
+            <span class="nb">shift</span> <span class="m">2</span>
+            <span class="p">;;</span>
+        --<span class="o">)</span>
+            <span class="nb">shift</span>
+            <span class="nb">break</span>
+            <span class="p">;;</span>
+        *<span class="o">)</span>
+            <span class="nb">echo</span> <span class="s2">&quot;It&#39;s impossible to get here.&quot;</span>
+            <span class="nb">exit</span> <span class="m">1</span>
+    <span class="k">esac</span>
+<span class="k">done</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;\$#=</span><span class="nv">$#</span><span class="s2">, remain args=(</span><span class="nv">$@</span><span class="s2">)&quot;</span>
+</pre></div>
+
+
+<p>正常使用看看：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>sink@dev ~<span class="o">]</span>$ sh getopt-test.sh -a -c<span class="s1">&#39;a f&#39;</span> --s abcd --int <span class="s1">&#39;hi jk&#39;</span>
+<span class="nv">args</span><span class="o">=(</span> -a -c <span class="s1">&#39;a&#39;</span> --string <span class="s1">&#39;&#39;</span> --int -- <span class="s1">&#39;f&#39;</span> <span class="s1">&#39;abcd&#39;</span> <span class="s1">&#39;hi&#39;</span> <span class="s1">&#39;jk&#39;</span><span class="o">)</span>
+<span class="nv">$#</span><span class="o">=</span><span class="m">11</span>, <span class="nv">$@</span><span class="o">=(</span>-a -c <span class="s1">&#39;a&#39;</span> --string <span class="s1">&#39;&#39;</span> --int -- <span class="s1">&#39;f&#39;</span> <span class="s1">&#39;abcd&#39;</span> <span class="s1">&#39;hi&#39;</span> <span class="s1">&#39;jk&#39;</span><span class="o">)</span>
+get -a
+get -c, <span class="nv">value</span><span class="o">=</span><span class="s2">&quot;&#39;a&#39;&quot;</span>
+get --string, <span class="nv">value</span><span class="o">=</span><span class="s2">&quot;&#39;&#39;&quot;</span>
+get --int
+<span class="nv">$#</span><span class="o">=</span><span class="m">4</span>, remain <span class="nv">args</span><span class="o">=(</span><span class="s1">&#39;f&#39;</span> <span class="s1">&#39;abcd&#39;</span> <span class="s1">&#39;hi&#39;</span> <span class="s1">&#39;jk&#39;</span><span class="o">)</span>
+</pre></div>
+
+
+<p>若可选参数的选项使用了错误的使用方法，那么其参数会变成非选项参数：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>sink@dev ~<span class="o">]</span>$ sh getopt-test.sh -a -c dsaf --s abcd --int <span class="s1">&#39;hi jk&#39;</span>
+<span class="nv">args</span><span class="o">=(</span> -a -c <span class="s1">&#39;&#39;</span> --string <span class="s1">&#39;&#39;</span> --int -- <span class="s1">&#39;dsaf&#39;</span> <span class="s1">&#39;abcd&#39;</span> <span class="s1">&#39;hi&#39;</span> <span class="s1">&#39;jk&#39;</span><span class="o">)</span>
+<span class="nv">$#</span><span class="o">=</span><span class="m">11</span>, <span class="nv">$@</span><span class="o">=(</span>-a -c <span class="s1">&#39;&#39;</span> --string <span class="s1">&#39;&#39;</span> --int -- <span class="s1">&#39;dsaf&#39;</span> <span class="s1">&#39;abcd&#39;</span> <span class="s1">&#39;hi&#39;</span> <span class="s1">&#39;jk&#39;</span><span class="o">)</span>
+get -a
+get -c, <span class="nv">value</span><span class="o">=</span><span class="s2">&quot;&#39;&#39;&quot;</span>
+get --string, <span class="nv">value</span><span class="o">=</span><span class="s2">&quot;&#39;&#39;&quot;</span>
+get --int
+<span class="nv">$#</span><span class="o">=</span><span class="m">4</span>, remain <span class="nv">args</span><span class="o">=(</span><span class="s1">&#39;dsaf&#39;</span> <span class="s1">&#39;abcd&#39;</span> <span class="s1">&#39;hi&#39;</span> <span class="s1">&#39;jk&#39;</span><span class="o">)</span>
+</pre></div>
+
+
+<h2 id="4">4. 总结<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>getopts 与 getopt 的不同之处在于：</p>
+<ul>
+<li>getopts<ul>
+<li>bash 内置命令</li>
+<li>只能处理短选项</li>
+<li>没有可选参数的选项设定</li>
+<li>可以直接读取命令行的选项和参数进行处理</li>
+</ul>
+</li>
+<li>getopt<ul>
+<li>一般Linux发行版都会内置的工具</li>
+<li>能够同时处理短选项和长选项，并且长选项可缩写</li>
+<li>并不是所有的Linux发行版都实现了可选参数的设定</li>
+<li>需要先读取命令行的选项和参数，返回一个字符串，然后进行二次设定位置参数</li>
+<li>不能正确处理带有空格的参数</li>
+</ul>
+</li>
+</ul>
                 
                   
                 
@@ -3825,7 +4143,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../sed/" title="sed" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../gpg/" title="Gpg" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -3834,19 +4152,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                sed
+                Gpg
               </span>
             </div>
           </a>
         
         
-          <a href="../ssh免密登录/" title="ssh免密登录" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../shell/shell脚本自动输入/" title="Shell脚本自动输入" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                ssh免密登录
+                Shell脚本自动输入
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -3874,7 +4192,7 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      <script src="../../assets/javascripts/application.ac79c3b0.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       

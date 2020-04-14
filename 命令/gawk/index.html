@@ -34,15 +34,15 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
     
     
       
-        <title>添加公钥 - Person Sink</title>
+        <title>Gawk - Person Sink</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
       
       
     
@@ -79,6 +79,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#1" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -101,7 +105,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                添加公钥
+                Gawk
               
             </span>
           
@@ -167,7 +171,7 @@
         
       
       
-      <main class="md-main">
+      <main class="md-main" role="main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
             
@@ -243,8 +247,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../linux/epel源/" title="epel源" class="md-nav__link">
-      epel源
+    <a href="../../linux/epel源/" title="Epel源" class="md-nav__link">
+      Epel源
     </a>
   </li>
 
@@ -1037,8 +1041,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../linux挂载windows共享文件夹/" title="linux挂载windows共享文件夹" class="md-nav__link">
-      linux挂载windows共享文件夹
+    <a href="../linux挂载windows共享文件夹/" title="Linux挂载windows共享文件夹" class="md-nav__link">
+      Linux挂载windows共享文件夹
     </a>
   </li>
 
@@ -1049,9 +1053,252 @@
 
 
   <li class="md-nav__item">
-    <a href="../sed/" title="sed" class="md-nav__link">
-      sed
+    <a href="../sed/" title="Sed" class="md-nav__link">
+      Sed
     </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Gawk
+      </label>
+    
+    <a href="./" title="Gawk" class="md-nav__link md-nav__link--active">
+      Gawk
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 使用说明
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 变量
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 内置变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 数据变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 自定义变量
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    2.3.1 在脚本中给变量赋值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232" class="md-nav__link">
+    2.3.2 在命令行上给变量赋值
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4 数组变量
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241" class="md-nav__link">
+    2.4.1 定义与遍历数组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242" class="md-nav__link">
+    2.4.2 删除数组
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 匹配模式
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 正则表达式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 匹配操作符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 数学表达式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 流程控制语句
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 格式化打印
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6. 内置函数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    6.1 数学函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    6.2 位操作函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    6.3 字符串函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64" class="md-nav__link">
+    6.4 时间函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7. 自定义函数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    7.1 定义函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    7.2 创建函数库
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1061,20 +1308,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../awk/" title="Awk" class="md-nav__link">
-      Awk
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../ssh免密登录/" title="ssh免密登录" class="md-nav__link">
-      ssh免密登录
+    <a href="../ssh免密登录/" title="Ssh免密登录" class="md-nav__link">
+      Ssh免密登录
     </a>
   </li>
 
@@ -1097,8 +1332,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../tar命令打包去掉路径前缀/" title="tar命令打包去掉路径前缀" class="md-nav__link">
-      tar命令打包去掉路径前缀
+    <a href="../tar命令打包去掉路径前缀/" title="Tar命令打包去掉路径前缀" class="md-nav__link">
+      Tar命令打包去掉路径前缀
     </a>
   </li>
 
@@ -1109,8 +1344,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../wget用法/" title="wget用法" class="md-nav__link">
-      wget用法
+    <a href="../wget用法/" title="Wget用法" class="md-nav__link">
+      Wget用法
     </a>
   </li>
 
@@ -1136,25 +1371,6 @@
     <a href="../更新、禁用yum仓库、只下载rpm/" title="更新、禁用yum仓库、只下载rpm" class="md-nav__link">
       更新、禁用yum仓库、只下载rpm
     </a>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" title="添加公钥" class="md-nav__link md-nav__link--active">
-      添加公钥
-    </a>
-    
   </li>
 
         
@@ -1262,6 +1478,18 @@
   <li class="md-nav__item">
     <a href="../gpg/" title="Gpg" class="md-nav__link">
       Gpg
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../解析命令行的选项和参数/" title="解析命令行的选项和参数" class="md-nav__link">
+      解析命令行的选项和参数
     </a>
   </li>
 
@@ -1809,10 +2037,46 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
     
     <label class="md-nav__link" for="nav-11">
-      Java
+      Nginx
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-11">
+        Nginx
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../nginx/01 简介/" title="01 简介" class="md-nav__link">
+      01 简介
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+    
+    <label class="md-nav__link" for="nav-12">
+      Java
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
         Java
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1866,13 +2130,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
     
-    <label class="md-nav__link" for="nav-12">
+    <label class="md-nav__link" for="nav-13">
       servlet
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-12">
+      <label class="md-nav__title" for="nav-13">
         servlet
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2034,13 +2298,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
     
-    <label class="md-nav__link" for="nav-13">
+    <label class="md-nav__link" for="nav-14">
       Spring
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-13">
+      <label class="md-nav__title" for="nav-14">
         Spring
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2082,13 +2346,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
     
-    <label class="md-nav__link" for="nav-14">
+    <label class="md-nav__link" for="nav-15">
       Spring Boot
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-14">
+      <label class="md-nav__title" for="nav-15">
         Spring Boot
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2178,13 +2442,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
     
-    <label class="md-nav__link" for="nav-15">
+    <label class="md-nav__link" for="nav-16">
       设计模式
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-15">
+      <label class="md-nav__title" for="nav-16">
         设计模式
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2226,13 +2490,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
     
-    <label class="md-nav__link" for="nav-16">
+    <label class="md-nav__link" for="nav-17">
       MySQL
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-16">
+      <label class="md-nav__title" for="nav-17">
         MySQL
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2814,13 +3078,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-18" type="checkbox" id="nav-18">
     
-    <label class="md-nav__link" for="nav-17">
+    <label class="md-nav__link" for="nav-18">
       MyBatis
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-17">
+      <label class="md-nav__title" for="nav-18">
         MyBatis
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2874,13 +3138,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-18" type="checkbox" id="nav-18">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-19" type="checkbox" id="nav-19">
     
-    <label class="md-nav__link" for="nav-18">
+    <label class="md-nav__link" for="nav-19">
       HTTP协议
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-18">
+      <label class="md-nav__title" for="nav-19">
         HTTP协议
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2970,13 +3234,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-19" type="checkbox" id="nav-19">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-20" type="checkbox" id="nav-20">
     
-    <label class="md-nav__link" for="nav-19">
+    <label class="md-nav__link" for="nav-20">
       CS50
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-19">
+      <label class="md-nav__title" for="nav-20">
         CS50
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3018,13 +3282,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-20" type="checkbox" id="nav-20">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-21" type="checkbox" id="nav-21">
     
-    <label class="md-nav__link" for="nav-20">
+    <label class="md-nav__link" for="nav-21">
       Linux网络编程
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-20">
+      <label class="md-nav__title" for="nav-21">
         Linux网络编程
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3078,14 +3342,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-21" type="checkbox" id="nav-21">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-22" type="checkbox" id="nav-22">
     
-    <label class="md-nav__link" for="nav-21">
-      Gluster
+    <label class="md-nav__link" for="nav-22">
+      GlusterFS
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-21">
-        Gluster
+      <label class="md-nav__title" for="nav-22">
+        GlusterFS
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -3150,13 +3414,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-22" type="checkbox" id="nav-22">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-23" type="checkbox" id="nav-23">
     
-    <label class="md-nav__link" for="nav-22">
+    <label class="md-nav__link" for="nav-23">
       Docker
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-22">
+      <label class="md-nav__title" for="nav-23">
         Docker
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3306,13 +3570,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-23" type="checkbox" id="nav-23">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-24" type="checkbox" id="nav-24">
     
-    <label class="md-nav__link" for="nav-23">
+    <label class="md-nav__link" for="nav-24">
       Git
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-23">
+      <label class="md-nav__title" for="nav-24">
         Git
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3402,13 +3666,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-24" type="checkbox" id="nav-24">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-25" type="checkbox" id="nav-25">
     
-    <label class="md-nav__link" for="nav-24">
+    <label class="md-nav__link" for="nav-25">
       Gerrit
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-24">
+      <label class="md-nav__title" for="nav-25">
         Gerrit
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3474,13 +3738,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-25" type="checkbox" id="nav-25">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-26" type="checkbox" id="nav-26">
     
-    <label class="md-nav__link" for="nav-25">
+    <label class="md-nav__link" for="nav-26">
       小玩具
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-25">
+      <label class="md-nav__title" for="nav-26">
         小玩具
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3510,13 +3774,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-26" type="checkbox" id="nav-26">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-27" type="checkbox" id="nav-27">
     
-    <label class="md-nav__link" for="nav-26">
+    <label class="md-nav__link" for="nav-27">
       Datastruct
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-26">
+      <label class="md-nav__title" for="nav-27">
         Datastruct
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3570,13 +3834,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-27" type="checkbox" id="nav-27">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-28" type="checkbox" id="nav-28">
     
-    <label class="md-nav__link" for="nav-27">
+    <label class="md-nav__link" for="nav-28">
       C
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-27">
+      <label class="md-nav__title" for="nav-28">
         C
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3642,13 +3906,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-28" type="checkbox" id="nav-28">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-29" type="checkbox" id="nav-29">
     
-    <label class="md-nav__link" for="nav-28">
+    <label class="md-nav__link" for="nav-29">
       Algorithm
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-28">
+      <label class="md-nav__title" for="nav-29">
         Algorithm
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3690,13 +3954,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-29" type="checkbox" id="nav-29">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-30" type="checkbox" id="nav-30">
     
-    <label class="md-nav__link" for="nav-29">
+    <label class="md-nav__link" for="nav-30">
       奇技淫巧
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-29">
+      <label class="md-nav__title" for="nav-30">
         奇技淫巧
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -3726,28 +3990,727 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 使用说明
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 变量
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 内置变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 数据变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 自定义变量
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    2.3.1 在脚本中给变量赋值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232" class="md-nav__link">
+    2.3.2 在命令行上给变量赋值
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4 数组变量
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241" class="md-nav__link">
+    2.4.1 定义与遍历数组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242" class="md-nav__link">
+    2.4.2 删除数组
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 匹配模式
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 正则表达式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 匹配操作符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 数学表达式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 流程控制语句
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 格式化打印
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6. 内置函数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    6.1 数学函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    6.2 位操作函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    6.3 字符串函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64" class="md-nav__link">
+    6.4 时间函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7. 自定义函数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    7.1 定义函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    7.2 创建函数库
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ignorantshr/question/edit/master/docs/命令/添加公钥.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/ignorantshr/question/edit/master/docs/命令/gawk.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>添加公钥</h1>
+                  <h1>Gawk</h1>
                 
-                <ol>
-<li>在目标主机上面删除源主机的公钥：</li>
-</ol>
-<div class="codehilite"><pre><span></span>    vi authorized_keys
+                <h2 id="1">1. 使用说明<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">gawk</span> <span class="p">[</span> <span class="n">POSIX</span> <span class="n">or</span> <span class="n">GNU</span> <span class="n">style</span> <span class="n">options</span> <span class="p">]</span> <span class="o">-</span><span class="n">f</span> <span class="n">program</span><span class="o">-</span><span class="n">file</span> <span class="p">[</span> <span class="o">--</span> <span class="p">]</span> <span class="n">file</span> <span class="p">...</span>
+<span class="n">gawk</span> <span class="p">[</span> <span class="n">POSIX</span> <span class="n">or</span> <span class="n">GNU</span> <span class="n">style</span> <span class="n">options</span> <span class="p">]</span> <span class="p">[</span> <span class="o">--</span> <span class="p">]</span> <span class="n">program</span><span class="o">-</span><span class="n">text</span> <span class="n">file</span> <span class="p">...</span>
+
+<span class="n">program</span><span class="o">-</span><span class="n">text</span> <span class="err">使用单引号包围</span>
+<span class="n">OPTIONS</span>
+    <span class="o">-</span><span class="n">F</span> <span class="n">fs</span>  <span class="o">--</span><span class="n">field</span><span class="o">-</span><span class="n">separator</span> <span class="n">fs</span>     <span class="err">指定分隔符</span>
+    <span class="o">-</span><span class="n">v</span> <span class="n">var</span><span class="o">=</span><span class="n">value</span>                    <span class="err">定义程序中的变量及默认值，引用变量时无需$符号</span>
+    <span class="o">-</span><span class="n">mf</span> <span class="n">N</span>                           <span class="err">指定处理的最大字段数</span>
+    <span class="o">-</span><span class="n">mr</span> <span class="n">N</span>                           <span class="err">指定文件最大行数</span>
+
+<span class="n">program</span>
+<span class="n">Built</span><span class="o">-</span><span class="k">in</span> <span class="n">Variables</span>
+    <span class="n">FS</span>          <span class="n">The</span> <span class="n">input</span> <span class="n">field</span> <span class="n">separator</span><span class="p">,</span> <span class="n">a</span> <span class="n">space</span> <span class="n">by</span> <span class="k">default</span><span class="p">.</span>
+    <span class="n">OFS</span>         <span class="n">The</span> <span class="n">output</span> <span class="n">field</span> <span class="n">separator</span><span class="p">,</span> <span class="n">a</span> <span class="n">space</span> <span class="n">by</span> <span class="k">default</span><span class="p">.</span>
+    <span class="n">RS</span>          <span class="n">The</span> <span class="n">input</span> <span class="n">record</span> <span class="n">separator</span><span class="p">,</span> <span class="n">by</span> <span class="k">default</span> <span class="n">a</span> <span class="n">newline</span><span class="p">.</span>
+    <span class="n">ORS</span>         <span class="n">The</span> <span class="n">output</span> <span class="n">record</span> <span class="n">separator</span><span class="p">,</span> <span class="n">by</span> <span class="k">default</span> <span class="n">a</span> <span class="n">newline</span><span class="p">.</span>
+    <span class="n">NF</span>          <span class="n">The</span> <span class="n">number</span> <span class="n">of</span> <span class="n">fields</span> <span class="k">in</span> <span class="n">the</span> <span class="n">current</span> <span class="n">input</span> <span class="n">record</span><span class="p">.</span>
+    <span class="n">NR</span>          <span class="n">The</span> <span class="n">total</span> <span class="n">number</span> <span class="n">of</span> <span class="n">input</span> <span class="n">records</span> <span class="n">seen</span> <span class="n">so</span> <span class="n">far</span><span class="p">.</span>
+
+    <span class="err">$</span><span class="mi">0</span>          <span class="err">代表一整行</span>
+    <span class="err">$</span><span class="n">n</span>          <span class="err">代表该行的第</span><span class="n">n个字段</span>
+
+<span class="n">Patterns</span>
+    <span class="n">BEGIN</span>
+    <span class="n">END</span>
+    <span class="n">BEGINFILE</span>
+    <span class="n">ENDFILE</span>
+    <span class="o">/</span><span class="n">regular</span> <span class="n">expression</span><span class="o">/</span>
+    <span class="n">relational</span> <span class="n">expression</span>
+    <span class="n">pattern</span> <span class="o">&amp;&amp;</span> <span class="n">pattern</span>
+    <span class="n">pattern</span> <span class="o">||</span> <span class="n">pattern</span>
+    <span class="n">pattern</span> <span class="o">?</span> <span class="nl">pattern</span> <span class="p">:</span> <span class="n">pattern</span>
+    <span class="p">(</span><span class="n">pattern</span><span class="p">)</span>
+    <span class="o">!</span> <span class="n">pattern</span>
+    <span class="n">pattern1</span><span class="p">,</span> <span class="n">pattern2</span>
+
+<span class="n">Control</span> <span class="n">Statements</span>
+<span class="s">&quot;statement&quot;</span> <span class="err">可以用花括号包围起来</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="n">statement</span> <span class="p">[</span> <span class="k">else</span> <span class="n">statement</span> <span class="p">]</span> <span class="err">单行使用</span><span class="n">else语句时要添加分号</span><span class="err">。</span><span class="k">if</span> <span class="p">(...)</span> <span class="p">...</span> <span class="p">;</span> <span class="k">else</span> <span class="p">...</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="n">statement</span>
+    <span class="k">do</span> <span class="n">statement</span> <span class="k">while</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">expr1</span><span class="p">;</span> <span class="n">expr2</span><span class="p">;</span> <span class="n">expr3</span><span class="p">)</span> <span class="n">statement</span>  <span class="n">C风格的for循环</span><span class="err">，只不过定义变量时无需指定类型</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">var</span> <span class="k">in</span> <span class="n">array</span><span class="p">)</span> <span class="n">statement</span>
+    <span class="k">break</span>
+    <span class="k">continue</span>
+    <span class="n">delete</span> <span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    <span class="n">delete</span> <span class="n">array</span>
+    <span class="n">exit</span> <span class="p">[</span> <span class="n">expression</span> <span class="p">]</span>
+    <span class="p">{</span> <span class="n">statements</span> <span class="p">}</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">expression</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="n">value</span><span class="o">|</span><span class="nl">regex</span> <span class="p">:</span> <span class="n">statement</span>
+    <span class="p">...</span>
+    <span class="p">[</span> <span class="k">default</span><span class="o">:</span> <span class="n">statement</span> <span class="p">]</span>
+    <span class="p">}</span>
 </pre></div>
 
 
-<ol>
-<li>在源主机上面发送公钥到目标主机：</li>
-</ol>
-<div class="codehilite"><pre><span></span>    ssh-copy-id -i ~/.ssh/id_rsa.pub &lt;username&gt;@&lt;target-ip&gt;
+<p>脚本中的语法一样，但是不需要分号分隔多个命令：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="n">script</span><span class="p">.</span><span class="n">gawk</span><span class="w"></span>
+<span class="err">{</span><span class="w"></span>
+<span class="nc">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;Tom&quot;</span><span class="w"></span>
+<span class="k">print</span><span class="w"> </span><span class="nc">text</span><span class="w"> </span><span class="ss">&quot; is a superman.&quot;</span><span class="w"></span>
+<span class="err">}</span><span class="w"></span>
+<span class="o">[</span><span class="n">root@centos7 ~</span><span class="o">]</span><span class="err">#</span><span class="w"> </span><span class="n">gawk</span><span class="w"> </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="n">script</span><span class="p">.</span><span class="n">gawk</span><span class="w"> </span><span class="n">test1</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="n">Tom</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">superman</span><span class="p">.</span><span class="w"></span>
+<span class="n">Tom</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">superman</span><span class="p">.</span><span class="w"></span>
+<span class="n">Tom</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">superman</span><span class="p">.</span><span class="w"></span>
+<span class="n">Tom</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">superman</span><span class="p">.</span><span class="w"></span>
+<span class="n">Tom</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">superman</span><span class="p">.</span><span class="w"></span>
 </pre></div>
+
+
+<p>样本文件：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ cat data1
+data11,data12,data13,data14,data15
+data21,data22,data23,data24,data25
+data31,data32,data33,data34,data35
+</pre></div>
+
+
+<h2 id="2">2. 变量<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 内置变量<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="n">FIELDWIDTHS</span> <span class="err">定义每个字段的固定宽度，以长度来划分字段</span>
+<span class="n">FS</span>          <span class="err">输入字段分隔符，默认为一个空白字符，即空格符或制表符</span>
+<span class="n">OFS</span>         <span class="err">输出字段分隔符，默认为一个空白字符</span>
+<span class="n">RS</span>          <span class="err">输入记录分隔符，默认为一个空白字符</span>
+<span class="n">ORS</span>         <span class="err">输出记录分隔符，默认为一个空白字符</span>
+</pre></div>
+
+
+<p>设置了 FIELDWIDTHS 后，就会忽略 FS 变量了，并且一旦设定就不能再改变了。</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ gawk <span class="s1">&#39;BEGIN{FIELDWIDTHS=&quot;2 5&quot;}{print $1,$2}&#39;</span> data1
+da ta11,
+da ta21,
+da ta31,
+</pre></div>
+
+
+<p>对于需要将多行当作一行读取的可以这样设置 FS、RS：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ cat data2
+aaa
+<span class="m">1990</span>
+<span class="m">111111111</span>
+beijng
+
+bbb
+<span class="m">2000</span>
+<span class="m">222233</span>
+dongjing
+<span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ gawk <span class="s1">&#39;BEGIN{FS=&quot;\n&quot;;RS=&quot;&quot;}{print $1,$4}&#39;</span> data2
+aaa beijng
+bbb dongjing
+</pre></div>
+
+
+<h3 id="22">2.2 数据变量<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>和数据有关的内置变量：</p>
+<div class="codehilite"><pre><span></span><span class="n">ARGC</span>    <span class="err">当前命令行参数的个数，不计算脚本</span>
+<span class="n">ARGV</span>    <span class="err">包含命令行参数的数组，不计算脚本，索引从</span><span class="mi">0</span><span class="err">开始</span>
+<span class="n">ENVIRON</span> <span class="err">当前</span><span class="n">shell环境变量组成的数组</span><span class="err">，索引是</span><span class="n">shell环境变量名</span><span class="err">，例如</span> <span class="n">HOME</span><span class="err">、</span><span class="n">PATH</span>
+<span class="n">FILENAME</span>    <span class="err">作为数据输入的文件名，在</span><span class="n">BEGIN中无法使用</span>
+<span class="n">FNR</span>     <span class="err">当前数据文件中的处理数据行数</span>
+<span class="n">NR</span>      <span class="err">处理的行数</span>
+<span class="n">NF</span>      <span class="err">当前行的字段数</span>
+</pre></div>
+
+
+<p>参数相关变量：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ gawk <span class="s1">&#39;BEGIN{print ARGC;for (i in ARGV) print ARGV[i]}&#39;</span> data1
+<span class="m">2</span>
+gawk
+data1
+</pre></div>
+
+
+<p>shell环境变量：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ gawk <span class="s1">&#39;BEGIN{FS=&quot;,&quot;;print &quot;data&quot;,&quot;FNR&quot;,&quot;NR&quot;}{print $1,FNR,NR}&#39;</span> data1 data1
+data FNR NR
+data11 <span class="m">1</span> <span class="m">1</span>
+data21 <span class="m">2</span> <span class="m">2</span>
+data31 <span class="m">3</span> <span class="m">3</span>
+data11 <span class="m">1</span> <span class="m">4</span>
+data21 <span class="m">2</span> <span class="m">5</span>
+data31 <span class="m">3</span> <span class="m">6</span>
+</pre></div>
+
+
+<h3 id="23">2.3 自定义变量<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<p>变量名可以是 数字、字母及下划线 的组合，但不能以数字开头，并且区分大小写。</p>
+<h4 id="231">2.3.1 在脚本中给变量赋值<a class="headerlink" href="#231" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ gawk <span class="s1">&#39;BEGIN{num=3; print num}&#39;</span> data1
+<span class="m">3</span>
+</pre></div>
+
+
+<p>赋值语句还可以是算式：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ gawk <span class="s1">&#39;BEGIN{num=3; num=num*num^2; print num}&#39;</span> data1
+<span class="m">27</span>
+</pre></div>
+
+
+<h4 id="232">2.3.2 在命令行上给变量赋值<a class="headerlink" href="#232" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ gawk -v <span class="nv">num</span><span class="o">=</span><span class="m">3</span> <span class="s1">&#39;BEGIN{num=num*num^2; print num}&#39;</span> data1
+<span class="m">27</span>
+</pre></div>
+
+
+<p>若使用<code>-v</code>选项来定义变量，那么该参数必须放在脚本之前；若不使用<code>-v</code>选项，那么在<code>BEGIN</code>块中不可用：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ gawk <span class="s1">&#39;BEGIN{num=2; num=num*num^2; print num}{print num}&#39;</span> <span class="nv">num</span><span class="o">=</span><span class="m">3</span> data1
+<span class="m">8</span>
+<span class="m">3</span>
+<span class="m">3</span>
+<span class="m">3</span>
+</pre></div>
+
+
+<h3 id="24">2.4 数组变量<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<h4 id="241">2.4.1 定义与遍历数组<a class="headerlink" href="#241" title="Permanent link">&para;</a></h4>
+<p>gawk 使用关联数组提供数组功能。数组的索引及值都可以既是<em>字符串</em>又可以是<em>数字</em>。</p>
+<div class="codehilite"><pre><span></span><span class="nf">var</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">value</span><span class="w"></span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ cat array_test.gawk
+BEGIN<span class="o">{</span>
+a<span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="m">1</span>
+a<span class="o">[</span><span class="s2">&quot;c&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;helk&quot;</span>
+a<span class="o">[</span><span class="s2">&quot;b&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="m">0</span>
+a<span class="o">[</span><span class="m">2</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;gfdhj&quot;</span>
+<span class="o">}</span>
+<span class="o">{</span>
+<span class="k">for</span> <span class="o">(</span>e in a<span class="o">)</span>
+<span class="o">{</span>
+    print <span class="s2">&quot;a[&quot;</span>e<span class="s2">&quot;] =&quot;</span>,a<span class="o">[</span>e<span class="o">]</span>
+<span class="o">}</span>
+<span class="o">}</span>
+<span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ gawk -f array_test.gawk -
+
+a<span class="o">[</span>a<span class="o">]</span> <span class="o">=</span> <span class="m">1</span>
+a<span class="o">[</span>b<span class="o">]</span> <span class="o">=</span> <span class="m">0</span>
+a<span class="o">[</span>c<span class="o">]</span> <span class="o">=</span> helk
+a<span class="o">[</span><span class="m">2</span><span class="o">]</span> <span class="o">=</span> gfdhj
+</pre></div>
+
+
+<p>注意：索引值不会按照任何特定顺序返回。</p>
+<h4 id="242">2.4.2 删除数组<a class="headerlink" href="#242" title="Permanent link">&para;</a></h4>
+<p>删除某个元素：</p>
+<div class="codehilite"><pre><span></span><span class="k">delete</span><span class="w"> </span><span class="k">array</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="w"></span>
+</pre></div>
+
+
+<p>删除整个数组：</p>
+<div class="codehilite"><pre><span></span><span class="k">delete</span> <span class="nb">array</span>
+</pre></div>
+
+
+<h2 id="3">3. 匹配模式<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p>gawk 支持多种匹配模式来过数据记录。</p>
+<h3 id="31">3.1 正则表达式<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>gawk 支持基础正则表达式（BRE）和扩展正则表达式（ERE）来进行模式匹配。在使用时，正则表达式必须位于花括号前：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ gawk -F <span class="s1">&#39;,&#39;</span> <span class="s1">&#39;/,d/{print $1}&#39;</span> data1
+data11
+data21
+data31
+</pre></div>
+
+
+<p>gawk 会对<strong>记录</strong>进行匹配。</p>
+<h3 id="32">3.2 匹配操作符<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p>匹配操作符（matching operator）允许将正则表达式<em>限定在指定的字段</em>。</p>
+<div class="codehilite"><pre><span></span><span class="err">$</span><span class="n">N</span> <span class="p">[</span><span class="o">!</span><span class="p">]</span><span class="o">~</span> <span class="o">/</span><span class="n">re</span><span class="o">/</span>
+</pre></div>
+
+
+<p>若使用了<code>!</code>则表示排除匹配。</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ gawk -F <span class="s1">&#39;,&#39;</span> <span class="s1">&#39;$1 ~ /data21/{print $1}&#39;</span> data1
+data21
+</pre></div>
+
+
+<h3 id="33">3.3 数学表达式<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<p>在匹配模式中还可以使用数学表达式，用于比较数字。</p>
+<p>操作符有：</p>
+<ul>
+<li>==</li>
+<li>&lt;=</li>
+<li>&lt;</li>
+<li>>=</li>
+<li>></li>
+</ul>
+<p>找出所有用户组ID为 0 的用户：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ gawk -F <span class="s1">&#39;:&#39;</span> <span class="s1">&#39;$4 == 0{print $1}&#39;</span> /etc/passwd
+root
+sync
+shutdown
+halt
+operator
+</pre></div>
+
+
+<p>若对文本数据使用数学表达式则必须完全匹配：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">user1@centos7 ~</span><span class="o">]</span><span class="err">$</span><span class="w"> </span><span class="n">gawk</span><span class="w"> </span><span class="o">-</span><span class="n">F</span><span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="w"> </span><span class="s1">&#39;$1 == &quot;root&quot;{print $1}&#39;</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">passwd</span><span class="w"></span>
+<span class="n">root</span><span class="w"></span>
+</pre></div>
+
+
+<h2 id="4">4. 流程控制语句<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>参考使用说明中的控制语句语法。</p>
+<p>使用条件语句：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>root@dev vitest<span class="o">]</span><span class="c1"># cat -n /etc/passwd | awk -F: &#39;NR==1 {printf &quot;%12s%12s\n&quot;, &quot;name&quot;, &quot;bash&quot;}; $3 &lt; 5 {print $1&quot;\t&quot;$7}&#39;</span>
+        name        bash
+     <span class="m">1</span>  root    /bin/bash
+     <span class="m">2</span>  bin     /sbin/nologin
+     <span class="m">3</span>  daemon  /sbin/nologin
+     <span class="m">4</span>  adm     /sbin/nologin
+     <span class="m">5</span>  lp      /sbin/nologin
+<span class="c1"># 分隔符也可以在脚本里面定义，效果同上</span>
+<span class="o">[</span>root@dev vitest<span class="o">]</span><span class="c1"># cat -n /etc/passwd | awk &#39;BEGIN {FS=&quot;:&quot;}; NR==1 {printf &quot;%12s%12s\n&quot;, &quot;name&quot;, &quot;bash&quot;}; $3 &lt; 5 {print $1&quot;\t&quot;$7}&#39;</span>
+<span class="c1"># 脚本中定义的变量可以直接使用，无需$符号</span>
+<span class="o">[</span>root@dev vitest<span class="o">]</span><span class="c1"># cat -n /etc/passwd | awk &#39;BEGIN {FS=&quot;:&quot;; head1=&quot;name&quot;}; NR==1 {head2=&quot;bash&quot;; printf &quot;%12s%12s\n&quot;, head1, head2}; $3 &lt; 5 {print $1&quot;\t&quot;$7}&#39;</span>
+</pre></div>
+
+
+<p>awk还支持运算：</p>
+<div class="codehilite"><pre><span></span>cat pay. txt <span class="p">|</span> <span class="se">\</span>
+&gt; awk <span class="s1">&#39; {if(NR==1) printf &quot;%10s %10s %10s %10s %10s\n&quot;, $1, $2, $3, $4, &quot;Total&quot;}</span>
+<span class="s1">&gt; NR&gt;=2{total = $2 + $3 + $4</span>
+<span class="s1">&gt; printf &quot;%10s %10d %10d %10d %10.2f\n&quot;, $1, $2, $3, $4, total}&#39;</span>
+</pre></div>
+
+
+<h2 id="5">5. 格式化打印<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">printf</span> <span class="ss">&quot;format string&quot;</span><span class="p">,</span> <span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="p">...</span>
+</pre></div>
+
+
+<p>和C语言一样。</p>
+<div class="codehilite"><pre><span></span><span class="n">e</span>   <span class="err">使用科学计数法表示</span>
+<span class="n">o</span>   <span class="err">按照八进制显示</span>
+<span class="n">x</span>   <span class="err">按照十六进制显示</span>
+<span class="n">X</span>   <span class="err">按照十六进制显示，但使用大写字母</span>
+</pre></div>
+
+
+<p>另外三种修饰符：</p>
+<div class="codehilite"><pre><span></span><span class="n">width</span>   <span class="err">指定输出字段最小宽度。若短于此值，则右对齐，否则按照实际长度输出</span>
+<span class="p">.</span><span class="n">prec</span>   <span class="err">指定浮点数的小数位数，或字符串的最大字符数</span>
+<span class="o">-</span>       <span class="err">使用左对齐</span>
+</pre></div>
+
+
+<h2 id="6">6. 内置函数<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<h3 id="61">6.1 数学函数<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="n">x是弧度</span>
+<span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="n">x是弧度</span>
+<span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="err">取整，直接取整数部分，不会四舍五入</span>
+<span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="n">x的自然对数</span>
+<span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="err">自然数</span><span class="n">e的x次方</span>
+<span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">x的平方根</span>
+<span class="n">rand</span><span class="p">()</span>  <span class="err">比</span><span class="mi">0</span><span class="err">大比</span><span class="mi">1</span><span class="err">小的随机浮点数</span>
+</pre></div>
+
+
+<p>不知道为什么随机数函数总是一个值：</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 第一次执行</span>
+<span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ gawk <span class="s1">&#39;{print rand()}&#39;</span>
+
+<span class="m">0</span>.237788
+
+<span class="m">0</span>.291066
+
+<span class="m">0</span>.845814
+<span class="c1"># 第二次执行</span>
+<span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ gawk <span class="s1">&#39;{print rand()}&#39;</span>
+
+<span class="m">0</span>.237788
+
+<span class="m">0</span>.291066
+
+<span class="m">0</span>.845814
+</pre></div>
+
+
+<h3 id="62">6.2 位操作函数<a class="headerlink" href="#62" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="k">and</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span> 
+<span class="k">or</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span>
+<span class="n">xor</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span>         <span class="err">异或</span>
+<span class="n">lshift</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="k">count</span><span class="p">)</span>  <span class="err">左移</span>
+<span class="n">rshift</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="k">count</span><span class="p">)</span>
+<span class="n">compl</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>          <span class="n">val补运算</span><span class="err">，即</span> <span class="err">求补码</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ gawk <span class="s1">&#39;BEGIN{print compl(1)}&#39;</span>
+<span class="m">9007199254740990</span>
+<span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ gawk <span class="s1">&#39;BEGIN{print compl(9007199254740990)+1}&#39;</span>
+<span class="m">2</span>
+</pre></div>
+
+
+<h3 id="63">6.3 字符串函数<a class="headerlink" href="#63" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="nv">asort</span><span class="ss">(</span><span class="nv">s</span>[, <span class="nv">d</span>]<span class="ss">)</span>   对数组<span class="nv">s</span>按元素排序，索引会被替换成数字，若提供了<span class="nv">d</span>则存储在<span class="nv">d</span>数组中
+<span class="nv">asorti</span><span class="ss">(</span><span class="nv">s</span>[, <span class="nv">d</span>]<span class="ss">)</span>  对数组<span class="nv">s</span>按索引排序，索引值会成为元素值，索引会被替换成数字，若提供了<span class="nv">d</span>则存储在<span class="nv">d</span>数组中
+<span class="nv">match</span><span class="ss">(</span><span class="nv">s</span>, <span class="nv">r</span>[, <span class="nv">a</span>]<span class="ss">)</span>    返回字符串<span class="nv">s</span>中正则表达式<span class="nv">r</span>出现位置的索引。若指定了数组<span class="nv">a</span>，则会存储<span class="nv">s</span>中匹配到<span class="nv">r</span>的部分
+<span class="nv">sub</span><span class="ss">(</span><span class="nv">r</span>, <span class="nv">s</span>[, <span class="nv">t</span>]<span class="ss">)</span>  查找变量<span class="mh">$0</span>或目标字符串<span class="nv">t</span>（若提供了<span class="nv">t</span>）来匹配正则表达式<span class="nv">r</span>，替换第一处。
+<span class="nv">gsub</span><span class="ss">(</span><span class="nv">r</span>, <span class="nv">s</span>[, <span class="nv">t</span>]<span class="ss">)</span> 查找变量<span class="mh">$0</span>或目标字符串<span class="nv">t</span>（若提供了<span class="nv">t</span>）来匹配正则表达式<span class="nv">r</span>，全部替换
+<span class="nv">gensub</span><span class="ss">(</span><span class="nv">r</span>, <span class="nv">s</span>, <span class="nv">h</span>[, <span class="nv">t</span>]<span class="ss">)</span>    查找变量<span class="mh">$0</span>或目标字符串<span class="nv">t</span>（若提供了<span class="nv">t</span>）来匹配正则表达式<span class="nv">r</span>。若<span class="nv">h</span>是一个以“<span class="nv">g</span>”或“<span class="nv">G</span>”
+                        开头的字符串，则替换全部；若<span class="nv">h</span>是一个数字，表示要替换掉第<span class="nv">h</span>处。
+<span class="nv">index</span><span class="ss">(</span><span class="nv">s</span>, <span class="nv">t</span><span class="ss">)</span>     返回字符串<span class="nv">t</span>在字符串<span class="nv">s</span>中的索引值，没有则返回<span class="mi">0</span>
+<span class="nv">length</span><span class="ss">(</span>[<span class="nv">s</span>]<span class="ss">)</span>     返回字符串<span class="nv">s</span>的长度；若没有指定的话，返回<span class="mh">$0</span>的长度
+<span class="nv">split</span><span class="ss">(</span><span class="nv">s</span>, <span class="nv">a</span>[, <span class="nv">r</span>]<span class="ss">)</span>    将<span class="nv">s</span>用<span class="nv">FS</span>或正则表达式<span class="nv">r</span>分割放到数组<span class="nv">a</span>中。返回字段总数
+<span class="k">sprintf</span><span class="ss">(</span><span class="nv">format</span>, <span class="nv">variables</span><span class="ss">)</span>  提供格式化之后的字符串
+<span class="nv">substr</span><span class="ss">(</span><span class="nv">s</span>, <span class="nv">i</span>[, <span class="nv">n</span>]<span class="ss">)</span>   返回<span class="nv">s</span>中从索引值<span class="nv">i</span>开始的<span class="nv">n</span>个字符组成的子串。若未提供<span class="nv">n</span>则直到<span class="nv">sde</span>结尾。
+<span class="k">tolower</span><span class="ss">(</span><span class="nv">s</span><span class="ss">)</span>      
+<span class="k">toupper</span><span class="ss">(</span><span class="nv">s</span><span class="ss">)</span>      
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ cat array_test.gawk
+BEGIN<span class="o">{</span>
+a<span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="m">1</span>
+a<span class="o">[</span><span class="s2">&quot;c&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;helk&quot;</span>
+a<span class="o">[</span><span class="s2">&quot;b&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="m">0</span>
+a<span class="o">[</span><span class="m">2</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;gfdhj&quot;</span>
+<span class="o">}</span>
+
+<span class="o">{</span>
+<span class="k">for</span> <span class="o">(</span>e in a<span class="o">)</span>
+<span class="o">{</span>
+    print <span class="s2">&quot;a[&quot;</span>e<span class="s2">&quot;] =&quot;</span>,a<span class="o">[</span>e<span class="o">]</span>
+<span class="o">}</span>
+
+print <span class="s2">&quot;-----------&quot;</span>
+
+asort<span class="o">(</span>a, b<span class="o">)</span>
+<span class="k">for</span> <span class="o">(</span>e in b<span class="o">)</span>
+<span class="o">{</span>
+    print <span class="s2">&quot;b[&quot;</span>e<span class="s2">&quot;] =&quot;</span>,b<span class="o">[</span>e<span class="o">]</span>
+<span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+
+
+<p>元素值排序函数：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">user1@centos7 ~</span><span class="o">]</span><span class="err">$</span><span class="w"> </span><span class="n">gawk</span><span class="w"> </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="n">array_test</span><span class="p">.</span><span class="n">gawk</span><span class="w"></span>
+
+<span class="n">a</span><span class="o">[</span><span class="n">a</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">a</span><span class="o">[</span><span class="n">b</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="n">a</span><span class="o">[</span><span class="n">c</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">helk</span><span class="w"></span>
+<span class="n">a</span><span class="o">[</span><span class="n">2</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gfdhj</span><span class="w"></span>
+<span class="c1">-----------</span>
+<span class="n">b</span><span class="o">[</span><span class="n">4</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">helk</span><span class="w"></span>
+<span class="n">b</span><span class="o">[</span><span class="n">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="n">b</span><span class="o">[</span><span class="n">2</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">b</span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gfdhj</span><span class="w"></span>
+</pre></div>
+
+
+<p>索引值排序函数：</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">user1@centos7 ~</span><span class="o">]</span><span class="err">$</span><span class="w"> </span><span class="n">vi</span><span class="w"> </span><span class="n">array_test</span><span class="p">.</span><span class="n">gawk</span><span class="w"></span>
+<span class="err">……</span><span class="w"></span>
+<span class="n">asorti</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="err">……</span><span class="w"></span>
+<span class="o">[</span><span class="n">user1@centos7 ~</span><span class="o">]</span><span class="err">$</span><span class="w"> </span><span class="n">gawk</span><span class="w"> </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="n">array_test</span><span class="p">.</span><span class="n">gawk</span><span class="w"></span>
+
+<span class="n">a</span><span class="o">[</span><span class="n">a</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">a</span><span class="o">[</span><span class="n">b</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="n">a</span><span class="o">[</span><span class="n">c</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">helk</span><span class="w"></span>
+<span class="n">a</span><span class="o">[</span><span class="n">2</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gfdhj</span><span class="w"></span>
+<span class="c1">-----------</span>
+<span class="n">b</span><span class="o">[</span><span class="n">4</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="w"></span>
+<span class="n">b</span><span class="o">[</span><span class="n">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">b</span><span class="o">[</span><span class="n">2</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"></span>
+<span class="n">b</span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"></span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ gawk <span class="s1">&#39;BEGIN{print gensub(&quot;abc&quot;, &quot;123&quot;, &quot;gsdf&quot;, &quot;abcdabc&quot;)}&#39;</span>
+123d123
+<span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ gawk <span class="s1">&#39;BEGIN{print gensub(&quot;abc&quot;, &quot;123&quot;, &quot;Gsdf&quot;, &quot;abcdabc&quot;)}&#39;</span>
+123d123
+<span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ gawk <span class="s1">&#39;BEGIN{print gensub(&quot;abc&quot;, &quot;123&quot;, 2, &quot;abcdabc&quot;)}&#39;</span>
+abcd123
+</pre></div>
+
+
+<h3 id="64">6.4 时间函数<a class="headerlink" href="#64" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="n">mktime</span><span class="p">(</span><span class="n">datestr</span><span class="p">)</span><span class="w">     </span><span class="n">将一个按照</span><span class="ss">&quot;YYYY MM DD HH MM SS [DST]&quot;</span><span class="n">格式指定的日期转换成时间戳</span><span class="w"></span>
+<span class="n">strftime</span><span class="p">(</span><span class="nf">format</span><span class="o">[</span><span class="n">, timestamp</span><span class="o">]</span><span class="p">)</span><span class="w">   </span><span class="n">将当前时间的时间戳或timestamp格式化</span><span class="err">，</span><span class="n">采用shell</span><span class="w"> </span><span class="n">函数date</span><span class="p">()</span><span class="n">的格式</span><span class="w"></span>
+<span class="n">systime</span><span class="p">()</span><span class="w">           </span><span class="n">返回当前时间的时间戳</span><span class="w"></span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ gawk <span class="s1">&#39;BEGIN{print strftime(&quot;%A, %B %d, %Y&quot;)}&#39;</span>
+Monday, April <span class="m">13</span>, <span class="m">2020</span>
+</pre></div>
+
+
+<h2 id="7">7. 自定义函数<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<h3 id="71">7.1 定义函数<a class="headerlink" href="#71" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">name</span><span class="p">(</span><span class="o">[</span><span class="n">parameters</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+<span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">statements</span><span class="w"></span>
+<span class="err">}</span><span class="w"></span>
+</pre></div>
+
+
+<p>函数必须写在所有的代码块（包括BEGIN）之前。</p>
+<div class="codehilite"><pre><span></span><span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ cat func.gawk
+<span class="k">function</span> display<span class="o">(</span>msg<span class="o">){</span>
+    print msg
+<span class="o">}</span>
+BEGIN <span class="o">{</span>
+    display<span class="o">(</span><span class="s2">&quot;hello!&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="o">[</span>user1@centos7 ~<span class="o">]</span>$ gawk -f func.gawk
+hello!
+</pre></div>
+
+
+<h3 id="72">7.2 创建函数库<a class="headerlink" href="#72" title="Permanent link">&para;</a></h3>
+<p>把所有的函数放到一个文件中，然后在命令行中使用<code>-f</code>选项使用（可以有多个该选项）。</p>
                 
                   
                 
@@ -3768,7 +4731,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../更新、禁用yum仓库、只下载rpm/" title="更新、禁用yum仓库、只下载rpm" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../sed/" title="Sed" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -3777,19 +4740,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                更新、禁用yum仓库、只下载rpm
+                Sed
               </span>
             </div>
           </a>
         
         
-          <a href="../locate初始化/" title="Locate初始化" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../ssh免密登录/" title="Ssh免密登录" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Locate初始化
+                Ssh免密登录
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -3817,7 +4780,7 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application.245445c6.js"></script>
+      <script src="../../assets/javascripts/application.ac79c3b0.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
