@@ -2925,8 +2925,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../HTTP 报文内的 HTTP 信息/" title="HTTP报文" class="md-nav__link">
-      HTTP报文
+    <a href="../HTTP 报文内的 HTTP 信息/" title="HTTP 报文内的 HTTP 信息" class="md-nav__link">
+      HTTP 报文内的 HTTP 信息
     </a>
   </li>
 
@@ -2966,12 +2966,341 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        HTTP 首部
+      </label>
     
     <a href="./" title="HTTP 首部" class="md-nav__link md-nav__link--active">
       HTTP 首部
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-http" title="1. HTTP  报文首部" class="md-nav__link">
+    1. HTTP  报文首部
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-http" title="2. HTTP  首部字段" class="md-nav__link">
+    2. HTTP  首部字段
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-http" title="2.1 HTTP 首部字段结构" class="md-nav__link">
+    2.1 HTTP 首部字段结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" title="2.2 各种字段概览" class="md-nav__link">
+    2.2 各种字段概览
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-http11" title="2.3 非 HTTP/1.1 首部字段" class="md-nav__link">
+    2.3 非 HTTP/1.1 首部字段
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-end-to-end-hop-by-hop" title="2.4 End-to-end 首部和 Hop-by-hop 首部" class="md-nav__link">
+    2.4 End-to-end 首部和 Hop-by-hop 首部
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-http11" title="3. HTTP/1.1 通用首部字段" class="md-nav__link">
+    3. HTTP/1.1 通用首部字段
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-cache-control" title="3.1 Cache -Control" class="md-nav__link">
+    3.1 Cache -Control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-connecti-on" title="3.2 Connecti on" class="md-nav__link">
+    3.2 Connecti on
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-date" title="3.3 Date" class="md-nav__link">
+    3.3 Date
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-pragma" title="3.4 Pragma" class="md-nav__link">
+    3.4 Pragma
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-trailer" title="3.5 Trailer" class="md-nav__link">
+    3.5 Trailer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-transfer-encoding" title="3.6 Transfer-Encoding" class="md-nav__link">
+    3.6 Transfer-Encoding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-upgrade" title="3.7 Upgrade" class="md-nav__link">
+    3.7 Upgrade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38-via" title="3.8 Via" class="md-nav__link">
+    3.8 Via
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39-warning" title="3.9 Warning" class="md-nav__link">
+    3.9 Warning
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" title="4. 请求首部字段" class="md-nav__link">
+    4. 请求首部字段
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-accept" title="4.1 Accept" class="md-nav__link">
+    4.1 Accept
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-accept-charset" title="4.2 Accept-Charset" class="md-nav__link">
+    4.2 Accept-Charset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-accept-encoding" title="4.3 Accept-Encoding" class="md-nav__link">
+    4.3 Accept-Encoding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-accept-language" title="4.4 Accept-Language" class="md-nav__link">
+    4.4 Accept-Language
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-authorization" title="4.5 Authorization" class="md-nav__link">
+    4.5 Authorization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-expect" title="4.6 Expect" class="md-nav__link">
+    4.6 Expect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-from" title="4.7 From" class="md-nav__link">
+    4.7 From
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48-host" title="4.8 Host" class="md-nav__link">
+    4.8 Host
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#49-if-match" title="4.9 If-Match" class="md-nav__link">
+    4.9 If-Match
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#410-if-none-match" title="4.10 If-None-Match" class="md-nav__link">
+    4.10 If-None-Match
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#411-if-modified-since" title="4.11 If-Modified-Since" class="md-nav__link">
+    4.11 If-Modified-Since
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412-if-unmodified-since" title="4.12 If-Unmodified-Since" class="md-nav__link">
+    4.12 If-Unmodified-Since
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#413-if-range" title="4.13 If-Range" class="md-nav__link">
+    4.13 If-Range
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#414-max-forwards" title="4.14 Max-Forwards" class="md-nav__link">
+    4.14 Max-Forwards
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#415-proxy-authorization" title="4.15 Proxy-Authorization" class="md-nav__link">
+    4.15 Proxy-Authorization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#416-range" title="4.16 Range" class="md-nav__link">
+    4.16 Range
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#417-referer" title="4.17 Referer" class="md-nav__link">
+    4.17 Referer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#418-te" title="4.18 TE" class="md-nav__link">
+    4.18 TE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" title="5. 响应首部字段" class="md-nav__link">
+    5. 响应首部字段
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" title="6. 实体首部字段" class="md-nav__link">
+    6. 实体首部字段
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-cookie" title="7. 为 Cookie 服务的首部字段" class="md-nav__link">
+    7. 为 Cookie 服务的首部字段
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-set-cookie" title="7.1 Set-Cookie" class="md-nav__link">
+    7.1 Set-Cookie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-cookie" title="7.2 Cookie" class="md-nav__link">
+    7.2 Cookie
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" title="8. 其他首部字段" class="md-nav__link">
+    8. 其他首部字段
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -3787,8 +4116,326 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-http" title="1. HTTP  报文首部" class="md-nav__link">
+    1. HTTP  报文首部
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-http" title="2. HTTP  首部字段" class="md-nav__link">
+    2. HTTP  首部字段
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-http" title="2.1 HTTP 首部字段结构" class="md-nav__link">
+    2.1 HTTP 首部字段结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" title="2.2 各种字段概览" class="md-nav__link">
+    2.2 各种字段概览
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-http11" title="2.3 非 HTTP/1.1 首部字段" class="md-nav__link">
+    2.3 非 HTTP/1.1 首部字段
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-end-to-end-hop-by-hop" title="2.4 End-to-end 首部和 Hop-by-hop 首部" class="md-nav__link">
+    2.4 End-to-end 首部和 Hop-by-hop 首部
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-http11" title="3. HTTP/1.1 通用首部字段" class="md-nav__link">
+    3. HTTP/1.1 通用首部字段
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-cache-control" title="3.1 Cache -Control" class="md-nav__link">
+    3.1 Cache -Control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-connecti-on" title="3.2 Connecti on" class="md-nav__link">
+    3.2 Connecti on
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-date" title="3.3 Date" class="md-nav__link">
+    3.3 Date
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-pragma" title="3.4 Pragma" class="md-nav__link">
+    3.4 Pragma
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-trailer" title="3.5 Trailer" class="md-nav__link">
+    3.5 Trailer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-transfer-encoding" title="3.6 Transfer-Encoding" class="md-nav__link">
+    3.6 Transfer-Encoding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-upgrade" title="3.7 Upgrade" class="md-nav__link">
+    3.7 Upgrade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38-via" title="3.8 Via" class="md-nav__link">
+    3.8 Via
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39-warning" title="3.9 Warning" class="md-nav__link">
+    3.9 Warning
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" title="4. 请求首部字段" class="md-nav__link">
+    4. 请求首部字段
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-accept" title="4.1 Accept" class="md-nav__link">
+    4.1 Accept
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-accept-charset" title="4.2 Accept-Charset" class="md-nav__link">
+    4.2 Accept-Charset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-accept-encoding" title="4.3 Accept-Encoding" class="md-nav__link">
+    4.3 Accept-Encoding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-accept-language" title="4.4 Accept-Language" class="md-nav__link">
+    4.4 Accept-Language
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-authorization" title="4.5 Authorization" class="md-nav__link">
+    4.5 Authorization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-expect" title="4.6 Expect" class="md-nav__link">
+    4.6 Expect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-from" title="4.7 From" class="md-nav__link">
+    4.7 From
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48-host" title="4.8 Host" class="md-nav__link">
+    4.8 Host
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#49-if-match" title="4.9 If-Match" class="md-nav__link">
+    4.9 If-Match
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#410-if-none-match" title="4.10 If-None-Match" class="md-nav__link">
+    4.10 If-None-Match
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#411-if-modified-since" title="4.11 If-Modified-Since" class="md-nav__link">
+    4.11 If-Modified-Since
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412-if-unmodified-since" title="4.12 If-Unmodified-Since" class="md-nav__link">
+    4.12 If-Unmodified-Since
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#413-if-range" title="4.13 If-Range" class="md-nav__link">
+    4.13 If-Range
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#414-max-forwards" title="4.14 Max-Forwards" class="md-nav__link">
+    4.14 Max-Forwards
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#415-proxy-authorization" title="4.15 Proxy-Authorization" class="md-nav__link">
+    4.15 Proxy-Authorization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#416-range" title="4.16 Range" class="md-nav__link">
+    4.16 Range
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#417-referer" title="4.17 Referer" class="md-nav__link">
+    4.17 Referer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#418-te" title="4.18 TE" class="md-nav__link">
+    4.18 TE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" title="5. 响应首部字段" class="md-nav__link">
+    5. 响应首部字段
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" title="6. 实体首部字段" class="md-nav__link">
+    6. 实体首部字段
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-cookie" title="7. 为 Cookie 服务的首部字段" class="md-nav__link">
+    7. 为 Cookie 服务的首部字段
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-set-cookie" title="7.1 Set-Cookie" class="md-nav__link">
+    7.1 Set-Cookie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-cookie" title="7.2 Cookie" class="md-nav__link">
+    7.2 Cookie
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" title="8. 其他首部字段" class="md-nav__link">
+    8. 其他首部字段
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
   
 </nav>
                   </div>
@@ -3803,10 +4450,12 @@
                   <a href="https://github.com/ignorantshr/question/edit/master/docs/http协议/HTTP 首部.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
+                  <h1>HTTP 首部</h1>
+                
                 <p>HTTP  首部结构，以及首部中各字段的用法。</p>
-<h1 id="1-http">1. HTTP  报文首部<a class="headerlink" href="#1-http" title="Permanent link">&para;</a></h1>
+<h2 id="1-http">1. HTTP  报文首部<a class="headerlink" href="#1-http" title="Permanent link">&para;</a></h2>
 <p>参考 <a href="../HTTP 报文内的 HTTP 信息/">HTTP 报文内的 HTTP 信息</a>，本书主要涉及 HTTP/1.1 及常用的首部字段。</p>
-<h1 id="2-http">2. HTTP  首部字段<a class="headerlink" href="#2-http" title="Permanent link">&para;</a></h1>
+<h2 id="2-http">2. HTTP  首部字段<a class="headerlink" href="#2-http" title="Permanent link">&para;</a></h2>
 <p>HTTP 首部字段根据实际用途被分为以下 4 种类型：</p>
 <ul>
 <li>通用首部字段（ General Header Fields）
@@ -3821,21 +4470,21 @@
     针对请求报文和响应报文的实体部分使用的首部。 补充了资源内容更
     新时间等与实体有关的信息。 </li>
 </ul>
-<h2 id="21-http">2.1 HTTP 首部字段结构<a class="headerlink" href="#21-http" title="Permanent link">&para;</a></h2>
+<h3 id="21-http">2.1 HTTP 首部字段结构<a class="headerlink" href="#21-http" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="err">首部字段名:</span> <span class="err">字段值</span><span class="mi">1</span><span class="err">,字段值</span><span class="mi">2</span><span class="err">,...</span>
 </pre></div>
 
 
 <p>HTTP  首部字段重复的处理方式根据浏览器内部的逻辑决定。</p>
-<h2 id="22">2.2 各种字段概览<a class="headerlink" href="#22" title="Permanent link">&para;</a></h2>
+<h3 id="22">2.2 各种字段概览<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
 <p><img alt="请求首部字段" src="../img/请求首部字段.png" /></p>
 <p><img alt="响应首部字段" src="../img/响应首部字段.png" /></p>
 <p><img alt="通用首部字段" src="../img/通用首部字段.png" /></p>
 <p><img alt="实体首部字段" src="../img/实体首部字段.png" /></p>
-<h2 id="23-http11">2.3 非 HTTP/1.1 首部字段<a class="headerlink" href="#23-http11" title="Permanent link">&para;</a></h2>
+<h3 id="23-http11">2.3 非 HTTP/1.1 首部字段<a class="headerlink" href="#23-http11" title="Permanent link">&para;</a></h3>
 <p>不限于 RFC2616 中定义的 47 种首部字段，其它非正式的首部字段统一归纳在 RFC4229 HTTP  Header Field
 Registrations 中。</p>
-<h2 id="24-end-to-end-hop-by-hop">2.4 End-to-end 首部和 Hop-by-hop 首部<a class="headerlink" href="#24-end-to-end-hop-by-hop" title="Permanent link">&para;</a></h2>
+<h3 id="24-end-to-end-hop-by-hop">2.4 End-to-end 首部和 Hop-by-hop 首部<a class="headerlink" href="#24-end-to-end-hop-by-hop" title="Permanent link">&para;</a></h3>
 <p>HTTP  首部字段将定义成缓存代理和非缓存代理的行为，分成 2 种类型。</p>
 <ul>
 <li>端到端首部（End-to-end  Header）</li>
@@ -3860,14 +4509,14 @@ Registrations 中。</p>
 <li>Transfer-Encoding</li>
 <li>Upgrade</li>
 </ul>
-<h1 id="3-http11">3. HTTP/1.1 通用首部字段<a class="headerlink" href="#3-http11" title="Permanent link">&para;</a></h1>
-<h2 id="31-cache-control">3.1 Cache -Control<a class="headerlink" href="#31-cache-control" title="Permanent link">&para;</a></h2>
+<h2 id="3-http11">3. HTTP/1.1 通用首部字段<a class="headerlink" href="#3-http11" title="Permanent link">&para;</a></h2>
+<h3 id="31-cache-control">3.1 Cache -Control<a class="headerlink" href="#31-cache-control" title="Permanent link">&para;</a></h3>
 <p>控制缓存的行为。</p>
 <p>指令一览：</p>
 <p><img alt="" src="../img/缓存请求指令.png" /></p>
 <p><img alt="" src="../img/缓存响应指令.png" /></p>
 <p>详细说明参考《图解HTTP》6.3.1 节。</p>
-<h2 id="32-connecti-on">3.2 Connecti on<a class="headerlink" href="#32-connecti-on" title="Permanent link">&para;</a></h2>
+<h3 id="32-connecti-on">3.2 Connecti on<a class="headerlink" href="#32-connecti-on" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>控制不再转发给代理的首部字段</p>
@@ -3883,7 +4532,7 @@ Registrations 中。</p>
 </blockquote>
 </li>
 </ul>
-<h2 id="33-date">3.3 Date<a class="headerlink" href="#33-date" title="Permanent link">&para;</a></h2>
+<h3 id="33-date">3.3 Date<a class="headerlink" href="#33-date" title="Permanent link">&para;</a></h3>
 <p>HTTP/1.1 协议使用在 RFC1123 中规定的日期时间的格式：</p>
 <div class="codehilite"><pre><span></span><span class="err">Date:</span> <span class="err">Tue,</span> <span class="mi">03</span> <span class="err">Jul</span> <span class="mi">2012</span> <span class="mi">04</span><span class="err">:</span><span class="mi">40</span><span class="err">:</span><span class="mi">59</span> <span class="err">GMT</span>
 </pre></div>
@@ -3899,7 +4548,7 @@ Registrations 中。</p>
 </pre></div>
 
 
-<h2 id="34-pragma">3.4 Pragma<a class="headerlink" href="#34-pragma" title="Permanent link">&para;</a></h2>
+<h3 id="34-pragma">3.4 Pragma<a class="headerlink" href="#34-pragma" title="Permanent link">&para;</a></h3>
 <p>Pragma 是 HTTP/1.1 之前版本的历史遗留字段，仅作为与 HTTP/1.0的向后兼容而定义。</p>
 <div class="codehilite"><pre><span></span><span class="err">Pragma:</span> <span class="err">no-cache</span>
 </pre></div>
@@ -3912,7 +4561,7 @@ Registrations 中。</p>
 </pre></div>
 
 
-<h2 id="35-trailer">3.5 Trailer<a class="headerlink" href="#35-trailer" title="Permanent link">&para;</a></h2>
+<h3 id="35-trailer">3.5 Trailer<a class="headerlink" href="#35-trailer" title="Permanent link">&para;</a></h3>
 <p>Trailer 会事先说明在报文主体后记录了哪些首部字段。该首部字段可应用在 HTTP/1.1 版本分块传输编码时。</p>
 <div class="codehilite"><pre><span></span><span class="err">...</span>
 <span class="err">Trailer:</span> <span class="err">Expires</span>
@@ -3921,7 +4570,7 @@ Registrations 中。</p>
 </pre></div>
 
 
-<h2 id="36-transfer-encoding">3.6 Transfer-Encoding<a class="headerlink" href="#36-transfer-encoding" title="Permanent link">&para;</a></h2>
+<h3 id="36-transfer-encoding">3.6 Transfer-Encoding<a class="headerlink" href="#36-transfer-encoding" title="Permanent link">&para;</a></h3>
 <p>规定了传输报文主体时采用的编码方式。仅对分块传输编码有效。</p>
 <div class="codehilite"><pre><span></span><span class="err">...</span>
 <span class="err">Transfer-Encoding:</span> <span class="err">chunked</span>
@@ -3934,16 +4583,16 @@ Registrations 中。</p>
 </pre></div>
 
 
-<h2 id="37-upgrade">3.7 Upgrade<a class="headerlink" href="#37-upgrade" title="Permanent link">&para;</a></h2>
+<h3 id="37-upgrade">3.7 Upgrade<a class="headerlink" href="#37-upgrade" title="Permanent link">&para;</a></h3>
 <p>用于检测 HTTP  协议及其他协议是否可使用更高的版本进行通信，其参数值可以用来指定一个完全不同的通信协议。</p>
 <p>Upgrade 首部字段产生作用的 Upgrade 对象仅限于客户端和邻接服务器之间。因此，使用首部字段 Upgrade 时，还需要额外指定<code>Connection :Upgrade</code>。</p>
 <p>服务器可用 <code>101 Switching Protocols</code> 状态码作为响应返回。</p>
-<h2 id="38-via">3.8 Via<a class="headerlink" href="#38-via" title="Permanent link">&para;</a></h2>
+<h3 id="38-via">3.8 Via<a class="headerlink" href="#38-via" title="Permanent link">&para;</a></h3>
 <p>为了追踪客户端与服务器之间的请求和响应报文的传输路径。</p>
 <p>报文经过代理或网关时，会先在首部字段 Via 中附加该服务器的信息，然后再进行转发。</p>
 <p>首部字段 Via 不仅用于追踪报文的转发，还可避免请求回环的发生，所以必须在经过代理时附加该首部字段内容。</p>
 <p>Via 首部是为了追踪传输路径，所以经常会和 TRACE 方法一起使用。</p>
-<h2 id="39-warning">3.9 Warning<a class="headerlink" href="#39-warning" title="Permanent link">&para;</a></h2>
+<h3 id="39-warning">3.9 Warning<a class="headerlink" href="#39-warning" title="Permanent link">&para;</a></h3>
 <p>该首部通常会告知用户一些与缓存相关的问题的警告。</p>
 <p>格式（日期可省略）：</p>
 <div class="codehilite"><pre><span></span><span class="err">Warning:</span> <span class="p">[</span><span class="err">警告码</span><span class="p">][</span><span class="err">警告的主机:端口号</span><span class="p">]</span><span class="err">“</span><span class="p">[</span><span class="err">警告内容</span><span class="p">]</span><span class="err">”(</span><span class="p">[</span><span class="err">日期时间</span><span class="p">]</span><span class="err">)</span>
@@ -3951,9 +4600,9 @@ Registrations 中。</p>
 
 
 <p><img alt="" src="../img/警告码.png" /></p>
-<h1 id="4">4. 请求首部字段<a class="headerlink" href="#4" title="Permanent link">&para;</a></h1>
+<h2 id="4">4. 请求首部字段<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
 <p>用于补充请求的附加信息、客户端信息、对响应内容相关的优先级等内容。</p>
-<h2 id="41-accept">4.1 Accept<a class="headerlink" href="#41-accept" title="Permanent link">&para;</a></h2>
+<h3 id="41-accept">4.1 Accept<a class="headerlink" href="#41-accept" title="Permanent link">&para;</a></h3>
 <p>Accept  首部字段可通知服务器，用户代理能够处理的媒体类型及媒体类型的相对优先级。可使用 <code>type/subtype</code> 这种形式，一次指定多种媒体类型。</p>
 <p>使用 q= 来额外表示权重值，用分号（;）进行分隔。范围是 0~1（可精确到小数点后 3 位），且 1 为最大值，默认值是1.0。</p>
 <p>例子，优先发送plain文本文件：</p>
@@ -3961,10 +4610,10 @@ Registrations 中。</p>
 </pre></div>
 
 
-<h2 id="42-accept-charset">4.2 Accept-Charset<a class="headerlink" href="#42-accept-charset" title="Permanent link">&para;</a></h2>
+<h3 id="42-accept-charset">4.2 Accept-Charset<a class="headerlink" href="#42-accept-charset" title="Permanent link">&para;</a></h3>
 <p>Accept-Charset  首部字段可用来通知服务器用户代理支持的字符集及字符集的相对优先顺序。也可指定权重值。</p>
 <p>该首部字段应用于内容协商机制的服务器驱动协商。</p>
-<h2 id="43-accept-encoding">4.3 Accept-Encoding<a class="headerlink" href="#43-accept-encoding" title="Permanent link">&para;</a></h2>
+<h3 id="43-accept-encoding">4.3 Accept-Encoding<a class="headerlink" href="#43-accept-encoding" title="Permanent link">&para;</a></h3>
 <p>Accept-Encoding  首部字段用来告知服务器用户代理支持的内容编码及内容编码的优先级顺序。</p>
 <div class="codehilite"><pre><span></span><span class="err">Accept-Encoding:</span> <span class="err">gzip,</span> <span class="err">deflate</span>
 </pre></div>
@@ -3977,64 +4626,64 @@ Registrations 中。</p>
 <li>identity（不进行编码）</li>
 </ul>
 <p>采用权重 q 值来表示相对优先级，也可使用星号（*）作为通配符，指定任意的编码格式。</p>
-<h2 id="44-accept-language">4.4 Accept-Language<a class="headerlink" href="#44-accept-language" title="Permanent link">&para;</a></h2>
+<h3 id="44-accept-language">4.4 Accept-Language<a class="headerlink" href="#44-accept-language" title="Permanent link">&para;</a></h3>
 <p>Accept-Language 用来告知服务器用户代理能够处理的自然语言集（指中文或英文等），以及自然语言集的相对优先级。</p>
 <p>支持 q 值。</p>
-<h2 id="45-authorization">4.5 Authorization<a class="headerlink" href="#45-authorization" title="Permanent link">&para;</a></h2>
+<h3 id="45-authorization">4.5 Authorization<a class="headerlink" href="#45-authorization" title="Permanent link">&para;</a></h3>
 <p>Authorization  是用来告知服务器，用户代理的认证信息（证书值）。通常，想要通过服务器认证的用户代理会在接收到返回的 401 状态码响应后，把首部字段 Authorization  加入请求中。</p>
-<h2 id="46-expect">4.6 Expect<a class="headerlink" href="#46-expect" title="Permanent link">&para;</a></h2>
+<h3 id="46-expect">4.6 Expect<a class="headerlink" href="#46-expect" title="Permanent link">&para;</a></h3>
 <p>Expect  来告知服务器，期望出现的某种特定行为。</p>
 <p>因服务器无法理解客户端的期望作出回应而发生错误时，会返回状态码 417 Expectation  Failed。</p>
 <p>等待状态码 100 响应的客户端在发生请求时，需要指定 <code>Expectt :100-continue</code>。</p>
-<h2 id="47-from">4.7 From<a class="headerlink" href="#47-from" title="Permanent link">&para;</a></h2>
+<h3 id="47-from">4.7 From<a class="headerlink" href="#47-from" title="Permanent link">&para;</a></h3>
 <p>用来告知服务器使用用户代理的用户的电子邮件地址。使用代理时，应尽可能包含 From  首部字段（但
 可能会因代理不同，将电子邮件地址记录在 User-Agent  首部字段内）。</p>
-<h2 id="48-host">4.8 Host<a class="headerlink" href="#48-host" title="Permanent link">&para;</a></h2>
+<h3 id="48-host">4.8 Host<a class="headerlink" href="#48-host" title="Permanent link">&para;</a></h3>
 <p>告知服务器请求的资源所处的互联网主机名和端口号。唯一一个必须被包含在请求内的首部字段。</p>
 <p>若服务器未设定主机名，那直接发送一个空值即可。</p>
-<h2 id="49-if-match">4.9 If-Match<a class="headerlink" href="#49-if-match" title="Permanent link">&para;</a></h2>
+<h3 id="49-if-match">4.9 If-Match<a class="headerlink" href="#49-if-match" title="Permanent link">&para;</a></h3>
 <p>形如 If-xxx  这种样式的请求首部字段，都可称为条件请求。服务器接收到附带条件的请求后，只有判断指定条件为真时，才会执行请求。否则返回状态码 <code>412 Precondition Failed</code> 的响应。</p>
 <p>If-Match 它会告知服务器匹配资源所用的实体标记（ETag ）值。这时的服务器无法使用弱 ETag  值。</p>
 <p>还可以使用星号（*）指定 If -Match  的字段值。针对这种情况，服务器将会忽略 ETag  的值，只要资源存在就处理请求。</p>
-<h2 id="410-if-none-match">4.10 If-None-Match<a class="headerlink" href="#410-if-none-match" title="Permanent link">&para;</a></h2>
+<h3 id="410-if-none-match">4.10 If-None-Match<a class="headerlink" href="#410-if-none-match" title="Permanent link">&para;</a></h3>
 <p>与 If-Match 相反。在 GET 或 HEAD 方法中使用首部字段 If-None-Match  可获取最新的资源。</p>
-<h2 id="411-if-modified-since">4.11 If-Modified-Since<a class="headerlink" href="#411-if-modified-since" title="Permanent link">&para;</a></h2>
+<h3 id="411-if-modified-since">4.11 If-Modified-Since<a class="headerlink" href="#411-if-modified-since" title="Permanent link">&para;</a></h3>
 <p>它会告知服务器若 If-Modified-Since 字段值早于资源的更新时间，则希望能处理该请求。如果请求的资源都没有过更新，则返回状态码 <code>304 Not Modified</code> 的响应。</p>
 <p>用于确认代理或客户端拥有的本地资源的有效性。获取资源的更新日期时间，可通过确认首部字段 Last-Modified 来确
 定。</p>
-<h2 id="412-if-unmodified-since">4.12 If-Unmodified-Since<a class="headerlink" href="#412-if-unmodified-since" title="Permanent link">&para;</a></h2>
+<h3 id="412-if-unmodified-since">4.12 If-Unmodified-Since<a class="headerlink" href="#412-if-unmodified-since" title="Permanent link">&para;</a></h3>
 <p>和首部字段 If-Modified-Since 的作用相反。如果在指定日期时间后发生了更新，则以状态码 <code>412 Precondition Failed</code> 作为响应返回。</p>
-<h2 id="413-if-range">4.13 If-Range<a class="headerlink" href="#413-if-range" title="Permanent link">&para;</a></h2>
+<h3 id="413-if-range">4.13 If-Range<a class="headerlink" href="#413-if-range" title="Permanent link">&para;</a></h3>
 <p>它告知服务器若指定的 If-Range 字段值（ETag  值或者时间）和请求资源的 ETag  值或时间相一致时，则作为范围请求处理。反之，则返回全体资源。</p>
-<h2 id="414-max-forwards">4.14 Max-Forwards<a class="headerlink" href="#414-max-forwards" title="Permanent link">&para;</a></h2>
+<h3 id="414-max-forwards">4.14 Max-Forwards<a class="headerlink" href="#414-max-forwards" title="Permanent link">&para;</a></h3>
 <p>通过 TRACE 方法或 OPTIONS 方法，发送包含首部字段 Max-Forwards 的请求时，该字段以十进制整数形式指定可经过的服务器最大数目。每次转发数值减 1。当数值变 0 时直接返回响应。</p>
-<h2 id="415-proxy-authorization">4.15 Proxy-Authorization<a class="headerlink" href="#415-proxy-authorization" title="Permanent link">&para;</a></h2>
+<h3 id="415-proxy-authorization">4.15 Proxy-Authorization<a class="headerlink" href="#415-proxy-authorization" title="Permanent link">&para;</a></h3>
 <p>接收到从代理服务器发来的认证质询时，客户端会发送包含该首部字段的请求，以告知服务器认证所需要的信息。</p>
 <p>这个行为是与客户端和服务器之间的 HTTP 访问认证相类似的，不同之处在于，认证行为发生在客户端与代理之间。客户端与服务器之间的认证，使用首部字段 Authorization  可起到相同作用。</p>
-<h2 id="416-range">4.16 Range<a class="headerlink" href="#416-range" title="Permanent link">&para;</a></h2>
+<h3 id="416-range">4.16 Range<a class="headerlink" href="#416-range" title="Permanent link">&para;</a></h3>
 <p>对于只需获取部分资源的范围请求，包含首部字段 Range 即可告知服务器资源的指定范围。</p>
 <p>处理请求之后返回状态码为 <code>206 Partial Content</code> 的响应。无法处理该范围请求时，则会返回状态码 200 OK 的响应及全部资源。</p>
-<h2 id="417-referer">4.17 Referer<a class="headerlink" href="#417-referer" title="Permanent link">&para;</a></h2>
+<h3 id="417-referer">4.17 Referer<a class="headerlink" href="#417-referer" title="Permanent link">&para;</a></h3>
 <p>会告知服务器请求的原始资源的 URI。</p>
-<h2 id="418-te">4.18 TE<a class="headerlink" href="#418-te" title="Permanent link">&para;</a></h2>
+<h3 id="418-te">4.18 TE<a class="headerlink" href="#418-te" title="Permanent link">&para;</a></h3>
 <p>告知服务器客户端能够处理响应的传输编码方式及相对优先级。它和首部字段 Accept-Encoding  的功能很相像，但是用于传输编码。</p>
 <p>还可以指定伴随 trailer 字段的分块传输编码的方式。应用后者时，只需把 trailers 赋值给该字段值：</p>
 <div class="codehilite"><pre><span></span><span class="err">TE:</span> <span class="err">trailers</span>
 </pre></div>
 
 
-<h1 id="5">5. 响应首部字段<a class="headerlink" href="#5" title="Permanent link">&para;</a></h1>
+<h2 id="5">5. 响应首部字段<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
 <p>用于补充响应的附加信息、服务器信息，以及对客户端的附加要求等信息。</p>
 <p>参考《图解HTTP》6.5 节</p>
 <p>强 ETag  值，不论实体发生多么细微的变化都会改变其值。</p>
 <p>弱 ETag  值只用于提示资源是否相同。只有资源发生了根本改变，产生差异时才会改变 ETag 值。这时，会在字段值最开始处附加 <code>W/</code>。</p>
-<h1 id="6">6. 实体首部字段<a class="headerlink" href="#6" title="Permanent link">&para;</a></h1>
+<h2 id="6">6. 实体首部字段<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
 <p>用于补充内容的更新时间等与实体相关的信息。</p>
 <p>参考《图解HTTP》6.6 节</p>
-<h1 id="7-cookie">7. 为 Cookie 服务的首部字段<a class="headerlink" href="#7-cookie" title="Permanent link">&para;</a></h1>
+<h2 id="7-cookie">7. 为 Cookie 服务的首部字段<a class="headerlink" href="#7-cookie" title="Permanent link">&para;</a></h2>
 <p>Cookie 的工作机制是用户识别及状态管理。</p>
 <p><img alt="cookie首部字段" src="../img/cookie首部字段.png" /></p>
-<h2 id="71-set-cookie">7.1 Set-Cookie<a class="headerlink" href="#71-set-cookie" title="Permanent link">&para;</a></h2>
+<h3 id="71-set-cookie">7.1 Set-Cookie<a class="headerlink" href="#71-set-cookie" title="Permanent link">&para;</a></h3>
 <p>当服务器准备开始管理客户端的状态时，会事先告知各种信息。</p>
 <p>Set-Cookie  字段的属性</p>
 <p><img alt="set-cookie字段属性" src="../img/set-cookie字段属性.png" /></p>
@@ -4077,13 +4726,13 @@ domain  属性显得更安全。</p>
 </pre></div>
 
 
-<h2 id="72-cookie">7.2 Cookie<a class="headerlink" href="#72-cookie" title="Permanent link">&para;</a></h2>
+<h3 id="72-cookie">7.2 Cookie<a class="headerlink" href="#72-cookie" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="err">Cookie: status=enable</span>
 </pre></div>
 
 
 <p>首部字段 Cookie 会告知服务器，当客户端想获得 HTTP  状态管理支持时，就会在请求中包含从服务器接收到的 Cookie。接收到多个 Cookie 时，同样可以以多个 Cookie 形式发送。</p>
-<h1 id="8">8. 其他首部字段<a class="headerlink" href="#8" title="Permanent link">&para;</a></h1>
+<h2 id="8">8. 其他首部字段<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
 <p>主要是保护不受攻击的字段。</p>
 <p>参考《图解HTTP》6.8 节</p>
                 
