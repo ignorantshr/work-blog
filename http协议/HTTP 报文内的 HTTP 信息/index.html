@@ -34,15 +34,15 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
     
     
       
-        <title>HTTP 报文内的 HTTP 信息.md - Person Sink</title>
+        <title>HTTP报文 - Person Sink</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
       
       
     
@@ -105,7 +105,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                HTTP 报文内的 HTTP 信息.md
+                HTTP报文
               
             </span>
           
@@ -171,7 +171,7 @@
         
       
       
-      <main class="md-main" role="main">
+      <main class="md-main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
             
@@ -1497,18 +1497,6 @@
   <li class="md-nav__item">
     <a href="../../python/subprocess模块/" title="Subprocess模块" class="md-nav__link">
       Subprocess模块
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../python/mkdown2reStructuredText/" title="mkdown2reStructuredText" class="md-nav__link">
-      mkdown2reStructuredText
     </a>
   </li>
 
@@ -2925,8 +2913,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../简介/" title="简介.md" class="md-nav__link">
-      简介.md
+    <a href="../简介/" title="简介" class="md-nav__link">
+      简介
     </a>
   </li>
 
@@ -2945,8 +2933,8 @@
       
     
     
-    <a href="./" title="HTTP 报文内的 HTTP 信息.md" class="md-nav__link md-nav__link--active">
-      HTTP 报文内的 HTTP 信息.md
+    <a href="./" title="HTTP报文" class="md-nav__link md-nav__link--active">
+      HTTP报文
     </a>
     
   </li>
@@ -2958,8 +2946,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../返回结果的 HTTP 状态码/" title="返回结果的 HTTP 状态码.md" class="md-nav__link">
-      返回结果的 HTTP 状态码.md
+    <a href="../返回结果的 HTTP 状态码/" title="返回结果的 HTTP 状态码" class="md-nav__link">
+      返回结果的 HTTP 状态码
     </a>
   </li>
 
@@ -2970,8 +2958,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../与 HTTP 协作的 Web 服务器/" title="与 HTTP 协作的 Web 服务器.md" class="md-nav__link">
-      与 HTTP 协作的 Web 服务器.md
+    <a href="../与 HTTP 协作的 Web 服务器/" title="与 HTTP 协作的 Web 服务器" class="md-nav__link">
+      与 HTTP 协作的 Web 服务器
     </a>
   </li>
 
@@ -2982,8 +2970,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../HTTP 首部/" title="HTTP 首部.md" class="md-nav__link">
-      HTTP 首部.md
+    <a href="../HTTP 首部/" title="HTTP 首部" class="md-nav__link">
+      HTTP 首部
     </a>
   </li>
 
@@ -2994,8 +2982,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../HTTPS/" title="HTTPS.md" class="md-nav__link">
-      HTTPS.md
+    <a href="../HTTPS/" title="HTTPS" class="md-nav__link">
+      HTTPS
     </a>
   </li>
 
@@ -3414,6 +3402,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../../git/修改历史提交者的邮箱/" title="修改历史提交者的邮箱" class="md-nav__link">
+      修改历史提交者的邮箱
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../git/git bash 中文乱码/" title="Git bash 中文乱码" class="md-nav__link">
+      Git bash 中文乱码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../git/回滚/" title="回滚" class="md-nav__link">
       回滚
     </a>
@@ -3808,8 +3820,7 @@
 <blockquote>
 <p>包含表示请求和响应的各种条件和属性的各类首部。</p>
 <p>一般有 4 种首部，分别是：通用首部、请求首部、响应首部和实体首部。
-其他
-可能包含 HTTP  的 RFC 里未定义的首部（Cook ie 等）。</p>
+其他可能包含 HTTP  的 RFC 里未定义的首部（Cook ie 等）。</p>
 </blockquote>
 <h1 id="2">2. 编码提升传输速率<a class="headerlink" href="#2" title="Permanent link">&para;</a></h1>
 <h2 id="21">2.1 报文主体和实体主体的差异<a class="headerlink" href="#21" title="Permanent link">&para;</a></h2>
@@ -3844,7 +3855,7 @@
 <p>把实体主体分块传输。这种功能叫做<code>分块传输编码</code>（Chunked Transfer Coding）。服务端压缩，客户端解码恢复。</p>
 <p>每一块都会用十六进制来标记块的大小，而实体主体的最后一块会使用“0(CR+L F)”来标记。</p>
 <h1 id="3">3. 发送多种数据的多部分对象集合<a class="headerlink" href="#3" title="Permanent link">&para;</a></h1>
-<p>HTTP  协议中也采纳了多部分对象集合，发送的一份报文主体内可含有多类型实体。</p>
+<p>HTTP  协议中也采纳了多部分对象集合，发送的一份报文主体内可含有多种类型实体。</p>
 <p>多部分对象集合包含的对象如下：</p>
 <ul>
 <li>
@@ -3864,13 +3875,21 @@
 使用 boundary  字符串来划分多部分对象集合指明的各类实体。</p>
 <p>多部分对象集合的每个部分类型中，都可以含有首部字段。另外，可以在某个部分中嵌套使用多部分对象集合。</p>
 <h1 id="4">4. 获取部分内容的范围请求<a class="headerlink" href="#4" title="Permanent link">&para;</a></h1>
-<p>指定范围发送的请求叫做范围请求（Range Request）。</p>
+<p>指定范围发送的请求叫做范围请求（Range Request）。该技术可用于断点续传。</p>
 <p>针对范围请求，响应会返回状态码为 206 Partial  Content  的响应报文。另外，对于多重范围的范围请求，响应会在首部字段 Content Type 标明 multipart/byteranges 后返回响应报文。</p>
 <p>如果服务器端无法响应范围请求，则会返回状态码 200 OK 和完整的实体内容。</p>
 <p><img alt="" src="../img/范围请求实例.png" /></p>
 <h1 id="5">5. 内容协商返回最合适的内容<a class="headerlink" href="#5" title="Permanent link">&para;</a></h1>
 <p>内容协商机制是指客户端和服务器端就响应的资源内容进行交涉，然后提供给客户端最为适合的资源。内容协商会以响应资源的语言、字符集、编码方式等作为判断的基准。</p>
-<p>有以下三种类型：</p>
+<p>包含在请求报文中的某些首部字段（如下） 就是判断的基准：</p>
+<ul>
+<li>Accept</li>
+<li>Accept-Charset</li>
+<li>Accept-Encoding</li>
+<li>Accept-Language</li>
+<li>Content-Language</li>
+</ul>
+<p>协商技术有以下三种类型：</p>
 <ul>
 <li>服务器驱动协商（Server-driven  Negotiation）</li>
 <li>客户端驱动协商（Agent-driven  Negotiation）</li>
@@ -3896,7 +3915,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../简介/" title="简介.md" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../简介/" title="简介" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -3905,19 +3924,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                简介.md
+                简介
               </span>
             </div>
           </a>
         
         
-          <a href="../返回结果的 HTTP 状态码/" title="返回结果的 HTTP 状态码.md" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../返回结果的 HTTP 状态码/" title="返回结果的 HTTP 状态码" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                返回结果的 HTTP 状态码.md
+                返回结果的 HTTP 状态码
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -3945,7 +3964,7 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application.ac79c3b0.js"></script>
+      <script src="../../assets/javascripts/application.245445c6.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       

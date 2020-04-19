@@ -34,15 +34,15 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
     
     
       
-        <title>HTTP 首部.md - Person Sink</title>
+        <title>HTTP 首部 - Person Sink</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.0284f74d.css">
       
       
     
@@ -105,7 +105,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                HTTP 首部.md
+                HTTP 首部
               
             </span>
           
@@ -171,7 +171,7 @@
         
       
       
-      <main class="md-main" role="main">
+      <main class="md-main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
             
@@ -1497,18 +1497,6 @@
   <li class="md-nav__item">
     <a href="../../python/subprocess模块/" title="Subprocess模块" class="md-nav__link">
       Subprocess模块
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../python/mkdown2reStructuredText/" title="mkdown2reStructuredText" class="md-nav__link">
-      mkdown2reStructuredText
     </a>
   </li>
 
@@ -2925,8 +2913,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../简介/" title="简介.md" class="md-nav__link">
-      简介.md
+    <a href="../简介/" title="简介" class="md-nav__link">
+      简介
     </a>
   </li>
 
@@ -2937,8 +2925,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../HTTP 报文内的 HTTP 信息/" title="HTTP 报文内的 HTTP 信息.md" class="md-nav__link">
-      HTTP 报文内的 HTTP 信息.md
+    <a href="../HTTP 报文内的 HTTP 信息/" title="HTTP报文" class="md-nav__link">
+      HTTP报文
     </a>
   </li>
 
@@ -2949,8 +2937,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../返回结果的 HTTP 状态码/" title="返回结果的 HTTP 状态码.md" class="md-nav__link">
-      返回结果的 HTTP 状态码.md
+    <a href="../返回结果的 HTTP 状态码/" title="返回结果的 HTTP 状态码" class="md-nav__link">
+      返回结果的 HTTP 状态码
     </a>
   </li>
 
@@ -2961,8 +2949,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../与 HTTP 协作的 Web 服务器/" title="与 HTTP 协作的 Web 服务器.md" class="md-nav__link">
-      与 HTTP 协作的 Web 服务器.md
+    <a href="../与 HTTP 协作的 Web 服务器/" title="与 HTTP 协作的 Web 服务器" class="md-nav__link">
+      与 HTTP 协作的 Web 服务器
     </a>
   </li>
 
@@ -2981,8 +2969,8 @@
       
     
     
-    <a href="./" title="HTTP 首部.md" class="md-nav__link md-nav__link--active">
-      HTTP 首部.md
+    <a href="./" title="HTTP 首部" class="md-nav__link md-nav__link--active">
+      HTTP 首部
     </a>
     
   </li>
@@ -2994,8 +2982,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../HTTPS/" title="HTTPS.md" class="md-nav__link">
-      HTTPS.md
+    <a href="../HTTPS/" title="HTTPS" class="md-nav__link">
+      HTTPS
     </a>
   </li>
 
@@ -3414,6 +3402,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../../git/修改历史提交者的邮箱/" title="修改历史提交者的邮箱" class="md-nav__link">
+      修改历史提交者的邮箱
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../git/git bash 中文乱码/" title="Git bash 中文乱码" class="md-nav__link">
+      Git bash 中文乱码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../git/回滚/" title="回滚" class="md-nav__link">
       回滚
     </a>
@@ -3795,6 +3807,20 @@
 <h1 id="1-http">1. HTTP  报文首部<a class="headerlink" href="#1-http" title="Permanent link">&para;</a></h1>
 <p>参考 <a href="../HTTP 报文内的 HTTP 信息/">HTTP 报文内的 HTTP 信息</a>，本书主要涉及 HTTP/1.1 及常用的首部字段。</p>
 <h1 id="2-http">2. HTTP  首部字段<a class="headerlink" href="#2-http" title="Permanent link">&para;</a></h1>
+<p>HTTP 首部字段根据实际用途被分为以下 4 种类型：</p>
+<ul>
+<li>通用首部字段（ General Header Fields）
+    请求报文和响应报文两方都会使用的首部。</li>
+<li>请求首部字段（ Request Header Fields）
+    从客户端向服务器端发送请求报文时使用的首部。 补充了请求的附加
+    内容、 客户端信息、 响应内容相关优先级等信息。</li>
+<li>响应首部字段（ Response Header Fields）
+    从服务器端向客户端返回响应报文时使用的首部。 补充了响应的附加
+    内容， 也会要求客户端附加额外的内容信息。</li>
+<li>实体首部字段（ Entity Header Fields）
+    针对请求报文和响应报文的实体部分使用的首部。 补充了资源内容更
+    新时间等与实体有关的信息。 </li>
+</ul>
 <h2 id="21-http">2.1 HTTP 首部字段结构<a class="headerlink" href="#21-http" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="err">首部字段名:</span> <span class="err">字段值</span><span class="mi">1</span><span class="err">,字段值</span><span class="mi">2</span><span class="err">,...</span>
 </pre></div>
@@ -4080,7 +4106,7 @@ domain  属性显得更安全。</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../与 HTTP 协作的 Web 服务器/" title="与 HTTP 协作的 Web 服务器.md" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../与 HTTP 协作的 Web 服务器/" title="与 HTTP 协作的 Web 服务器" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -4089,19 +4115,19 @@ domain  属性显得更安全。</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                与 HTTP 协作的 Web 服务器.md
+                与 HTTP 协作的 Web 服务器
               </span>
             </div>
           </a>
         
         
-          <a href="../HTTPS/" title="HTTPS.md" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../HTTPS/" title="HTTPS" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                HTTPS.md
+                HTTPS
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -4129,7 +4155,7 @@ domain  属性显得更安全。</p>
       
     </div>
     
-      <script src="../../assets/javascripts/application.ac79c3b0.js"></script>
+      <script src="../../assets/javascripts/application.245445c6.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
