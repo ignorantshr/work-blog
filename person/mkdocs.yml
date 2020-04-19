@@ -209,12 +209,12 @@ nav:
         - XML配置.md: mybatis/XML配置.md
         - 注意事项.md: mybatis/注意事项.md
     - HTTP协议:
-        - 简介.md: http协议/简介.md
-        - HTTP 报文内的 HTTP 信息.md: http协议/HTTP 报文内的 HTTP 信息.md
-        - 返回结果的 HTTP 状态码.md: http协议/返回结果的 HTTP 状态码.md
-        - 与 HTTP 协作的 Web 服务器.md: http协议/与 HTTP 协作的 Web 服务器.md
-        - HTTP 首部.md: http协议/HTTP 首部.md
-        - HTTPS.md: http协议/HTTPS.md
+        - http协议/简介.md
+        - http协议/HTTP 报文内的 HTTP 信息.md
+        - http协议/返回结果的 HTTP 状态码.md
+        - http协议/与 HTTP 协作的 Web 服务器.md
+        - http协议/HTTP 首部.md
+        - http协议/HTTPS.md
     - CS50:
         - CS50/1. 简介.md
         - CS50/2. 编译器.md
