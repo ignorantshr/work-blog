@@ -3,12 +3,6 @@ This is a personal blog of shihr.
 
 自己写的为mkdocs文档标题添加序号的小插件: [mkdocs-add-number-plugin](https://github.com/ignorantshr/mkdocs-add-number-plugin)
 
-
-
-开启本地mkdocs实时构建服务:
-
-`mkdocs serve -a localhost:9001`
-
 ## Commands
 
 * `mkdocs new [dir-name]` - Create a new project.
