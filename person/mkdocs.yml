@@ -92,6 +92,7 @@ nav:
         - shell/在后台执行命令.md
         - shell/通过shell命令写文件.md
         - shell/变量的截取与替换.md
+        - shell/编写高可靠性脚本.md
     - Python:
         - event线程: python/event线程.md
         - json格式处理: python/json格式处理.md
