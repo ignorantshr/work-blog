@@ -8,7 +8,7 @@
 
 1. 先找寻 `/etc/at.allow` 这个文件，写在这个文件中的使用者才能使用 at ，没有在这个文件中的使用者则不能使用 at (即使没有写在 at.deny 当中)；
 
-2. 如果 `/etc/at.allow` 不存在,就寻找 `/etc/at.deny` 这个文件，若写在这个 at.deny 的使用者则不能使用 at ，而没有在这个 at.deny 文件中的使用者,就可以使用 at 咯；
+2. 如果 `/etc/at.allow` 不存在，就寻找 `/etc/at.deny` 这个文件，若写在这个 at.deny 的使用者则不能使用 at ，而没有在这个 at.deny 文件中的使用者，就可以使用 at 咯；
 
 3. 如果两个文件都不存在，那么只有 root 可以使用 at 这个指令。
 
@@ -65,8 +65,8 @@ marcinDELIMITER15abe4af
 
 一些需要注意的地方
 
-- at 在运作时,会跑到当时下达 at 指令的那个工作目录。所以job中最好使用**绝对路径**。
-- at 的执行与终端机环境无关，而所有 standard output/standard error output 都会传送到执行者的 mailbox 去。假如你在 tty1 登入,则可以使用` echo "Hello" > /dev/tty1`来取代。
+- at 在运作时，会跑到当时下达 at 指令的那个工作目录。所以job中最好使用**绝对路径**。
+- at 的执行与终端机环境无关，而所有 standard output/standard error output 都会传送到执行者的 mailbox 去。假如你在 tty1 登入，则可以使用` echo "Hello" > /dev/tty1`来取代。
 - 如果在 at shell 内的指令并没有任何的讯息输出，那么 at 默认不会发 email 给执行者的。可以使用*-m*选项来发送邮件，告诉用户是否执行了指令。
 - 系统会将该项 at 工作独立出你的 bash 环境中，直接交给系统的 atd 程序来接管。
 - 当用户争用资源时，当前使用 at  和 batch 不适合，此时可以考虑其他的工具，比如 nqs。
@@ -82,9 +82,9 @@ marcinDELIMITER15abe4af
 与`at`一样，也可以通过配置文件来限制用户：
 
 1. /etc/cron.allow:
-   将可以使用 crontab 的账号写入其中,若不在这个文件内的使用者则不可使用 crontab;
+   将可以使用 crontab 的账号写入其中，若不在这个文件内的使用者则不可使用 crontab;
 2. /etc/cron.deny:
-   将不可以使用 crontab 的账号写入其中,若未记录到这个文件当中的使用者,就可以使用 crontab 。
+   将不可以使用 crontab 的账号写入其中，若未记录到这个文件当中的使用者，就可以使用 crontab 。
 
 3. /etc/cron.allow 比 /etc/cron.deny 优先级高。
 
@@ -105,6 +105,9 @@ OPTIONS
     -e     Edits the current crontab using the editor
 ```
 
+!!! warning
+	千万不要直接键入 crontab 并回车，因为默认动作是替换掉现有的 crontab 的内容。如果你回车之后直接退出了，那么配置过的 crontab 就全部被删除了！所以在你想好之前不要执行此动作。
+
 ```bash
 [root@dev ~]# crontab -u sink -e 
 no crontab for sink - using an empty one	# 若用户没有 crontab 会出现此提示
@@ -116,7 +119,7 @@ crontab: installing new crontab
 
 这六个字段按照从左到右的顺序的意义分别是：
 
-|   意义   | 分钟 | 小时 | 日期 | 月份 |          周           | 指令 |
+|   意义   | 分钟 | 小时 | 日期 | 月份 |         周几          | 指令 |
 | :------: | :--: | :--: | :--: | :--: | :-------------------: | :--: |
 | 数字范围 | 0-59 | 0-23 | 1-31 | 1-12 | 0-7<br>0和7都代表周日 |  ——  |
 
@@ -127,11 +130,9 @@ crontab: installing new crontab
 |  *   |                        任何时刻都接受                        |
 |  ,   |  多个时段。比如小时字段的 4,8,9 表示这三个时间都会触发日程   |
 |  -   | 时间范围。比如 15 2-8 * * * command，代表2-8点的15分时刻都执行指令 |
-|  /N  | N是数字，表示每隔多长时间。比如 */10 * * * * command，代表每隔10分钟执行一次指令 |
+| */N  | N是数字，表示每隔多长时间。比如 \*/10 \* * * * command，代表每隔10分钟执行一次指令 |
 
-```
 
-```
 
 ### 系统的配置文件
 
@@ -156,7 +157,7 @@ MAILTO=root
 # *  *  *  *  * user-name  command to be executed
 ```
 
-cron 这个服务的最低侦测限制是**分钟**,所以 cron 会每分钟去读取一次 `/etc/crontab` 与`/var/spool/cron` 里面的数据内容。
+cron 这个服务的最低侦测限制是**分钟**，所以 cron 会每分钟去读取一次 `/etc/crontab` 与`/var/spool/cron` 里面的数据内容。
 
 !!! note
 	在某些情况下，crontab是读到内存中的，所以修改完 `/etc/crontab`可能不会立即执行，需要重启服务。
@@ -215,7 +216,7 @@ total 12
 
 anacron 并不是用来取代 crontab 的，而是对 crontab 的补充。anacron 存在的目的就在于：处理非 24 小时一直启动的 Linux 系统的 crontab； 以及因为某些原因导致的超过时间而没有被执行的日程。
 
-其实 anacron 也是每个小时被 crond 执行一次，然后 anacron 再去检测相关的排程任务有没有被执行，如果有超过期限的工作在，就执行该排程任务,执行完毕或无须执行任何排程时，anacron 就停止了。
+其实 anacron 也是每个小时被 crond 执行一次，然后 anacron 再去检测相关的排程任务有没有被执行，如果有超过期限的工作在，就执行该排程任务，执行完毕或无须执行任何排程时，anacron 就停止了。
 
 anacron 会去分析现在的时间与时间记录文件`/var/spool/anacron/cron.daily`所记载的上次执行 anacron 的时间，两者比较后若发现有差异， 那就是在某些时刻没有进行 crontab 啰!此时 anacron 就会开始执行未进行的 crontab 任务了。
 
@@ -248,7 +249,7 @@ fi
 ```
 anacron [options] [job] ...
 Options:
-	-s         开始连续的执行各项日程 (job),会依据时间记录文件的数据判断是否进行
+	-s         开始连续的执行各项日程 (job)，会依据时间记录文件的数据判断是否进行
 	-f         强制执行日程，忽略所有的时间戳
 	-n         立即执行日程，没有延迟，隐士包含了 -s 选项
 	-u         更新所有的时间戳到当前日期，但不执行任何日程
@@ -285,7 +286,7 @@ START_HOURS_RANGE=3-22
 
 ### crond 与 anacron 的关系
 
-1. crond 会主动去读取 `/etc/crontab, /var/spool/cron/*, /etc/cron.d/*` 等配置文件,并依据 *分、时、日、月、周* 的时间设定去各项工作排程;
-2. 根据 `/etc/cron.d/0hourly` 的设定,主动去 `/etc/cron.hourly/` 目录下,执行所有在该目录下的执行文件;
-3. 因为 `/etc/cron.hourly/0anacron` 这个脚本文件的缘故,主动的每小时执行 anacron ,并呼叫`/etc/anacrontab`的配置文件;
-4. 根据` /etc/anacrontab` 的设定,依据每天、每周、每月去分析 `/etc/cron.daily/, /etc/cron.weekly/, /etc/cron.monthly/` 内的执行文件,以进行固定周期需要执行的指令。
+1. crond 会主动去读取 `/etc/crontab, /var/spool/cron/*, /etc/cron.d/*` 等配置文件，并依据 *分、时、日、月、周* 的时间设定去各项工作排程；
+2. 根据 `/etc/cron.d/0hourly` 的设定，主动去 `/etc/cron.hourly/` 目录下，执行所有在该目录下的执行文件；
+3. 因为 `/etc/cron.hourly/0anacron` 这个脚本文件的缘故，主动的每小时执行 anacron ，并呼叫`/etc/anacrontab`的配置文件;
+4. 根据` /etc/anacrontab` 的设定，依据每天、每周、每月去分析 `/etc/cron.daily/, /etc/cron.weekly/, /etc/cron.monthly/` 内的执行文件，以进行固定周期需要执行的指令。
