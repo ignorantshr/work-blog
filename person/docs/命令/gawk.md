@@ -103,7 +103,7 @@ da ta21,
 da ta31,
 ```
 
-对于需要将多行当作一行读取的可以这样设置 FS、RS：
+对于需要将*多行当作一行*读取的可以这样设置 FS、RS：
 
 ```bash
 [user1@centos7 ~]$ cat data2
