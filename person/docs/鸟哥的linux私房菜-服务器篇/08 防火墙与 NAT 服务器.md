@@ -1,7 +1,5 @@
 Linux 的防火墙主要是透过 `Netfilter` 与 `TCP Wrappers` 两个机制来管理的。
 
-//TODO 通过 [Linux就该这么学-防火墙章节](https://www.linuxprobe.com/chapter-08.html)、[Redhat-firewal ](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/security_guide/index#sec-Using_Firewalls)学习firewall的设定
-
 ## 认识防火墙
 
 只要能够分析与过滤进出我们管理的网络的数据包，就可以称为防火墙。
@@ -143,7 +141,7 @@ tcp wrappers 理论上不支持 192.168.1.0/24 这种透过 bit 数值来定义�
 
 ![](img/网络包过滤规则流程.png)
 
-上图的主要目的是告诉你：**规则是有顺序的**！当符合了一个规则时，就不会继续进行规则的对比了。
+上图的主要目的是告诉你：**规则是有顺序的**！当符合了一个规则时，就不会继续进行规则的对比了。使用`iptables-save`查看规则顺序，越靠下的顺序越靠前。
 
 ### iptables 的表（table）与链（chain）
 
@@ -482,7 +480,7 @@ iptables -t nat -A|-I POSTROUTING -s 网段 -o 网卡 -j MASQUERADE|(SNAT --to-s
 
 不过，除非你使用的是固定 IP ，且有多个 IP 可以对外联机，否则一般使用 IP 伪装即可，不需要使用到这个 SNAT 啦！
 
-#### SNAT 设置
+#### DNAT 设置
 
 ```
 iptables -t nat -A|-I PREROUTING -p 协议 --dport 端口 -i 网卡 -j DNAT --to-destination [ipaddr[-ipaddr]][:port[-port]]
@@ -504,7 +502,7 @@ iptables -t nat -A|-I PREROUTING -p 协议 --dport 端口 -i 网卡 -j DNAT --to
 
 ## iptables 的额外内核模块功能
 
- iptables 提供很多模块，这些模块可以辅助封包的过滤用途，让我们可以节省很多 iptables 规则的制定。后续会详细的说明这部分内容。
+ iptables 提供很多模块，这些模块可以辅助封包的过滤用途，让我们可以节省很多 iptables 规则的制定。后续会详细的说明这部分内容。// TODO
 
 ## 单机防火墙的一个实例
 
@@ -664,3 +662,4 @@ chmod 700 iptables.*
 ```
 
 以防万一可以写入到`/etc/rc.d/rc.local`文件中
+
