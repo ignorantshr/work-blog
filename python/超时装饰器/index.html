@@ -79,6 +79,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#1" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -1005,6 +1009,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E9%B8%9F%E5%93%A5%E7%9A%84linux%E7%A7%81%E6%88%BF%E8%8F%9C-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AF%87/09%20firewall/" title="09 firewall" class="md-nav__link">
+      09 firewall
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1427,9 +1443,43 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        超时装饰器
+      </label>
+    
     <a href="./" title="超时装饰器" class="md-nav__link md-nav__link--active">
       超时装饰器
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 使用信号实现
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 使用多线程实现
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -2940,8 +2990,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../http%E5%8D%8F%E8%AE%AE/HTTP%20%E6%8A%A5%E6%96%87%E5%86%85%E7%9A%84%20HTTP%20%E4%BF%A1%E6%81%AF/" title="HTTP报文" class="md-nav__link">
-      HTTP报文
+    <a href="../../http%E5%8D%8F%E8%AE%AE/HTTP%20%E6%8A%A5%E6%96%87%E5%86%85%E7%9A%84%20HTTP%20%E4%BF%A1%E6%81%AF/" title="HTTP 报文内的 HTTP 信息" class="md-nav__link">
+      HTTP 报文内的 HTTP 信息
     </a>
   </li>
 
@@ -3558,6 +3608,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../little%20toys/shell-%E5%B0%8F%E4%BA%8E%E7%AD%89%E4%BA%8E%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%8D%81%E8%BF%9B%E5%88%B6%E5%92%8C%E4%BA%8C%E8%BF%9B%E5%88%B6/" title="Shell 小于等于十六进制数转十进制和二进制" class="md-nav__link">
+      Shell 小于等于十六进制数转十进制和二进制
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -3786,6 +3848,42 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 使用信号实现
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 使用多线程实现
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -3796,7 +3894,7 @@
                 
                   <h1>超时装饰器</h1>
                 
-                <p>超时装饰器</p>
+                <h2 id="1">1. 使用信号实现<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">setTimeout</span><span class="p">(</span><span class="n">second</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
         <span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
@@ -3821,36 +3919,84 @@
 </code></pre></div>
 
 
-<p>如果function是当前线程阻塞式的，那么这段代码不会发生作用。</p>
-<p>与shell命令结合使用：<a href="../%E6%89%A7%E8%A1%8Cshell%E5%91%BD%E4%BB%A4/">执行shell命令</a></p>
-<p><em>附</em>：无法使用signal判断的情况</p>
-<p>但是，在vdsm中调用时，却提示<code>signal</code>不能在子线程中使用，所以不能使用这种方法，改写成下面这种方法：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">_isSSHEnable</span><span class="p">(</span><span class="n">remoteIP</span><span class="p">):</span>
-    <span class="n">cmd</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ssh root@&quot;</span> <span class="o">+</span> <span class="n">remoteIP</span><span class="p">,</span> <span class="s1">&#39;df /&#39;</span><span class="p">]</span>
-    <span class="n">flag</span> <span class="o">=</span> <span class="s1">&#39;unknown&#39;</span>
+<p>缺陷：</p>
+<ul>
+<li>如果function是当前线程阻塞式的，那么这段代码不会发生作用。</li>
+<li><code>signal</code>不能在本身就是子线程中使用</li>
+</ul>
+<h2 id="2">2. 使用多线程实现<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="c1"># author        :   ignorantshr</span>
+<span class="c1"># create_date   :   2020/04/23 8:51 AM</span>
+<span class="c1"># description   :   python3 超时装饰器</span>
 
-    <span class="k">def</span> <span class="nf">timer</span><span class="p">(</span><span class="n">pro</span><span class="p">):</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
-        <span class="k">while</span> <span class="n">n</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
-            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">functools</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
 
-        <span class="k">if</span> <span class="n">flag</span> <span class="ow">is</span> <span class="ow">not</span> <span class="s1">&#39;ok&#39;</span><span class="p">:</span>
-            <span class="n">pro</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
 
-    <span class="n">sub</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cmd</span><span class="p">),</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
-    <span class="n">timeout</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">timer</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">sub</span><span class="p">,))</span>
-    <span class="n">timeout</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-    <span class="n">timeout</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
-    <span class="n">code</span> <span class="o">=</span> <span class="n">sub</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
-    <span class="n">flag</span> <span class="o">=</span> <span class="s1">&#39;ok&#39;</span>
-    <span class="k">if</span> <span class="n">code</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">False</span>
-    <span class="k">return</span> <span class="kc">True</span>
+<span class="k">def</span> <span class="nf">timeout</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span>
+
+    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="n">re</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">def</span> <span class="nf">timer</span><span class="p">():</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="n">seconds</span>
+            <span class="k">while</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">count</span> <span class="o">-=</span> <span class="mi">1</span>
+
+        <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">nonlocal</span> <span class="n">re</span>     <span class="c1"># 对于 python2，可以使用 global 关键字代替</span>
+            <span class="n">re</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">timer_thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">timer</span><span class="p">)</span>
+            <span class="c1"># quit with main thread</span>
+            <span class="n">timer_thread</span><span class="o">.</span><span class="n">setDaemon</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">timer_thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+            <span class="n">run_thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">run</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="c1"># quit with main thread</span>
+            <span class="n">run_thread</span><span class="o">.</span><span class="n">setDaemon</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">run_thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">run_thread</span><span class="o">.</span><span class="n">is_alive</span><span class="p">():</span>
+                    <span class="c1"># still running</span>
+                    <span class="k">if</span> <span class="n">timer_thread</span><span class="o">.</span><span class="n">is_alive</span><span class="p">():</span>
+                        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># Query once per second</span>
+                        <span class="k">continue</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># run func timeout</span>
+                        <span class="k">return</span> <span class="kc">None</span>
+                <span class="c1"># run func done</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">re</span>
+        <span class="k">return</span> <span class="n">wrapper</span>
+    <span class="k">return</span> <span class="n">decorator</span>
+
+
+<span class="nd">@timeout</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">f1</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;running f1&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">f2</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;running f2&#39;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    这两种方式是一样的</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">f1</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;================&#39;</span><span class="p">)</span>
+    <span class="n">deco</span> <span class="o">=</span> <span class="n">timeout</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">wrapper_</span> <span class="o">=</span> <span class="n">deco</span><span class="p">(</span><span class="n">f2</span><span class="p">)</span>
+    <span class="n">wrapper_</span><span class="p">()</span>
 </code></pre></div>
-
-
-<p>这种方法的问题就是不管该程序是不是超时运行，都要等待5秒的时间。</p>
                 
                   
                 

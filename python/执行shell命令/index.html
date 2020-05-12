@@ -1005,6 +1005,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E9%B8%9F%E5%93%A5%E7%9A%84linux%E7%A7%81%E6%88%BF%E8%8F%9C-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AF%87/09%20firewall/" title="09 firewall" class="md-nav__link">
+      09 firewall
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2940,8 +2952,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../http%E5%8D%8F%E8%AE%AE/HTTP%20%E6%8A%A5%E6%96%87%E5%86%85%E7%9A%84%20HTTP%20%E4%BF%A1%E6%81%AF/" title="HTTP报文" class="md-nav__link">
-      HTTP报文
+    <a href="../../http%E5%8D%8F%E8%AE%AE/HTTP%20%E6%8A%A5%E6%96%87%E5%86%85%E7%9A%84%20HTTP%20%E4%BF%A1%E6%81%AF/" title="HTTP 报文内的 HTTP 信息" class="md-nav__link">
+      HTTP 报文内的 HTTP 信息
     </a>
   </li>
 
@@ -3558,6 +3570,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../little%20toys/shell-%E5%B0%8F%E4%BA%8E%E7%AD%89%E4%BA%8E%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%8D%81%E8%BF%9B%E5%88%B6%E5%92%8C%E4%BA%8C%E8%BF%9B%E5%88%B6/" title="Shell 小于等于十六进制数转十进制和二进制" class="md-nav__link">
+      Shell 小于等于十六进制数转十进制和二进制
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -3799,30 +3823,28 @@
                 <ul>
 <li>阻塞式命令调用方法：</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>    <span class="o">#</span> <span class="err">这种方法不能使用超时装饰器</span>
-    <span class="n">def</span> <span class="n">_executeCmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">isSudo</span><span class="o">=</span><span class="k">False</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">isSudo</span><span class="p">:</span>
-            <span class="n">cmd</span><span class="p">.</span><span class="k">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;sudo&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">_executeCmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">isSudo</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">isSudo</span><span class="p">:</span>
+        <span class="n">cmd</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;sudo&#39;</span><span class="p">)</span>
 
-        <span class="n">status</span><span class="p">,</span> <span class="k">output</span> <span class="o">=</span> <span class="n">commands</span><span class="p">.</span><span class="n">getstatusoutput</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">.</span><span class="k">join</span><span class="p">(</span><span class="n">cmd</span><span class="p">))</span>
-        <span class="k">if</span> <span class="n">status</span><span class="p">:</span>
-            <span class="n">raise</span> <span class="k">Exception</span><span class="p">(</span><span class="k">output</span><span class="p">)</span>
-        <span class="k">return</span> <span class="k">output</span>
+    <span class="n">status</span><span class="p">,</span> <span class="n">output</span> <span class="o">=</span> <span class="n">commands</span><span class="o">.</span><span class="n">getstatusoutput</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cmd</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">status</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output</span>
 </code></pre></div>
 
 
 <ul>
 <li>利用子进程执行命令调用方法（详细使用方法参见：subprocess模块）：</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>    <span class="p">@</span><span class="n">setTimeout</span><span class="p">()</span>
-    <span class="n">def</span> <span class="n">aaa</span><span class="p">()</span><span class="o">:</span>
-        <span class="n">sub</span> <span class="o">=</span> <span class="n">subprocess</span><span class="p">.</span><span class="n">Popen</span><span class="p">(</span><span class="s">&quot;ssh root@172.16.7.210 df /home&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="n">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="p">.</span><span class="n">PIPE</span><span class="p">)</span>
-        <span class="nl">try</span><span class="p">:</span>
-            <span class="n">sub</span><span class="p">.</span><span class="n">wait</span><span class="p">()</span>
-            <span class="k">return</span> <span class="n">sub</span><span class="p">.</span><span class="n">stdout</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
-        <span class="nl">except</span><span class="p">:</span>
-            <span class="n">print</span> <span class="s">&quot;aaa kill&quot;</span>
-            <span class="n">sub</span><span class="p">.</span><span class="n">terminate</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">aaa</span><span class="p">():</span>
+    <span class="n">sub</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="s2">&quot;ssh root@172.16.7.210 df /home&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">sub</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">sub</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="s2">&quot;aaa kill&quot;</span>
+        <span class="n">sub</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
 </code></pre></div>
                 
                   
