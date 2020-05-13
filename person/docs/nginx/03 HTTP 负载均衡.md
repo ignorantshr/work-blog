@@ -2,9 +2,9 @@
 
 ### 将 http 流量代理给一组服务
 
-需要在 http context 中使用[`upstream`](https://nginx.org/en/docs/http/ngx_http_upstream_module.html?&_ga=2.112454404.1045546250.1587992338-1762490011.1587992338#upstream)指令。
+需要在 http context 中使用 [`upstream`](https://nginx.org/en/docs/http/ngx_http_upstream_module.html?&_ga=2.112454404.1045546250.1587992338-1762490011.1587992338#upstream) 指令。
 
-使用 [`server`](https://nginx.org/en/docs/http/ngx_http_upstream_module.html?&_ga=2.112953220.1045546250.1587992338-1762490011.1587992338#server) 指令来配置服务器（注意，不要和虚拟服务`server block`搞混了）。例如，以下配置定义了一个名为backend的组，它由三个服务器配置组成（可以在三个以上的实际服务器中解析）：
+使用 [`server`](https://nginx.org/en/docs/http/ngx_http_upstream_module.html?&_ga=2.112953220.1045546250.1587992338-1762490011.1587992338#server) 指令来配置服务器（注意，不要和虚拟服务 `server block` 搞混了）。例如，以下配置定义了一个名为backend的组，它由三个服务器配置组成（可以在三个以上的实际服务器中解析）：
 
 ```
 http {
@@ -151,6 +151,12 @@ upstream backend {
 
 **注意**：如果服务器集群中只有一台服务器，那么这些参数是不会生效的：[`max_fails`](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#max_fails), [`fail_timeout`](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#fail_timeout), [`slow_start`](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#slow_start)。
 
+`fail_timeout` 在指定的连接尝试次数内必须失败的时间，才能将服务器视为不可用（默认值是 10 秒）；以及被标记为不可用状态的时间；
+
+`max_fails `设置在`fail_timeout` 期间必须发生的失败尝试次数，以将服务器标记为不可用（默认值是 1）。
+
+他们两个组合起来使用的意思就是：如果 NGINX 无法在 `fail_timeout` 秒内 `max_fails ` 次向服务器发送请求或没有收到来自服务器的响应，它就将服务器在 `fail_timeout` 秒内标记为不可用。当服务被标记为不可用时， NGINX 将暂时停止向其发送请求，直到再次将其标记为活动状态为止。
+
 ### 启用会话持久性
 
 会话持久性（session persistence）意味着NGINX Plus可以识别用户会话并将给定会话中的所有请求路由到 upstream 中的同一台服务器。
@@ -250,3 +256,10 @@ http {
 }
 ```
 
+## 健康检测
+
+参数 [`max_fails`](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#max_fails), [`fail_timeout`](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#fail_timeout), [`slow_start`](https://nginx.org/en/docs/http/ngx_http_upstream_module.html#slow_start) 是用于慢健康检测的，详细说明请参考上文。
+
+主动的健康检测只有 NGINX Plus 才支持，具体参考：
+
+https://docs.nginx.com/nginx/admin-guide/load-balancer/http-health-check/#hc_active

@@ -128,6 +128,9 @@ nav:
         - rpm/03 高级话题.md
     - Nginx:
         - nginx/01 简介.md
+        - nginx/02 配置文件.md
+        - nginx/03 HTTP 负载均衡.md
+        - nginx/04 TCP 和 UDP 负载均衡.md
     - Java:
         - IO: java/IO.md
         - 作用范围级别: java/作用范围级别.md

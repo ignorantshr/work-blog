@@ -385,7 +385,7 @@ firewall-cmd --permanent --zone=zone-name --set-target=<default|ACCEPT|REJECT|DR
 
 ## 使用 source 管理流量
 
-可以使用 zone 根据 source 来管理传入流量。如果将 source 添加到 zone ，则该 zone 将变为活动状态，并且来自该 source 的任何传入流量都将通过该 zone 。即使只有一个网络接口，也可以使用很多 zone 。
+可以使用 zone 根据 source 来管理传入流量。如果将 source 添加到 zone ，则该 zone 将变为活动状态，并且来自该 source 的任何传入流量都将通过该 zone ，其余的配置和该配置配合使用。这样即使只有一个网络接口，也可以使用很多 zone 。
 
 ### 添加 Source
 
