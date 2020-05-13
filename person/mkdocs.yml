@@ -260,6 +260,7 @@ nav:
         - 刷新gerrit项目列表: gerrit/刷新gerrit项目列表.md
     - 小玩具:
         - little toys/摩斯转换.md
+        - little toys/shell-小于等于十六进制数转十进制和二进制.md
     - Datastruct:
         - 二叉树: datastruct/二叉树.md
         - 散列表: datastruct/散列表.md
