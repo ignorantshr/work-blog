@@ -125,7 +125,8 @@ nav:
             - ansible/04.0 可重用 playbooks.md
             - ansible/04.1 playbooks_includes_imports.md
             - ansible/04.2 playbooks_roles.md
-        - ansible/05 变量.md
+        - ansible/05. 变量.md
+        - ansible/06. 条件.md
     - RPM:
         - rpm/00 示例.md
         - rpm/01 打包前的准备工作.md
