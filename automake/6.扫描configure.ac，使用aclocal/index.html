@@ -1,0 +1,1550 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="shihr">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.4.3">
+    
+    
+      
+        <title>6.扫描configure.ac，使用aclocal - Work Sink</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#61" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Work Sink" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Work Sink
+            </span>
+            <span class="md-header-nav__topic">
+              
+                6.扫描configure.ac，使用aclocal
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/shihr/question/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Work Sink" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Work Sink
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/shihr/question/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="1. Home" class="md-nav__link">
+      1. Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      2. 虚拟机转换
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        2. 虚拟机转换
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BD%AC%E6%8D%A2/libguestfs/" title="libguestfs" class="md-nav__link">
+      libguestfs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BD%AC%E6%8D%A2/%E4%BB%A5ova%E4%B8%BA%E4%BE%8Bvirt-v2v%E7%A3%81%E7%9B%98%E8%BD%AC%E6%8D%A2%E6%B5%81%E7%A8%8B/" title="以ova为例virt-v2v磁盘转换流程" class="md-nav__link">
+      以ova为例virt-v2v磁盘转换流程
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BD%AC%E6%8D%A2/virt-p2v-make-disk%E8%84%9A%E6%9C%AC%E5%88%86%E6%9E%90/" title="virt-p2v-make-disk脚本分析" class="md-nav__link">
+      virt-p2v-make-disk脚本分析
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BD%AC%E6%8D%A2/virt-p2v%E4%BB%8B%E7%BB%8D/" title="virt-p2v介绍" class="md-nav__link">
+      virt-p2v介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BD%AC%E6%8D%A2/virt-p2v%E7%A3%81%E7%9B%98%E8%BD%AC%E6%8D%A2%E6%B5%81%E7%A8%8B/" title="virt-p2v磁盘转换流程" class="md-nav__link">
+      virt-p2v磁盘转换流程
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BD%AC%E6%8D%A2/VMware-ova%E8%BD%AC%E6%8D%A2/" title="VMware-ova转换" class="md-nav__link">
+      VMware-ova转换
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BD%AC%E6%8D%A2/VMware-vmx%E8%BD%AC%E6%8D%A2/" title="VMware-vmx转换" class="md-nav__link">
+      VMware-vmx转换
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BD%AC%E6%8D%A2/VMware-vCenter%E8%BD%AC%E6%8D%A2/" title="VMware-vCenter转换" class="md-nav__link">
+      VMware-vCenter转换
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BD%AC%E6%8D%A2/VMware-ESXI-hypervisor%E8%BD%AC%E6%8D%A2/" title="VMware-ESXI-hypervisor转换" class="md-nav__link">
+      VMware-ESXI-hypervisor转换
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BD%AC%E6%8D%A2/VMware-vddk%E8%BD%AC%E6%8D%A2/" title="VMware-vddk转换" class="md-nav__link">
+      VMware-vddk转换
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BD%AC%E6%8D%A2/Xen%E8%BD%AC%E6%8D%A2/" title="Xen转换" class="md-nav__link">
+      Xen转换
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      3. Citrix
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        3. Citrix
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../citrix/00%E6%8A%80%E6%9C%AF%E6%A6%82%E8%BF%B0/" title="00技术概述" class="md-nav__link">
+      00技术概述
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../citrix/01%E5%AE%89%E8%A3%85/" title="01安装" class="md-nav__link">
+      01安装
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      4. Spice
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        4. Spice
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../spice/%E7%AE%80%E4%BB%8B/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../spice/%E4%BD%BF%E7%94%A8%E8%8C%83%E4%BE%8B/" title="使用范例" class="md-nav__link">
+      使用范例
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../spice/%E5%87%BD%E6%95%B0%E6%89%80%E5%9C%A8%E6%96%87%E4%BB%B6/" title="函数所在文件" class="md-nav__link">
+      函数所在文件
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      5. Make
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        5. Make
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../make/%E7%AE%80%E4%BB%8B/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../make/4.%E7%BC%96%E5%86%99%E8%A7%84%E5%88%99/" title="4.编写规则" class="md-nav__link">
+      4.编写规则
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../make/5.%E7%BC%96%E5%86%99recipes/" title="5.编写recipes" class="md-nav__link">
+      5.编写recipes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../make/6.%E5%8F%98%E9%87%8F/" title="6.变量" class="md-nav__link">
+      6.变量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../make/7.Makefile%E4%B8%AD%E7%9A%84%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/" title="7.Makefile中的条件语句" class="md-nav__link">
+      7.Makefile中的条件语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../make/8.%E8%BD%AC%E6%8D%A2%E6%96%87%E6%9C%AC%E5%87%BD%E6%95%B0/" title="8.转换文本函数" class="md-nav__link">
+      8.转换文本函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../make/10.%E4%BD%BF%E7%94%A8%E9%9A%90%E5%90%AB%E8%A7%84%E5%88%99/" title="10.使用隐含规则" class="md-nav__link">
+      10.使用隐含规则
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../make/11.%E4%BD%BF%E7%94%A8make%E6%9B%B4%E6%96%B0%E5%BD%92%E6%A1%A3%E6%96%87%E4%BB%B6/" title="11.使用make更新归档文件" class="md-nav__link">
+      11.使用make更新归档文件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../make/16.Makefile%E7%BA%A6%E5%AE%9A/" title="16.Makefile约定" class="md-nav__link">
+      16.Makefile约定
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      6. M4
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        6. M4
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../m4/%E7%AE%80%E4%BB%8B/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../m4/6.%E6%9D%A1%E4%BB%B6%E3%80%81%E5%BE%AA%E7%8E%AF%E3%80%81%E9%80%92%E5%BD%92/" title="6.条件、循环、递归" class="md-nav__link">
+      6.条件、循环、递归
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../m4/11.%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E7%9A%84%E5%AE%8F/" title="11.文本处理的宏" class="md-nav__link">
+      11.文本处理的宏
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      7. Bash
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        7. Bash
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../bash/3.%E5%9F%BA%E6%9C%ACshell%E5%8A%9F%E8%83%BD/" title="3.基本shell功能" class="md-nav__link">
+      3.基本shell功能
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../bash/4.shell%E5%86%85%E7%BD%AE%E5%91%BD%E4%BB%A4/" title="4.shell内置命令" class="md-nav__link">
+      4.shell内置命令
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+    
+    <label class="md-nav__link" for="nav-8">
+      8. Automake
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        8. Automake
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E7%AE%80%E4%BB%8B/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../5.%E5%88%9B%E5%BB%BAMakefile.in/" title="5.创建Makefile.in" class="md-nav__link">
+      5.创建Makefile.in
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        6.扫描configure.ac，使用aclocal
+      </label>
+    
+    <a href="./" title="6.扫描configure.ac，使用aclocal" class="md-nav__link md-nav__link--active">
+      6.扫描configure.ac，使用aclocal
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    6.1 配置要求
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-aclocalm4" class="md-nav__link">
+    6.3 自动生成aclocal.m4
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#631-aclocal" class="md-nav__link">
+    6.3.1 aclocal接受的一些选项。
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#632" class="md-nav__link">
+    6.3.2 宏搜索路径
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#633-aclocal" class="md-nav__link">
+    6.3.3 编写自己的aclocal宏
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#634" class="md-nav__link">
+    6.3.4 处理本地宏
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#635" class="md-nav__link">
+    6.3.5 编号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#636-aclocal" class="md-nav__link">
+    6.3.6 aclocal的未来
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-automakeautoconf" class="md-nav__link">
+    6.4 Automake提供的Autoconf宏
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    公共宏
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#am_init_automake-options" class="md-nav__link">
+    AM_INIT_AUTOMAKE ([options])
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../7.%E6%96%87%E4%BB%B6%E5%A4%B9/" title="7.文件夹" class="md-nav__link">
+      7.文件夹
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../8.%E6%9E%84%E5%BB%BA%E7%A8%8B%E5%BA%8F%E5%92%8C%E5%BA%93/" title="8.构建程序和库" class="md-nav__link">
+      8.构建程序和库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../9.%E5%85%B6%E5%AE%83%E6%B4%BE%E7%94%9F%E5%AF%B9%E8%B1%A1/" title="9.其它派生对象" class="md-nav__link">
+      9.其它派生对象
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../10.%E5%85%B6%E5%AE%83GNU%E5%B7%A5%E5%85%B7/" title="10.其它GNU工具" class="md-nav__link">
+      10.其它GNU工具
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../12.%E5%AE%89%E8%A3%85/" title="12.安装" class="md-nav__link">
+      12.安装
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../13.%E6%B8%85%E7%90%86/" title="13.清理" class="md-nav__link">
+      13.清理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../14.%E5%8F%91%E5%B8%83/" title="14.发布" class="md-nav__link">
+      14.发布
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../15.%E6%B5%8B%E8%AF%95%E5%A5%97%E4%BB%B6%E7%9A%84%E6%94%AF%E6%8C%81/" title="15.测试套件的支持" class="md-nav__link">
+      15.测试套件的支持
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../18.%E8%A7%84%E5%88%99%E6%9D%82%E9%A1%B9/" title="18.规则杂项" class="md-nav__link">
+      18.规则杂项
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../19.Include/" title="19.Include" class="md-nav__link">
+      19.Include
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../20.%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/" title="20.条件语句" class="md-nav__link">
+      20.条件语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../23.Automake%E4%B8%8D%E8%83%BD%E6%BB%A1%E8%B6%B3%E4%BD%BF%E7%94%A8%E6%97%B6/" title="23.Automake不能满足使用时" class="md-nav__link">
+      23.Automake不能满足使用时
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      9. Autogen
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        9. Autogen
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../autogen/%E7%AE%80%E4%BB%8B/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      10. Autoconf
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        10. Autoconf
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../autoconf/%E7%AE%80%E4%BB%8B/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../autoconf/4.%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E8%BE%93%E5%87%BA%E6%96%87%E4%BB%B6/" title="4.初始化和输出文件" class="md-nav__link">
+      4.初始化和输出文件
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../autoconf/5.%E7%8E%B0%E6%9C%89%E6%B5%8B%E8%AF%95/" title="5.现有测试" class="md-nav__link">
+      5.现有测试
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../autoconf/6.%E7%BC%96%E5%86%99%E6%B5%8B%E8%AF%95/" title="6.编写测试" class="md-nav__link">
+      6.编写测试
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../autoconf/7.%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C/" title="7.测试结果" class="md-nav__link">
+      7.测试结果
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../autoconf/8.%E4%BD%BF%E7%94%A8M4%E7%BC%96%E7%A8%8B/" title="8.使用M4编程" class="md-nav__link">
+      8.使用M4编程
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../autoconf/9.%E4%BD%BF%E7%94%A8M4sh%E7%BC%96%E7%A8%8B/" title="9.使用M4sh编程" class="md-nav__link">
+      9.使用M4sh编程
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../autoconf/10.%E7%BC%96%E5%86%99Autoconf%E5%AE%8F/" title="10.编写Autoconf宏" class="md-nav__link">
+      10.编写Autoconf宏
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../autoconf/11.%E4%BE%BF%E6%90%BA%E5%BC%8Fshell%E7%BC%96%E7%A8%8B/" title="11.便携式shell编程" class="md-nav__link">
+      11.便携式shell编程
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../autoconf/14.%E6%89%8B%E5%8A%A8%E9%85%8D%E7%BD%AE/" title="14.手动配置" class="md-nav__link">
+      14.手动配置
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../autoconf/15.Site%E9%85%8D%E7%BD%AE/" title="15.Site配置" class="md-nav__link">
+      15.Site配置
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    6.1 配置要求
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-aclocalm4" class="md-nav__link">
+    6.3 自动生成aclocal.m4
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#631-aclocal" class="md-nav__link">
+    6.3.1 aclocal接受的一些选项。
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#632" class="md-nav__link">
+    6.3.2 宏搜索路径
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#633-aclocal" class="md-nav__link">
+    6.3.3 编写自己的aclocal宏
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#634" class="md-nav__link">
+    6.3.4 处理本地宏
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#635" class="md-nav__link">
+    6.3.5 编号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#636-aclocal" class="md-nav__link">
+    6.3.6 aclocal的未来
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-automakeautoconf" class="md-nav__link">
+    6.4 Automake提供的Autoconf宏
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    公共宏
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#am_init_automake-options" class="md-nav__link">
+    AM_INIT_AUTOMAKE ([options])
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/shihr/question/edit/master/docs/automake/6.扫描configure.ac，使用aclocal.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>6.扫描configure.ac，使用aclocal</h1>
+                
+                <h2 id="61">6.1 配置要求<a class="headerlink" href="#61" title="Permanent link">&para;</a></h2>
+<p>唯一的要求就是在configure.ac文件中加上<code>AM_INIT_AUTOMAKE</code>宏。</p>
+<p>下面是几个Automake要求的但是不会被<code>AM_INIT_AUTOMAKE</code>运行的宏</p>
+<ul>
+<li>AC_CONFIG_FILES</li>
+<li>AC_OUTPUT
+    这两个经常在末尾被调用，指明了哪些文件会被生成。如果以.am结尾则生成.in结尾的文件。不能识别shell变量，需要在<code>AC_SUBST</code>中注册，并且以<code>${xxx}</code>形式引用才可识别。</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>    AC_SUBST<span class="o">([</span>APIVERSION<span class="o">]</span>, …<span class="o">)</span>
+    …
+    AC_CONFIG_FILES<span class="o">(</span>
+      <span class="o">[</span>tests/aclocal-<span class="si">${</span><span class="nv">APIVERSION</span><span class="si">}</span>:tests/aclocal.in<span class="o">]</span>,
+      <span class="o">[</span>chmod +x tests/aclocal-<span class="si">${</span><span class="nv">APIVERSION</span><span class="si">}</span><span class="o">]</span>,
+      <span class="o">[</span><span class="nv">APIVERSION</span><span class="o">=</span><span class="nv">$APIVERSION</span><span class="o">])</span>
+    AC_CONFIG_FILES<span class="o">(</span>
+      <span class="o">[</span>tests/automake-<span class="si">${</span><span class="nv">APIVERSION</span><span class="si">}</span>:tests/automake.in<span class="o">]</span>,
+      <span class="o">[</span>chmod +x tests/automake-<span class="si">${</span><span class="nv">APIVERSION</span><span class="si">}</span><span class="o">])</span>
+</code></pre></div>
+
+
+<ul>
+<li>等等...</li>
+</ul>
+<h2 id="63-aclocalm4">6.3 自动生成aclocal.m4<a class="headerlink" href="#63-aclocalm4" title="Permanent link">&para;</a></h2>
+<p>一些宏必须被定义在aclocal.m4中，否则autoconf不会找到他们。</p>
+<p>aclocal可以根据configure.ac生成aclocal.m4。首先aclocal扫描所有的.m4文件搜集宏定义，然后扫描configure.ac，所有在第一步找到的宏及其依赖的宏都会被放在aclocal.m4文件中。如果本地没有找到就会在系统层面的目录中寻找。</p>
+<p>通常宏放到aclocal.m4中是通过复制整个文件内容来完成的。但是通过命令参数<code>-I</code>来指定相对路径时，使用<code>m4_include</code>代替复制它到aclocal.m4文件中；指定绝对路径时或者是系统层面的目录时，会直接复制过来。故最好使用<code>-I `pwd`/reldir</code>代替<code>-I reldir</code>。</p>
+<p>acinclude.m4也会被指定放到aclocal.m4文件中，建议不要在新包中使用该文件。</p>
+<p>操作aclocal.m4时，aclocal运行<code>autom4te</code> (see <a href="http://www.gnu.org/software/autoconf/manual/autoconf.html#Using-autom4te">Using Autom4te</a> in The Autoconf Manual) 追踪哪些宏被真正的使用了。autom4e也要存在于PATH环境变量中。</p>
+<h3 id="631-aclocal">6.3.1 aclocal接受的一些选项。<a class="headerlink" href="#631-aclocal" title="Permanent link">&para;</a></h3>
+<p>比较重要的两个选项</p>
+<p>-I dir</p>
+<div class="codehilite"><pre><span></span><code><span class="err">Add the directory dir to the list of directories searched for .m4 files.</span>
+</code></pre></div>
+
+
+<p>--install</p>
+<div class="codehilite"><pre><span></span><code><span class="n">Install</span> <span class="k">system</span><span class="o">-</span><span class="n">wide</span> <span class="n">third</span><span class="o">-</span><span class="n">party</span> <span class="n">macros</span> <span class="k">into</span> <span class="n">the</span> <span class="k">first</span> <span class="n">directory</span> <span class="n">specified</span> <span class="k">with</span> <span class="err">‘</span><span class="o">-</span><span class="n">I</span> <span class="n">dir</span><span class="err">’</span> <span class="k">instead</span> <span class="k">of</span> <span class="n">copying</span> <span class="n">them</span> <span class="k">in</span> <span class="n">the</span> <span class="k">output</span> <span class="n">file</span><span class="p">.</span> <span class="n">Note</span> <span class="n">that</span> <span class="n">this</span> <span class="n">will</span> <span class="n">happen</span> <span class="n">also</span> <span class="k">if</span> <span class="n">dir</span> <span class="k">is</span> <span class="n">an</span> <span class="k">absolute</span> <span class="n">path</span><span class="p">.</span>
+
+<span class="k">When</span> <span class="n">this</span> <span class="k">option</span> <span class="k">is</span> <span class="n">used</span><span class="p">,</span> <span class="k">and</span> <span class="k">only</span> <span class="k">when</span> <span class="n">this</span> <span class="k">option</span> <span class="k">is</span> <span class="n">used</span><span class="p">,</span> <span class="n">aclocal</span> <span class="n">will</span> <span class="n">also</span> <span class="n">honor</span> <span class="err">‘</span><span class="o">#</span><span class="nb">serial</span> <span class="nb">number</span><span class="err">’</span> <span class="n">lines</span> <span class="n">that</span> <span class="n">appear</span> <span class="k">in</span> <span class="n">macros</span><span class="p">:</span> <span class="n">an</span> <span class="n">M4</span> <span class="n">file</span> <span class="k">is</span> <span class="n">ignored</span> <span class="k">if</span> <span class="n">there</span> <span class="k">exists</span> <span class="n">another</span> <span class="n">M4</span> <span class="n">file</span> <span class="k">with</span> <span class="n">the</span> <span class="n">same</span> <span class="n">basename</span> <span class="k">and</span> <span class="n">a</span> <span class="n">greater</span> <span class="nb">serial</span> <span class="nb">number</span> <span class="k">in</span> <span class="n">the</span> <span class="k">search</span> <span class="n">path</span> <span class="p">(</span><span class="n">see</span> <span class="n">Serials</span><span class="p">).</span>
+</code></pre></div>
+
+
+<h3 id="632">6.3.2 宏搜索路径<a class="headerlink" href="#632" title="Permanent link">&para;</a></h3>
+<p>默认的搜索路径及顺序:
+- acdir-APIVERSION      APIVERSION取决于Automake的版本
+- acdir     此目录适用于第三方.m4文件，automake构建时被配置。通常被配置为${prefix}/share/aclocal/</p>
+<p>修改搜素路径方式一：
+<code>-I dir1 -I dir2</code>
+把会dir加到默认的前面：<code>dir1 -&gt; dir2 -&gt; 默认路径</code></p>
+<p>修改搜素路径方式二：
+dirlist</p>
+<p>修改搜素路径方式三：
+ACLOCAL_PATH</p>
+<h3 id="633-aclocal">6.3.3 编写自己的aclocal宏<a class="headerlink" href="#633-aclocal" title="Permanent link">&para;</a></h3>
+<p>这个技术可以被用于想要支持自己的Autoconf宏被其它程序使用的库（This can be used by libraries that want to supply their own Autoconf macros for use by other programs）。比如，gettext库支持AM_GNU_GETTEXT宏被用于任何使用gettext的包。库安装之后，其宏也被安装，这样aclocal就能找到它。</p>
+<p>A macro file’s name should end in .m4. Such files should be installed in $(datadir)/aclocal. This is as simple as writing: </p>
+<div class="codehilite"><pre><span></span><code><span class="err">aclocaldir = $(datadir)/aclocal</span>
+<span class="err">aclocal_DATA = mymacro.m4 myothermacro.m4</span>
+</code></pre></div>
+
+
+<p>宏文件应该由一系列的<code>quoted AC_DEFUN</code>(see <a href="http://www.gnu.org/software/autoconf/manual/autoconf.html#Macro-Definitions">Macro Definitions</a> in The Autoconf Manual)组成。</p>
+<h3 id="634">6.3.4 处理本地宏<a class="headerlink" href="#634" title="Permanent link">&para;</a></h3>
+<p>Autoconf提供的功能测试不能满足所有的需求。人们需要用自己的宏或者第三方宏补充现有的测试。有以下两种方式：</p>
+<ul>
+<li>在acinclude.m4中列出你所有的宏</li>
+<li>（推荐方法）将每个宏写到自己的文件中然后放到一个目录中（通常是m4），然后在configure.ac中添加变量：<code>AC_CONFIG_MACRO_DIRS([m4])</code>。第三方的宏文件最好也放到这个目录下。</li>
+</ul>
+<p>aclocal提供了<code>--install</code>选项来复制系统层面的宏到你本地的宏目录，帮助你解决上面的问题。本地的宏比系统层面的宏有优先权。推荐在每次运行aclocal时使用<code>--install</code>选项。</p>
+<h3 id="635">6.3.5 编号<a class="headerlink" href="#635" title="Permanent link">&para;</a></h3>
+<p>为了区分一个宏的版本。
+位于M4文件的宏定义的前面。
+<code>#</code>必须是此行的第一个字符，允许在version之后添加其他字符</p>
+<div class="codehilite"><pre><span></span><code><span class="c">    #serial version garbage</span>
+</code></pre></div>
+
+
+<p>使用了alcohol的--install选项的话，aclocal会选择含有#serial的或者编号比较新的那个文件。此编号对应的是整个文件，而不是单一的一个宏。</p>
+<h3 id="636-aclocal">6.3.6 aclocal的未来<a class="headerlink" href="#636-aclocal" title="Permanent link">&para;</a></h3>
+<p>aclocal可能会消失。因为处理M4的宏是Autoconf的任务。</p>
+<p>永远不要自己调用aclocal，让它处于autoreconf和Automake的构建规则的控制下。</p>
+<p>很多包含有bootstrap或者autogen.sh脚本，实际上他们只是安照正确的顺序调用命令（aclocal, libtoolize, gettextize or autopoint, autoconf, autoheader, and automake），这些工作autoreconf就可以做到。</p>
+<h2 id="64-automakeautoconf">6.4 Automake提供的Autoconf宏<a class="headerlink" href="#64-automakeautoconf" title="Permanent link">&para;</a></h2>
+<p>• Public Macros:        Macros that you can use.
+• Obsolete Macros:      Macros that will soon be removed.
+• Private Macros:       Macros that you should not use. </p>
+<h3 id="_1">公共宏<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h4 id="am_init_automake-options">AM_INIT_AUTOMAKE ([options])<a class="headerlink" href="#am_init_automake-options" title="Permanent link">&para;</a></h4>
+<p>使用空格分隔的automake选项。</p>
+<div class="codehilite"><pre><span></span><code><span class="err">    AM_INIT_AUTOMAKE([-Wno-portability])</span>
+</code></pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../5.%E5%88%9B%E5%BB%BAMakefile.in/" title="5.创建Makefile.in" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                5.创建Makefile.in
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../7.%E6%96%87%E4%BB%B6%E5%A4%B9/" title="7.文件夹" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                7.文件夹
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.ac79c3b0.js"></script>
+      
+      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
