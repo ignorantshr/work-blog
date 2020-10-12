@@ -19,9 +19,14 @@ nav:
         - citrix/00技术概述.md
         - citrix/01安装.md
     - Spice:
-        - 简介: spice/简介.md
-        - 使用范例: spice/使用范例.md
-        - 函数所在文件: spice/函数所在文件.md
+        - spice/00 spice 用户手册.md
+        - spice/01 spice 新手.md 
+        - 视频重定向:
+            - 简介: spice/视频重定向/简介.md
+            - 使用范例: spice/视频重定向/使用范例.md
+            - 函数所在文件: spice/视频重定向/函数所在文件.md
+    - VDI:
+        - VDI/00 简介.md
     - Make:
         - 简介: make/简介.md
         - 4.编写规则: make/4.编写规则.md
