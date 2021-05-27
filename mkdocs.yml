@@ -74,6 +74,8 @@ nav:
         - 11.便携式shell编程: autoconf/11.便携式shell编程.md
         - 14.手动配置: autoconf/14.手动配置.md
         - 15.Site配置: autoconf/15.Site配置.md
+    - Other:
+        - other/LuckyFrame部署手册.md
 # theme: readthedocs
 
 theme:
